@@ -1,5 +1,8 @@
 import './Navbar.css'
-
+import companyLogo from '../../Images/ishita-navbar-logo.png';
+import browserLogo from '../../Images/navbar-browser-logo.png';
+import downloadLogo from '../../Images/navbar-download-logo.png';
+import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png';
 const navLinks = ['Home', 'About', 'Product', 'Quality']
 
 function Navbar() {
@@ -8,16 +11,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <a className="navbar-brand brand-wrap d-flex align-items-center" href="#">
-            <img
-              src="https://via.placeholder.com/34x44/F0A928/FFFFFF?text=I"
-              alt="Ishita logo"
-              className="brand-mark"
-            />
-            <div className="brand-copy">
-              <span className="brand-title">ISHITA</span>
-              <span className="brand-subtitle">INDUSTRIES</span>
-              <p className="brand-tagline mb-0">Precision Customise Components & Fasteners.</p>
-            </div>
+           <img src={companyLogo}/>
           </a>
 
           <button
@@ -46,19 +40,19 @@ function Navbar() {
             <div className="nav-actions d-flex align-items-center">
               <button type="button" className="icon-button" aria-label="Change language">
                 <span className="icon-globe" aria-hidden="true">
-                  ◎
+                  <img src={browserLogo}/>
                 </span>
               </button>
               <button type="button" className="brochure-btn">
                 Brochure
                 <span className="brochure-icon" aria-hidden="true">
-                  ↓
+                  <img src={downloadLogo}/>
                 </span>
               </button>
               <button type="button" className="menu-btn">
                 Menu
                 <span className="menu-icon" aria-hidden="true">
-                  ≡
+                  <img src={ToggleLogo}/>
                 </span>
               </button>
             </div>
