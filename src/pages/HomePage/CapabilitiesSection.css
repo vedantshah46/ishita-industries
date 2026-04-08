@@ -41,9 +41,21 @@
 
 .capabilities-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 0.95rem;
   margin-top: clamp(1.6rem, 2.6vw, 2rem);
+}
+
+.capabilities-row {
+  display: grid;
+  gap: 0.95rem;
+}
+
+.capabilities-row-top {
+  grid-template-columns: 2fr 1fr;
+}
+
+.capabilities-row-bottom {
+  grid-template-columns: 1fr 1fr;
 }
 
 .cap-card {
@@ -344,6 +356,11 @@
   }
 
   .capabilities-grid {
+    gap: 0.95rem;
+  }
+
+  .capabilities-row-top,
+  .capabilities-row-bottom {
     grid-template-columns: 1fr;
   }
 
