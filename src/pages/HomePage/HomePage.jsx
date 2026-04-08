@@ -4,6 +4,7 @@ import CapabilitiesSectionNew from './CapabilitiesSectionNew'
 import HeroSection from './HeroSection'
 import PrecisionExpertiseSection from './PrecisionExpertiseSection'
 import PrecisionComponentsSection from './PrecisionComponentsSection'
+import IndustrialComponentsSection from './IndustrialComponentsSection'
 
 function Homepage() {
   return (
@@ -14,6 +15,7 @@ function Homepage() {
       <CapabilitiesSectionNew />
       <PrecisionExpertiseSection />
       <PrecisionComponentsSection />
+      <IndustrialComponentsSection />
     </>
   )
 }

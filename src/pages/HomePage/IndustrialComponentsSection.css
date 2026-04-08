@@ -1,0 +1,141 @@
+.industrial-components-section {
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+}
+
+.industrial-components-shell {
+  max-width: 1210px;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+}
+
+.industrial-components-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 5rem);
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+}
+
+.industrial-components-kicker {
+  font-size: clamp(0.7rem, 0.78vw, 0.82rem);
+  line-height: 1.2;
+  letter-spacing: 0.34em;
+  color: #797d83;
+}
+
+.industrial-components-title {
+  margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
+  font-size: clamp(3.05rem, 4.1vw, 4.18rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: #31373d;
+}
+
+.industrial-components-title span {
+  margin-top: 0.18em;
+}
+
+.industrial-components-intro {
+  padding-top: clamp(3.4rem, 4.7vw, 4.8rem);
+  font-size: clamp(0.85rem, 0.92vw, 0.95rem);
+  line-height: 1.55;
+  color: #666b72;
+}
+
+.industrial-components-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.industrial-components-row {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.1fr) minmax(350px, 1.7fr) minmax(200px, 1.2fr);
+  align-items: start;
+   gap: 1.5rem;
+  padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
+  padding-bottom: 0;
+  border-top: 1px solid #7a7e85;
+}
+
+/* Make sure the very last row has a border bottom to match screenshot */
+.industrial-components-row:last-child {
+  border-bottom: 1px solid #7a7e85;
+}
+
+.industrial-components-row-title {
+  font-size: clamp(2.5rem, 4vw, 4.2rem);
+  font-weight: 400;
+  color: #31373d;
+  letter-spacing: -0.02em;
+}
+
+.industrial-components-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 480px;
+}
+
+.industrial-components-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.industrial-components-badge {
+  font-size: clamp(0.68rem, 0.7vw, 0.74rem);
+  color: #585d63;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #a3a7ac;
+  white-space: nowrap;
+}
+
+.industrial-components-visual {
+  width: 100%;
+  max-width: 250px;
+  margin-left: auto;
+}
+
+.industrial-components-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px) {
+  .industrial-components-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .industrial-components-intro {
+    padding-top: 0;
+  }
+
+  .industrial-components-row {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+  }
+  
+  .industrial-components-row-title {
+    grid-column: 1 / -1;
+  }
+  
+  .industrial-components-visual {
+    margin-left: 0;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .industrial-components-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .industrial-components-visual {
+    margin-inline: auto;
+  }
+}
