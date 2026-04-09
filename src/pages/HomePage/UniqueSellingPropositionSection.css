@@ -1,0 +1,344 @@
+.usp-section {
+  padding: clamp(3.25rem, 6.4vw, 5.4rem) 0 clamp(3.4rem, 6.5vw, 5.8rem);
+  background: #f0f0f0;
+}
+
+.usp-shell {
+  max-width: 1520px;
+  padding-inline: clamp(0.9rem, 2.9vw, 1.65rem);
+}
+
+.usp-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(290px, 440px);
+  align-items: start;
+  gap: clamp(1.6rem, 4vw, 6rem);
+}
+
+.usp-kicker {
+  font-size: clamp(0.68rem, 0.78vw, 0.82rem);
+  line-height: 1.2;
+  letter-spacing: 0.34em;
+  color: #7a7d82;
+}
+
+.usp-title {
+  margin-top: clamp(1rem, 1.4vw, 1.35rem);
+  font-size: clamp(2.85rem, 4.25vw, 4.3rem);
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  color: #33383d;
+}
+
+.usp-title span {
+  margin-top: 0.16em;
+}
+
+.usp-intro {
+  max-width: 420px;
+  padding-top: clamp(3.7rem, 5vw, 5rem);
+  font-size: clamp(0.9rem, 0.95vw, 1rem);
+  line-height: 1.6;
+  color: #666b70;
+}
+
+.usp-showcase {
+  position: relative;
+  min-height: 690px;
+  margin-top: clamp(2.6rem, 4vw, 3.3rem);
+}
+
+.usp-wheel {
+  position: absolute;
+  left: 45%;
+  top: 55%;
+  width: min(560px, 95vw);
+  aspect-ratio: 1 / 1;
+  transform: translate(-50%, -50%);
+}
+
+.usp-fan-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(118px, 14vw, 195px);
+  height: clamp(238px, 27.5vw, 286px);
+  border-radius: 14px;
+  background: linear-gradient(180deg, #3f4246 0%, #2f3135 100%);
+  box-shadow: 0 14px 24px rgba(18, 20, 23, 0.45);
+  transform-origin: 50% 100%;
+  display: flex;
+  align-items: flex-start;
+  padding: 1.15rem 0.75rem 1rem;
+  color: rgba(247, 247, 247, 0.92);
+}
+
+.usp-fan-index {
+    margin-right: 10px;
+    font-size: clamp(1.7rem, 2.25vw, 2.15rem);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin-left: 14px;
+}
+
+.usp-fan-label {
+  width: 64px;
+  font-size: clamp(0.52rem, 0.58vw, 0.62rem);
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.88);
+}
+
+.usp-fan-card-1 {
+  transform: translate(-50%, -100%) rotate(-65deg);
+}
+
+.usp-fan-card-2 {
+  transform: translate(-50%, -100%) rotate(-30deg);
+}
+
+.usp-fan-card-3 {
+  transform: translate(-50%, -100%) rotate(5deg);
+}
+
+.usp-fan-card-4 {
+  transform: translate(-50%, -100%) rotate(40deg);
+}
+
+.usp-fan-card-5 {
+  transform: translate(-50%, -100%) rotate(75deg);
+}
+
+.usp-fan-card-6 {
+  transform: translate(-50%, -100%) rotate(110deg);
+}
+
+.usp-center-disc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(250px, 29vw, 312px);
+  height: clamp(250px, 29vw, 312px);
+  border-radius: 50%;
+  background: #d6d6d6;
+  border: 5px solid #f2f2f2;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 22px rgba(70, 73, 79, 0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.usp-center-disc p {
+  font-size: clamp(2rem, 2.5vw, 2.3rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #7e7f82;
+}
+
+.usp-center-disc h3 {
+  margin: 0.17em 0;
+  font-size: clamp(2.35rem, 3vw, 2.9rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #404448;
+}
+
+.usp-feature {
+  position: absolute;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.85rem;
+  width: min(332px, 43vw);
+}
+
+.usp-feature-title {
+  font-size: clamp(1.05rem, 1.1vw, 1.22rem);
+  line-height: 1.22;
+  color: #2d3034;
+}
+
+.usp-feature-copy {
+  margin-top: 0.42rem;
+  font-size: clamp(0.72rem, 0.75vw, 0.8rem);
+  line-height: 1.45;
+  color: #5f646a;
+  text-transform: none;
+}
+
+.usp-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #6b7076;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #8e949b;
+}
+
+.usp-icon svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.usp-feature-material {
+  left: 7%;
+  top: 2.2%;
+}
+
+.usp-feature-engineering {
+  left: 38%;
+  top: 5.3%;
+}
+
+.usp-feature-rfq {
+  right: 7%;
+  top: 20%;
+}
+
+.usp-feature-quality {
+  right: 6%;
+  top: 38%;
+}
+
+.usp-feature-oem {
+  right: 7%;
+  top: 58%;
+}
+
+.usp-feature-partnership {
+  right: 7%;
+  top: 77.8%;
+}
+
+@media (max-width: 1199.98px) {
+  .usp-showcase {
+    min-height: 620px;
+  }
+
+  .usp-wheel {
+    left: 48%;
+    top: 56%;
+  }
+
+  .usp-feature-material {
+    left: 2%;
+  }
+
+  .usp-feature-engineering {
+    left: 29%;
+  }
+
+  .usp-feature-rfq,
+  .usp-feature-quality,
+  .usp-feature-oem,
+  .usp-feature-partnership {
+    right: 0;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .usp-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .usp-intro {
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .usp-showcase {
+    margin-top: 2rem;
+    min-height: auto;
+    display: grid;
+    gap: 2.3rem;
+  }
+
+  .usp-wheel {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0 auto;
+    width: min(560px, 98vw);
+    height: 540px;
+    aspect-ratio: auto;
+  }
+
+  .usp-feature {
+    position: static;
+    width: 100%;
+    max-width: 430px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .usp-title {
+    font-size: clamp(2.15rem, 9.4vw, 2.7rem);
+  }
+
+  .usp-wheel {
+    width: 100%;
+    height: 430px;
+  }
+
+  .usp-fan-card {
+    width: 108px;
+    height: 208px;
+    padding: 0.9rem 0.62rem;
+  }
+
+  .usp-fan-index {
+    font-size: 1.4rem;
+  }
+
+  .usp-fan-card-1 {
+    transform: translate(-50%, -100%) rotate(-65deg);
+  }
+
+  .usp-fan-card-2 {
+    transform: translate(-50%, -100%) rotate(-30deg);
+  }
+
+  .usp-fan-card-3 {
+    transform: translate(-50%, -100%) rotate(5deg);
+  }
+
+  .usp-fan-card-4 {
+    transform: translate(-50%, -100%) rotate(40deg);
+  }
+
+  .usp-fan-card-5 {
+    transform: translate(-50%, -100%) rotate(75deg);
+  }
+
+  .usp-fan-card-6 {
+    transform: translate(-50%, -100%) rotate(110deg);
+  }
+
+  .usp-center-disc {
+    width: 220px;
+    height: 220px;
+  }
+
+  .usp-center-disc p {
+    font-size: 1.7rem;
+  }
+
+  .usp-center-disc h3 {
+    font-size: 2.15rem;
+  }
+}
