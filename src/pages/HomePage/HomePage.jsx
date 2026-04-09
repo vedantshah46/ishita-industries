@@ -5,6 +5,7 @@ import HeroSection from './HeroSection'
 import PrecisionExpertiseSection from './PrecisionExpertiseSection'
 import PrecisionComponentsSection from './PrecisionComponentsSection'
 import IndustrialComponentsSection from './IndustrialComponentsSection'
+import FactsSection from './FactsSection'
 import UniqueSellingPropositionSection from './UniqueSellingPropositionSection'
 
 function Homepage() {
@@ -18,6 +19,7 @@ function Homepage() {
       <PrecisionComponentsSection />
       <IndustrialComponentsSection />
       <UniqueSellingPropositionSection />
+      <FactsSection />
     </>
   )
 }

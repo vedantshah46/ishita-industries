@@ -4,8 +4,14 @@ const uspItems = [
   {
     id: '01',
     title: 'Material Integrity',
-    description:
-      'Precision machined ferrous and non-ferrous components with full material traceability.',
+    description: (
+      <>
+        Precision Machined <br />
+        Ferrous &amp; Non-Ferrous <br />
+        Components with Full <br />
+        Material Traceability.
+      </>
+    ),
     shortLabel: 'Material Integrity',
     featureClass: 'usp-feature-material',
     icon: 'integrity',
@@ -13,8 +19,13 @@ const uspItems = [
   {
     id: '02',
     title: 'Precision Engineering',
-    description:
-      'Advanced CNC and VMC machining of ferrous and non-ferrous metal components.',
+    description: (
+      <>
+        Advanced CNC &amp; VMC <br />
+        Machining of Ferrous &amp; Non- <br />
+        Ferrous Metal Components.
+      </>
+    ),
     shortLabel: 'Precision Engineering',
     featureClass: 'usp-feature-engineering',
     icon: 'engineering',
@@ -22,15 +33,25 @@ const uspItems = [
   {
     id: '03',
     title: 'Fast RFQ Response',
-    description: 'Upload drawing, get quote in 24 hours.',
+    description: (
+      <>
+        Upload Drawing --Get <br />
+        Quote in 24 Hours
+      </>
+    ),
     shortLabel: 'Fast RFQ Response',
     featureClass: 'usp-feature-rfq',
     icon: 'rfq',
   },
   {
     id: '04',
-    title: 'Strict Quality Validation',
-    description: 'Multi-stage quality inspection for consistent precision.',
+    title: 'Strict Quality Vaidation',
+    description: (
+      <>
+        Multi-Stage Quality Inspection <br />
+        for Consistent Precision.
+      </>
+    ),
     shortLabel: 'Strict Quality Validation',
     featureClass: 'usp-feature-quality',
     icon: 'quality',
@@ -38,7 +59,12 @@ const uspItems = [
   {
     id: '05',
     title: 'Custom OEM Manufacturing',
-    description: 'Precision components manufactured to your drawings and specifications.',
+    description: (
+      <>
+        Precision Components Manufactured <br />
+        to Your Drawings &amp; Specifications.
+      </>
+    ),
     shortLabel: 'Custom OEM Manufacturing',
     featureClass: 'usp-feature-oem',
     icon: 'oem',
@@ -46,7 +72,12 @@ const uspItems = [
   {
     id: '06',
     title: 'Long-Term Partnership',
-    description: 'Flexible manufacturing from prototype to mass production.',
+    description: (
+      <>
+        Flexible Manufacturing from <br />
+        Prototype to Mass Production.
+      </>
+    ),
     shortLabel: 'Long-Term Partnership',
     featureClass: 'usp-feature-partnership',
     icon: 'partnership',
@@ -126,13 +157,13 @@ function UniqueSellingPropositionSection() {
             <div className="usp-center-disc">
               <p className="mb-0">UNIQUE</p>
               <h3 className="mb-0">SELLING</h3>
-              <p className="mb-0">PROPOSITION</p>
+              <p className="mb-0 mt-1">PROPOSITION</p>
             </div>
           </div>
 
           {uspItems.map((item) => (
             <article key={`${item.id}-feature`} className={`usp-feature ${item.featureClass}`}>
-              <div>
+              <div className="usp-feature-text-content">
                 <h3 className="usp-feature-title mb-0">{item.title}</h3>
                 <p className="usp-feature-copy mb-0">{item.description}</p>
               </div>

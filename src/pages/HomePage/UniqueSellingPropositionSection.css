@@ -1,10 +1,9 @@
 .usp-section {
   padding: clamp(3.25rem, 6.4vw, 5.4rem) 0 clamp(3.4rem, 6.5vw, 5.8rem);
-  background: #f0f0f0;
 }
 
 .usp-shell {
-  max-width: 1520px;
+  max-width: 1210px;
   padding-inline: clamp(0.9rem, 2.9vw, 1.65rem);
 }
 
@@ -51,7 +50,7 @@
 
 .usp-wheel {
   position: absolute;
-  left: 45%;
+  left: 33%;
   top: 55%;
   width: min(560px, 95vw);
   aspect-ratio: 1 / 1;
@@ -62,57 +61,60 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(118px, 14vw, 195px);
-  height: clamp(238px, 27.5vw, 286px);
+  width: clamp(171px, 14vw, 208px);
+  height: clamp(238px, 27.5vw, 252px);
   border-radius: 14px;
   background: linear-gradient(180deg, #3f4246 0%, #2f3135 100%);
-  box-shadow: 0 14px 24px rgba(18, 20, 23, 0.45);
   transform-origin: 50% 100%;
   display: flex;
   align-items: flex-start;
   padding: 1.15rem 0.75rem 1rem;
   color: rgba(247, 247, 247, 0.92);
+  box-shadow: 10px 10px 31.8px -0.736963px #9098a0;
 }
 
 .usp-fan-index {
-    margin-right: 10px;
-    font-size: clamp(1.7rem, 2.25vw, 2.15rem);
-    line-height: 1;
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    margin-left: 14px;
+  margin-right: 10px;
+  font-size: clamp(1.7rem, 2.25vw, 2.15rem);
+  line-height: 1;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  margin-left: 14px;
 }
 
 .usp-fan-label {
   width: 64px;
-  font-size: clamp(0.52rem, 0.58vw, 0.62rem);
+  font-size: clamp(0.72rem, 0.58vw, 0.62rem);
   line-height: 1.3;
   text-transform: uppercase;
   color: rgba(245, 245, 245, 0.88);
 }
 
 .usp-fan-card-1 {
-  transform: translate(-50%, -100%) rotate(-65deg);
+  transform: translate(-50%, -100%) rotate(-55deg);
 }
 
 .usp-fan-card-2 {
-  transform: translate(-50%, -100%) rotate(-30deg);
+  transform: translate(-50%, -100%) rotate(-15deg);
+  height: clamp(238px, 27.5vw, 240px);
 }
 
 .usp-fan-card-3 {
-  transform: translate(-50%, -100%) rotate(5deg);
+  transform: translate(-50%, -100%) rotate(28deg);
+  height: clamp(220px, 27.5vw, 220px);
 }
 
 .usp-fan-card-4 {
-  transform: translate(-50%, -100%) rotate(40deg);
+  transform: translate(-22%, -69%) rotate(47deg);
+  height: clamp(220px, 27.5vw, 230px);
 }
 
 .usp-fan-card-5 {
-  transform: translate(-50%, -100%) rotate(75deg);
+  transform: translate(-62%, -64%) rotate(88deg);
 }
 
 .usp-fan-card-6 {
-  transform: translate(-50%, -100%) rotate(110deg);
+  transform: translate(-50%, -100%) rotate(165deg);
 }
 
 .usp-center-disc {
@@ -122,7 +124,7 @@
   width: clamp(250px, 29vw, 312px);
   height: clamp(250px, 29vw, 312px);
   border-radius: 50%;
-  background: #d6d6d6;
+  background: #f1f1f1;
   border: 5px solid #f2f2f2;
   transform: translate(-50%, -50%);
   box-shadow: 0 10px 22px rgba(70, 73, 79, 0.28);
@@ -137,7 +139,7 @@
   font-size: clamp(2rem, 2.5vw, 2.3rem);
   line-height: 1;
   letter-spacing: -0.01em;
-  color: #7e7f82;
+  color: #8d8d8d;
 }
 
 .usp-center-disc h3 {
@@ -151,9 +153,10 @@
 
 .usp-feature {
   position: absolute;
-  display: grid;
+  display: flex;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.85rem;
+  align-items: start;
+  gap: 0.8rem;
   width: min(332px, 43vw);
 }
 
@@ -193,33 +196,33 @@
 }
 
 .usp-feature-material {
-  left: 7%;
+  left: 10%;
   top: 2.2%;
 }
 
 .usp-feature-engineering {
-  left: 38%;
-  top: 5.3%;
+  left: 31%;
+  top: 6.3%;
 }
 
 .usp-feature-rfq {
-  right: 7%;
+  right: 23%;
   top: 20%;
 }
 
 .usp-feature-quality {
-  right: 6%;
+  right: 13%;
   top: 38%;
 }
 
 .usp-feature-oem {
-  right: 7%;
+  right: 11%;
   top: 58%;
 }
 
 .usp-feature-partnership {
-  right: 7%;
-  top: 77.8%;
+  right: 19%;
+  top: 82%;
 }
 
 @media (max-width: 1199.98px) {
