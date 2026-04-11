@@ -1,13 +1,18 @@
 import './CertificationSection.css'
-import dummyImage from '../../assets/hero.png'
+import certiOne from '../../Images/certificate-one.png'
+import certiTwo from '../../Images/certificate-two.png'
+import certiThree from '../../Images/certificate-three.png'
+import certiFour from '../../Images/certificate-four.png'
+import certiFive from '../../Images/certificate-five.png'
+import certiSix from '../../Images/certificate-six.png'
 
 const certificationsData = [
-  { id: 1, name: 'GPCB CERTIFICATE', image: dummyImage },
-  { id: 2, name: 'FACTORY ACT', image: dummyImage },
-  { id: 3, name: 'QMS CERTIFICATION', image: dummyImage },
-  { id: 4, name: 'OHS CERTIFICATION', image: dummyImage },
-  { id: 5, name: 'ZED CERTIFICATION', image: dummyImage },
-  { id: 6, name: 'EMS CERTIFICATION', image: dummyImage },
+  { id: 1, name: 'GPCB CERTIFICATE', image: certiOne },
+  { id: 2, name: 'FACTORY ACT', image: certiTwo },
+  { id: 3, name: 'QMS CERTIFICATION', image: certiThree },
+  { id: 4, name: 'OHS CERTIFICATION', image: certiFour },
+  { id: 5, name: 'ZED CERTIFICATION', image: certiFive },
+  { id: 6, name: 'EMS CERTIFICATION', image: certiSix },
 ]
 
 function CertificationSection() {

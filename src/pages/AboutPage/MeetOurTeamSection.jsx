@@ -1,8 +1,8 @@
 import './MeetOurTeamSection.css'
-import hiteshImage from '../../assets/team-hitesh.svg'
-import raviImage from '../../assets/team-ravi.svg'
-import chintanImage from '../../assets/team-chintan.svg'
-import rajImage from '../../assets/team-raj.svg'
+import hiteshImage from '../../Images/hitesh.png'
+import raviImage from '../../Images/ravi.png'
+import chintanImage from '../../Images/chintan.png'
+import rajImage from '../../Images/raj.png'
 
 const teamMembers = [
   {

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,500&display=swap');
+
+/* ─── Base ──────────────────────────────────────────────── */
 .about-hero-section {
   padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
 }
@@ -11,19 +14,32 @@
   display: block;
 }
 
+/* ─── Hero Title ─────────────────────────────────────────── */
 .about-hero-title {
-  font-size: clamp(2.7rem, 5vw, 4.35rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(2.7rem, 5vw, 4.35rem);
   line-height: 0.93;
   letter-spacing: 3px;
-  color: #353a40;
+  vertical-align: middle;
+  color: #343434;
 }
 
+/* ─── "Distributing Quality." ───────────────────────────── */
 .about-hero-title-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(2.7rem, 5vw, 4.35rem);
+  line-height: 100%;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #59606166;
   margin-top: 0.08em;
-  color: #b6bcc2;
 }
 
+/* ─── Meta row ───────────────────────────────────────────── */
 .about-hero-meta {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -32,18 +48,26 @@
   margin-top: clamp(1.25rem, 2vw, 1.7rem);
 }
 
+/* ─── Body copy ──────────────────────────────────────────── */
 .about-hero-copy {
-  max-width: 520px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(0.78rem, 1.04vw, 0.92rem);
   line-height: 1.6;
+  letter-spacing: 0px;
+  vertical-align: middle;
   color: #2D3435;
+  max-width: 520px;
   margin-top: 30px;
+  margin-bottom: 0;
 }
 
+/* ─── EST. line block ────────────────────────────────────── */
 .about-hero-line-block {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
   justify-self: end;
   gap: 0.55rem;
 }
@@ -63,58 +87,79 @@
   white-space: nowrap;
 }
 
+/* ─── Factory image ──────────────────────────────────────── */
 .about-hero-factory-frame {
   margin-top: clamp(1.3rem, 2.2vw, 2rem);
   border: 1px solid #b9c0c6;
   background: #edf2f6;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .about-hero-factory-image {
   width: 100%;
   display: block;
+  object-fit: cover;
+  height: clamp(260px, 38vw, 480px);
 }
 
+/* ─── Chairman intro ─────────────────────────────────────── */
 .about-chairman-intro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(1.4rem, 5vw, 5rem);
   align-items: end;
-  margin-top: clamp(1.9rem, 3vw, 2.4rem);
+  margin-top: clamp(2.5rem, 4vw, 4rem);
 }
 
+/* ─── Kicker: FROM LEADERSHIP VISION ────────────────────── */
 .about-chairman-kicker {
-  font-size: 0.70rem;
-  line-height: 1.2;
-  letter-spacing: 0.32em;
-  color: #8a8e94;
-}
-
-.about-chairman-title {
-  margin-top: 1rem;
-  font-size: clamp(2.35rem, 4.15vw, 3.75rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(0.7rem, 0.78vw, 0.82rem);
+  letter-spacing: 4.8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #596061;
+}
+
+/* ─── Chairman heading ───────────────────────────────────── */
+.about-chairman-title {
+  margin-top: 0.6rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(2.35rem, 4.15vw, 3.75rem);
   line-height: 0.95;
-  letter-spacing: 3px;
-  color: #3a3f45;
+  letter-spacing: 0.4px;
+  vertical-align: middle;
+  color: #2D3435;
 }
 
-.about-chairman-title span{
+.about-chairman-title span {
   padding-top: 15px;
+  display: block;
 }
 
+/* ─── Chairman summary ───────────────────────────────────── */
 .about-chairman-summary {
-  max-width: 318px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(0.8rem, 0.92vw, 0.9rem);
-  line-height: 1.62;
-  color: #71757b;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #596061;
+  max-width: 318px;
 }
 
+/* ─── Chairman card ──────────────────────────────────────── */
 .about-chairman-card {
   margin-top: 3.5rem;
   border: 1px solid #b8b7b4;
   border-radius: 16px;
-  padding: clamp(2rem, 1.8vw, 1.2rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(1rem, 2vw, 1.4rem);
@@ -122,48 +167,74 @@
 }
 
 .about-chairman-copy-block {
-  display: grid;
-  gap: 0.72rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
+/* ─── Card title ─────────────────────────────────────────── */
 .about-chairman-card-title {
-  font-size: clamp(1.5rem, 1.08vw, 1.08rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
+  font-style: normal;
+  font-size: clamp(1rem, 1.08vw, 1.08rem);
   color: #42474d;
 }
 
+/* ─── Card body text ─────────────────────────────────────── */
 .about-chairman-card-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(0.78rem, 0.8vw, 0.8rem);
-  line-height: 1.62;
-  color: #75787c;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #596061;
 }
 
+/* ─── Quote text ─────────────────────────────────────────── */
 .about-chairman-card-text-quote {
-  max-width: 96%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   font-style: italic;
-  font-weight: bold;
-  color: #000;
-  margin-top: 7px;
+  font-size: clamp(0.78rem, 0.8vw, 0.8rem);
+  letter-spacing: 0;
+  color: #343434;
+  max-width: 96%;
 }
 
+/* ─── Signoff ────────────────────────────────────────────── */
 .about-chairman-signoff {
-  display: grid;
-  gap: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   margin-top: 0.4rem;
 }
 
+/* ─── Name ───────────────────────────────────────────────── */
 .about-chairman-name {
-  font-size: 1rem;
-  letter-spacing: 0.28em;
-  color: #565b61;
-  margin-top: 20px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(0.85rem, 0.9vw, 0.95rem);
+  letter-spacing: 4.8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #343434;
 }
 
+/* ─── Role ───────────────────────────────────────────────── */
 .about-chairman-role {
-  font-size: 0.8rem;
-  color: #7b8086;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(0.78rem, 0.8vw, 0.8rem);
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #596061;
 }
 
+/* ─── Photo ──────────────────────────────────────────────── */
 .about-chairman-photo-wrap {
   display: flex;
   justify-content: flex-end;
@@ -181,10 +252,18 @@
   object-fit: contain;
 }
 
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
-  .about-chairman-intro {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .about-hero-title {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 0.93;
+    letter-spacing: 2px;
+  }
+
+  .about-hero-title-light {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 100%;
+    letter-spacing: 0px;
   }
 
   .about-hero-meta {
@@ -199,6 +278,17 @@
 
   .about-hero-line-block {
     justify-self: start;
+    align-items: flex-start;
+  }
+
+  .about-chairman-intro {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .about-chairman-summary {
+    max-width: 100%;
   }
 
   .about-chairman-card {
@@ -208,14 +298,107 @@
   .about-chairman-photo-wrap {
     justify-content: flex-start;
   }
+
+  .about-hero-factory-image {
+    height: clamp(220px, 42vw, 400px);
+  }
 }
 
-@media (max-width: 575.98px) {
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
   .about-hero-title {
     font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 1px;
+  }
+
+  .about-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .about-hero-copy {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .about-hero-factory-image {
+    height: clamp(180px, 50vw, 300px);
   }
 
   .about-chairman-title {
     font-size: 2.1rem;
+    letter-spacing: 0.4px;
+  }
+
+  .about-chairman-kicker {
+    letter-spacing: 3px;
+  }
+
+  .about-chairman-card {
+    padding: 1.25rem;
+  }
+
+  .about-chairman-name {
+    letter-spacing: 3px;
+  }
+
+  .about-chairman-photo {
+    width: 100%;
+  }
+}
+
+/* ─── Small mobile (< 576px) ────────────────────────────── */
+@media (max-width: 575.98px) {
+  .about-hero-title {
+    font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 0px;
+  }
+
+  .about-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .about-hero-factory-image {
+    height: clamp(160px, 55vw, 260px);
+  }
+
+  .about-chairman-title {
+    font-size: 1.85rem;
+  }
+
+  .about-chairman-card {
+    border-radius: 10px;
+    padding: 1rem;
+  }
+}
+
+/* ─── Extra small (< 400px) ─────────────────────────────── */
+@media (max-width: 399.98px) {
+  .about-hero-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .about-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.05;
+    letter-spacing: 0px;
+  }
+
+  .about-hero-title-light {
+    font-size: 1.85rem;
+    line-height: 100%;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .about-hero-shell {
+    max-width: 1520px;
   }
 }

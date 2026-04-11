@@ -23,8 +23,8 @@ function AboutPage() {
       <QualityAssuranceSection />
       <FastenerStandardsSection />
       <PerformanceResultsSection />
-      <GlobalReachSection />
       <UniqueSellingPropositionSection/>
+      <GlobalReachSection />
       <ArchitecturalLedgerSection />
       <FreeToContactUsSection/>
       <Footer/>

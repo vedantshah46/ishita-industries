@@ -1,5 +1,8 @@
 import './ManufacturingInfrastructureSection.css'
-import infrastructureImage from '../../assets/about-infrastructure.svg'
+import infrastructureImage from '../../Images/about-manufacturing-infrastructure.png'
+import contactUsLogo from '../../Images/homepage-contact-us-logo.png'
+import checkbox from '../../Images/about-manufacture-checkbox.png'
+
 
 const machineList = [
   'CNC Sliding Head Machines',
@@ -47,8 +50,8 @@ function ManufacturingInfrastructureSection() {
           />
 
           <div className="about-infra-overlay">
-            <div className="about-infra-badge" aria-hidden="true">
-              <span className="about-infra-badge-mark">II</span>
+            <div aria-hidden="true">
+              <img src={contactUsLogo}/>
             </div>
 
             <ul className="about-infra-list">
