@@ -1,6 +1,9 @@
 import './IndustrialComponentsSection.css'
-import turnedImage from '../../assets/precision-turned.svg'
-import forgedImage from '../../assets/precision-forged.svg'
+import electrical from '../../Images/industrial-electrical.png'
+import automative from '../../Images/industrial-automotive.png'
+import fastener from '../../Images/industrial-fastener.png'
+import engineer from '../../Images/industrial-Engineered.png'
+import cpvcppr from '../../Images/industrial-CPVC-PPR.png'
 
 const industrialData = [
   {
@@ -17,7 +20,7 @@ const industrialData = [
       'Electric Parts',
       'Electrical Switch Gear Parts',
     ],
-    image: turnedImage,
+    image: electrical,
   },
   {
     title: 'Automotive',
@@ -33,7 +36,7 @@ const industrialData = [
       'Electric Parts',
       'Electrical Switch Gear Parts',
     ],
-    image: forgedImage,
+    image: automative,
   },
   {
     title: 'Fastener',
@@ -49,7 +52,7 @@ const industrialData = [
       'Electric Parts',
       'Electrical Switch Gear Parts',
     ],
-    image: forgedImage,
+    image: fastener,
   },
   {
     title: 'Engineered',
@@ -65,7 +68,7 @@ const industrialData = [
       'Electric Parts',
       'Electrical Switch Gear Parts',
     ],
-    image: forgedImage,
+    image: engineer,
   },
   {
     title: 'CPVC PPR',
@@ -81,7 +84,7 @@ const industrialData = [
       'Electric Parts',
       'Electrical Switch Gear Parts',
     ],
-    image: forgedImage,
+    image: cpvcppr,
   }
 ]
 

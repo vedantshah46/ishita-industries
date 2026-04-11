@@ -1,3 +1,4 @@
+/* ─── Base ──────────────────────────────────────────────── */
 .precision-section {
   padding: clamp(2.9rem, 5.6vw, 5rem) 0 clamp(3rem, 5.4vw, 4.8rem);
 }
@@ -7,6 +8,7 @@
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
+/* ─── Header ─────────────────────────────────────────────── */
 .precision-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(250px, 355px);
@@ -23,7 +25,7 @@
 
 .precision-title {
   margin-top: clamp(1rem, 1.4vw, 1.35rem);
-  font-size: clamp(3rem, 4.2vw, 4.25rem);
+  font-size: clamp(2.4rem, 4.2vw, 4.25rem);
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: -0.055em;
@@ -42,27 +44,39 @@
   color: #666b72;
 }
 
+/* ─── Grid ───────────────────────────────────────────────── */
 .precision-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2vw, 1.55rem);
+  gap: clamp(0.75rem, 1.5vw, 1.2rem);
   margin-top: clamp(2rem, 3vw, 2.45rem);
-  padding: 0px 70px;
+  /* ✅ removed padding: 0px 70px */
 }
 
+/* ─── Card ───────────────────────────────────────────────── */
 .precision-card {
   display: flex;
   flex-direction: column;
 }
 
+/* ─── Visual (image wrapper) ─────────────────────────────── */
 .precision-visual {
   position: relative;
-  height: clamp(260px, 25vw, 318px);
+  height: clamp(220px, 25vw, 318px);
   border: 1px solid #9fa3a8;
-  background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
   overflow: hidden;
+  background: #f5f5f5;
 }
 
+/* ✅ Images fill the box fully */
+.precision-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Caption ────────────────────────────────────────────── */
 .precision-caption {
   margin-top: 0.55rem;
   font-size: clamp(0.86rem, 0.92vw, 0.98rem);
@@ -70,242 +84,12 @@
   color: #30353a;
 }
 
-.precision-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0) 42%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.04));
-  pointer-events: none;
-}
-
-.brass-piece,
-.alloy-piece {
-  position: absolute;
-  display: block;
-  border-radius: 999px;
-  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.08);
-}
-
-.precision-visual-brass {
-  background:
-    radial-gradient(circle at 18% 85%, rgba(255, 235, 210, 0.8), rgba(255, 255, 255, 0) 24%),
-    linear-gradient(180deg, #ffffff 0%, #fbf7f2 100%);
-}
-
-.brass-piece-copper {
-  background: linear-gradient(135deg, #f7c0a2 0%, #b85f36 34%, #ffdbc5 62%, #8d3f1e 100%);
-}
-
-.brass-piece-copper-alt {
-  background: linear-gradient(135deg, #f8ceb8 0%, #ca7b56 34%, #ffe0d0 58%, #9d4b25 100%);
-}
-
-.brass-piece-gold {
-  background: linear-gradient(135deg, #f3d687 0%, #ab6f11 32%, #fff0ba 56%, #835109 100%);
-}
-
-.brass-piece-gold-dark {
-  background: linear-gradient(135deg, #d7b15f 0%, #7d5009 36%, #f8e09d 58%, #6d4307 100%);
-}
-
-.brass-piece-long {
-  width: 74%;
-  height: 7.8%;
-  transform: rotate(-23deg);
-}
-
-.brass-piece-mid {
-  width: 56%;
-  height: 8.2%;
-  transform: rotate(-24deg);
-}
-
-.brass-piece-square {
-  width: 32%;
-  height: 10.5%;
-  border-radius: 12px;
-  transform: rotate(-23deg);
-}
-
-.brass-piece-rod {
-  width: 24%;
-  height: 9%;
-  transform: rotate(-18deg);
-}
-
-.brass-piece-block {
-  width: 18%;
-  height: 12%;
-  border-radius: 14px;
-  transform: rotate(-27deg);
-}
-
-.brass-piece-long:nth-child(1) {
-  top: 8%;
-  left: -4%;
-}
-
-.brass-piece-long:nth-child(2) {
-  top: 11%;
-  left: 28%;
-}
-
-.brass-piece-mid:nth-child(3) {
-  top: 34%;
-  left: -1%;
-}
-
-.brass-piece-mid:nth-child(4) {
-  top: 40%;
-  left: 24%;
-}
-
-.brass-piece-square:nth-child(5) {
-  top: 45%;
-  left: 49%;
-}
-
-.brass-piece-rod:nth-child(6) {
-  bottom: 9%;
-  left: -2%;
-}
-
-.brass-piece-rod:nth-child(7) {
-  bottom: 12%;
-  left: 15%;
-}
-
-.brass-piece-block:nth-child(8) {
-  bottom: 17%;
-  left: 44%;
-}
-
-.brass-piece-block:nth-child(9) {
-  bottom: 14%;
-  left: 60%;
-}
-
-.precision-visual-alloy {
-  background:
-    radial-gradient(circle at 18% 80%, rgba(223, 227, 232, 0.85), rgba(255, 255, 255, 0) 24%),
-    linear-gradient(180deg, #ffffff 0%, #f5f6f8 100%);
-}
-
-.alloy-piece-silver {
-  background: linear-gradient(135deg, #eef2f5 0%, #98a0a8 30%, #ffffff 56%, #757d85 100%);
-}
-
-.alloy-piece-light {
-  background: linear-gradient(135deg, #f5f7f9 0%, #bdc4cb 30%, #ffffff 58%, #929aa2 100%);
-}
-
-.alloy-piece-dark {
-  background: linear-gradient(135deg, #d4d8de 0%, #707780 32%, #f3f5f7 58%, #585f67 100%);
-}
-
-.alloy-piece-beam {
-  width: 66%;
-  height: 8%;
-  transform: rotate(-24deg);
-}
-
-.alloy-piece-frame {
-  width: 24%;
-  height: 12%;
-  border-radius: 12px;
-  transform: rotate(-24deg);
-}
-
-.alloy-piece-stack {
-  width: 18%;
-  height: 24%;
-  left: 6%;
-  bottom: 17%;
-  border-radius: 0;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #cfd5dc 0,
-      #cfd5dc 4px,
-      #8b929a 4px,
-      #8b929a 5px,
-      #eef1f4 5px,
-      #eef1f4 10px
-    );
-  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.06);
-}
-
-.alloy-piece-bar {
-  width: 30%;
-  height: 10%;
-  transform: rotate(-27deg);
-}
-
-.alloy-piece-block {
-  width: 16%;
-  height: 13%;
-  border-radius: 10px;
-  transform: rotate(-25deg);
-}
-
-.alloy-piece-plate {
-  width: 44%;
-  height: 6%;
-  border-radius: 4px;
-  transform: rotate(-14deg);
-}
-
-.alloy-piece-beam:nth-child(1) {
-  top: 10%;
-  left: 4%;
-}
-
-.alloy-piece-beam:nth-child(2) {
-  top: 16%;
-  left: 34%;
-}
-
-.alloy-piece-beam:nth-child(3) {
-  top: 2%;
-  left: 47%;
-}
-
-.alloy-piece-frame:nth-child(4) {
-  top: 36%;
-  left: 6%;
-}
-
-.alloy-piece-frame:nth-child(5) {
-  top: 38%;
-  left: 58%;
-}
-
-.alloy-piece-bar:nth-child(7) {
-  bottom: 21%;
-  left: 34%;
-}
-
-.alloy-piece-bar:nth-child(8) {
-  bottom: 10%;
-  left: 54%;
-}
-
-.alloy-piece-block:nth-child(9) {
-  bottom: 12%;
-  left: 79%;
-}
-
-.alloy-piece-plate:nth-child(10) {
-  bottom: 9%;
-  left: 9%;
-}
-
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .precision-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 1.5rem;
   }
 
   .precision-intro {
@@ -314,16 +98,54 @@
   }
 
   .precision-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-@media (max-width: 575.98px) {
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .precision-header {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .precision-intro {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
   .precision-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+  }
+
+  .precision-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .precision-visual {
+    height: clamp(160px, 38vw, 240px);
+  }
+}
+
+/* ─── Small mobile (< 480px) ────────────────────────────── */
+@media (max-width: 479.98px) {
+  .precision-grid {
+    grid-template-columns: 1fr;
   }
 
   .precision-visual {
     height: 220px;
+  }
+
+  .precision-title {
+    font-size: 1.8rem;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .precision-shell {
+    max-width: 1520px;
   }
 }

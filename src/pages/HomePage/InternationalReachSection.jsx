@@ -1,4 +1,5 @@
 import "./InternationalReachSection.css";
+import contactlogo from '../../Images/homepage-contact-us-logo.png';
 import dummyMapImage from "../../assets/hero.png";
 
 const reachLinksData = [
@@ -37,16 +38,7 @@ function InternationalReachSection() {
         <div className="reach-cta-block">
           <div className="reach-contact-card">
             <div className="reach-contact-icon">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M12 2L3 6v6.2c0 5.5 3.8 10.7 9 11.8 5.2-1.1 9-6.3 9-11.8V6l-9-4zm0 2.2l7 3.1v4.9c0 4.3-2.9 8.4-7 9.4-4.1-1-7-5.1-7-9.4V7.3l7-3.1zm-1 4.8h2v8h-2v-8zM9 9h2v8H9V9zm4 0h2v8h-2V9z"
-                  fill="#fca311"
-                />
-              </svg>
+             <img src={contactlogo} alt="" />          
             </div>
 
             <div className="reach-contact-content">

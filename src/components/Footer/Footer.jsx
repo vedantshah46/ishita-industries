@@ -1,5 +1,5 @@
 import './Footer.css'
-import companyLogo from '../../Images/ishita-navbar-logo.png'
+import companyLogo from '../../Images/company-footer-logo.png'
 
 const footerLinks = {
   about: [

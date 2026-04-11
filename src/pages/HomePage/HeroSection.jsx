@@ -2,6 +2,7 @@ import './HeroSection.css'
 import heroTiltImage from '../../Images/hero-section-tilt-image.svg'
 import heroStraightImage from '../../Images/hero-section-image.svg'
 
+
 function HeroSection() {
   return (
     <section className="hero-section">

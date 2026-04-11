@@ -1,5 +1,6 @@
 import './PrecisionExpertiseSection.css'
-
+import precisionMmachineExpertiseOne from '../../Images/precision-machine-expertise-one.png'
+import precisionMachineExpertiseTwo from '../../Images/precision-machine-expertise-two.png'
 function PrecisionExpertiseSection() {
   return (
     <section className="precision-section">
@@ -20,15 +21,7 @@ function PrecisionExpertiseSection() {
         <div className="precision-grid">
           <article className="precision-card">
             <div className="precision-visual precision-visual-brass" aria-hidden="true">
-              <span className="brass-piece brass-piece-long brass-piece-copper" />
-              <span className="brass-piece brass-piece-long brass-piece-gold" />
-              <span className="brass-piece brass-piece-mid brass-piece-copper-alt" />
-              <span className="brass-piece brass-piece-mid brass-piece-gold-dark" />
-              <span className="brass-piece brass-piece-square brass-piece-gold" />
-              <span className="brass-piece brass-piece-rod brass-piece-copper" />
-              <span className="brass-piece brass-piece-rod brass-piece-gold" />
-              <span className="brass-piece brass-piece-block brass-piece-gold-dark" />
-              <span className="brass-piece brass-piece-block brass-piece-copper-alt" />
+              <img src={precisionMmachineExpertiseOne}/>
             </div>
             <p className="precision-caption mb-0">
               Copper &amp; Brass Extruded Rods, Profiles &amp; Sections
@@ -37,17 +30,9 @@ function PrecisionExpertiseSection() {
 
           <article className="precision-card">
             <div className="precision-visual precision-visual-alloy" aria-hidden="true">
-              <span className="alloy-piece alloy-piece-beam alloy-piece-silver" />
-              <span className="alloy-piece alloy-piece-beam alloy-piece-dark" />
-              <span className="alloy-piece alloy-piece-beam alloy-piece-light" />
-              <span className="alloy-piece alloy-piece-frame alloy-piece-silver" />
-              <span className="alloy-piece alloy-piece-frame alloy-piece-dark" />
-              <span className="alloy-piece alloy-piece-stack" />
-              <span className="alloy-piece alloy-piece-bar alloy-piece-light" />
-              <span className="alloy-piece alloy-piece-bar alloy-piece-silver" />
-              <span className="alloy-piece alloy-piece-block alloy-piece-dark" />
-              <span className="alloy-piece alloy-piece-plate alloy-piece-light" />
-            </div>
+              <img src={precisionMachineExpertiseTwo}/>
+              
+               </div>
             <p className="precision-caption mb-0">Aluminum Alloy Extrusion Products</p>
           </article>
         </div>

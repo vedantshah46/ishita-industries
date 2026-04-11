@@ -1,3 +1,4 @@
+/* ─── Base ──────────────────────────────────────────────── */
 .industrial-components-section {
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
 }
@@ -7,6 +8,7 @@
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
+/* ─── Header ─────────────────────────────────────────────── */
 .industrial-components-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
@@ -42,26 +44,28 @@
   color: #666b72;
 }
 
+/* ─── List ───────────────────────────────────────────────── */
 .industrial-components-list {
   display: flex;
   flex-direction: column;
 }
 
+/* ─── Row (desktop: 3 columns) ──────────────────────────── */
 .industrial-components-row {
   display: grid;
   grid-template-columns: minmax(200px, 1.1fr) minmax(350px, 1.7fr) minmax(200px, 1.2fr);
   align-items: start;
-   gap: 1.5rem;
+  gap: 1.5rem;
   padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
   padding-bottom: 0;
   border-top: 1px solid #7a7e85;
 }
 
-/* Make sure the very last row has a border bottom to match screenshot */
 .industrial-components-row:last-child {
   border-bottom: 1px solid #7a7e85;
 }
 
+/* ─── Row title ──────────────────────────────────────────── */
 .industrial-components-row-title {
   font-size: clamp(2.5rem, 4vw, 4.2rem);
   font-weight: 400;
@@ -69,6 +73,7 @@
   letter-spacing: -0.02em;
 }
 
+/* ─── Badges ─────────────────────────────────────────────── */
 .industrial-components-badges {
   display: flex;
   flex-direction: column;
@@ -90,6 +95,7 @@
   white-space: nowrap;
 }
 
+/* ─── Visual ─────────────────────────────────────────────── */
 .industrial-components-visual {
   width: 100%;
   max-width: 250px;
@@ -103,10 +109,12 @@
   object-fit: contain;
 }
 
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .industrial-components-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
@@ -115,27 +123,112 @@
   }
 
   .industrial-components-row {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 2rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: 1rem;
   }
-  
+
   .industrial-components-row-title {
-    grid-column: 1 / -1;
-  }
-  
-  .industrial-components-visual {
-    margin-left: 0;
-    margin-right: auto;
+    font-size: 2rem;
   }
 }
 
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
-  .industrial-components-row {
+  /* Header stacks */
+  .industrial-components-header {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
-  
+
+  .industrial-components-title {
+    font-size: 2rem;
+  }
+
+  .industrial-components-intro {
+    padding-top: 0.25rem;
+    font-size: 0.85rem;
+  }
+
+  /*
+   * ✅ Mobile row layout (3 rows):
+   *   Row 1: title (left) + image (right) — side by side
+   *   Row 2: badges — full width
+   */
+  .industrial-components-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "title  image"
+      "badges badges";
+    gap: 0.5rem 0.75rem;
+    padding-top: 1.1rem;
+    padding-bottom: 0.75rem;
+    align-items: start;
+  }
+
+  .industrial-components-row-title {
+    grid-area: title;
+    font-size: 1.55rem;
+    letter-spacing: -0.01em;
+    align-self: start;
+  }
+
+  /* Image: top-right, reasonably large */
   .industrial-components-visual {
-    margin-inline: auto;
+    grid-area: image;
+    width: clamp(90px, 26vw, 140px);
+    max-width: none;
+    margin-left: 0;
+    align-self: start;
+  }
+
+  /* Badges: full width below */
+  .industrial-components-badges {
+    grid-area: badges;
+    max-width: 100%;
+    gap: 0.45rem;
+  }
+
+  .industrial-components-badge-row {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .industrial-components-badge {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.6rem;
+    white-space: nowrap;
+  }
+}
+
+/* ─── Small mobile (< 480px) ────────────────────────────── */
+@media (max-width: 479.98px) {
+  .industrial-components-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .industrial-components-title {
+    font-size: 1.75rem;
+  }
+
+  .industrial-components-row-title {
+    font-size: 1.3rem;
+  }
+
+  .industrial-components-visual {
+    width: clamp(75px, 24vw, 110px);
+  }
+
+  .industrial-components-badge {
+    font-size: 0.62rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .industrial-components-shell {
+    max-width: 1520px;
   }
 }

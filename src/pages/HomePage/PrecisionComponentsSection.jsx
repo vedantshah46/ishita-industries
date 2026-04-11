@@ -1,11 +1,10 @@
 import './PrecisionComponentsSection.css'
-import turnedImage from '../../assets/precision-turned.svg'
-import forgedImage from '../../assets/precision-forged.svg'
-import millingImage from '../../assets/precision-milling.svg'
-import broachImage from '../../assets/precision-broach.svg'
-import stampingImage from '../../assets/precision-stamping.svg'
-import castingImage from '../../assets/precision-casting.svg'
-
+import turnedImage from '../../Images/brass-turned-component.png'
+import forgedImage from '../../Images/brass-forged-component.png'
+import millingImage from '../../Images/brass-milling-component.png'
+import broachImage from '../../Images/bras-broach-component.png'
+import  stampingImage from '../../assets/precision-stamping.svg'
+import castingImage from '../../Images/brass-casting-component.png'
 const componentCards = [
   {
     title: 'Brass Turned component',

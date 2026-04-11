@@ -1,4 +1,5 @@
 import './CapabilitiesSection.css'
+import capVisualImage from '../../Images/manufacturing-infrastructure.png'
 
 const metals = [
   'Stainless Steel',
@@ -70,11 +71,7 @@ function CapabilitiesSectionNew() {
 
             <article className="cap-card cap-card-visual">
               <div className="cap-visual-image" aria-hidden="true">
-                <span className="cap-visual-column cap-visual-column-left" />
-                <span className="cap-visual-column cap-visual-column-center" />
-                <span className="cap-visual-column cap-visual-column-right" />
-                <span className="cap-visual-head" />
-                <span className="cap-visual-base" />
+               <img src={capVisualImage}/>
               </div>
 
               <div className="cap-visual-overlay">
