@@ -1,0 +1,25 @@
+<svg width="260" height="220" viewBox="0 0 260 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="metal6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#eff2f4"/>
+      <stop offset="1" stop-color="#8f98a2"/>
+    </linearGradient>
+    <linearGradient id="green6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6bc76b"/>
+      <stop offset="1" stop-color="#328e3f"/>
+    </linearGradient>
+    <linearGradient id="red6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f36e5b"/>
+      <stop offset="1" stop-color="#aa2f22"/>
+    </linearGradient>
+  </defs>
+  <rect width="260" height="220" fill="#fff"/>
+  <circle cx="112" cy="92" r="26" fill="url(#metal6)"/>
+  <circle cx="112" cy="92" r="12" fill="#fff"/>
+  <circle cx="156" cy="88" r="22" fill="url(#metal6)"/>
+  <circle cx="156" cy="88" r="10" fill="#fff"/>
+  <rect x="82" y="138" width="40" height="14" rx="7" fill="url(#green6)" transform="rotate(-8 82 138)"/>
+  <rect x="126" y="134" width="48" height="14" rx="7" fill="url(#red6)" transform="rotate(-8 126 134)"/>
+  <rect x="178" y="130" width="38" height="14" rx="7" fill="#90979f" transform="rotate(-16 178 130)"/>
+  <rect x="194" y="116" width="12" height="26" rx="3" fill="url(#metal6)" transform="rotate(-16 194 116)"/>
+</svg>

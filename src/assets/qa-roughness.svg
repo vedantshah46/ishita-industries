@@ -1,0 +1,22 @@
+<svg width="260" height="220" viewBox="0 0 260 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="dark5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a434c"/>
+      <stop offset="1" stop-color="#171b20"/>
+    </linearGradient>
+    <linearGradient id="silver5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3f5f7"/>
+      <stop offset="1" stop-color="#a8b1b9"/>
+    </linearGradient>
+  </defs>
+  <rect width="260" height="220" fill="#fff"/>
+  <rect x="84" y="98" width="108" height="48" rx="8" fill="url(#dark5)" transform="rotate(-14 84 98)"/>
+  <rect x="97" y="110" width="42" height="8" rx="2" fill="#74d95d" transform="rotate(-14 97 110)"/>
+  <rect x="146" y="105" width="28" height="12" rx="2" fill="#93a6b7" transform="rotate(-14 146 105)"/>
+  <g fill="#7d95a8">
+    <rect x="100" y="125" width="8" height="4" rx="1" transform="rotate(-14 100 125)"/>
+    <rect x="111" y="122" width="8" height="4" rx="1" transform="rotate(-14 111 122)"/>
+    <rect x="122" y="119" width="8" height="4" rx="1" transform="rotate(-14 122 119)"/>
+  </g>
+  <rect x="56" y="138" width="42" height="16" rx="3" fill="url(#silver5)" transform="rotate(-14 56 138)"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg width="110" height="74" viewBox="0 0 110 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="38" cy="36" r="24" fill="#4bb6c1"/>
+  <path d="M21 35C25 24 34 18 46 18C56 18 65 24 69 34" stroke="#f8b64c" stroke-width="8" stroke-linecap="round"/>
+  <path d="M18 37C22 49 32 55 45 55C56 55 65 50 70 40" stroke="#5dbd63" stroke-width="8" stroke-linecap="round"/>
+  <text x="26" y="41" fill="#ffffff" font-size="14" font-family="Arial" font-weight="700">Zed</text>
+</svg>

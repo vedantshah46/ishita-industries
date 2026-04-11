@@ -1,0 +1,6 @@
+<svg width="110" height="74" viewBox="0 0 110 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="54" cy="37" rx="30" ry="18" stroke="#274d84" stroke-width="4"/>
+  <path d="M24 37H84" stroke="#274d84" stroke-width="3"/>
+  <path d="M54 19V55" stroke="#274d84" stroke-width="3"/>
+  <text x="28" y="42" fill="#274d84" font-size="16" font-family="Arial" font-weight="700">PPAP</text>
+</svg>

@@ -3,6 +3,7 @@ import AboutHeroSection from './AboutHeroSection'
 import ManufacturingInfrastructureSection from './ManufacturingInfrastructureSection'
 import MeetOurTeamSection from './MeetOurTeamSection'
 import CertificationSection from './CertificationSection'
+import QualityAssuranceSection from './QualityAssuranceSection'
 
 function AboutPage() {
   return (
@@ -12,6 +13,7 @@ function AboutPage() {
       <MeetOurTeamSection />
       <ManufacturingInfrastructureSection />
       <CertificationSection />
+      <QualityAssuranceSection />
     </>
   )
 }
