@@ -1,5 +1,6 @@
 import './ArchitecturalLedgerSection.css'
 import dummyImage from '../../assets/hero.png'
+import foundationOfModernInfra from '../../Images/foundation-of-modern-infra.png'
 
 const applicationsList = [
   { id: 1, text: 'Automated Fabrications', icon: (
@@ -51,13 +52,16 @@ function ArchitecturalLedgerSection() {
           <article className="ledger-card ledger-card--inception">
             <div className="ledger-card-content">
               <span className="ledger-number">01 — INCEPTION</span>
-              <h3 className="ledger-inception-title">Defining the foundation of modern infrastructure.</h3>
+              <div>
+
+              <h3 className="ledger-inception-title">Defining the <br /> foundation of modern infrastructure.</h3>
+              </div>
               <div className="ledger-inception-row">
                 <p className="ledger-inception-desc mb-0">
                   Components Manufactured: Adapters, Blocks, Bolts, Bushings, Cages, Clamps, Collars, Couplings, Dowels, Electronic Connectors, Electrical Pin, Electrical socket, Earthing & Grounding Component...
                 </p>
                 <div className="ledger-inception-image-wrapper">
-                  <img src={dummyImage} alt="Inception Architecture" className="ledger-inception-image" />
+                  <img src={foundationOfModernInfra} alt="Inception Architecture" className="ledger-inception-image" />
                 </div>
               </div>
             </div>
