@@ -59,7 +59,7 @@ function PrecisionComponentsSection() {
               <div className="precision-components-caption-row">
                 <p className="precision-components-caption mb-0">{card.title}</p>
                 <span className="precision-components-arrow" aria-hidden="true">
-                  &#8599;
+                  &#8594;
                 </span>
               </div>
             </article>

@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react'
 import './FactsSection.css'
 
 const factsData = [
@@ -28,6 +29,31 @@ const factsData = [
 ]
 
 function FactsSection() {
+  const cardRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
+    )
+
+    cardRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="facts-section">
       <div className="container facts-shell">
@@ -46,7 +72,12 @@ function FactsSection() {
 
         <div className="facts-grid">
           {factsData.map((fact, index) => (
-            <div key={index} className="facts-card">
+            <div 
+              key={index} 
+              className="facts-card"
+              ref={(el) => (cardRefs.current[index] = el)}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <h3 className="facts-card-number mb-0">{fact.number}</h3>
               <p className="facts-card-label mb-0">{fact.label}</p>
             </div>

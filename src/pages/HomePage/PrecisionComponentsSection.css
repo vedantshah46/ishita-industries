@@ -52,13 +52,13 @@
 .precision-components-card {
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .precision-components-visual {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
-  border: 1px solid #a3a7ac;
   background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
   overflow: hidden;
 }
@@ -68,6 +68,11 @@
   height: 100%;
   display: block;
   object-fit: contain;
+  transition: transform 1.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.precision-components-card:hover .precision-components-image {
+  transform: scale(1.15) translateY(-6px);
 }
 
 .precision-components-caption-row {
@@ -88,6 +93,12 @@
   font-size: 1.4rem;
   line-height: 1;
   color: #585d63;
+  display: inline-block;
+  transition: transform 1s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.precision-components-card:hover .precision-components-arrow {
+  transform: rotate(-40deg);
 }
 
 @media (max-width: 991.98px) {

@@ -60,6 +60,21 @@
   padding: clamp(1.5rem, 3vw, 2.2rem) 1rem;
   border: 1px solid #7a7e85;
   background-color: #ffffff;
+  cursor: pointer;
+  /* Scroll Animation Styles */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.facts-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.facts-card:hover {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
 }
 
 .facts-card-number {
@@ -67,11 +82,21 @@
   font-weight: 400;
   color: #111;
   margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.facts-card:hover .facts-card-number {
+  color: #ffffff;
 }
 
 .facts-card-label {
   font-size: clamp(0.7rem, 0.75vw, 0.8rem);
   color: #333;
+  transition: color 0.3s ease;
+}
+
+.facts-card:hover .facts-card-label {
+  color: #cccccc;
 }
 
 @media (max-width: 991.98px) {

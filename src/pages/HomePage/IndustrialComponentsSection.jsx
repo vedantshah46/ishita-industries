@@ -1,3 +1,4 @@
+import React, { useEffect, useRef } from 'react'
 import './IndustrialComponentsSection.css'
 import electrical from '../../Images/industrial-electrical.png'
 import automative from '../../Images/industrial-automotive.png'
@@ -98,6 +99,33 @@ const chunkArray = (array, size) => {
 }
 
 function IndustrialComponentsSection() {
+  const rowRefs = useRef([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            // Add slight delay artificially based on the element index if multiple enter at once?
+            // standard scroll IntersectionObserver unobserves after animating once:
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.1, // Trigger when 10% visible
+        rootMargin: '0px 0px -50px 0px' 
+      }
+    )
+
+    rowRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
     <section className="industrial-components-section">
       <div className="container industrial-components-shell">
@@ -116,7 +144,11 @@ function IndustrialComponentsSection() {
 
         <div className="industrial-components-list">
           {industrialData.map((item, index) => (
-            <article key={item.title} className="industrial-components-row">
+            <article 
+              key={item.title} 
+              className="industrial-components-row"
+              ref={(el) => (rowRefs.current[index] = el)}
+            >
               <h3 className="industrial-components-row-title mb-0">{item.title}</h3>
               
               <div className="industrial-components-badges">
