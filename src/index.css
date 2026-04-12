@@ -7,7 +7,7 @@
 body {
   margin: 0;
   min-width: 300px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   color: #393b40;
   overflow-x: hidden;
 }

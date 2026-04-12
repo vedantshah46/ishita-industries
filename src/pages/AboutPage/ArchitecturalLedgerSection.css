@@ -17,11 +17,12 @@
 }
 
 .ledger-kicker {
-  font-size: clamp(1.1rem, 0.72vw, 0.75rem);
+  font-size: clamp(1.3rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.1em; 
   text-transform: uppercase;
-  color: #797d83;
+  color: #596061;
+  font-family: 'Inter';
 }
 
 .ledger-title {
@@ -30,12 +31,12 @@
   font-weight: 400;
   line-height: 0.98;
   letter-spacing: 2px;
-  color: #31373d;
+  color: #2D3435;
+  font-family: 'Inter';
 }
 
 .ledger-intro {
   padding-top: clamp(3.4rem, 4.7vw, 4.8rem);
-  font-size: clamp(1.00rem, 1.92vw, 1.1rem);
   line-height: 1.55;
   color: #596061;
 }
@@ -72,7 +73,7 @@
   font-size: clamp(2rem, 3.5vw, 3.5rem);
   font-weight: 400;
   line-height: 1.15;
-  color: #31373d;
+  color: #2D3435;
   max-width: 70%;
 }
 
@@ -88,7 +89,7 @@
   flex: 0 0 45%; 
   font-size: clamp(1.03rem, 1vw, 1.1rem); 
   line-height: 1.7;
-  color: #555c63;
+  color: #596061;
   margin-bottom: 0.5rem;
   margin-top: 2rem;
   font-weight: 400;
@@ -116,18 +117,18 @@
 /* 02 Applications */
 .ledger-card--applications {
   grid-column: span 3;
-  background-color: #313336;
+  background-color: #343434;
   padding: clamp(2rem, 3vw, 3rem);
 }
 
 .ledger-number--dark {
-  color: #8c8f94;
+  color: #FAF7F7;
 }
 
 .ledger-applications-title {
   font-size: clamp(2rem, 1.4vw, 1.5rem);
   font-weight: 400;
-  color: #f2f4f6;
+  color: #FAF7F7;
   margin-bottom: 2.5rem;
 }
 
@@ -162,7 +163,7 @@
 /* 03 Saga */
 .ledger-card--saga {
   grid-column: span 5;
-  background-color: #f5f6f8;
+  background-color: #F2F4F4;
   padding: clamp(2rem, 3.5vw, 3.5rem) clamp(2rem, 3.5vw, 3.5rem);
 min-height: clamp(340px, 38vw, 590px);
 }
@@ -178,7 +179,7 @@ min-height: clamp(340px, 38vw, 590px);
   font-size: clamp(1.07rem, 0.85vw, 0.85rem);
   line-height: 1.6;
   font-weight: 400;
-  color: #666b72;
+  color: #596061;
 }
 
 .ledger-saga-stats {
@@ -222,7 +223,7 @@ min-height: clamp(340px, 38vw, 590px);
 /* 04 Satisfaction */
 .ledger-card--satisfaction {
   grid-column: span 5;
-  background-color: #dde3e5;
+  background-color: #dde4e5;
   padding: clamp(2rem, 3.5vw, 3.5rem) clamp(2rem, 3.5vw, 3.5rem);
   min-height: clamp(340px, 38vw, 440px);
   position: relative;
@@ -237,7 +238,7 @@ min-height: clamp(340px, 38vw, 590px);
 .ledger-quote {
   font-size: clamp(1.0rem, 0.92vw, 0.95rem);
   line-height: 1.6;
-  color: #4a4d53;
+  color: #2D3435;
   margin-bottom: clamp(2rem, 3vw, 3rem);
   font-weight: 400;
 }
@@ -263,7 +264,7 @@ min-height: clamp(340px, 38vw, 590px);
   font-size: clamp(1.10rem, 0.72vw, 0.75rem);
   font-weight: 400;
   letter-spacing: 0.08em;
-  color: #4a4d53;
+  color: #2D3435;
   text-transform: uppercase;
 }
 
@@ -420,6 +421,17 @@ min-height: clamp(340px, 38vw, 590px);
     align-items: flex-start;
   }
 
+  .ledger-inception-image{
+        width: 85%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    margin-top: 3rem;
+  }
+  .ledger-inception-desc {
+    margin-top: 0rem;
+  }
   .ledger-inception-image-wrapper {
     width: 100%;
     max-width: 300px;

@@ -1,27 +1,26 @@
 import './ArchitecturalLedgerSection.css'
-import dummyImage from '../../assets/hero.png'
 import foundationOfModernInfra from '../../Images/foundation-of-modern-infra.png'
 import backboneOfPrecision from '../../Images/backbone-of-precision.png' 
+import utilityOne from '../../Images/systematic-utility-one.png'
+import utilityTwo from '../../Images/systematic-utility-two.png'
+import utilityThree from '../../Images/systematic-utility-three.png'
+import utilityFour from '../../Images/systematic-utility-four.png'
+
 const applicationsList = [
   { id: 1, text: 'Automated Fabrications', icon: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
-    </svg>
+  <img src={utilityOne}/>
   ) },
   { id: 2, text: 'Structural Integrity Audits', icon: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M3 3v18h18M9 9l3 3 7-7" />
-    </svg>
+      <img src={utilityTwo}/>
+
   ) },
   { id: 3, text: 'Scalable Data Pipelines', icon: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M20 7h-3m3 5h-3m3 5h-3M4 7h3m-3 5h3m-3 5h3M9 4v16m6-16v16" />
-    </svg>
+      <img src={utilityThree}/>
+
   ) },
   { id: 4, text: 'Logistic Synthetics', icon: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-    </svg>
+      <img src={utilityFour}/>
+
   ) }
 ]
 
