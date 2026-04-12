@@ -75,9 +75,9 @@
   align-items: center;
   text-align: center;
   opacity: 0;
-  transition: transform 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.6s 0.2s ease,
-              box-shadow 1s 0.8s ease;
+  transition: transform 1.4s 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.8s 0.3s ease,
+              box-shadow 1.2s 1.4s ease;
 }
 
 .usp-section.is-visible .usp-center-disc {
@@ -96,13 +96,13 @@
   inset: -8px;
   border-radius: 50%;
   border: 1px solid rgba(201, 168, 76, 0);
-  transition: border-color 0.6s 1.2s ease;
+  transition: border-color 0.8s 2s ease;
   animation: none;
 }
 
 .usp-section.is-visible .usp-center-disc::before {
   border-color: rgba(201, 168, 76, 0.3);
-  animation: discRingPulse 2.5s 1.2s ease-out forwards;
+  animation: discRingPulse 3s 2s ease-out forwards;
 }
 
 @keyframes discRingPulse {
@@ -123,25 +123,25 @@
 .usp-center-disc h3 {
   opacity: 0;
   transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .usp-section.is-visible .usp-center-disc p:first-child {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 0.9s;
+  transition-delay: 1.5s;
 }
 
 .usp-section.is-visible .usp-center-disc h3 {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 1.05s;
+  transition-delay: 1.7s;
 }
 
 .usp-section.is-visible .usp-center-disc p:last-child {
   opacity: 1;
   transform: translateY(0);
-  transition-delay: 1.2s;
+  transition-delay: 1.9s;
 }
 
 /* ─── Fan Cards Scroll Animation ─────────────────────────── */
@@ -161,7 +161,7 @@
   box-shadow: 10px 10px 31.8px -0.736963px #9098a0;
   /* Initial: all stacked at center, no rotation */
   opacity: 0;
-  transition: opacity 0.6s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s ease, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .usp-fan-index {
@@ -184,7 +184,7 @@
 /* Fan cards: start collapsed, animate to fanned positions */
 .usp-fan-card-1 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 0.5s;
+  transition-delay: 0.8s;
 }
 .usp-section.is-visible .usp-fan-card-1 {
   opacity: 1;
@@ -193,7 +193,7 @@
 
 .usp-fan-card-2 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 0.6s;
+  transition-delay: 1.05s;
 }
 .usp-section.is-visible .usp-fan-card-2 {
   opacity: 1;
@@ -203,7 +203,7 @@
 
 .usp-fan-card-3 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 0.7s;
+  transition-delay: 1.3s;
 }
 .usp-section.is-visible .usp-fan-card-3 {
   opacity: 1;
@@ -213,7 +213,7 @@
 
 .usp-fan-card-4 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 0.8s;
+  transition-delay: 1.55s;
 }
 .usp-section.is-visible .usp-fan-card-4 {
   opacity: 1;
@@ -223,7 +223,7 @@
 
 .usp-fan-card-5 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 0.9s;
+  transition-delay: 1.8s;
 }
 .usp-section.is-visible .usp-fan-card-5 {
   opacity: 1;
@@ -232,7 +232,7 @@
 
 .usp-fan-card-6 {
   transform: translate(-50%, -100%) rotate(0deg);
-  transition-delay: 1.0s;
+  transition-delay: 2.05s;
 }
 .usp-section.is-visible .usp-fan-card-6 {
   opacity: 1;
@@ -267,7 +267,7 @@
   width: min(332px, 43vw);
   opacity: 0;
   transform: translateX(40px);
-  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Left-side features slide from left */
@@ -279,37 +279,37 @@
 .usp-section.is-visible .usp-feature-material {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 0.8s;
+  transition-delay: 1.6s;
 }
 
 .usp-section.is-visible .usp-feature-engineering {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 0.95s;
+  transition-delay: 1.85s;
 }
 
 .usp-section.is-visible .usp-feature-rfq {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 1.1s;
+  transition-delay: 2.1s;
 }
 
 .usp-section.is-visible .usp-feature-quality {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 1.25s;
+  transition-delay: 2.35s;
 }
 
 .usp-section.is-visible .usp-feature-oem {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 1.4s;
+  transition-delay: 2.6s;
 }
 
 .usp-section.is-visible .usp-feature-partnership {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 1.55s;
+  transition-delay: 2.85s;
 }
 
 .usp-feature-title {

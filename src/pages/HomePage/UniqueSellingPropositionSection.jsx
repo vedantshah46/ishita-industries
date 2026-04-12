@@ -130,27 +130,29 @@ function Icon({ type }) {
 
 function UniqueSellingPropositionSection() {
   const sectionRef = useRef(null)
+  const showcaseRef = useRef(null)
 
   useEffect(() => {
+    const showcase = showcaseRef.current
     const section = sectionRef.current
-    if (!section) return
+    if (!showcase || !section) return
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
+            section.classList.add('is-visible')
             observer.unobserve(entry.target)
           }
         })
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.25,
+        rootMargin: '0px 0px -80px 0px',
       }
     )
 
-    observer.observe(section)
+    observer.observe(showcase)
     return () => observer.disconnect()
   }, [])
 
@@ -171,7 +173,7 @@ function UniqueSellingPropositionSection() {
           </p>
         </div>
 
-        <div className="usp-showcase">
+        <div className="usp-showcase" ref={showcaseRef}>
           <div className="usp-wheel" aria-hidden="true">
             {uspItems.map((item, index) => (
               <div key={item.id} className={`usp-fan-card usp-fan-card-${index + 1}`}>
