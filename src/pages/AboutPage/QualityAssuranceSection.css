@@ -240,3 +240,18 @@
     max-width: 1520px;
   }
 }
+/* ── Scroll-reveal states ───────────────────────────────────── */
+.quality-assurance-header,
+.quality-assurance-card,
+.quality-assurance-badges {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.quality-assurance-header.is-visible,
+.quality-assurance-card.is-visible,
+.quality-assurance-badges.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

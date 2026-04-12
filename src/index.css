@@ -1,9 +1,13 @@
+/* Shared animation keyframes used by all section CSS files */
+@import './styles/animations.css';
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* Lenis adds its own smooth scroll — don't double-up with CSS scroll-behavior */
 body {
   margin: 0;
   min-width: 300px;
@@ -18,4 +22,33 @@ body {
 
 a {
   color: inherit;
+}
+
+/* ── GSAP word-split global styles ──────────────────────────────
+   Created by gsapAnimations.splitToWords().
+   These class names must be global — components don't import
+   a separate CSS file for them.
+   .anim-clip  = overflow:hidden container (clips the rising word)
+   .anim-word  = the element GSAP animates (yPercent: 110 → 0)
+   ─────────────────────────────────────────────────────────────── */
+.anim-clip {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.anim-word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Reduced-motion: respect users who prefer less animation */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

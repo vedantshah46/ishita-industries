@@ -2,8 +2,22 @@
 
 /* ─── Base ──────────────────────────────────────────────── */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
   padding-top: clamp(0.75rem, 1.5vw, 1.25rem);
   background: #fff;
+  transition: padding 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Compact + frosted glass state after 50px scroll */
+.site-header--scrolled {
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 22px rgba(0, 0, 0, 0.07);
 }
 
 @font-face {

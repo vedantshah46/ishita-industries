@@ -1,0 +1,81 @@
+/* ── Marquee Ticker ──────────────────────────────────────────────
+   The strip clips overflow so only the visible portion shows.
+   The track holds two identical copies side-by-side.
+   Animating translateX(0) → translateX(-50%) moves exactly one
+   copy out of view before looping back — perfectly seamless.
+   ─────────────────────────────────────────────────────────────── */
+
+.marquee-strip {
+  overflow: hidden;
+  padding: clamp(0.85rem, 1.5vw, 1.15rem) 0;
+  border-top:    1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  /* GPU layer — prevents repaints during animation */
+  will-change: transform;
+}
+
+.marquee-strip--dark {
+  background: #1e2024;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.marquee-strip--light {
+  background: transparent;
+}
+
+/* ── The animated row ────────────────────────────────────────── */
+.marquee-track {
+  display: flex;
+  width: max-content;        /* grows to fit all content */
+  white-space: nowrap;
+  animation: marquee-scroll linear infinite;
+  /* duration & direction injected via inline style from JSX */
+}
+
+/* Pause on hover so users can read (accessibility) */
+.marquee-strip:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Individual items ────────────────────────────────────────── */
+.marquee-copy {
+  display: inline-flex;
+  align-items: center;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2vw, 2rem);
+  font-size: clamp(0.68rem, 0.8vw, 0.8rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding-right: clamp(1.2rem, 2vw, 2rem);
+}
+
+.marquee-strip--light .marquee-item {
+  color: #5a5e64;
+}
+
+.marquee-strip--dark .marquee-item {
+  color: rgba(240, 240, 240, 0.65);
+}
+
+.marquee-sep {
+  font-size: 1.1em;
+  opacity: 0.4;
+  padding-left: clamp(1.2rem, 2vw, 2rem);
+}
+
+/* ── Reduced motion: stop the scroll ────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}

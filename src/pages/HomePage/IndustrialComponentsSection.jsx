@@ -1,95 +1,66 @@
-import React, { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import './IndustrialComponentsSection.css'
 import electrical from '../../Images/industrial-electrical.png'
-import automative from '../../Images/industrial-automotive.png'
-import fastener from '../../Images/industrial-fastener.png'
-import engineer from '../../Images/industrial-Engineered.png'
-import cpvcppr from '../../Images/industrial-CPVC-PPR.png'
+import automative  from '../../Images/industrial-automotive.png'
+import fastener    from '../../Images/industrial-fastener.png'
+import engineer    from '../../Images/industrial-Engineered.png'
+import cpvcppr     from '../../Images/industrial-CPVC-PPR.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal   from '../../hooks/useCurtainReveal'
 
 const industrialData = [
   {
     title: 'Electrical',
     badges: [
-      'Electric Pin',
-      'Transformer Parts',
-      'Neutral Link',
-      'Lugs',
-      'Electrical Accesories & Contac Parts',
-      'Electrical Fues Parts',
-      'Electrical Meter Parts',
-      'Electrical Terminal Block & Bar',
-      'Electric Parts',
-      'Electrical Switch Gear Parts',
+      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
+      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
+      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
+      'Electric Parts', 'Electrical Switch Gear Parts',
     ],
     image: electrical,
   },
   {
     title: 'Automotive',
     badges: [
-      'Electric Pin',
-      'Transformer Parts',
-      'Neutral Link',
-      'Lugs',
-      'Electrical Accesories & Contac Parts',
-      'Electrical Fues Parts',
-      'Electrical Meter Parts',
-      'Electrical Terminal Block & Bar',
-      'Electric Parts',
-      'Electrical Switch Gear Parts',
+      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
+      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
+      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
+      'Electric Parts', 'Electrical Switch Gear Parts',
     ],
     image: automative,
   },
   {
     title: 'Fastener',
     badges: [
-      'Electric Pin',
-      'Transformer Parts',
-      'Neutral Link',
-      'Lugs',
-      'Electrical Accesories & Contac Parts',
-      'Electrical Fues Parts',
-      'Electrical Meter Parts',
-      'Electrical Terminal Block & Bar',
-      'Electric Parts',
-      'Electrical Switch Gear Parts',
+      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
+      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
+      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
+      'Electric Parts', 'Electrical Switch Gear Parts',
     ],
     image: fastener,
   },
   {
     title: 'Engineered',
     badges: [
-      'Electric Pin',
-      'Transformer Parts',
-      'Neutral Link',
-      'Lugs',
-      'Electrical Accesories & Contac Parts',
-      'Electrical Fues Parts',
-      'Electrical Meter Parts',
-      'Electrical Terminal Block & Bar',
-      'Electric Parts',
-      'Electrical Switch Gear Parts',
+      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
+      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
+      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
+      'Electric Parts', 'Electrical Switch Gear Parts',
     ],
     image: engineer,
   },
   {
     title: 'CPVC PPR',
     badges: [
-      'Electric Pin',
-      'Transformer Parts',
-      'Neutral Link',
-      'Lugs',
-      'Electrical Accesories & Contac Parts',
-      'Electrical Fues Parts',
-      'Electrical Meter Parts',
-      'Electrical Terminal Block & Bar',
-      'Electric Parts',
-      'Electrical Switch Gear Parts',
+      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
+      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
+      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
+      'Electric Parts', 'Electrical Switch Gear Parts',
     ],
     image: cpvcppr,
-  }
+  },
 ]
 
-// Helper function to chunk array
 const chunkArray = (array, size) => {
   const result = []
   for (let i = 0; i < array.length; i += size) {
@@ -99,32 +70,12 @@ const chunkArray = (array, size) => {
 }
 
 function IndustrialComponentsSection() {
+  // GSAP curtain reveal on the section heading
+  const titleRef = useCurtainReveal({ stagger: 0.07 })
+
+  // Shared hook for row fade-ups
   const rowRefs = useRef([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            // Add slight delay artificially based on the element index if multiple enter at once?
-            // standard scroll IntersectionObserver unobserves after animating once:
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.1, // Trigger when 10% visible
-        rootMargin: '0px 0px -50px 0px' 
-      }
-    )
-
-    rowRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+  useScrollAnimation(rowRefs)
 
   return (
     <section className="industrial-components-section">
@@ -132,25 +83,26 @@ function IndustrialComponentsSection() {
         <div className="industrial-components-header">
           <div>
             <p className="industrial-components-kicker mb-0">BUILT FOR PERFORMANCE</p>
-            <h2 className="industrial-components-title mb-0">
-              INDUSTRIAL
-              <span className="d-block">COMPONENTS.</span>
+            <h2 className="industrial-components-title mb-0" ref={titleRef}>
+              INDUSTRIAL COMPONENTS.
             </h2>
           </div>
           <p className="industrial-components-intro mb-0">
-            Engineered for reliability and scalability, our components ensure precision, durability, and consistent quality for diverse industrial applications and global standards.
+            Engineered for reliability and scalability, our components ensure precision, durability,
+            and consistent quality for diverse industrial applications and global standards.
           </p>
         </div>
 
         <div className="industrial-components-list">
           {industrialData.map((item, index) => (
-            <article 
-              key={item.title} 
+            <article
+              key={item.title}
               className="industrial-components-row"
               ref={(el) => (rowRefs.current[index] = el)}
+              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <h3 className="industrial-components-row-title mb-0">{item.title}</h3>
-              
+
               <div className="industrial-components-badges">
                 {chunkArray(item.badges, 3).map((badgeRow, rowIndex) => (
                   <div key={rowIndex} className="industrial-components-badge-row">
@@ -164,7 +116,11 @@ function IndustrialComponentsSection() {
               </div>
 
               <div className="industrial-components-visual">
-                <img src={item.image} alt={item.title} className="industrial-components-image" />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="industrial-components-image"
+                />
               </div>
             </article>
           ))}

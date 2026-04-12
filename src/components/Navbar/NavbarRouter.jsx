@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import companyLogo from '../../Images/ishita-navbar-logo.png'
@@ -16,12 +16,26 @@ const navLinks = [
 
 function NavbarRouter() {
   const [isOpen, setIsOpen] = useState(false)
+  const headerRef = useRef(null)
 
   const handleToggle = () => setIsOpen((prev) => !prev)
   const handleNavClick = () => setIsOpen(false)
 
+  // Add .site-header--scrolled when user scrolls past 50px
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+
+    const onScroll = () => {
+      header.classList.toggle('site-header--scrolled', window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="site-header">
+    <header className="site-header" ref={headerRef}>
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <NavLink

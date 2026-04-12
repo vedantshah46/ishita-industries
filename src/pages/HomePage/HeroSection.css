@@ -48,6 +48,12 @@
   line-height: 1;
   padding: clamp(0.45rem, 0.6vw, 0.58rem) clamp(1rem, 1.4vw, 1.25rem);
   letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease;
+}
+
+.hero-cta-btn:hover {
+  box-shadow: 0 8px 28px rgb(53 55 61 / 0.32);
 }
 
 .hero-cta-icon {
