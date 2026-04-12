@@ -1,40 +1,36 @@
+import { useRef } from 'react'
 import './MeetOurTeamSection.css'
-import hiteshImage from '../../Images/hitesh.png'
-import raviImage from '../../Images/ravi.png'
+import hiteshImage  from '../../Images/hitesh.png'
+import raviImage    from '../../Images/ravi.png'
 import chintanImage from '../../Images/chintan.png'
-import rajImage from '../../Images/raj.png'
+import rajImage     from '../../Images/raj.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal   from '../../hooks/useCurtainReveal'
 
 const teamMembers = [
-  {
-    name: 'Hitesh Ajudiya',
-    role: 'Director Finance',
-    image: hiteshImage,
-  },
-  {
-    name: 'Ravi Patel',
-    role: 'Director Marketing',
-    image: raviImage,
-  },
-  {
-    name: 'Chintan Patel',
-    role: 'Director Quality',
-    image: chintanImage,
-  },
-  {
-    name: 'Raj Ajudiya',
-    role: 'Director Production',
-    image: rajImage,
-  },
+  { name: 'Hitesh Ajudiya', role: 'Director Finance',    image: hiteshImage  },
+  { name: 'Ravi Patel',     role: 'Director Marketing',  image: raviImage    },
+  { name: 'Chintan Patel',  role: 'Director Quality',    image: chintanImage },
+  { name: 'Raj Ajudiya',    role: 'Director Production', image: rajImage     },
 ]
 
 function MeetOurTeamSection() {
+  const titleRef = useCurtainReveal({ stagger: 0.065 })
+
+  // [0] = header, [1..4] = team cards
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="meet-team-section">
       <div className="container meet-team-shell">
-        <div className="meet-team-header">
+        <div
+          className="meet-team-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="meet-team-kicker mb-0">THE PEOPLE BEHIND THE PROCESS</p>
-            <h2 className="meet-team-title mb-0">
+            <h2 className="meet-team-title mb-0" ref={titleRef}>
               MEET OUR
               <span className="d-block">TEAM.</span>
             </h2>
@@ -47,8 +43,13 @@ function MeetOurTeamSection() {
         </div>
 
         <div className="meet-team-grid">
-          {teamMembers.map((member) => (
-            <article key={member.name} className="team-card">
+          {teamMembers.map((member, index) => (
+            <article
+              key={member.name}
+              className="team-card"
+              ref={(el) => (animRefs.current[1 + index] = el)}
+              style={{ transitionDelay: `${index * 80}ms` }}
+            >
               <div className="team-card-image-wrap">
                 <img src={member.image} alt={member.name} className="team-card-image" />
               </div>

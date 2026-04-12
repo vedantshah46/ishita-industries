@@ -7,11 +7,22 @@
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
+/* ── Scroll-reveal: section header ───────────────────────────────
+   Slides up when useScrollAnimation adds `.is-visible`.
+   ─────────────────────────────────────────────────────────────── */
 .about-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
   align-items: start;
   gap: clamp(1.5rem, 3.8vw, 4.3rem);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.about-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-kicker {
@@ -38,6 +49,7 @@
   color: #666b72;
 }
 
+/* ── Scroll-reveal: body paragraph — blur-fade gives a premium feel */
 .about-body {
   max-width: 1110px;
   margin: clamp(2.2rem, 3.5vw, 3.35rem) 0 0;
@@ -47,6 +59,20 @@
   letter-spacing: -0.018em;
   text-align: center;
   color: #3f4349;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(16px);
+  transition:
+    opacity 0.85s ease-out,
+    filter 0.85s ease-out,
+    transform 0.85s ease-out;
+  transition-delay: 0.1s;
+}
+
+.about-body.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
 .about-highlights {
@@ -66,6 +92,24 @@
   justify-content: center;
   text-align: center;
   padding: 1rem 0.9rem;
+  /* Scroll animation start state */
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about-highlight-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-highlight-card:hover {
+  background-color: #35373d;
+  border-color: #35373d;
 }
 
 .about-highlight-card span {
@@ -73,6 +117,11 @@
   font-size: clamp(0.72rem, 0.83vw, 0.85rem);
   line-height: 1.4;
   color: #50555c;
+  transition: color 0.25s ease;
+}
+
+.about-highlight-card:hover span {
+  color: #f2f2f2;
 }
 
 @media (max-width: 991.98px) {

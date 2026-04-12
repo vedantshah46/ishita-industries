@@ -1,5 +1,8 @@
+import { useRef } from 'react'
 import './CapabilitiesSection.css'
 import capVisualImage from '../../Images/manufacturing-infrastructure.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal from '../../hooks/useCurtainReveal'
 
 const metals = [
   'Stainless Steel',
@@ -17,15 +20,26 @@ const processes = [
 ]
 
 function CapabilitiesSectionNew() {
+  // GSAP curtain reveal on the main heading
+  const titleRef = useCurtainReveal({ stagger: 0.055 })
+
+  // Scroll reveal for header + cards
+  // Index map: [0] = header, [1..4] = cap cards
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="capabilities-section">
       <div className="container capabilities-shell">
-        <div className="capabilities-header">
+
+        <div
+          className="capabilities-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="capabilities-kicker mb-0">CORE ECOSYSTEM</p>
-            <h2 className="capabilities-title mb-0">
-              Advanced Manufacturing
-              <span className="d-block">Capabilities</span>
+            <h2 className="capabilities-title mb-0" ref={titleRef}>
+              Advanced Manufacturing Capabilities
             </h2>
           </div>
           <p className="capabilities-intro mb-0">
@@ -35,7 +49,10 @@ function CapabilitiesSectionNew() {
 
         <div className="capabilities-grid">
           <div className="capabilities-row capabilities-row-top">
-            <article className="cap-card cap-card-machining">
+            <article
+              className="cap-card cap-card-machining"
+              ref={(el) => (animRefs.current[1] = el)}
+            >
               <div className="cap-card-topline">
                 <span>3C</span>
                 <span>UNIT 04 / OPS</span>
@@ -69,9 +86,12 @@ function CapabilitiesSectionNew() {
               </div>
             </article>
 
-            <article className="cap-card cap-card-visual">
+            <article
+              className="cap-card cap-card-visual"
+              ref={(el) => (animRefs.current[2] = el)}
+            >
               <div className="cap-visual-image" aria-hidden="true">
-               <img src={capVisualImage}/>
+                <img src={capVisualImage} />
               </div>
 
               <div className="cap-visual-overlay">
@@ -93,7 +113,10 @@ function CapabilitiesSectionNew() {
           </div>
 
           <div className="capabilities-row capabilities-row-bottom">
-            <article className="cap-card cap-card-metals">
+            <article
+              className="cap-card cap-card-metals"
+              ref={(el) => (animRefs.current[3] = el)}
+            >
               <div className="cap-card-section-label">
                 <span className="cap-card-section-dot" aria-hidden="true" />
                 <span>METAL WE WORK</span>
@@ -109,7 +132,10 @@ function CapabilitiesSectionNew() {
               </div>
             </article>
 
-            <article className="cap-card cap-card-finishing">
+            <article
+              className="cap-card cap-card-finishing"
+              ref={(el) => (animRefs.current[4] = el)}
+            >
               <h3 className="cap-finishing-title mb-0">SURFACE FINISHING</h3>
 
               <div className="cap-finishing-list">
@@ -128,6 +154,7 @@ function CapabilitiesSectionNew() {
             </article>
           </div>
         </div>
+
       </div>
     </section>
   )

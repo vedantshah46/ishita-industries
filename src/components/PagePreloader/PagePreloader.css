@@ -1,0 +1,63 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #1b1d21;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0);
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  pointer-events: none;
+}
+
+.preloader--done {
+  transform: translateY(-100%);
+}
+
+/* Company name — small, spaced out, centred */
+.preloader-brand {
+  margin: 0;
+  font-size: clamp(0.78rem, 1.4vw, 1rem);
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Large decorative counter in the bottom-right corner */
+.preloader-counter {
+  position: absolute;
+  bottom: clamp(1.5rem, 5vw, 3.5rem);
+  right: clamp(1.5rem, 5vw, 3.5rem);
+  font-size: clamp(5rem, 14vw, 12rem);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.06);
+  user-select: none;
+}
+
+/* Thin progress line at the very bottom */
+.preloader-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.preloader-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: rgba(255, 255, 255, 0.5);
+  animation: preloader-fill 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes preloader-fill {
+  to { width: 100%; }
+}

@@ -1,21 +1,34 @@
+import { useRef } from 'react'
 import './AboutHeroSection.css'
 import factoryImage from '../../Images/about-us-hero-section.png'
 import chairmanImage from '../../Images/bhavesh.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal   from '../../hooks/useCurtainReveal'
 
 function AboutHeroSection() {
+  // Curtain word-reveal on the main h1
+  const titleRef = useCurtainReveal({ stagger: 0.065 })
+
+  // Scroll fade-up for subsequent blocks
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="about-hero-section">
       <div className="container about-hero-shell">
 
         <header className="about-hero-top">
-          <h1 className="about-hero-title mb-0">
+          <h1 className="about-hero-title mb-0" ref={titleRef}>
             Manufacturing
             <span className="d-block">Relationships.</span>
             <span className="about-hero-title-light d-block">Distributing Quality.</span>
           </h1>
         </header>
 
-        <div className="about-hero-meta">
+        <div
+          className="about-hero-meta"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <p className="about-hero-copy mb-0">
             Precision non-ferrous components since 1994, Jamnagar, India. A legacy built on
             engineering excellence and a trusted reputation for high-quality brass components.
@@ -26,11 +39,17 @@ function AboutHeroSection() {
           </div>
         </div>
 
-        <div className="about-hero-factory-frame">
+        <div
+          className="about-hero-factory-frame"
+          ref={(el) => (animRefs.current[1] = el)}
+        >
           <img src={factoryImage} alt="Factory interior" className="about-hero-factory-image" />
         </div>
 
-        <div className="about-chairman-intro">
+        <div
+          className="about-chairman-intro"
+          ref={(el) => (animRefs.current[2] = el)}
+        >
           <div>
             <p className="about-chairman-kicker mb-0">FROM LEADERSHIP VISION</p>
             <h2 className="about-chairman-title mb-0">
@@ -43,7 +62,10 @@ function AboutHeroSection() {
           </p>
         </div>
 
-        <section className="about-chairman-card">
+        <section
+          className="about-chairman-card"
+          ref={(el) => (animRefs.current[3] = el)}
+        >
           <div className="about-chairman-copy-block">
             <h3 className="about-chairman-card-title mb-0">Message from Chairman</h3>
             <p className="about-chairman-card-text mb-0">
