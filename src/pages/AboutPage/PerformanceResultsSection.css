@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ─── Base ──────────────────────────────────────────────── */
 .performance-results-section {
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   background-color: #ffffff;
@@ -8,6 +11,7 @@
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
+/* ─── Header ─────────────────────────────────────────────── */
 .results-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
@@ -16,35 +20,48 @@
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
+/* ─── Kicker: PERFORMANCE THAT DELIVERS ─────────────────── */
 .results-kicker {
-  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
-  line-height: 1.2;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.0rem, 0.72vw, 0.75rem);   /* your original size */
   letter-spacing: 0.1em;
+  vertical-align: middle;
   text-transform: uppercase;
-  color: #797d83;
+  color: #596061;
 }
 
+/* ─── Title: RESULTS THAT MATTER. ───────────────────────── */
 .results-title {
   margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
-  font-size: clamp(3.05rem, 4.1vw, 4.18rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3.05rem, 4.1vw, 4.18rem);   /* your original size */
   line-height: 0.98;
-  letter-spacing: 2px;
-  color: #31373d;
+  vertical-align: middle;
+  color: #2D3435;
 }
 
 .results-title span {
   margin-top: 0.18em;
+  display: block;
 }
 
+/* ─── Intro: Driven by precision… ───────────────────────── */
 .results-intro {
-  padding-right: 90px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(0.85rem, 0.92vw, 0.95rem);  /* your original size */
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #596061;
   padding-top: clamp(3.4rem, 4.7vw, 4.8rem);
-  font-size: clamp(0.85rem, 0.92vw, 0.95rem);
-  line-height: 1.55;
-  color: #666b72;
 }
 
+/* ─── Grid ───────────────────────────────────────────────── */
 .results-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -52,6 +69,7 @@
   padding: 0px 0px 0px 60px;
 }
 
+/* ─── Card ───────────────────────────────────────────────── */
 .results-card {
   background-color: #ffffff;
   border: 1px solid #b5b9be;
@@ -62,22 +80,34 @@
   min-height: clamp(150px, 10vw, 163px);
 }
 
+/* ─── Card value: 10+, 100% ──────────────────────────────── */
 .results-card-value {
-  font-size: clamp(1.1rem, 1.2vw, 1.35rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.1rem, 1.2vw, 1.35rem);    /* your original size */
+  line-height: 1;
+  letter-spacing: 0;
   color: #343434;
 }
 
+/* ─── Card label: Material Supported… ───────────────────── */
 .results-card-label {
-  font-size: clamp(1.05rem, 1.1vw, 1.2rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.05rem, 1.1vw, 1.2rem);    /* your original size */
+  line-height: 1;
+  letter-spacing: 0;
   color: #343434;
 }
 
- @media (max-width: 991.98px) {
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
+@media (max-width: 991.98px) {
   .results-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
@@ -86,17 +116,80 @@
   }
 
   .results-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+  }
+
+  .results-title {
+    letter-spacing: -3px;
   }
 }
 
-@media (max-width: 575.98px) {
-  .results-grid {
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .results-header {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.75rem;
+  }
+
+  .results-intro {
+    padding-top: 0;
+  }
+
+  .results-title {
+    font-size: 2.5rem;
+    letter-spacing: -1.5px;
+  }
+
+  .results-kicker {
+    letter-spacing: 2px;
+  }
+
+  .results-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+    gap: 0.75rem;
   }
 
   .results-card {
-    min-height: 180px;
+    min-height: 120px;
+    padding: clamp(0.75rem, 2vw, 1rem);
+  }
+}
+
+/* ─── Small mobile (< 576px) ────────────────────────────── */
+@media (max-width: 575.98px) {
+  .results-title {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .results-card {
+    min-height: 130px;
+  }
+}
+
+/* ─── Extra small (< 400px) ─────────────────────────────── */
+@media (max-width: 399.98px) {
+  .results-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .results-title {
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .results-shell {
+    max-width: 1520px;
   }
 }
