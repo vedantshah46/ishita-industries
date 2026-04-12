@@ -57,6 +57,94 @@
   transform: translate(-50%, -50%);
 }
 
+/* ─── Center Disc Scroll Animation ───────────────────────── */
+.usp-center-disc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: clamp(250px, 29vw, 312px);
+  height: clamp(250px, 29vw, 312px);
+  border-radius: 50%;
+  background: #f1f1f1;
+  border: 5px solid #f2f2f2;
+  transform: translate(-50%, -50%) scale(0);
+  box-shadow: 0 10px 22px rgba(70, 73, 79, 0.28);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transition: transform 1s 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.6s 0.2s ease,
+              box-shadow 1s 0.8s ease;
+}
+
+.usp-section.is-visible .usp-center-disc {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  box-shadow:
+    0 10px 22px rgba(70, 73, 79, 0.28),
+    0 0 60px rgba(201, 168, 76, 0.15),
+    0 0 120px rgba(201, 168, 76, 0.06);
+}
+
+/* Golden ring pulse on the disc */
+.usp-center-disc::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0);
+  transition: border-color 0.6s 1.2s ease;
+  animation: none;
+}
+
+.usp-section.is-visible .usp-center-disc::before {
+  border-color: rgba(201, 168, 76, 0.3);
+  animation: discRingPulse 2.5s 1.2s ease-out forwards;
+}
+
+@keyframes discRingPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+    border-color: rgba(201, 168, 76, 0.35);
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    border-color: rgba(201, 168, 76, 0);
+  }
+}
+
+/* Disc text stagger */
+.usp-center-disc p,
+.usp-center-disc h3 {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.usp-section.is-visible .usp-center-disc p:first-child {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.9s;
+}
+
+.usp-section.is-visible .usp-center-disc h3 {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.05s;
+}
+
+.usp-section.is-visible .usp-center-disc p:last-child {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 1.2s;
+}
+
+/* ─── Fan Cards Scroll Animation ─────────────────────────── */
 .usp-fan-card {
   position: absolute;
   left: 50%;
@@ -71,6 +159,9 @@
   padding: 1.15rem 0.75rem 1rem;
   color: rgba(247, 247, 247, 0.92);
   box-shadow: 10px 10px 31.8px -0.736963px #9098a0;
+  /* Initial: all stacked at center, no rotation */
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .usp-fan-index {
@@ -90,50 +181,65 @@
   color: rgba(245, 245, 245, 0.88);
 }
 
+/* Fan cards: start collapsed, animate to fanned positions */
 .usp-fan-card-1 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 0.5s;
+}
+.usp-section.is-visible .usp-fan-card-1 {
+  opacity: 1;
   transform: translate(-50%, -100%) rotate(-55deg);
 }
 
 .usp-fan-card-2 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 0.6s;
+}
+.usp-section.is-visible .usp-fan-card-2 {
+  opacity: 1;
   transform: translate(-50%, -100%) rotate(-15deg);
   height: clamp(238px, 27.5vw, 240px);
 }
 
 .usp-fan-card-3 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 0.7s;
+}
+.usp-section.is-visible .usp-fan-card-3 {
+  opacity: 1;
   transform: translate(-50%, -100%) rotate(28deg);
   height: clamp(220px, 27.5vw, 220px);
 }
 
 .usp-fan-card-4 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 0.8s;
+}
+.usp-section.is-visible .usp-fan-card-4 {
+  opacity: 1;
   transform: translate(-22%, -69%) rotate(47deg);
   height: clamp(220px, 27.5vw, 230px);
 }
 
 .usp-fan-card-5 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 0.9s;
+}
+.usp-section.is-visible .usp-fan-card-5 {
+  opacity: 1;
   transform: translate(-62%, -64%) rotate(88deg);
 }
 
 .usp-fan-card-6 {
+  transform: translate(-50%, -100%) rotate(0deg);
+  transition-delay: 1.0s;
+}
+.usp-section.is-visible .usp-fan-card-6 {
+  opacity: 1;
   transform: translate(-50%, -100%) rotate(165deg);
 }
 
-.usp-center-disc {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: clamp(250px, 29vw, 312px);
-  height: clamp(250px, 29vw, 312px);
-  border-radius: 50%;
-  background: #f1f1f1;
-  border: 5px solid #f2f2f2;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 10px 22px rgba(70, 73, 79, 0.28);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 
 .usp-center-disc p {
   font-size: clamp(2rem, 2.5vw, 2.3rem);
@@ -151,6 +257,7 @@
   color: #404448;
 }
 
+/* ─── Feature Items Scroll Animation ─────────────────────── */
 .usp-feature {
   position: absolute;
   display: flex;
@@ -158,6 +265,51 @@
   align-items: start;
   gap: 0.8rem;
   width: min(332px, 43vw);
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Left-side features slide from left */
+.usp-feature-material,
+.usp-feature-engineering {
+  transform: translateX(-40px);
+}
+
+.usp-section.is-visible .usp-feature-material {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.8s;
+}
+
+.usp-section.is-visible .usp-feature-engineering {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.95s;
+}
+
+.usp-section.is-visible .usp-feature-rfq {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.1s;
+}
+
+.usp-section.is-visible .usp-feature-quality {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.25s;
+}
+
+.usp-section.is-visible .usp-feature-oem {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.4s;
+}
+
+.usp-section.is-visible .usp-feature-partnership {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 1.55s;
 }
 
 .usp-feature-title {

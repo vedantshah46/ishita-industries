@@ -1,6 +1,79 @@
+/* ─── Scroll Runway Wrapper ──────────────────────────────── */
+.hero-scroll-wrapper {
+  height: 180vh; /* extra scroll room for the parallax to play out */
+}
+
 .hero-section {
+  position: sticky;
+  top: 0;
   padding-top: clamp(1.2rem, 3.5vw, 3.9rem);
   padding-bottom: clamp(1.4rem, 3.4vw, 3.2rem);
+  overflow: hidden;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ─── Hero Entrance Animations ───────────────────────────── */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes heroSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-kicker {
+  opacity: 0;
+  animation: heroFadeUp 0.7s 3.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title {
+  opacity: 0;
+  animation: heroFadeUp 0.8s 3.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-cta-btn {
+  opacity: 0;
+  animation: heroFadeUp 0.6s 3.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-story {
+  opacity: 0;
+  animation: heroFadeUp 0.6s 3.9s ease forwards;
+}
+
+.hero-footnote {
+  opacity: 0;
+  animation: heroFadeIn 0.6s 4.1s ease forwards;
+}
+
+.hero-media-wrap {
+  opacity: 0;
+  animation: heroSlideInRight 1s 3.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-caption {
+  opacity: 0;
+  animation: heroFadeIn 0.6s 4s ease forwards;
 }
 
 .hero-shell {
@@ -10,6 +83,7 @@
 
 .hero-content {
   max-width: 100%;
+  will-change: transform, opacity;
 }
 
 .hero-kicker {

@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import './UniqueSellingPropositionSection.css'
 
 const uspItems = [
@@ -128,8 +129,33 @@ function Icon({ type }) {
 }
 
 function UniqueSellingPropositionSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="usp-section">
+    <section className="usp-section" ref={sectionRef}>
       <div className="container usp-shell">
         <div className="usp-header">
           <div>
@@ -177,3 +203,4 @@ function UniqueSellingPropositionSection() {
 }
 
 export default UniqueSellingPropositionSection
+

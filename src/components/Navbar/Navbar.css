@@ -61,6 +61,11 @@
   font-weight: 500;
 }
 
+.site-header.scrolled .nav-link:hover,
+.site-header.scrolled .nav-link.active {
+  color: #dfdfdf;
+}
+
 /* ─── Nav actions ────────────────────────────────────────── */
 .nav-actions {
   gap: 0.6rem;
@@ -243,4 +248,57 @@
   .menu-btn {
     font-size: 0.85rem;
   }
+}
+
+/* --- Scrolling Header Overrides ------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+  padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  /* Entrance animation after intro */
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: navbarSlideDown 0.7s 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes navbarSlideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.site-header.scrolled {
+  background-color: #000000 !important;
+  padding-top: clamp(0.6rem, 1vw, 1rem) !important;
+  padding-bottom: clamp(0.6rem, 1vw, 1rem) !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link,
+.icon-button,
+.brochure-btn,
+.menu-btn {
+  transition: color 0.4s ease, border-color 0.4s ease;
+}
+
+.site-header.scrolled .nav-link,
+.site-header.scrolled .icon-button,
+.site-header.scrolled .brochure-btn,
+.site-header.scrolled .menu-btn {
+  color: #ffffff;
+}
+
+.site-header.scrolled .brochure-btn {
+  border-color: #ffffff;
+}
+
+.site-header.scrolled .brand-logo--desktop,
+.site-header.scrolled .brand-logo--mobile,
+.site-header.scrolled .toggle-icon,
+.site-header.scrolled .brochure-icon img,
+.site-header.scrolled .icon-globe img {
+  filter: brightness(0) invert(1);
 }

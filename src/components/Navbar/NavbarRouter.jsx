@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Navbar.css'
 import companyLogo from '../../Images/ishita-navbar-logo.png'
@@ -16,12 +16,26 @@ const navLinks = [
 
 function NavbarRouter() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log('Scroll position:', window.scrollY)
+      if (window.scrollY > 40) {
+        setIsScrolled(true)
+      } else {
+        setIsScrolled(false)
+      }
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const handleToggle = () => setIsOpen((prev) => !prev)
   const handleNavClick = () => setIsOpen(false)
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <NavLink

@@ -1,9 +1,36 @@
+import { useEffect, useRef } from 'react'
 import './PrecisionExpertiseSection.css'
 import precisionMmachineExpertiseOne from '../../Images/precision-machine-expertise-one.png'
 import precisionMachineExpertiseTwo from '../../Images/precision-machine-expertise-two.png'
+
 function PrecisionExpertiseSection() {
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -60px 0px',
+      }
+    )
+
+    observer.observe(section)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="precision-section">
+    <section className="precision-section" ref={sectionRef}>
       <div className="container precision-shell">
         <div className="precision-header">
           <div>
@@ -19,7 +46,7 @@ function PrecisionExpertiseSection() {
         </div>
 
         <div className="precision-grid">
-          <article className="precision-card">
+          <article className="precision-card precision-card--left">
             <div className="precision-visual precision-visual-brass" aria-hidden="true">
               <img src={precisionMmachineExpertiseOne}/>
             </div>
@@ -28,11 +55,10 @@ function PrecisionExpertiseSection() {
             </p>
           </article>
 
-          <article className="precision-card">
+          <article className="precision-card precision-card--right">
             <div className="precision-visual precision-visual-alloy" aria-hidden="true">
               <img src={precisionMachineExpertiseTwo}/>
-              
-               </div>
+            </div>
             <p className="precision-caption mb-0">Aluminum Alloy Extrusion Products</p>
           </article>
         </div>
@@ -42,3 +68,4 @@ function PrecisionExpertiseSection() {
 }
 
 export default PrecisionExpertiseSection
+

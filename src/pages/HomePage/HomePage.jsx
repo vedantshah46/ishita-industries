@@ -1,4 +1,5 @@
 import Navbar from '../../components/Navbar/NavbarRouter'
+import IntroAnimation from '../../components/IntroAnimation/IntroAnimation'
 import AboutSection from './AboutSection'
 import CapabilitiesSectionNew from './CapabilitiesSectionNew'
 import HeroSection from './HeroSection'
@@ -14,6 +15,7 @@ import Footer from '../../components/Footer/Footer'
 function Homepage() {
   return (
     <>
+      <IntroAnimation />
       <Navbar />
       <HeroSection />
       <AboutSection />

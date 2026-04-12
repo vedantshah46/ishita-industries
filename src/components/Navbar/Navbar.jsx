@@ -4,17 +4,31 @@ import companyLogoMobile from '../../Images/ishita-navbar-logo-mobile.png';
 import browserLogo from '../../Images/navbar-browser-logo.png';
 import downloadLogo from '../../Images/navbar-download-logo.png';
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const navLinks = ['Home', 'About', 'Product', 'Quality']
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Toggle navbar black styling based on scroll position
+      if (window.scrollY > 40) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleToggle = () => setIsOpen(prev => !prev);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <a className="navbar-brand brand-wrap d-flex align-items-center" href="#">
