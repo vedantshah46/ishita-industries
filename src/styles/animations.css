@@ -1,0 +1,125 @@
+/* ================================================================
+   SHARED ANIMATION KEYFRAMES  ·  src/styles/animations.css
+   ================================================================
+   Central keyframe library used across all sections.
+
+   HOW IT WORKS:
+   - This file defines keyframes only. No class rules live here.
+   - Each section's own CSS file references these keyframe names.
+   - Scroll-triggered reveals use the useScrollAnimation hook
+     (src/hooks/useScrollAnimation.js) to add `.is-visible`.
+   - Hero entrance animations play automatically via CSS `animation`.
+
+   ADDING A NEW ANIMATION:
+   - Define the @keyframes here.
+   - Apply it in the relevant section's CSS file.
+   ================================================================ */
+
+
+/* ── Scroll-reveal: fade up (most common reveal pattern) ──────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── Scroll-reveal: fade in from left ─────────────────────────── */
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* ── Scroll-reveal: fade in from right ────────────────────────── */
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* ── Scroll-reveal: scale up ──────────────────────────────────── */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.93);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ── Scroll-reveal: blur + fade (premium text entrance) ───────── */
+@keyframes blurFadeIn {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+
+/* ── Idle: gentle float (used on hero product images) ─────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+/* ── Hero: content blocks slide up on page load ───────────────── */
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── Hero: media column fades in on page load ─────────────────── */
+@keyframes heroMediaIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── Scroll progress bar: width transition handled via inline style ─
+   No keyframe needed — the bar width is set directly in JS.        */

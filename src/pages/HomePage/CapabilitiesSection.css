@@ -428,3 +428,46 @@
     max-width: 1520px;
   }
 }
+
+
+/* ── Scroll-reveal animations ────────────────────────────────────
+   Start states are hidden. useScrollAnimation adds `.is-visible`
+   when the element enters the viewport.
+   ─────────────────────────────────────────────────────────────── */
+
+.capabilities-header {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.capabilities-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cards fade-up with scale — each row staggered via transition-delay */
+.cap-card {
+  opacity: 0;
+  transform: translateY(28px) scale(0.97);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.cap-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cap-card-machining { transition-delay: 0.1s; }
+.cap-card-visual    { transition-delay: 0.2s; }
+.cap-card-metals    { transition-delay: 0.1s; }
+.cap-card-finishing { transition-delay: 0.2s; }
+
+/* Image inside the visual card zooms subtly on hover */
+.cap-visual-image img {
+  transition: transform 0.55s ease;
+}
+
+.cap-card-visual:hover .cap-visual-image img {
+  transform: scale(1.05);
+}

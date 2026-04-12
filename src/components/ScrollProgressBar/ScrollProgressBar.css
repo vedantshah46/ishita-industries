@@ -1,0 +1,20 @@
+/* ── Scroll Progress Bar ─────────────────────────────────────────
+   Fixed 2px line at the top of every page.
+   Width is driven by transform: scaleX() from JS for smooth 60fps.
+   transform-origin: left means it grows left → right.
+   ─────────────────────────────────────────────────────────────── */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #35373d 0%, #888b92 100%);
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 9999;
+
+  /* GPU-accelerated: only transform changes, no layout reflow */
+  will-change: transform;
+}

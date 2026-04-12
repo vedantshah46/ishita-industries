@@ -1,7 +1,9 @@
+import { useRef } from 'react'
 import './ManufacturingInfrastructureSection.css'
 import infrastructureImage from '../../Images/about-manufacturing-infrastructure.png'
 import contactUsLogo from '../../Images/homepage-contact-us-logo.png'
-import checkbox from '../../Images/about-manufacture-checkbox.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal   from '../../hooks/useCurtainReveal'
 
 
 const machineList = [
@@ -24,13 +26,21 @@ const infrastructureStats = [
 ]
 
 function ManufacturingInfrastructureSection() {
+  const titleRef = useCurtainReveal({ stagger: 0.065 })
+
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="about-infra-section">
       <div className="container about-infra-shell">
-        <div className="about-infra-header">
+        <div
+          className="about-infra-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="about-infra-kicker mb-0">POWERING PRECISION</p>
-            <h2 className="about-infra-title mb-0">
+            <h2 className="about-infra-title mb-0" ref={titleRef}>
               MANUFACTURING
               <span className="d-block">INFRASTRUCTURE.</span>
             </h2>
@@ -42,7 +52,10 @@ function ManufacturingInfrastructureSection() {
           </p>
         </div>
 
-        <div className="about-infra-visual-card">
+        <div
+          className="about-infra-visual-card"
+          ref={(el) => (animRefs.current[1] = el)}
+        >
           <img
             src={infrastructureImage}
             alt="Manufacturing infrastructure"
@@ -67,7 +80,10 @@ function ManufacturingInfrastructureSection() {
           </div>
         </div>
 
-        <div className="about-infra-stats">
+        <div
+          className="about-infra-stats"
+          ref={(el) => (animRefs.current[2] = el)}
+        >
           {infrastructureStats.map((stat) => (
             <article key={stat.label} className="about-infra-stat-card">
               <p className="about-infra-stat-value mb-0">{stat.value}</p>

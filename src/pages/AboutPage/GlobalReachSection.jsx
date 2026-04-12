@@ -1,17 +1,20 @@
+import { useRef } from 'react'
 import './GlobalReachSection.css'
-import waterImage from '../../Images/about-us-international-one.png'
-import boatImage from '../../Images/about-us-international-two.png'
-import map from '../../Images/about-us-international-map.png'
-import ausFlag from '../../Images/aus-flag.png'
-import canadaFlag from '../../Images/canada-flag.png'
-import franceFlag from '../../Images/france-flag.png'
-import saudiArabiaFlag from '../../Images/saudi-arabia-flag.png'
-import southAfricaFlag from '../../Images/south-africa-flag.png'
-import starFlag from '../../Images/star-flag.png'
-import usFlag from '../../Images/us-flag.png'
-import ukFlag from '../../Images/uk-flag.png'
-import uaeFlag from '../../Images/uae-flag.png'
-import thaiLandFlag from '../../Images/thailand-flag.png'
+import waterImage       from '../../Images/about-us-international-one.png'
+import boatImage        from '../../Images/about-us-international-two.png'
+import map              from '../../Images/about-us-international-map.png'
+import ausFlag          from '../../Images/aus-flag.png'
+import canadaFlag       from '../../Images/canada-flag.png'
+import franceFlag       from '../../Images/france-flag.png'
+import saudiArabiaFlag  from '../../Images/saudi-arabia-flag.png'
+import southAfricaFlag  from '../../Images/south-africa-flag.png'
+import starFlag         from '../../Images/star-flag.png'
+import usFlag           from '../../Images/us-flag.png'
+import ukFlag           from '../../Images/uk-flag.png'
+import uaeFlag          from '../../Images/uae-flag.png'
+import thaiLandFlag     from '../../Images/thailand-flag.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
+import useCurtainReveal   from '../../hooks/useCurtainReveal'
 
 const shipStats = [
   {
@@ -48,15 +51,24 @@ const flagsData = [
 ]
 
 function GlobalReachSection() {
+  const titleRef = useCurtainReveal({ stagger: 0.065 })
+
+  // [0] = header, [1] = banner, [2] = world container
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="global-reach-section">
       <div className="container global-reach-shell">
 
         {/* ── Header ── */}
-        <div className="global-reach-header">
+        <div
+          className="global-reach-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="global-reach-kicker mb-0">CONNECTING MARKETS WORLDWIDE</p>
-            <h2 className="global-reach-title mb-0">
+            <h2 className="global-reach-title mb-0" ref={titleRef}>
               INTERNATIONAL
               <span className="d-block">REACH.</span>
             </h2>
@@ -68,22 +80,20 @@ function GlobalReachSection() {
         </div>
 
         {/* ── Banner ── */}
-        <div className="global-reach-banner-container">
-
-          {/* Water background — fills entire container */}
+        <div
+          className="global-reach-banner-container"
+          ref={(el) => (animRefs.current[1] = el)}
+        >
           <div className="global-reach-water-bg">
             <img src={waterImage} alt="" className="global-reach-water-image" />
           </div>
 
-          {/* Boat image — sits on top of water, positioned center-top */}
           <div className="global-reach-boat-wrap">
             <img src={boatImage} alt="Cargo Ship" className="global-reach-boat-image" />
           </div>
 
-          {/* Dark overlay for stats readability */}
           <div className="global-reach-banner-overlay"></div>
 
-          {/*  Stats at bottom */}
           <div className="global-reach-banner-stats">
             {shipStats.map((stat) => (
               <article key={stat.id} className="global-reach-stat-card">
@@ -96,7 +106,10 @@ function GlobalReachSection() {
         </div>
 
         {/* ── World map + flags ── */}
-        <div className="global-reach-world-container">
+        <div
+          className="global-reach-world-container"
+          ref={(el) => (animRefs.current[2] = el)}
+        >
           <div className="global-reach-map">
             <img src={map} alt="World Map" className="global-reach-map-image" />
           </div>

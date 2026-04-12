@@ -188,3 +188,19 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Scroll-reveal states ───────────────────────────────────── */
+.about-infra-header,
+.about-infra-visual-card,
+.about-infra-stats {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.about-infra-header.is-visible,
+.about-infra-visual-card.is-visible,
+.about-infra-stats.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

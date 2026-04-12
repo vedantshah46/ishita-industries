@@ -32,12 +32,12 @@ function PrecisionExpertiseSection() {
   return (
     <section className="precision-section" ref={sectionRef}>
       <div className="container precision-shell">
+
         <div className="precision-header">
           <div>
             <p className="precision-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-title mb-0">
-              PRECISION MACHINING
-              <span className="d-block">EXPERTISE.</span>
+              PRECISION MACHINING EXPERTISE.
             </h2>
           </div>
           <p className="precision-intro mb-0">
@@ -62,10 +62,10 @@ function PrecisionExpertiseSection() {
             <p className="precision-caption mb-0">Aluminum Alloy Extrusion Products</p>
           </article>
         </div>
+
       </div>
     </section>
   )
 }
 
 export default PrecisionExpertiseSection
-

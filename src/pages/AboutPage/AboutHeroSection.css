@@ -402,3 +402,20 @@
     max-width: 1520px;
   }
 }
+/* ── Scroll-reveal states ───────────────────────────────────── */
+.about-hero-meta,
+.about-hero-factory-frame,
+.about-chairman-intro,
+.about-chairman-card {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.about-hero-meta.is-visible,
+.about-hero-factory-frame.is-visible,
+.about-chairman-intro.is-visible,
+.about-chairman-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

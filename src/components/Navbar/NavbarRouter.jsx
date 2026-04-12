@@ -20,12 +20,7 @@ function NavbarRouter() {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log('Scroll position:', window.scrollY)
-      if (window.scrollY > 40) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+      setIsScrolled(window.scrollY > 40)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -35,7 +30,7 @@ function NavbarRouter() {
   const handleNavClick = () => setIsOpen(false)
 
   return (
-    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`site-header${isScrolled ? ' scrolled' : ''}`}>
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <NavLink
