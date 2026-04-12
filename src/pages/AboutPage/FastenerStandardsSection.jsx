@@ -1,5 +1,10 @@
 import './FastenerStandardsSection.css'
-
+import fsOne from '../../Images/fastner-standard-icon-one.png'
+import fsTwo from '../../Images/fastner-standard-icon-two.png'
+import fsThree from '../../Images/fastner-standard-icon-three.png'
+import fsFour from '../../Images/fastner-standard-icon-four.png'
+import fsFive from '../../Images/fastner-standard-icon-five.png'
+import fsSix from '../../Images/fastner-standard-icon-six.png'
 const standardsData = [
   {
     id: 'din',
@@ -8,9 +13,7 @@ const standardsData = [
     description: 'Known for strict mechanical engineering tolerances. The DIN standard remains the global benchmark for high-performance German automotive and industrial hardware.',
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2L2 7l10 5 10-5-10-5zm0 10v10m-10-5l10 5 10-5" />
-      </svg>
+      <img src={fsOne}/>
     )
   },
   {
@@ -20,10 +23,8 @@ const standardsData = [
     description: 'The global leader in material testing and classification. ASTM provides the foundational science for tensile strength and carbon composition across aerospace alloys.',
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M8 12h8m-4-4v8" />
-      </svg>
+           <img src={fsTwo}/>
+
     )
   },
   {
@@ -33,10 +34,8 @@ const standardsData = [
     description: 'Legacy of precision in aerospace and automotive fastening. British Standards maintain rigorous oversight on thread pitch accuracy and corrosive resistance.',
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2" />
-        <path d="M9 9h6m-6 6h6" />
-      </svg>
+            <img src={fsThree}/>
+
     )
   },
   {
@@ -46,9 +45,8 @@ const standardsData = [
     description: 'High-performance standards for electronics and machinery. JIS is focused on extreme miniaturization and reliability in consumer technology and robotics.',
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2v20" />
-      </svg>
+          <img src={fsFour}/>
+
     )
   },
   {
@@ -58,9 +56,7 @@ const standardsData = [
     description: 'Foundation of North American structural integrity. ANSI regulates the safety and dimensional standards for heavy infrastructure and construction sectors.',
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M4 4h16v16H4zM20 12H4M12 4v16" />
-      </svg>
+           <img src={fsFive}/>
     )
   },
   {
@@ -70,9 +66,8 @@ const standardsData = [
     description: "The primary standard for the world's largest manufacturing hub. GB facilitates massive scalability while maintaining compliance with international logistics.",
     buttonText: 'VIEW DOCUMENTATION',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M5 5h14v14H5zM5 12h14M12 5v14" />
-      </svg>
+      <img src={fsSix}/>
+    
     )
   }
 ]
