@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* ─── Base ──────────────────────────────────────────────── */
 .quality-assurance-section {
   padding: clamp(3rem, 5.2vw, 4.9rem) 0 clamp(3rem, 5vw, 4.7rem);
   background: #fcfcfb;
@@ -8,58 +11,74 @@
   padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
 }
 
+/* ─── Header ─────────────────────────────────────────────── */
 .quality-assurance-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(250px, 340px);
-  gap: clamp(1.5rem, 4vw, 5rem);
-  align-items: start;
+      display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(276px, 388px);
+    gap: clamp(1.5rem, 0vw, 5rem);
+    align-items: start;
 }
 
+/* ─── Kicker ─────────────────────────────────────────────── */
 .quality-assurance-kicker {
-  font-size: 0.62rem;
-  line-height: 1.2;
-  letter-spacing: 0.36em;
-  color: #8a8e92;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.82rem;
+  letter-spacing: 4.8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #596061;
 }
 
+/* ─── Title ──────────────────────────────────────────────── */
 .quality-assurance-title {
   margin-top: 0.95rem;
-  font-size: clamp(3rem, 4.35vw, 4.2rem);
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3rem, 4.35vw, 4.2rem);
   line-height: 0.93;
-  letter-spacing: 3px;
-  color: #373c42;
+  vertical-align: middle;
+  color: #2D3435;
 }
 
+/* ─── Copy ───────────────────────────────────────────────── */
 .quality-assurance-copy {
-  max-width: 320px;
-  padding-top: clamp(2.9rem, 3.8vw, 3.5rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: clamp(0.84rem, 0.95vw, 0.94rem);
-  line-height: 1.65;
-  color: #808488;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #596061;
+  padding-top: clamp(2.9rem, 3.8vw, 3.5rem);
+  margin-bottom: 0;
 }
 
+/* ─── Grid ───────────────────────────────────────────────── */
 .quality-assurance-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.85rem;
+  gap: 1.85rem;
   margin-top: clamp(1.8rem, 2.9vw, 2.35rem);
 }
 
+/* ─── Card ───────────────────────────────────────────────── */
 .quality-assurance-card {
   display: flex;
   flex-direction: column;
 }
 
+/* ─── Image wrap ─────────────────────────────────────────── */
 .quality-assurance-image-wrap {
   min-height: 206px;
-  border: 1px solid #e4e7eb;
+  border: none;
   border-radius: 6px;
-  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  overflow: hidden;
 }
 
 .quality-assurance-image {
@@ -69,22 +88,29 @@
   display: block;
 }
 
+/* ─── Label ──────────────────────────────────────────────── */
 .quality-assurance-label {
   margin-top: 0.55rem;
-  font-size: 0.54rem;
-  line-height: 1.25;
-  letter-spacing: 0.14em;
-  color: #696d72;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.6rem;
+  letter-spacing: 1.8px;
+  vertical-align: middle;
   text-transform: uppercase;
+  color: #2D3435;
   text-align: center;
 }
 
+/* ─── Badges ─────────────────────────────────────────────── */
 .quality-assurance-badges {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   align-items: center;
   gap: 1rem;
-  margin-top: 1.7rem;
+  margin-top: clamp(1.5rem, 2.5vw, 2rem);
+  padding-top: clamp(1rem, 1.5vw, 1.5rem);
+  border-top: 1px solid #e4e7eb;
 }
 
 .quality-assurance-badge {
@@ -98,12 +124,15 @@
   max-width: 100%;
   max-height: 75px;
   display: block;
+  object-fit: contain;
 }
 
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .quality-assurance-header {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    gap: 1.5rem;
   }
 
   .quality-assurance-copy {
@@ -112,24 +141,102 @@
   }
 
   .quality-assurance-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .quality-assurance-image-wrap {
+    min-height: 160px;
+  }
+
+  .quality-assurance-badges {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+}
+
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .quality-assurance-header {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .quality-assurance-copy {
+    padding-top: 0;
+    max-width: 100%;
+  }
+
+  .quality-assurance-title {
+    font-size: 2.3rem;
+    letter-spacing: -2px;
+  }
+
+  .quality-assurance-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  .quality-assurance-image-wrap {
+    min-height: 140px;
+  }
+
+  .quality-assurance-badges {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* ─── Small mobile (< 576px) ────────────────────────────── */
+@media (max-width: 575.98px) {
+  .quality-assurance-title {
+    font-size: 2rem;
+    letter-spacing: -1px;
+  }
+
+  .quality-assurance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .quality-assurance-image-wrap {
+    min-height: 120px;
   }
 
   .quality-assurance-badges {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+
+  .quality-assurance-badge-image {
+    max-height: 55px;
   }
 }
 
-@media (max-width: 575.98px) {
+/* ─── Extra small (< 400px) ─────────────────────────────── */
+@media (max-width: 399.98px) {
+  .quality-assurance-shell {
+    padding-inline: 0.75rem;
+  }
+
   .quality-assurance-title {
-    font-size: 2.3rem;
+    font-size: 1.75rem;
+    letter-spacing: -0.5px;
   }
 
   .quality-assurance-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
   }
 
   .quality-assurance-badges {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .quality-assurance-shell {
+    max-width: 1520px;
   }
 }
