@@ -10,13 +10,13 @@
 
 .meet-team-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  grid-template-columns:1.2fr 1fr;
   gap: clamp(1.5rem, 4vw, 6rem);
   align-items: end;
 }
 
 .meet-team-kicker {
-  font-size: 0.68rem;
+  font-size: 1rem;
   line-height: 1.2;
   letter-spacing: 0.38em;
   color: #6F6F6F;
@@ -24,7 +24,7 @@
 
 .meet-team-title {
   margin-top: 1rem;
-  font-size: clamp(3rem, 3.5vw, 4.2rem);
+  font-size: clamp(3.7rem, 3.5vw, 4.2rem);
   font-weight: 400;
   line-height: 0.92;
   letter-spacing: 3px;
@@ -32,10 +32,10 @@
 }
 
 .meet-team-copy {
-  max-width: 346px;
-  font-size: clamp(0.86rem, 0.95vw, 0.95rem);
-  line-height: 1.65;
-  color: #9b989a;
+  max-width: 83%;
+    font-size: clamp(1rem, 0.95vw, 0.95rem);
+    line-height: 1.65;
+    color: #6F6F6F;
   margin-bottom: 0.55rem;
 }
 
@@ -43,7 +43,7 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
-  margin-top: clamp(1.8rem, 3vw, 2.35rem);
+  margin-top: clamp(1.8rem, 4vw, 4rem);
 }
 
 .team-card {

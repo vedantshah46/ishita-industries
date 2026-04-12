@@ -15,7 +15,7 @@
 }
 
 .about-infra-kicker {
-  font-size: 0.62rem;
+  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.38em;
   color: #8a8e93;

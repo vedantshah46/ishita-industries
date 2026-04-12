@@ -34,8 +34,7 @@ function AboutHeroSection() {
           <div>
             <p className="about-chairman-kicker mb-0">FROM LEADERSHIP VISION</p>
             <h2 className="about-chairman-title mb-0">
-              MESSAGE FROM
-              <span className="d-block">THE CHAIRMAN.</span>
+              MESSAGE FROM <br />THE CHAIRMAN.
             </h2>
           </div>
           <p className="about-chairman-summary mb-0">

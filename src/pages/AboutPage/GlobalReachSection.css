@@ -17,7 +17,7 @@
 }
 
 .global-reach-kicker {
-  font-size: clamp(0.7rem, 0.78vw, 0.82rem);
+  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.1em; 
   text-transform: uppercase;
