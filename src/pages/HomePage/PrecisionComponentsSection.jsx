@@ -5,6 +5,8 @@ import millingImage from '../../Images/brass-milling-component.png'
 import broachImage from '../../Images/bras-broach-component.png'
 import  stampingImage from '../../Images/brass-stamping-component.png'
 import castingImage from '../../Images/brass-casting-component.png'
+import arrowVector from '../../Images/arrow-vector.png'
+
 const componentCards = [
   {
     title: 'Brass Turned component',
@@ -58,9 +60,7 @@ function PrecisionComponentsSection() {
 
               <div className="precision-components-caption-row">
                 <p className="precision-components-caption mb-0">{card.title}</p>
-                <span className="precision-components-arrow" aria-hidden="true">
-                  &#8594;
-                </span>
+                <img src={arrowVector} alt="" />
               </div>
             </article>
           ))}

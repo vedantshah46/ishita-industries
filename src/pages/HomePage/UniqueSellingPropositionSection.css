@@ -9,13 +9,13 @@
 
 .usp-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(290px, 440px);
-  align-items: start;
+  grid-template-columns:1.5fr 1fr;
+  align-items: flex-end;
   gap: clamp(1.6rem, 4vw, 6rem);
 }
 
 .usp-kicker {
-  font-size: clamp(0.68rem, 0.78vw, 0.82rem);
+  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
   line-height: 1.2;
   letter-spacing: 0.34em;
   color: #7a7d82;
@@ -23,7 +23,7 @@
 
 .usp-title {
   margin-top: clamp(1rem, 1.4vw, 1.35rem);
-  font-size: clamp(2.85rem, 4.25vw, 4.3rem);
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem)  ;
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.055em;
@@ -37,9 +37,10 @@
 .usp-intro {
   max-width: 420px;
   padding-top: clamp(3.7rem, 5vw, 5rem);
-  font-size: clamp(0.9rem, 0.95vw, 1rem);
+  font-size: clamp(1rem, 1.04vw, 1.08rem);
   line-height: 1.6;
-  color: #666b70;
+  color: #596061;
+  padding-bottom: 0.5rem;
 }
 
 .usp-showcase {
@@ -50,8 +51,8 @@
 
 .usp-wheel {
   position: absolute;
-  left: 33%;
-  top: 55%;
+  left: 40%;
+  top: 65%;
   width: min(560px, 95vw);
   aspect-ratio: 1 / 1;
   transform: translate(-50%, -50%);
@@ -62,8 +63,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(250px, 29vw, 312px);
-  height: clamp(250px, 29vw, 312px);
+  width: clamp(250px, 29vw, 550px);
+  height: clamp(250px, 29vw, 550px);
   border-radius: 50%;
   background: #f1f1f1;
   border: 5px solid #f2f2f2;
@@ -149,7 +150,7 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(171px, 14vw, 208px);
+  width: clamp(171px, 18vw, 225px);
   height: clamp(238px, 27.5vw, 252px);
   border-radius: 14px;
   background: linear-gradient(180deg, #3f4246 0%, #2f3135 100%);
@@ -188,7 +189,7 @@
 }
 .usp-section.is-visible .usp-fan-card-1 {
   opacity: 1;
-  transform: translate(-50%, -100%) rotate(-55deg);
+  transform: translate(-80%, -100%) rotate(-55deg);
 }
 
 .usp-fan-card-2 {
@@ -197,7 +198,7 @@
 }
 .usp-section.is-visible .usp-fan-card-2 {
   opacity: 1;
-  transform: translate(-50%, -100%) rotate(-15deg);
+  transform: translate(-58%, -113%) rotate(-25deg);
   height: clamp(238px, 27.5vw, 240px);
 }
 
@@ -207,7 +208,7 @@
 }
 .usp-section.is-visible .usp-fan-card-3 {
   opacity: 1;
-  transform: translate(-50%, -100%) rotate(28deg);
+  transform: translate(-46%, -117%) rotate(15deg);
   height: clamp(220px, 27.5vw, 220px);
 }
 
@@ -217,7 +218,7 @@
 }
 .usp-section.is-visible .usp-fan-card-4 {
   opacity: 1;
-  transform: translate(-22%, -69%) rotate(47deg);
+  transform: translate(-22%, -91%) rotate(46deg);
   height: clamp(220px, 27.5vw, 230px);
 }
 
@@ -227,7 +228,7 @@
 }
 .usp-section.is-visible .usp-fan-card-5 {
   opacity: 1;
-  transform: translate(-62%, -64%) rotate(88deg);
+  transform: translate(-15%, -42%) rotate(62deg);
 }
 
 .usp-fan-card-6 {
@@ -236,7 +237,7 @@
 }
 .usp-section.is-visible .usp-fan-card-6 {
   opacity: 1;
-  transform: translate(-50%, -100%) rotate(165deg);
+  transform: translate(-52%, -60%) rotate(124deg);
 }
 
 
@@ -322,7 +323,7 @@
   margin-top: 0.42rem;
   font-size: clamp(0.72rem, 0.75vw, 0.8rem);
   line-height: 1.45;
-  color: #5f646a;
+  color: #373737;
   text-transform: none;
 }
 
@@ -353,28 +354,28 @@
 }
 
 .usp-feature-engineering {
-  left: 31%;
-  top: 6.3%;
+  left: 33%;
+  top: 7.3%;
 }
 
 .usp-feature-rfq {
-  right: 23%;
-  top: 20%;
+  right: 17%;
+  top: 19%;
 }
 
 .usp-feature-quality {
-  right: 13%;
-  top: 38%;
+  right: 6%;
+  top: 39%;
 }
 
 .usp-feature-oem {
-  right: 11%;
-  top: 58%;
+  right: 1%;
+  top: 60%;
 }
 
 .usp-feature-partnership {
-  right: 19%;
-  top: 82%;
+  right: 4%;
+  top: 91%;
 }
 
 @media (max-width: 1199.98px) {

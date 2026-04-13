@@ -1,6 +1,6 @@
 /* ─── Base ──────────────────────────────────────────────── */
 .footer-section {
-  background-color: #242526;
+  background-color: #222222;
   color: #e4e6ea;
   padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(1.5rem, 2vw, 2rem);
   font-family: inherit;
@@ -27,9 +27,9 @@
 
 /* ─── Shared column styles ───────────────────────────────── */
 .footer-col-title {
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  font-size: clamp(1.0rem, 1vw, 1.05rem);
   font-weight: 600;
-  color: #f5f6f7;
+  color: #DADADA;
   margin-bottom: 1.5rem;
   margin-top: 0;
 }
@@ -46,7 +46,7 @@
 .footer-link-list a {
   color: #DADADA;
   text-decoration: none;
-  font-size: clamp(0.85rem, 0.85vw, 0.88rem);
+  font-size: clamp(0.95rem, 0.85vw, 0.88rem);
   transition: color 0.2s ease;
   font-weight: 400;
 }
@@ -74,7 +74,7 @@
 .footer-phone,
 .footer-emails p {
   color: #DADADA;
-  font-size: clamp(0.85rem, 0.9vw, 0.9rem);
+  font-size: clamp(1rem, 0.9vw, 0.9rem);
   line-height: 1.6;
   margin-bottom: 1.2rem;
   font-style: normal;
@@ -85,7 +85,7 @@
 }
 
 .footer-emails a {
-  color: #b0b3b8;
+  color: #DADADA;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -123,7 +123,7 @@
 /* ─── Bottom row ─────────────────────────────────────────── */
 .footer-divider {
   border: 0;
-  height: 1.5px;
+  height: 1.2px;
   background-color: #DADADA;
   margin-bottom: 1.5rem;
 }

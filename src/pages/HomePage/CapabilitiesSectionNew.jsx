@@ -3,6 +3,7 @@ import './CapabilitiesSection.css'
 import capVisualImage from '../../Images/manufacturing-infrastructure.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
 import useCurtainReveal from '../../hooks/useCurtainReveal'
+import metalWeWork from '../../Images/metal-we-work.png'
 
 const metals = [
   'Stainless Steel',
@@ -117,7 +118,7 @@ function CapabilitiesSectionNew() {
               ref={(el) => (animRefs.current[3] = el)}
             >
               <div className="cap-card-section-label">
-                <span className="cap-card-section-dot" aria-hidden="true" />
+                <img src={metalWeWork} alt="" className='metal-we-work-img'/>
                 <span>METAL WE WORK</span>
               </div>
 

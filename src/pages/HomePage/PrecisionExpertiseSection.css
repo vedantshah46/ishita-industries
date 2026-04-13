@@ -12,9 +12,8 @@
 .precision-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(250px, 355px);
-  align-items: start;
+  align-items: flex-end;
   gap: clamp(1.5rem, 4vw, 5rem);
-  /* Scroll animation */
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -26,17 +25,17 @@
 }
 
 .precision-kicker {
-  font-size: clamp(0.72rem, 0.82vw, 0.84rem);
+  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
   line-height: 1.25;
-  letter-spacing: 0.34em;
-  color: #757a80;
+  letter-spacing: 0.22em;
+  color: #596061;
 }
 
 .precision-title {
   margin-top: clamp(1rem, 1.4vw, 1.35rem);
-  font-size: clamp(2.4rem, 4.2vw, 4.25rem);
+  font-size: clamp(2.4rem, 4.0vw, 4.25rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.6;
   letter-spacing: -0.055em;
   color: #32373d;
 }
@@ -46,20 +45,22 @@
 }
 
 .precision-intro {
-  max-width: 320px;
-  padding-top: clamp(3.8rem, 5vw, 5.2rem);
-  font-size: clamp(0.95rem, 1.04vw, 1.08rem);
-  line-height: 1.5;
-  color: #666b72;
+    max-width: 350px;
+    padding-top: clamp(3.8rem, 5vw, 5.2rem);
+    font-size: clamp(1rem, 1.04vw, 1.08rem);
+    line-height: 1.5;
+    font-weight: 300;
+    color: #596061;
+    padding-bottom: 1rem;
 }
 
 /* ─── Grid ───────────────────────────────────────────────── */
 .precision-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(0.75rem, 1.5vw, 1.2rem);
+  gap: clamp(2.75rem, 2.5vw, 1.2rem);
   margin-top: clamp(2rem, 3vw, 2.45rem);
-  /* ✅ removed padding: 0px 70px */
+  padding: 0px 65px;
 }
 
 /* ─── Card ───────────────────────────────────────────────── */
@@ -89,7 +90,7 @@
 /* ─── Visual (image wrapper) ─────────────────────────────── */
 .precision-visual {
   position: relative;
-  height: clamp(220px, 25vw, 318px);
+  height: clamp(240px, 41vw, 500px);
   border: 1px solid #9fa3a8;
   overflow: hidden;
   background: #f5f5f5;

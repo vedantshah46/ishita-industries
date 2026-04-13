@@ -36,7 +36,7 @@
   padding-bottom: 0.2rem;
   font-size: clamp(1rem, 0.95vw, 0.9rem);
   line-height: 1.35;
-  text-align: center;
+  text-align: right;
   color: #596061;
 }
 
@@ -233,19 +233,24 @@
 
 /* ─── Metals card ────────────────────────────────────────── */
 .cap-card-metals {
-  min-height: 172px;
-  padding: 1rem 1.1rem 1.15rem;
+  min-height: 420px;
+  padding: 2.5rem;
   background: #e4e9ea !important;
 }
 
 .cap-card-section-label {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: 0.75rem;
+  gap: 1.55rem;
+  font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #42474d;
+  color: #2D3435;
+}
+
+.metal-we-work-img{
+  height: 13px;
+  width: 13px;
 }
 
 .cap-card-section-dot {
@@ -259,21 +264,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem 1.2rem;
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 
 .cap-metal-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.6rem;
+  gap: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #343940;
+  color: #2D3435;
 }
 
 .cap-metal-bullet {
-  width: 0.18rem;
-  height: 0.18rem;
+  width: 0.4rem;
+  height: 0.4rem;
   background: #4a5056;
   flex-shrink: 0;
 }
@@ -281,19 +286,22 @@
 /* ─── Finishing card ─────────────────────────────────────── */
 .cap-card-finishing {
   min-height: 172px;
-  padding: 1rem 1.05rem 0.9rem;
-  background: #353231;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  background: #343434;
 }
 
 .cap-finishing-title {
-  font-size: 0.8rem;
+  font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   color: #f4f4f2;
 }
 
 .cap-finishing-list {
-  margin-top: 1.15rem;
+  margin-top: 3.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .cap-finishing-item {
@@ -301,8 +309,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.85rem;
-  padding: 0.8rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 2rem 0 0.2rem 0;
+  border-top: 1px solid #FFFFFF1A;
+}
+
+.cap-finishing-item:last-child {
+  border-bottom: 1px solid #FFFFFF1A;
 }
 
 .cap-finishing-item:first-child {
@@ -312,17 +324,18 @@
 
 .cap-finishing-label {
   display: block;
-  font-size: 0.36rem;
+  font-size: 0.68rem;
   line-height: 1.2;
   letter-spacing: 0.16em;
-  color: rgba(255, 255, 255, 0.38);
+  color: #FFFFFF80;
+  font-weight: 200;
 }
 
 .cap-finishing-name {
   margin-top: 0.28rem;
-  font-size: 0.68rem;
+  font-size: 1.1rem;
   line-height: 1.35;
-  color: #f5f5f4;
+  color: #FFFFFF;
 }
 
 .cap-finishing-arrow {

@@ -1,5 +1,6 @@
 import "./FreeToContactUsSection.css";
 import contactlogo from '../../Images/homepage-contact-us-logo.png';
+import arrow from '../../Images/arrow-vector.png'
 
 const contactLinksData = [
   { text: "Get Company Brochure", href: "#" },
@@ -31,7 +32,7 @@ function FreeToContactUsSection() {
               </p>
               <div>
                 <button className="contactus-btn">
-                  Contact now <span>&#8594;</span>
+                  Contact now <span className="contactus-btn-arrow">&rarr;</span>
                 </button>
               </div>
             </div>
@@ -41,7 +42,7 @@ function FreeToContactUsSection() {
             {contactLinksData.map((link, index) => (
               <a key={index} href={link.href} className="contactus-link-card">
                 <span className="contactus-link-text">{link.text}</span>
-                <span className="contactus-link-arrow">&#8599;</span>
+                <img src={arrow} alt="" className="contact-arrow-img-rotate"/>
               </a>
             ))}
           </div>
