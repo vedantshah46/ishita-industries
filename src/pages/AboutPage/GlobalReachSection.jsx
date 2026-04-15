@@ -1,20 +1,20 @@
 import { useRef } from 'react'
 import './GlobalReachSection.css'
-import waterImage       from '../../Images/about-us-international-one.png'
-import boatImage        from '../../Images/about-us-international-two.png'
-import map              from '../../Images/about-us-international-map.png'
-import ausFlag          from '../../Images/aus-flag.png'
-import canadaFlag       from '../../Images/canada-flag.png'
-import franceFlag       from '../../Images/france-flag.png'
-import saudiArabiaFlag  from '../../Images/saudi-arabia-flag.png'
-import southAfricaFlag  from '../../Images/south-africa-flag.png'
-import starFlag         from '../../Images/star-flag.png'
-import usFlag           from '../../Images/us-flag.png'
-import ukFlag           from '../../Images/uk-flag.png'
-import uaeFlag          from '../../Images/uae-flag.png'
-import thaiLandFlag     from '../../Images/thailand-flag.png'
+import waterImage from '../../Images/about-us-international-one.png'
+import boatImage from '../../Images/about-us-international-two.png'
+import map from '../../Images/about-us-international-map.png'
+import ausFlag from '../../Images/aus-flag.png'
+import canadaFlag from '../../Images/canada-flag.png'
+import franceFlag from '../../Images/france-flag.png'
+import saudiArabiaFlag from '../../Images/saudi-arabia-flag.png'
+import southAfricaFlag from '../../Images/south-africa-flag.png'
+import starFlag from '../../Images/star-flag.png'
+import usFlag from '../../Images/us-flag.png'
+import ukFlag from '../../Images/uk-flag.png'
+import uaeFlag from '../../Images/uae-flag.png'
+import thaiLandFlag from '../../Images/thailand-flag.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal   from '../../hooks/useCurtainReveal'
+import useCurtainReveal from '../../hooks/useCurtainReveal'
 
 const shipStats = [
   {
@@ -38,16 +38,16 @@ const shipStats = [
 ]
 
 const flagsData = [
-  { id: 0, image: usFlag,          alt: 'USA' },
-  { id: 1, image: ukFlag,          alt: 'UK' },
-  { id: 2, image: thaiLandFlag,    alt: 'Thailand' },
-  { id: 3, image: canadaFlag,      alt: 'Canada' },
-  { id: 4, image: uaeFlag,         alt: 'UAE' },
-  { id: 5, image: ausFlag,         alt: 'Australia' },
+  { id: 0, image: usFlag, alt: 'USA' },
+  { id: 1, image: ukFlag, alt: 'UK' },
+  { id: 2, image: thaiLandFlag, alt: 'Thailand' },
+  { id: 3, image: canadaFlag, alt: 'Canada' },
+  { id: 4, image: uaeFlag, alt: 'UAE' },
+  { id: 5, image: ausFlag, alt: 'Australia' },
   { id: 6, image: southAfricaFlag, alt: 'South Africa' },
-  { id: 7, image: starFlag,        alt: 'Star' },
+  { id: 7, image: starFlag, alt: 'Star' },
   { id: 8, image: saudiArabiaFlag, alt: 'Saudi Arabia' },
-  { id: 9, image: franceFlag,      alt: 'France' },
+  { id: 9, image: franceFlag, alt: 'France' },
 ]
 
 function GlobalReachSection() {
@@ -69,14 +69,9 @@ function GlobalReachSection() {
           <div>
             <p className="global-reach-kicker mb-0">CONNECTING MARKETS WORLDWIDE</p>
             <h2 className="global-reach-title mb-0" ref={titleRef}>
-              INTERNATIONAL
-              <span className="d-block">REACH.</span>
+              INTERNATIONAL REACH.
             </h2>
           </div>
-          <p className="global-reach-intro mb-0">
-            Expanding across global markets with trusted partnerships, delivering quality
-            products that meet international standards and diverse industry needs.
-          </p>
         </div>
 
         {/* ── Banner ── */}

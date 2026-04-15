@@ -3,7 +3,7 @@
 /* ─── Base ──────────────────────────────────────────────── */
 .fastener-standards-section {
   padding: clamp(2rem, 2.5vw, 2.9rem) 0 clamp(3rem, 4.2vw, 4.6rem);
-  background-color: #F2F4F4;
+  background-color: #FAFAFA;
 }
 
 .fastener-shell {
@@ -13,34 +13,31 @@
 
 /* ─── Header ─────────────────────────────────────────────── */
 .fastener-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
-  align-items: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: clamp(1.5rem, 4vw, 5rem);
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
-/* ─── Kicker: ENGINEERED FOR PRECISION ──────────────────── */
+/* ─── Kicker ──────────────────────────────────────────────── */
 .fastener-kicker {
+  text-align: center;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.0rem, 0.72vw, 0.75rem);  
+  font-size: clamp(0.65rem, 0.72vw, 0.75rem);
   letter-spacing: 4.8px;
-  vertical-align: middle;
   text-transform: uppercase;
   color: #596061;
 }
 
-/* ─── Title: FASTENER STANDARDS. ────────────────────────── */
+/* ─── Title ───────────────────────────────────────────────── */
 .fastener-title {
   margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: clamp(3.05rem, 4.1vw, 4.18rem);   
+  font-size: clamp(3.05rem, 4.1vw, 4.18rem);
   line-height: 0.98;
-  vertical-align: middle;
   color: #2D3435;
 }
 
@@ -49,14 +46,11 @@
   display: block;
 }
 
-/* ─── Intro: Built to meet global… ──────────────────────── */
+/* ─── Intro ───────────────────────────────────────────────── */
 .fastener-intro {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: clamp(0.85rem, 0.92vw, 0.95rem);  /* your original size */
-  letter-spacing: 0px;
-  vertical-align: middle;
+  font-size: clamp(0.85rem, 0.92vw, 0.95rem);
   color: #596061;
   padding-top: clamp(3.4rem, 4.7vw, 4.8rem);
 }
@@ -70,135 +64,61 @@
 .fastener-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
   background-color: transparent;
 }
 
 /* ─── Card ───────────────────────────────────────────────── */
 .fastener-card {
-  background-color: #ffffff;
-  padding: clamp(2rem, 3.5vw, 3rem) clamp(1.5rem, 2.5vw, 2.2rem);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  border-bottom: 4px solid #e5e7ea;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.fastener-card:nth-last-child(-n + 3) {
-  border-bottom: none;
-}
-
-/* ─── Card header row (title + icon) ────────────────────── */
-.fastener-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2.5rem;
-}
-
-/* ─── Card title: DIN, ASTM, BS… ────────────────────────── */
-.fastener-card-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.6rem, 2vw, 1.8rem);       /* your original size */
-  letter-spacing: -2.7px;
-  vertical-align: middle;
-  color: #4a4d53;
-  line-height: 1;
-}
-
-/* ─── Card icon ──────────────────────────────────────────── */
-.fastener-card-icon {
-  width: 16px;
-  height: 16px;
-  color: #a0a4ab;
-}
-
-.fastener-card-icon svg {
+/* ─── Card logo wrapper ───────────────────────────────────── */
+.fastener-card-logo {
   width: 100%;
-  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.fastener-card-icon img {
+.fastener-card-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 
-/* ─── Card subtitle: Deutsches Institut… ────────────────── */
-.fastener-card-subtitle {
+/* ─── Card label ──────────────────────────────────────────── */
+.fastener-card-label {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-style: normal;
-  font-size: clamp(0.85rem, 0.95vw, 0.95rem);  /* your original size */
-  letter-spacing: 0px;
-  vertical-align: middle;
-  color: #2D3435;
-  margin-bottom: 0.8rem;
-}
-
-/* ─── Card description ───────────────────────────────────── */
-.fastener-card-desc {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(0.75rem, 0.8vw, 0.82rem);   /* your original size */
-  letter-spacing: 0px;
-  vertical-align: middle;
+  font-size: clamp(0.78rem, 0.9vw, 0.9rem);
   color: #596061;
-  line-height: 1.65;
-  margin-bottom: 2rem;
-  flex-grow: 1;
-}
-
-/* ─── Card link: VIEW DOCUMENTATION ─────────────────────── */
-.fastener-card-link {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.65rem;                           /* your original size */
-  letter-spacing: 1.8px;
-  vertical-align: middle;
-  text-transform: uppercase;
-  color: #5F5E5E;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.2s ease;
-}
-
-.fastener-card-link:hover {
-  color: #31373d;
-}
-
-.fastener-card-arrow {
-  font-size: 0.8rem;
+  text-align: center;
+  letter-spacing: 0.2px;
+  white-space: nowrap;
 }
 
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .fastener-header {
-    grid-template-columns: 1fr 1fr;
     align-items: end;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
 
-  .fastener-intro {
-    padding-top: 0;
-  }
-
   .fastener-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .fastener-card {
-    border-bottom: 2px solid #e5e7ea;
-  }
-
-  .fastener-card:nth-last-child(-n + 2) {
-    border-bottom: none;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
   }
 
   .fastener-title {
@@ -209,12 +129,7 @@
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
   .fastener-header {
-    grid-template-columns: 1fr;
     gap: 0.75rem;
-  }
-
-  .fastener-intro {
-    padding-top: 0;
   }
 
   .fastener-title {
@@ -223,19 +138,8 @@
   }
 
   .fastener-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .fastener-card {
-    border-bottom: 2px solid #e5e7ea;
-  }
-
-  .fastener-card:last-child {
-    border-bottom: none;
-  }
-
-  .fastener-card-title {
-    letter-spacing: -1px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
   }
 }
 
@@ -247,11 +151,16 @@
 
   .fastener-title {
     font-size: 2.2rem;
-    letter-spacing: -1px;
+    text-align: center;
   }
 
   .fastener-kicker {
     letter-spacing: 2px;
+  }
+
+  .fastener-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 }
 

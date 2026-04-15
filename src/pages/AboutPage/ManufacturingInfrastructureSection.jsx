@@ -45,11 +45,6 @@ function ManufacturingInfrastructureSection() {
               <span className="d-block">INFRASTRUCTURE.</span>
             </h2>
           </div>
-
-          <p className="about-infra-copy mb-0">
-            Built with advanced facilities and modern technology to ensure efficiency,
-            consistency, and superior production quality.
-          </p>
         </div>
 
         <div

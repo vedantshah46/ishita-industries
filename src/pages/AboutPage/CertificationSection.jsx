@@ -36,9 +36,6 @@ function CertificationSection() {
             <p className="cert-kicker mb-0">CERTIFIED FOR EXCELLENCE</p>
             <h2 className="cert-title mb-0" ref={titleRef}>CERTIFICATION.</h2>
           </div>
-          <p className="cert-intro mb-0">
-            Recognized by global standards, ensuring quality, reliability, and compliance across every product.
-          </p>
         </div>
 
         <div className="cert-grid">

@@ -48,12 +48,9 @@ function ArchitecturalLedgerSection() {
           <div>
             <p className="ledger-kicker mb-0">FROM VISION TO MANUFACTURING</p>
             <h2 className="ledger-title mb-0">
-              THE<br />ARCHITECTURAL<br />LEDGER.
+              THE ARCHITECTURAL LEDGER.
             </h2>
           </div>
-          <p className="ledger-intro mb-0">
-            A clinical examination of industrial growth, precision engineering, and the systematic evolution of architectural frameworks.
-          </p>
         </div>
 
         <div className="ledger-bento">

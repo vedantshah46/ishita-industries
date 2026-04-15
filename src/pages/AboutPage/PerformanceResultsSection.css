@@ -13,15 +13,16 @@
 
 /* ─── Header ─────────────────────────────────────────────── */
 .results-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
-  align-items: flex-end;
+    display: flex;
+  justify-content: center;
+  align-items: center;
   gap: clamp(1.5rem, 4vw, 5rem);
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
 /* ─── Kicker: PERFORMANCE THAT DELIVERS ─────────────────── */
 .results-kicker {
+  text-align: center;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -162,6 +163,7 @@
   .results-title {
     font-size: 2.2rem;
     letter-spacing: -1px;
+    text-align: center;
   }
 
   .results-grid {

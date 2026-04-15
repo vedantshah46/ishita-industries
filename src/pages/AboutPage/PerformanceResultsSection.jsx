@@ -23,13 +23,9 @@ function PerformanceResultsSection() {
           <div>
             <p className="results-kicker mb-0">PERFORMANCE THAT DELIVERS</p>
             <h2 className="results-title mb-0">
-              RESULTS THAT
-              <span className="d-block">MATTER.</span>
+              RESULTS THAT MATTER.
             </h2>
           </div>
-          <p className="results-intro mb-0">
-            Driven by precision, quality, and consistency our outcomes reflect measurable growth, trusted partnerships, and long-term value for our clients.
-          </p>
         </div>
 
         <div className="results-grid">

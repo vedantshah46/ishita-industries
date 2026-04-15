@@ -8,13 +8,14 @@
 }
 
 .about-infra-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(250px, 335px);
+    display: flex;
+  justify-content: center;
+  align-items: center;
   gap: clamp(1.4rem, 4vw, 5rem);
-  align-items: end;
 }
 
 .about-infra-kicker {
+  text-align: center;
   font-size: clamp(1rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.38em;
@@ -170,6 +171,7 @@
 
 @media (max-width: 575.98px) {
   .about-infra-title {
+    text-align: center;
     font-size: 2rem;
     letter-spacing: 1px;
   }

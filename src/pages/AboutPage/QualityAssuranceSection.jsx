@@ -59,11 +59,6 @@ function QualityAssuranceSection() {
               <span className="d-block">ASSURANCE.</span>
             </h2>
           </div>
-
-          <p className="quality-assurance-copy mb-0">
-            Ensuring excellence through strict quality checks, advanced testing, and consistent
-            performance at every stage.
-          </p>
         </div>
 
         <div className="quality-assurance-grid">

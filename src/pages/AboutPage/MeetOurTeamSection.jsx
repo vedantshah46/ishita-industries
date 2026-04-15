@@ -35,11 +35,6 @@ function MeetOurTeamSection() {
               <span className="d-block">TEAM.</span>
             </h2>
           </div>
-
-          <p className="meet-team-copy mb-0">
-            A dedicated group of professionals driving innovation, precision, and excellence
-            working together to build a strong and trusted manufacturing future.
-          </p>
         </div>
 
         <div className="meet-team-grid">
