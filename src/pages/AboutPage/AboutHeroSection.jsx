@@ -56,10 +56,6 @@ function AboutHeroSection() {
               MESSAGE FROM <br />THE CHAIRMAN.
             </h2>
           </div>
-          <p className="about-chairman-summary mb-0">
-            A reflection of our journey, values, and commitment to excellence driving innovation,
-            empowering people, and building a globally trusted manufacturing legacy.
-          </p>
         </div>
 
         <section

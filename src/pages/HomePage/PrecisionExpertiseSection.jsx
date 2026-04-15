@@ -37,12 +37,9 @@ function PrecisionExpertiseSection() {
           <div>
             <p className="precision-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-title mb-0">
-              PRECISION MACHINING EXPERTISE.
+              Extrusion Raw products
             </h2>
           </div>
-          <p className="precision-intro mb-0">
-            Delivering accuracy, consistency, and high-performance machining solutions.
-          </p>
         </div>
 
         <div className="precision-grid">

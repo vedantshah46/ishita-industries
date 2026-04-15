@@ -29,14 +29,9 @@ function AboutSection() {
           ref={(el) => (animRefs.current[0] = el)}
         >
           <div className="about-header-main">
-            <p className="about-kicker mb-0">OUR STORY BEGINS HERE</p>
-            {/* titleRef: GSAP word-split curtain reveal */}
+            <p className="about-kicker mb-0">OUR STORY BEGINS HERE SINCE 1944</p>
             <h2 className="about-title mb-0" ref={titleRef}>ABOUT ISHITA.</h2>
           </div>
-          <p className="about-intro mb-0">
-            Driven by vision and precision, we deliver high-quality manufacturing solutions built
-            on trust, innovation, and years of industry expertise.
-          </p>
         </div>
 
         <p

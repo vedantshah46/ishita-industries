@@ -163,14 +163,9 @@ function UniqueSellingPropositionSection() {
           <div>
             <p className="usp-kicker mb-0">WHAT SETS US APART</p>
             <h2 className="usp-title mb-0">
-              UNIQUE SELLING
-              <span className="d-block">PROPOSITION.</span>
+              UNIQUE SELLING PROPOSITION.
             </h2>
           </div>
-          <p className="usp-intro mb-0">
-            Delivering consistent quality, precision, and reliability, building trust through every
-            product, process, and long-term customer relationship.
-          </p>
         </div>
 
         <div className="usp-showcase" ref={showcaseRef}>

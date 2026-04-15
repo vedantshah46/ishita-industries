@@ -1,15 +1,26 @@
 /* ─── Scroll Runway Wrapper ──────────────────────────────── */
 .hero-scroll-wrapper {
-  height: 180vh; /* extra scroll room for the parallax to play out */
+  height: auto;
 }
 
 .hero-section {
-  position: sticky;
-  top: 0;
+  position: relative;
   padding-bottom: clamp(1.4rem, 3.4vw, 3.2rem);
   overflow: hidden;
   background: #ffffff;
-  min-height: 100vh;
+}
+
+@media (max-width: 991.98px) {
+  .hero-scroll-wrapper {
+    height: auto; /* disable runway on mobile */
+  }
+
+  .hero-section {
+    position: static; /* disable sticky on mobile */
+    min-height: auto;
+    padding-top: clamp(4rem, 12vw, 6rem);
+    padding-bottom: clamp(2rem, 8vw, 4rem);
+  }
 }
 
 /* ─── Hero Entrance Animations ───────────────────────────── */
@@ -37,6 +48,17 @@
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes heroSlideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -70,6 +92,12 @@
   animation: heroSlideInRight 1s 3.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+@media (max-width: 991.98px) {
+  .hero-media-wrap {
+    animation-name: heroSlideInUp;
+  }
+}
+
 .hero-caption {
   opacity: 0;
   animation: heroFadeIn 0.6s 4s ease forwards;
@@ -82,7 +110,6 @@
 
 .hero-content {
   max-width: 100%;
-  will-change: transform, opacity;
 }
 
 .hero-kicker {
@@ -183,43 +210,28 @@
 
 .hero-media-wrap {
   position: relative;
-  width: min(100%, 680px);
-  min-height: clamp(360px, 48vw, 650px);
+  width: 100%;
+  max-width: 680px;
   margin-inline: auto;
 }
 
 .hero-media {
-  position: absolute;
+  width: 100%;
   height: auto;
-  object-fit: cover;
+  display: block;
   user-select: none;
   -webkit-user-drag: none;
-}
-
-.hero-media-straight {
-right: -30px;
-    bottom: clamp(24px, 7vw, 35px);
-  width: clamp(190px, 25vw, 420px);
-  max-width: 50%;
-  z-index: 1;
-}
-
-.hero-media-tilt {
-  left: clamp(55px, 2.6vw, 10px);
-  bottom: clamp(24px, 3vw, 88px);
-  width: clamp(250px, 54vw, 560px);
-  max-width: 66%;
-  z-index: 2;
-  filter: drop-shadow(0 10px 10px rgb(0 0 0 / 0.22));
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,0.12));
 }
 
 .hero-caption {
   text-align: center;
   font-size: clamp(1rem, 1.2vw, 1.6rem);
   color: #5c5f63;
+  margin-top: 0.25rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .hero-row {
     --bs-gutter-x: 0;
   }
@@ -232,7 +244,9 @@ right: -30px;
   .hero-media-col {
     flex: 0 0 45%;
     width: 45%;
-    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-content {
@@ -249,17 +263,24 @@ right: -30px;
   }
 
   .hero-media-wrap {
-    width: 130%;
-    margin-inline: -30% 0;
-    transform: none;
-  }
-
-  .hero-media-tilt {
-    left: clamp(105px, 2.6vw, 10px);
+    width: 112%;
+    max-width: none;
+    margin-inline: -12% 0;
   }
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
+  .hero-scroll-wrapper {
+    height: auto; /* disable runway on mobile/laptop */
+  }
+
+  .hero-section {
+    position: static; /* disable sticky on mobile/laptop */
+    min-height: auto;
+    padding-top: clamp(4rem, 12vw, 6rem);
+    padding-bottom: clamp(2rem, 8vw, 4rem);
+  }
+
   .hero-content {
     max-width: 100%;
   }
@@ -269,20 +290,15 @@ right: -30px;
   }
 
   .hero-media-wrap {
-    min-height: clamp(320px, 56vw, 560px);
-  }
-
-  .hero-media-straight {
-    width: clamp(170px, 25vw, 350px);
-  }
-
-  .hero-media-tilt {
-    width: clamp(225px, 52vw, 520px);
+    margin-top: 4rem;
+    max-width: 85%;
   }
 
   .hero-caption {
-    text-align: left;
-    padding-left: 2.5%;
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
   }
 }
 
@@ -292,16 +308,23 @@ right: -30px;
   }
 
   .hero-story {
-    margin-top: 1.7rem;
-    flex-direction: column;
+    margin-top: 2.2rem;
+    flex-direction: row;
+    align-items: center;
   }
 
   .hero-story-text {
     max-width: 100%;
+    font-size: 0.88rem;
   }
 
   .hero-footnote {
-    margin-top: 1.8rem;
+    margin-top: 2rem;
+    font-size: 0.82rem;
+    max-width: none;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .hero-caption {
@@ -326,21 +349,6 @@ right: -30px;
 
   .hero-title-thin {
     font-size: 1.38rem;
-  }
-
-  .hero-media-wrap {
-    min-height: 300px;
-  }
-
-  .hero-media-straight {
-    width: 46%;
-    right: 4%;
-  }
-
-  .hero-media-tilt {
-    width: 76%;
-    left: 2%;
-    bottom: 18%;
   }
 }
 

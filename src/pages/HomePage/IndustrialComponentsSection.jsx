@@ -87,10 +87,6 @@ function IndustrialComponentsSection() {
               INDUSTRIAL COMPONENTS.
             </h2>
           </div>
-          <p className="industrial-components-intro mb-0">
-            Engineered for reliability and scalability, our components ensure precision, durability,
-            and consistent quality for diverse industrial applications and global standards.
-          </p>
         </div>
 
         <div className="industrial-components-list">

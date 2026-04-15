@@ -42,13 +42,9 @@ function PrecisionComponentsSection() {
           <div>
             <p className="precision-components-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-components-title mb-0">
-              PRECISION MACHINING
-              <span className="d-block">EXPERTISE.</span>
+              PRECISION MACHINING EXPERTISE.
             </h2>
           </div>
-          <p className="precision-components-intro mb-0">
-            We work with MS, SS, Copper, Bronze, Brass, and Aluminium.
-          </p>
         </div>
 
         <div className="precision-components-grid">

@@ -59,22 +59,30 @@
   display: inline-flex;
   align-items: center;
   gap: 0.9rem;
-  padding: 7px 18px;
+  padding: 10px 24px;
   background-color: transparent;
   color: #000000;
-  font-size: clamp(0.95rem, 0.8vw, 0.75rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(16px, 1.3vw, 20px);
+  line-height: 1;
+  letter-spacing: 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   border: 1px solid #000000;
   border-radius: 50px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
-.contactus-btn span{
-  height: 10px;
-  width: 12px;
+.contactus-btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+  transition: transform 0.2s ease;
+}
+
+.contactus-btn:hover .contactus-btn-arrow {
+  transform: translateX(4px);
 }
 
 .contactus-btn:hover {
@@ -82,9 +90,7 @@
   border-color: #adb5bd;
 }
 
-.contactus-btn span {
-  font-size: 1rem;
-}
+
 
 .contactus-links-grid {
   display: grid;
@@ -94,8 +100,9 @@
 
 .contactus-link-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 1rem;
   text-decoration: none;
   border: 1px solid #f2f2f2;
   border-radius: 8px;
@@ -111,8 +118,14 @@
 }
 
 .contactus-link-text {
-  font-size: clamp(1rem, 0.85vw, 0.85rem);
-  font-weight: 200;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(18px, 1.4vw, 24px);
+  line-height: 1;
+  text-align: left;
+  color: #000000;
+  width: 100%;
+  letter-spacing: 0;
 }
 
 .contactus-content {

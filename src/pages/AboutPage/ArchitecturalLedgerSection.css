@@ -17,6 +17,7 @@
 }
 
 .ledger-kicker {
+  text-align: center;
   font-size: clamp(1.3rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.1em; 

@@ -10,25 +10,11 @@ const navLinks = ['Home', 'About', 'Product', 'Quality']
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Toggle navbar black styling based on scroll position
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleToggle = () => setIsOpen(prev => !prev);
 
   return (
-    <header className={`site-header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className="site-header">
       <nav className="navbar navbar-expand-lg p-0">
         <div className="container nav-shell">
           <a className="navbar-brand brand-wrap d-flex align-items-center" href="#">

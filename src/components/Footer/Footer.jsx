@@ -80,16 +80,16 @@ function Footer() {
             </div>
             <div className="footer-socials">
               <a href="#" aria-label="LinkedIn" className="social-icon">
-               <img src={linkedin}/>
+                <img src={linkedin} />
               </a>
               <a href="#" aria-label="Facebook" className="social-icon">
-               <img src={facebook}/>
+                <img src={facebook} />
               </a>
               <a href="#" aria-label="X (Twitter)" className="social-icon">
-               <img src={twitter}/>
+                <img src={twitter} />
               </a>
               <a href="#" aria-label="Pinterest" className="social-icon">
-                <img src={pinterest}/>
+                <img src={pinterest} />
               </a>
             </div>
           </div>

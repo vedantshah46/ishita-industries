@@ -74,10 +74,6 @@ function FactsSection() {
               FACTS &amp; <span className="d-block">FIGURES.</span>
             </h2>
           </div>
-          <p className="facts-intro mb-0">
-            Showcasing our growth, achievements, and capabilities through key metrics that reflect
-            our commitment to quality, scale, and performance.
-          </p>
         </div>
 
         <div className="facts-grid">

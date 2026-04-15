@@ -1,78 +1,17 @@
 import { useEffect, useRef, useCallback } from 'react'
 import './HeroSection.css'
-import heroTiltImage from '../../Images/hero-section-tilt-image.svg'
-import heroStraightImage from '../../Images/hero-section-image.svg'
+import heroMainImage from '../../Images/homepage-herosection-image.png'
+import heroMobileImage from '../../Images/homepage-hero-section-mobile.png'
 
 
 function HeroSection() {
-  const wrapperRef = useRef(null)
-  const sectionRef = useRef(null)
-  const contentRef = useRef(null)
-  const mediaRef = useRef(null)
-  const tiltRef = useRef(null)
-  const straightRef = useRef(null)
-  const captionRef = useRef(null)
-  const rafId = useRef(null)
-
-  const handleScroll = useCallback(() => {
-    if (rafId.current) return
-
-    rafId.current = requestAnimationFrame(() => {
-      rafId.current = null
-      const wrapper = wrapperRef.current
-      if (!wrapper) return
-
-      const rect = wrapper.getBoundingClientRect()
-      const wrapperHeight = wrapper.offsetHeight
-      const viewportH = window.innerHeight
-
-      // scrollDistance = how far the wrapper top has scrolled above viewport top
-      const scrolled = Math.max(0, -rect.top)
-      // The "runway" is wrapper height minus one viewport (the sticky portion)
-      const runway = wrapperHeight - viewportH
-      if (runway <= 0) return
-
-      // progress: 0 = hero fully visible, 1 = animation complete, ready to unstick
-      const progress = Math.min(scrolled / runway, 1)
-
-      // Text content: floats up and fades out
-      if (contentRef.current) {
-        const yShift = progress * 120
-        const opacity = 1 - progress * 2
-        contentRef.current.style.transform = `translateY(-${yShift}px)`
-        contentRef.current.style.opacity = Math.max(opacity, 0)
-      }
-
-      // Media wrap: scale up slightly, fade
-      if (mediaRef.current) {
-        const scale = 1 + progress * 0.15
-        const opacity = 1 - progress * 2
-        mediaRef.current.style.transform = `scale(${scale})`
-        mediaRef.current.style.opacity = Math.max(opacity, 0)
-      }
-
-      // Caption fades out
-      if (captionRef.current) {
-        captionRef.current.style.opacity = Math.max(1 - progress * 2.5, 0)
-      }
-    })
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (rafId.current) cancelAnimationFrame(rafId.current)
-    }
-  }, [handleScroll])
-
   return (
-    <div className="hero-scroll-wrapper" ref={wrapperRef}>
-      <section className="hero-section" ref={sectionRef}>
+    <div className="hero-scroll-wrapper">
+      <section className="hero-section">
         <div className="container hero-shell">
           <div className="row align-items-center g-4 hero-row">
-            <div className="col-12 col-lg-6 hero-copy-col">
-              <div className="hero-content" ref={contentRef}>
+            <div className="col-12 col-xl-6 hero-copy-col">
+              <div className="hero-content">
                 <p className="hero-kicker mb-0">450+Customized Precision Components Delivered</p>
                 <h1 className="hero-title mb-0">
                   EVERY METAL, EVERY PROCESS,
@@ -107,22 +46,18 @@ function HeroSection() {
               </div>
             </div>
 
-            <div className="col-12 col-lg-6 hero-media-col">
-              <div className="hero-media-wrap" ref={mediaRef}>
-                <img
-                  ref={straightRef}
-                  src={heroStraightImage}
-                  alt="Straight precision brass component"
-                  className="hero-media hero-media-straight"
-                />
-                <img
-                  ref={tiltRef}
-                  src={heroTiltImage}
-                  alt="Tilted precision brass component"
-                  className="hero-media hero-media-tilt"
-                />
+            <div className="col-12 col-xl-6 hero-media-col">
+              <div className="hero-media-wrap">
+                <picture>
+                  <source srcSet={heroMainImage} media="(min-width: 1200px)" />
+                  <img
+                    src={heroMobileImage}
+                    alt="Precision brass components"
+                    className="hero-media"
+                  />
+                </picture>
               </div>
-              <p className="hero-caption mb-0" ref={captionRef}>Precision , Reliability , Performance</p>
+              <p className="hero-caption mb-0">Precision , Reliability , Performance</p>
             </div>
           </div>
         </div>

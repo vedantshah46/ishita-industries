@@ -27,9 +27,6 @@ function CapabilitiesSection() {
               <span className="d-block">Capabilities</span>
             </h2>
           </div>
-          <p className="capabilities-intro mb-0">
-            Engineering precision through automated logic and architectural infrastructure.
-          </p>
         </div>
 
         <div className="capabilities-grid">

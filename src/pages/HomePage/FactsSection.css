@@ -8,9 +8,9 @@
 }
 
 .facts-header {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(235px, 420px);
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   gap: clamp(1.5rem, 4vw, 5rem);
   margin-bottom: clamp(3rem, 4.5vw, 4.5rem);
 }
@@ -18,12 +18,13 @@
 .facts-kicker {
   font-size: clamp(1.05rem, 0.82vw, 0.84rem);
   line-height: 1.2;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.2em;
   color: #797d83;
+  text-align: center;
 }
 
 .facts-title {
-  margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
   font-size: clamp(4.1rem, 4.1vw, 4.18rem);
   font-weight: 400;
   line-height: 0.98;

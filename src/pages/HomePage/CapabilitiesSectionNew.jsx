@@ -4,6 +4,7 @@ import capVisualImage from '../../Images/manufacturing-infrastructure.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
 import useCurtainReveal from '../../hooks/useCurtainReveal'
 import metalWeWork from '../../Images/metal-we-work.png'
+import machineIcon from '../../Images/machining-capabilities-icon.png'
 
 const metals = [
   'Stainless Steel',
@@ -43,9 +44,6 @@ function CapabilitiesSectionNew() {
               Advanced Manufacturing Capabilities
             </h2>
           </div>
-          <p className="capabilities-intro mb-0">
-            Engineering precision through automated logic and architectural infrastructure.
-          </p>
         </div>
 
         <div className="capabilities-grid">
@@ -55,7 +53,7 @@ function CapabilitiesSectionNew() {
               ref={(el) => (animRefs.current[1] = el)}
             >
               <div className="cap-card-topline">
-                <span>3C</span>
+                <img src={machineIcon} alt="" />
                 <span>UNIT 04 / OPS</span>
               </div>
 

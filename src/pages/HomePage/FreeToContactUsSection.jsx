@@ -32,7 +32,12 @@ function FreeToContactUsSection() {
               </p>
               <div>
                 <button className="contactus-btn">
-                  Contact now <span className="contactus-btn-arrow">&rarr;</span>
+                  Contact now 
+                  <span className="contactus-btn-arrow">
+                    <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 6H14M14 6L9 1M14 6L9 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </span>
                 </button>
               </div>
             </div>

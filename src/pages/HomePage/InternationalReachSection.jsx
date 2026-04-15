@@ -9,15 +9,9 @@ function InternationalReachSection() {
           <div>
             <p className="reach-kicker mb-0">CONNECTING GLOBAL MARKETS</p>
             <h2 className="reach-title mb-0">
-              INTERNATIONAL
-              <span className="d-block">REACH.</span>
+              INTERNATIONAL REACH.
             </h2>
           </div>
-          <p className="reach-intro mb-0">
-            Delivering quality products worldwide, expanding our presence across
-            international markets with reliable service, consistent performance,
-            and long-term partnerships.
-          </p>
         </div>
 
         <div className="reach-map-container">
