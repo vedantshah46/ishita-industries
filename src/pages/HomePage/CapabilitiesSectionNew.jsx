@@ -65,8 +65,8 @@ function CapabilitiesSectionNew() {
                   <strong className="cap-stat-value">1.50mm to 320mm</strong>
                 </div>
                 <div className="cap-stat">
-                  <span className="cap-stat-label">INSPECTION STATUS</span>
-                  <strong className="cap-stat-value">&#8226; Approved</strong>
+                  <span className="cap-stat-label">SURFACE ROUGHNESS</span>
+                  <strong className="cap-stat-value">Upto Ra 0.8 mm</strong>
                 </div>
                 <div className="cap-stat">
                   <span className="cap-stat-label">LENGTH WE HANDLE</span>

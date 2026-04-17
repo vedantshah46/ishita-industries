@@ -116,6 +116,7 @@
   font-size: clamp(0.9rem, 1.1vw, 1.6rem);
   line-height: 1.45;
   color: #616368;
+  font-weight: 300;
 }
 
 .hero-title {
@@ -202,10 +203,11 @@
 
 .hero-footnote {
   margin-top: clamp(2.2rem, 7.1vw, 6.8rem);
-  font-size: clamp(0.95rem, 1.2vw, 1.5rem);
+  font-size: clamp(0.65rem, 0.6vw, 1.5rem);
   line-height: 1.22;
   color: #63666b;
-  max-width: 140px;
+  max-width: 105px;
+  font-weight: 300;
 }
 
 .hero-media-wrap {
@@ -229,6 +231,7 @@
   font-size: clamp(1rem, 1.2vw, 1.6rem);
   color: #5c5f63;
   margin-top: 0.25rem;
+  font-weight: 300;
 }
 
 @media (min-width: 1200px) {
