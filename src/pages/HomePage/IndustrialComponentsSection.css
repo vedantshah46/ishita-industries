@@ -28,11 +28,11 @@
 
 .industrial-components-title {
   margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
-    font-size: clamp(4.35rem, 5vw, 5.1rem);
-    font-weight: 400;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    color: #2D3435;
+  font-size: clamp(4.35rem, 5vw, 5.1rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: #2D3435;
 }
 
 .industrial-components-title span {
@@ -56,14 +56,12 @@
 /* ─── Row (desktop: 3 columns) ──────────────────────────── */
 .industrial-components-row {
   display: grid;
-  grid-template-columns: minmax(180px, 0.9fr) minmax(400px, 2.7fr) minmax(
-      220px,
-      1.15fr
-    );
+  grid-template-columns: minmax(180px, 0.9fr) minmax(400px, 2.7fr) minmax(220px,
+      1.15fr);
   align-items: start;
   gap: 1.5rem;
   padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
-  padding-bottom: 0;
+  padding-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
   border-top: 1px solid #7a7e85;
 }
 
@@ -100,23 +98,23 @@
 .industrial-components-badges {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 850px;
-  padding-left: 8rem;
+  gap: 1.3em;
+  max-width: 680px;
+  padding-left: clamp(2rem, 5vw, 8rem);
 }
 
 .industrial-components-badge-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 1.3em;
 }
 
 .industrial-components-badge {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size: clamp(0.85rem, 0.8vw, 0.95rem);
+  font-size: clamp(1rem, 1vw, 1.2rem);
   color: #000000;
-  padding: 0.4rem 0.95rem;
+  padding: 0.65rem 1.4rem;
   border: 1px solid #000000;
   white-space: nowrap;
   background-color: transparent;
@@ -169,6 +167,7 @@
 
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
+
   /* Header stacks */
   .industrial-components-header {
     grid-template-columns: 1fr;
@@ -226,16 +225,16 @@
   }
 
   .industrial-components-badge-row {
-    gap: 0.5rem;
+    gap: 1.1em;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
 
   .industrial-components-badge {
     font-family: 'Inter', sans-serif;
-    font-weight: 300;
-    font-size: 0.78rem;
-    padding: 0.4rem 0.7rem;
+    font-weight: 400;
+    font-size: 1.15rem;
+    padding: 0.6rem 1.25rem;
     white-space: nowrap;
   }
 }
@@ -259,8 +258,8 @@
   }
 
   .industrial-components-badge {
-    font-size: 0.62rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.95rem;
   }
 }
 

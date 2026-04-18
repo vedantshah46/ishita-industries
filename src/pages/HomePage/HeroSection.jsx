@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react'
 import './HeroSection.css'
 import heroMainImage from '../../Images/homepage-herosection-image.png'
 import heroMobileImage from '../../Images/homepage-hero-section-mobile.png'
-
+import videoImage from '../../Images/hero-section-video-image.png'
 
 function HeroSection() {
   return (
@@ -28,7 +28,7 @@ function HeroSection() {
                 <div className="hero-story d-flex">
                   <div className="hero-story-thumb-wrap">
                     <img
-                      src="/src/Images/manufacturing-infrastructure.png"
+                      src={videoImage}
                       alt="Manufacturing preview"
                       className="hero-story-thumb"
                     />

@@ -7,6 +7,7 @@ import PrecisionExpertiseSection from './PrecisionExpertiseSection'
 import PrecisionComponentsSection from './PrecisionComponentsSection'
 import IndustrialComponentsSection from './IndustrialComponentsSection'
 import FactsSection from './FactsSection'
+import ComponentsDeliveredSection from './ComponentsDeliveredSection'
 import InternationalReachSection from './InternationalReachSection'
 import FreeToContactUsSection from './FreeToContactUsSection'
 import UniqueSellingPropositionSection from './UniqueSellingPropositionSection'
@@ -47,16 +48,16 @@ function Homepage() {
       <MarqueeTicker items={TICKER_ITEMS_1} speed={30} variant="light" />
 
       <AboutSection />
+      <ComponentsDeliveredSection />
       <PrecisionExpertiseSection />
-      <CapabilitiesSectionNew />
       <PrecisionComponentsSection />
+      <CapabilitiesSectionNew />
       <IndustrialComponentsSection />
 
       {/* Strip 2: between Industrial and USP — reversed for variety */}
       <MarqueeTicker items={TICKER_ITEMS_2} speed={35} direction="right" variant="dark" />
-
-      <UniqueSellingPropositionSection />
       <FactsSection />
+      <UniqueSellingPropositionSection />
       <InternationalReachSection />
       <FreeToContactUsSection />
       <Footer />

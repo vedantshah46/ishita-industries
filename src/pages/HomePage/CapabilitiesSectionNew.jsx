@@ -15,10 +15,22 @@ const metals = [
   'Inconel',
 ]
 
-const processes = [
+const finishingProcesses = [
   'Electro - Plating',
   'Zinc Coating',
   'Oxidizing',
+]
+
+const mainProcesses = [
+  { id: '01', name: 'Casting' },
+  { id: '02', name: 'Extrusion' },
+  { id: '03', name: 'Turning' },
+  { id: '04', name: 'Forging' },
+  { id: '05', name: 'Stamping' },
+  { id: '06', name: 'Broaching' },
+  { id: '07', name: 'Milling' },
+  { id: '08', name: 'Knuring' },
+  { id: '09', name: 'Threading' },
 ]
 
 function CapabilitiesSectionNew() {
@@ -140,7 +152,7 @@ function CapabilitiesSectionNew() {
               <h3 className="cap-finishing-title mb-0">SURFACE FINISHING</h3>
 
               <div className="cap-finishing-list">
-                {processes.map((process, index) => (
+                {finishingProcesses.map((process, index) => (
                   <div key={process} className="cap-finishing-item">
                     <div>
                       <span className="cap-finishing-label">PROCESS 0{index + 1}</span>
@@ -156,6 +168,18 @@ function CapabilitiesSectionNew() {
           </div>
         </div>
 
+        {/* Process We Undertake Box */}
+        <div className="process-undertake-wrapper">
+            <h2 className="process-main-title">PROCESS WE UNDERTAKE</h2>
+            <div className="process-grid">
+              {mainProcesses.map((item) => (
+                <div key={item.id} className="process-item">
+                  <span className="process-id">PROCESS {item.id}</span>
+                  <h3 className="process-name">{item.name}</h3>
+                </div>
+              ))}
+            </div>
+        </div>
       </div>
     </section>
   )

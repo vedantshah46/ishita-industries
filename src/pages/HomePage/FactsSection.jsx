@@ -47,7 +47,10 @@ function FactsSection() {
             const index = cardRefs.current.indexOf(entry.target)
             if (index !== -1 && numberRefs.current[index]) {
               const { rawNumber, suffix } = factsData[index]
-              animateCounter(numberRefs.current[index], rawNumber, suffix)
+              const delay = (index % 3) * 100
+              setTimeout(() => {
+                animateCounter(numberRefs.current[index], rawNumber, suffix)
+              }, delay)
             }
 
             observer.unobserve(entry.target)
@@ -82,7 +85,7 @@ function FactsSection() {
               key={index}
               className="facts-card"
               ref={(el) => (cardRefs.current[index] = el)}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${(index % 3) * 100}ms` }}
             >
               <h3
                 className="facts-card-number mb-0"

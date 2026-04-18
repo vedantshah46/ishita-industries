@@ -14,7 +14,7 @@
 .contactus-card {
   position: relative;
   background-color: #fff;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #99A2AF33;
   border-radius: 12px;
   padding: 45px 20px 30px;
   text-align: center;
@@ -22,12 +22,18 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
-/* Background grid pattern if you want to be extremely accurate, for now just a border and shadow */
-.contactus-card {
-  background-image:
-    linear-gradient(to right, #f8f8f8 1px, transparent 1px),
-    linear-gradient(to bottom, #f8f8f8 1px, transparent 1px);
-  background-size: 40px 40px;
+/* Apply the imported background grid image and invert it to be light/white */
+.contactus-card::before {
+  content: '';
+  position: absolute;
+  inset: -59px;
+  background-image: url('../../Images/contact-us-grid.png');
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1);
+  opacity: 1;
+  pointer-events: none;
 }
 
 .contactus-icon {
@@ -36,6 +42,7 @@
   left: 1.5rem;
   width: 32px;
   height: 32px;
+  z-index: 1;
 }
 
 .contactus-icon img {
@@ -109,7 +116,7 @@
   align-items: center;
   gap: 1rem;
   text-decoration: none;
-  border: 1px solid #f2f2f2;
+  border: 1px solid #99A2AF33;
   border-radius: 8px;
   padding: 18px 20px;
   background-color: #fff;
@@ -125,7 +132,7 @@
 .contactus-link-text {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
-  font-size:  clamp(16px, 1.25vw, 20px);
+  font-size: clamp(16px, 1.25vw, 20px);
   line-height: 1;
   text-align: left;
   color: #000000;
@@ -137,6 +144,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-arrow-img-rotate {
