@@ -1,6 +1,7 @@
 import Navbar from "../../components/Navbar/NavbarRouter";
 import AboutHeroSection from "./AboutHeroSection";
 import ManufacturingInfrastructureSection from "./ManufacturingInfrastructureSection";
+import FacilityExpertiseSection from "./FacilityExpertiseSection";
 import MeetOurTeamSection from "./MeetOurTeamSection";
 import CertificationSection from "./CertificationSection";
 import FastenerStandardsSection from "./FastenerStandardsSection";
@@ -19,6 +20,7 @@ function AboutPage() {
       <AboutHeroSection />
       <MeetOurTeamSection />
       <ManufacturingInfrastructureSection />
+      <FacilityExpertiseSection />
       <CertificationSection />
       <QualityAssuranceSection />
       <FastenerStandardsSection />
