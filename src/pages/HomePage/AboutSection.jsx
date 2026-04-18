@@ -2,7 +2,6 @@ import { useRef } from 'react'
 import './AboutSection.css'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
 import useCurtainReveal from '../../hooks/useCurtainReveal'
-import aboutEllipse from '../../Images/about-homepage-ellipse circle.png'
 
 const aboutHighlights = [
   'ISO Certified Manufacturing SET-UP',
@@ -35,22 +34,17 @@ function AboutSection() {
           </div>
         </div>
 
-        <div className="about-body-wrapper">
-          <div className="about-body-bg" aria-hidden="true">
-            <img src={aboutEllipse} alt="" />
-          </div>
-          <p
-            className="about-body mb-0"
-            ref={(el) => (animRefs.current[1] = el)}
-          >
-            Founded in Jamnagar the Brass City of India&apos; Ishita Industries has evolved from a local
-            workshop into a global leader in custom brass component manufacturing. We don&apos;t just
-            machine parts; we engineer reliability. Built on a foundation of strict quality control,
-            we now serve international markets across Electrical, Automotive, and Industrial sectors.
-            We bridge the gap between Indian manufacturing cost-efficiency and German-standard
-            precision.
-          </p>
-        </div>
+        <p
+          className="about-body mb-0"
+          ref={(el) => (animRefs.current[1] = el)}
+        >
+          Founded in Jamnagar the Brass City of India&apos; Ishita Industries has evolved from a local
+          workshop into a global leader in custom brass component manufacturing. We don&apos;t just
+          machine parts; we engineer reliability. Built on a foundation of strict quality control,
+          we now serve international markets across Electrical, Automotive, and Industrial sectors.
+          We bridge the gap between Indian manufacturing cost-efficiency and German-standard
+          precision.
+        </p>
 
         <div className="about-highlights" aria-label="Company highlights">
           {aboutHighlights.map((highlight, index) => (
