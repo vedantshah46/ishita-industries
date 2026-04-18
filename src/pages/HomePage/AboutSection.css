@@ -3,6 +3,7 @@
 }
 
 .about-shell {
+  background-color: #fafafa;
   max-width: 1210px;
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }

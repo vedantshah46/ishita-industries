@@ -16,9 +16,9 @@ const metals = [
 ]
 
 const processes = [
-  'Anodizing & Passivation',
-  'Powder Coating & Painting',
-  'Electropolishing',
+  'Electro - Plating',
+  'Zinc Coating',
+  'Oxidizing',
 ]
 
 function CapabilitiesSectionNew() {
@@ -68,6 +68,9 @@ function CapabilitiesSectionNew() {
                   <span className="cap-stat-label">SURFACE ROUGHNESS</span>
                   <strong className="cap-stat-value">Upto Ra 0.8 mm</strong>
                 </div>
+
+                <div className="cap-stats-divider" aria-hidden="true" />
+
                 <div className="cap-stat">
                   <span className="cap-stat-label">LENGTH WE HANDLE</span>
                   <strong className="cap-stat-value">Turning Length = 300mm</strong>

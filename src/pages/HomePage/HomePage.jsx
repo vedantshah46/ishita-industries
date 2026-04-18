@@ -1,17 +1,17 @@
-import Navbar                         from '../../components/Navbar/NavbarRouter'
-import IntroAnimation                from '../../components/IntroAnimation/IntroAnimation'
-import HeroSection                   from './HeroSection'
-import AboutSection                  from './AboutSection'
-import CapabilitiesSectionNew        from './CapabilitiesSectionNew'
-import PrecisionExpertiseSection     from './PrecisionExpertiseSection'
-import PrecisionComponentsSection    from './PrecisionComponentsSection'
-import IndustrialComponentsSection   from './IndustrialComponentsSection'
-import FactsSection                  from './FactsSection'
-import InternationalReachSection     from './InternationalReachSection'
-import FreeToContactUsSection        from './FreeToContactUsSection'
+import Navbar from '../../components/Navbar/NavbarRouter'
+import IntroAnimation from '../../components/IntroAnimation/IntroAnimation'
+import HeroSection from './HeroSection'
+import AboutSection from './AboutSection'
+import CapabilitiesSectionNew from './CapabilitiesSectionNew'
+import PrecisionExpertiseSection from './PrecisionExpertiseSection'
+import PrecisionComponentsSection from './PrecisionComponentsSection'
+import IndustrialComponentsSection from './IndustrialComponentsSection'
+import FactsSection from './FactsSection'
+import InternationalReachSection from './InternationalReachSection'
+import FreeToContactUsSection from './FreeToContactUsSection'
 import UniqueSellingPropositionSection from './UniqueSellingPropositionSection'
-import MarqueeTicker                 from '../../components/MarqueeTicker/MarqueeTicker'
-import Footer                        from '../../components/Footer/Footer'
+import MarqueeTicker from '../../components/MarqueeTicker/MarqueeTicker'
+import Footer from '../../components/Footer/Footer'
 
 // ── Marquee ticker content ────────────────────────────────────────
 // Shown in two strips to break up the page visually.
@@ -47,8 +47,8 @@ function Homepage() {
       <MarqueeTicker items={TICKER_ITEMS_1} speed={30} variant="light" />
 
       <AboutSection />
-      <CapabilitiesSectionNew />
       <PrecisionExpertiseSection />
+      <CapabilitiesSectionNew />
       <PrecisionComponentsSection />
       <IndustrialComponentsSection />
 

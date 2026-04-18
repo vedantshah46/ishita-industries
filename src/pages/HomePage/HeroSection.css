@@ -7,7 +7,7 @@
   position: relative;
   padding-bottom: clamp(1.4rem, 3.4vw, 3.2rem);
   overflow: hidden;
-  background: #ffffff;
+  background: #fafafa;
 }
 
 @media (max-width: 991.98px) {
@@ -104,6 +104,7 @@
 }
 
 .hero-shell {
+  background: #fafafa;
   max-width: 1210px;
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }

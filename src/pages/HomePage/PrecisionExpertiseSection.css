@@ -6,6 +6,7 @@
 .precision-shell {
   max-width: 1210px;
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  background-color: #f9f9f9;
 }
 
 /* ─── Header ─────────────────────────────────────────────── */

@@ -3,32 +3,32 @@
 }
 
 .usp-shell {
+  background-color: #fafafa;
   max-width: 1210px;
   padding-inline: clamp(0.9rem, 2.9vw, 1.65rem);
 }
 
 .usp-header {
+  display: grid;
+  grid-template-columns:1.5fr 1fr;
+  align-items: flex-end;
   gap: clamp(1.6rem, 4vw, 6rem);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .usp-kicker {
   font-size: clamp(1.05rem, 0.82vw, 0.84rem);
   line-height: 1.2;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.34em;
   color: #7a7d82;
-  text-align: center;
 }
 
 .usp-title {
-  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
-    font-size: clamp(4.35rem, 4.4vw, 6.01rem);
-    font-weight: 400;
-    line-height: 0.98;
-    letter-spacing: -0.03em;
-    color: #2D3435;
+  margin-top: clamp(1rem, 1.4vw, 1.35rem);
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem)  ;
+  font-weight: 400;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+  color: #33383d;
 }
 
 .usp-title span {
@@ -152,9 +152,9 @@
   left: 50%;
   top: 50%;
   width: clamp(171px, 18vw, 225px);
-  height: clamp(238px, 27.5vw, 265px);
+  height: clamp(238px, 27.5vw, 252px);
   border-radius: 14px;
-  background: linear-gradient(180deg, #3f4246 0%, #2f3135 100%);
+  background:#373737;
   transform-origin: 50% 100%;
   display: flex;
   align-items: flex-start;
