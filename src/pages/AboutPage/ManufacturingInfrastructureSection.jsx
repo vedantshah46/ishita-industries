@@ -35,8 +35,7 @@ function ManufacturingInfrastructureSection() {
       <div>
         <p className="about-infra-kicker mb-0">POWERING PRECISION</p>
         <h2 className="about-infra-title mb-0" ref={titleRef}>
-          MANUFACTURING
-          <span className="d-block">INFRASTRUCTURE.</span>
+          MANUFACTURING INFRASTRUCTURE.
         </h2>
       </div>
       <div className="container about-infra-shell">

@@ -55,8 +55,7 @@ function QualityAssuranceSection() {
           <div>
             <p className="quality-assurance-kicker mb-0">PRECISION YOU CAN TRUST</p>
             <h2 className="quality-assurance-title mb-0" ref={titleRef}>
-              QUALITY
-              <span className="d-block">ASSURANCE.</span>
+              QUALITY ASSURANCE.
             </h2>
           </div>
         </div>

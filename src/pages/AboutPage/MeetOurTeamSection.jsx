@@ -31,8 +31,7 @@ function MeetOurTeamSection() {
           <div>
             <p className="meet-team-kicker mb-0">THE PEOPLE BEHIND THE PROCESS</p>
             <h2 className="meet-team-title mb-0" ref={titleRef}>
-              MEET OUR
-              <span className="d-block">TEAM.</span>
+              MEET OUR TEAM.
             </h2>
           </div>
         </div>
