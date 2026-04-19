@@ -2,6 +2,7 @@ import { useRef } from "react";
 import "./ManufacturingInfrastructureSection.css";
 import infrastructureImage from "../../Images/about-manufacturing-infrastructure.png";
 import contactUsLogo from "../../Images/homepage-contact-us-logo.png";
+import checkboxIcon from "../../Images/about-manufacture-checkbox.png";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 import useCurtainReveal from "../../hooks/useCurtainReveal";
 
@@ -62,9 +63,7 @@ function ManufacturingInfrastructureSection() {
             <ul className="about-infra-list">
               {machineList.map((item) => (
                 <li key={item} className="about-infra-list-item">
-                  <span className="about-infra-check" aria-hidden="true">
-                    &#10003;
-                  </span>
+                  <img src={checkboxIcon} className="about-infra-check-img" alt="check" />
                   <span>{item}</span>
                 </li>
               ))}

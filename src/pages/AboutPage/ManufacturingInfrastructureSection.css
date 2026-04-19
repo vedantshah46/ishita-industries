@@ -44,7 +44,7 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
 .about-infra-visual-card {
   position: relative;
   margin-top: clamp(1.8rem, 2.6vw, 2.35rem);
-  height: clamp(300px, 34vw, 430px);
+  height: clamp(400px, 45vw, 620px);
   border-radius: 16px;
   overflow: hidden;
 }
@@ -59,17 +59,25 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
 .about-infra-overlay {
   position: absolute;
   inset: 0 auto 0 0;
-  width: min(100%, 318px);
-  padding: 22px;
+  width: min(100%, 500px);
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background: linear-gradient(
     90deg,
-    rgba(28, 30, 33, 0.72) 0%,
-    rgba(28, 30, 33, 0.48) 58%,
-    rgba(28, 30, 33, 0) 100%
+    rgba(16, 18, 20, 0.92) 0%,
+    rgba(16, 18, 20, 0.7) 40%,
+    rgba(16, 18, 20, 0.45) 65%,
+    transparent 100%
   );
+}
+
+.about-infra-overlay img {
+  width: 38px;
+  height: auto;
+  display: block;
+  margin-bottom: 4rem;
 }
 
 .about-infra-badge {
@@ -93,30 +101,26 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 0.65rem;
+  gap: 1.5em;
   align-self: flex-start;
-  margin-top: auto;
   font-weight: 300;
 }
 
 .about-infra-list-item {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  font-size: clamp(0.92rem, 1.08vw, 1.05rem);
-  line-height: 1.25;
+  gap: 1rem;
+font-size: clamp(1.1rem, 1.2vw, 2.3rem);
+  line-height: 1.1;
   color: #f7f7f2;
+  white-space: nowrap;
 }
 
-.about-infra-check {
-  width: 14px;
-  height: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  border-radius: 2px;
-  display: grid;
-  place-items: center;
-  font-size: 0.55rem;
-  line-height: 1;
+.about-infra-check-img {
+  width: 24px !important;
+  height: 24px !important;
+  margin-bottom: 0px !important;
+  object-fit: contain;
   flex-shrink: 0;
 }
 
