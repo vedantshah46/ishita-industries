@@ -28,13 +28,13 @@
 .facility-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  gap: 30px;
+  gap: 50px;
 }
 
 .facility-left-col {
   display: flex;
   flex-direction: column;
-  gap: 4.5em;
+  gap: 3em;
 }
 
 .facility-right-col {
@@ -81,7 +81,6 @@
 .facility-banner-card {
   position: relative;
   height: 480px;
-  border-radius: 4px;
   overflow: hidden;
 }
 

@@ -74,7 +74,7 @@ function FactsSection() {
           <div>
             <p className="facts-kicker mb-0">NUMBERS THAT DEFINE US</p>
             <h2 className="facts-title mb-0" ref={titleRef}>
-              FACTS &amp; <span className="d-block">FIGURES.</span>
+              FACTS & FIGURES.
             </h2>
           </div>
         </div>

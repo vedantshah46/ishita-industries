@@ -75,9 +75,9 @@
 }
 
 .cert-name {
-  font-size: clamp(0.8rem, 0.8vw, 0.8rem);
+  font-size: clamp(0.95rem, 0.8vw, 0.8rem);
   font-weight: 500;
-  color: #555c63;
+  color: #2D3435;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 15px;
