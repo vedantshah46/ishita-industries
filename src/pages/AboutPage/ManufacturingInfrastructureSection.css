@@ -4,12 +4,11 @@
 }
 
 .about-infra-shell {
-  max-width: 1210px;
   padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
 }
 
 .about-infra-header {
-    display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: clamp(1.4rem, 4vw, 5rem);
@@ -17,14 +16,14 @@
 
 .about-infra-kicker {
   text-align: center;
-    font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
   line-height: 1.2;
   letter-spacing: 0.38em;
-    color: #596061;
+  color: #596061;
 }
 
 .about-infra-title {
-margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
   font-size: clamp(4.7rem, 4.45vw, 4.3rem);
   font-weight: 400;
   line-height: 0.93;
@@ -43,7 +42,7 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
 
 .about-infra-visual-card {
   position: relative;
-  margin-top: clamp(1.8rem, 2.6vw, 2.35rem);
+  margin-top: clamp(2.5rem, 3.5vw, 3.2rem);
   height: clamp(400px, 45vw, 620px);
   border-radius: 16px;
   overflow: hidden;
@@ -64,13 +63,9 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background: linear-gradient(
-    90deg,
-    rgba(16, 18, 20, 0.92) 0%,
-    rgba(16, 18, 20, 0.7) 40%,
-    rgba(16, 18, 20, 0.45) 65%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.0) 0%,
+      transparent 100%);
 }
 
 .about-infra-overlay img {
@@ -110,7 +105,7 @@ margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
   display: flex;
   align-items: center;
   gap: 1rem;
-font-size: clamp(1.1rem, 1.2vw, 2.3rem);
+  font-size: clamp(1.1rem, 1.2vw, 2.3rem);
   line-height: 1.1;
   color: #f7f7f2;
   white-space: nowrap;
@@ -183,7 +178,7 @@ font-size: clamp(1.1rem, 1.2vw, 2.3rem);
     letter-spacing: 1px;
   }
 
-  .about-infra-kicker{
+  .about-infra-kicker {
     letter-spacing: 0.2em;
   }
 
