@@ -125,7 +125,7 @@
 /* ─── Visual ─────────────────────────────────────────────── */
 .industrial-components-visual {
   width: 100%;
-  max-width: 330px;
+  max-width: 380px;
   margin-left: auto;
 }
 
@@ -205,7 +205,7 @@
   /* Image: top-right, reasonably large */
   .industrial-components-visual {
     grid-area: image;
-    width: clamp(90px, 26vw, 140px);
+    width: clamp(110px, 30vw, 180px);
     max-width: none;
     margin-left: 0;
     align-self: start;
