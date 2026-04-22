@@ -97,16 +97,10 @@
 /* ─── Badges ─────────────────────────────────────────────── */
 .industrial-components-badges {
   display: flex;
-  flex-direction: column;
-  gap: 1.3em;
+  flex-wrap: wrap;
+  gap: 1.25em;
   max-width: 680px;
   padding-left: clamp(1rem, 3vw, 4rem);
-}
-
-.industrial-components-badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.3em;
 }
 
 .industrial-components-badge {
@@ -220,15 +214,13 @@
   /* Badges: full width below */
   .industrial-components-badges {
     grid-area: badges;
+    display: flex;
+    flex-wrap: wrap;
     max-width: 100%;
-    gap: 0.45rem;
+    gap: 1.1em;
   }
 
-  .industrial-components-badge-row {
-    gap: 1.1em;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
+
 
   .industrial-components-badge {
     font-family: 'Inter', sans-serif;

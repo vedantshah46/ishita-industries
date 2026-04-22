@@ -100,14 +100,10 @@ function IndustrialComponentsSection() {
               <h3 className="industrial-components-row-title mb-0">{item.title}</h3>
 
               <div className="industrial-components-badges">
-                {chunkArray(item.badges, 3).map((badgeRow, rowIndex) => (
-                  <div key={rowIndex} className="industrial-components-badge-row">
-                    {badgeRow.map((badge, idx) => (
-                      <span key={idx} className="industrial-components-badge">
-                        {badge}
-                      </span>
-                    ))}
-                  </div>
+                {item.badges.map((badge, idx) => (
+                  <span key={idx} className="industrial-components-badge">
+                    {badge}
+                  </span>
                 ))}
               </div>
 
