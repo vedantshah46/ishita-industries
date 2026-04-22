@@ -60,7 +60,7 @@
   align-items: start;
   gap: 1.5rem;
   padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
-  padding-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4.5vw, 2.1rem);
   border-top: 1px solid #7a7e85;
 }
 
@@ -246,7 +246,7 @@
     padding-top: 5rem;
   }
 
-  .industrial-components-badges{
+  .industrial-components-badges {
     padding-top: 3rem;
     padding-bottom: 1rem;
   }
