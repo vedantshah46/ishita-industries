@@ -43,7 +43,8 @@
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 3vw, 0.5rem);
+  column-gap: clamp(1rem, 3vw, 0.5rem);
+  row-gap: clamp(1.5rem, 3vw, 0.5rem);
 }
 
 .cert-card-wrapper {
@@ -76,7 +77,7 @@
 
 .cert-name {
   font-size: clamp(0.95rem, 0.8vw, 0.8rem);
-  font-weight: 500;
+  font-weight: 400;
   color: #2D3435;
   letter-spacing: 0.1em;
   text-transform: uppercase;

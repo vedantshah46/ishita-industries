@@ -281,6 +281,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background-color: rgba(45, 52, 53, 0.45);
 }
 
 .iso-text {

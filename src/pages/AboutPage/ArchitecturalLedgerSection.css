@@ -11,6 +11,7 @@
 
 .ledger-capabilities-section .ledger-shell{
   background-color: #FAFAFA;
+  max-width: 1125px;
 }
 
 .ledger-header {
@@ -22,6 +23,7 @@
 }
 
 .ledger-kicker {
+  text-align: center;
   font-size: clamp(1.1rem, 0.72vw, 0.75rem);
   line-height: 1.2;
   letter-spacing: 0.1em; 
@@ -32,10 +34,10 @@
 
 .ledger-title {
   margin-top: clamp(2.2rem, 1.35vw, 1.2rem);
-  font-size: clamp(4.2rem, 4.5vw, 4.5rem);
+  font-size:clamp(1.2rem, 2.5vw, 3.5rem);
   font-weight: 400;
   line-height: 0.98;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #2D3435;
   font-family: 'Inter';
 }
@@ -150,7 +152,7 @@
 .ledger-applications-list li {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: 1.5rem;
   padding: clamp(0.8rem, 1.2vw, 1.2rem) 0;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -177,6 +179,7 @@
   background-color: #F2F4F4;
   padding: clamp(2rem, 3.5vw, 3.5rem) clamp(2rem, 3.5vw, 3.5rem);
 min-height: clamp(340px, 38vw, 590px);
+border: 1px solid #ACB3B433;
 }
 
 .ledger-saga-title {
@@ -239,6 +242,7 @@ min-height: clamp(340px, 38vw, 590px);
   min-height: clamp(340px, 38vw, 440px);
   position: relative;
   overflow: hidden;
+  border:1px solid #ACB3B433;
 }
 
 .ledger-satisfaction-content {
@@ -292,7 +296,7 @@ min-height: clamp(340px, 38vw, 590px);
 .ledger-infrastructure {
   display: grid;
   grid-template-columns: minmax(0, 4.5fr) minmax(0, 5.5fr);
-  gap: clamp(2rem, 5vw, 6rem);
+  gap: clamp(2rem, 3vw, 6rem);
   margin-top: clamp(1rem, 2vw, 5.5rem);
   align-items: flex-start;
 }
@@ -305,7 +309,7 @@ min-height: clamp(340px, 38vw, 590px);
 }
 
 .ledger-infrastructure-title {
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
   font-weight: 400;
   line-height: 1.1;
   color: #2D3435;
@@ -313,7 +317,7 @@ min-height: clamp(340px, 38vw, 590px);
 }
 
 .ledger-infrastructure-desc {
-  font-size: clamp(1.3rem, 1.95vw, 1rem);
+  font-size: clamp(1.16rem, 1.95vw, 1rem);
   line-height: 1.6;
   color: #596061;
   margin-bottom: 1.5rem;
@@ -338,7 +342,7 @@ min-height: clamp(340px, 38vw, 590px);
 
 /* 06 Capabilities */
 .ledger-capabilities-section {
-  padding: clamp(3.5rem, 5.5vw, 5.5rem) 0 clamp(4.5rem, 6.5vw, 6.5rem);
+  padding: 0 0 clamp(4.5rem, 6.5vw, 6.5rem);
   background-color: #fafafa !important ;
 }
 
@@ -370,8 +374,8 @@ min-height: clamp(340px, 38vw, 590px);
 }
 
 .caps-title {
-  font-size: clamp(1rem, 1.1vw, 1.2rem);
-  font-weight: 500;
+  font-size: clamp(0.5rem, 1.1vw, 1.2rem);
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #2D3435;
@@ -379,7 +383,7 @@ min-height: clamp(340px, 38vw, 590px);
 }
 
 .caps-desc {
-  font-size: clamp(1.04rem, 0.95vw, 1rem); /* Standard reading size */
+  font-size: clamp(1.0rem, 0.95vw, 1rem); /* Standard reading size */
   line-height: 1.65;
   color: #596061;
 }
