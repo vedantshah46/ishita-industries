@@ -56,7 +56,7 @@
 /* ─── Row (desktop: 3 columns) ──────────────────────────── */
 .industrial-components-row {
   display: grid;
-  grid-template-columns: minmax(max-content, 2.5fr) 5fr 2.5fr;
+  grid-template-columns: minmax(max-content, 3.3fr) 5fr 2.5fr;
   align-items: start;
   gap: 1.5rem;
   padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
