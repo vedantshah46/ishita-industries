@@ -46,7 +46,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);
   margin-inline: auto;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .facts-card {
@@ -96,6 +96,18 @@
 
 .facts-card:hover .facts-card-label {
   color: #cccccc;
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .facts-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .facts-shell {
+    max-width: 1260px;
+  }
 }
 
 @media (max-width: 991.98px) {

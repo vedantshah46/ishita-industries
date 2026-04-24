@@ -146,6 +146,18 @@
   font-size: 0.8rem;
 }
 
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .footer-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .footer-shell {
+    max-width: 1260px;
+  }
+}
+
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .footer-top-row {

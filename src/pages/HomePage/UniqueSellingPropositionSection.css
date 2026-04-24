@@ -380,6 +380,18 @@
   top: 91%;
 }
 
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .usp-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .usp-shell {
+    max-width: 1260px;
+  }
+}
+
 @media (max-width: 1199.98px) {
   .usp-showcase {
     min-height: 620px;

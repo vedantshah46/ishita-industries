@@ -161,6 +161,18 @@
   box-shadow: none;
 }
 
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .nav-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .nav-shell {
+    max-width: 1260px;
+  }
+}
+
 /* ─── Tablet (992px – 1199px) ────────────────────────────── */
 @media (max-width: 1199.98px) {
   .brand-logo--desktop {

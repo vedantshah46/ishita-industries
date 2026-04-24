@@ -242,13 +242,13 @@
 
 @media (max-width: 1600px) and (min-width: 1465px) {
   .hero-shell {
-    max-width: 1350px;
+    max-width: 1325px;
   }
 }
 
 @media (max-width: 1465px) and (min-width: 1400px) {
   .hero-shell {
-    max-width: 1360px;
+    max-width: 1260px;
   }
 }
 

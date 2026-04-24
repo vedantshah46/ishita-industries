@@ -115,6 +115,18 @@
   color: #000000;
 }
 
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .precision-shell{
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .precision-shell {
+    max-width: 1260px;
+  }
+}
+
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .precision-header {
