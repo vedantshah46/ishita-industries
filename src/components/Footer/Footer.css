@@ -27,7 +27,7 @@
 
 /* ─── Shared column styles ───────────────────────────────── */
 .footer-col-title {
-  font-size: clamp(1.15rem, 1.2vw, 1.25rem);
+  font-size: clamp(1rem, 1vw, 1.25rem);
   font-weight: 600;
   color: #DADADA;
   margin-bottom: 1.5rem;
@@ -74,7 +74,7 @@
 .footer-phone,
 .footer-emails p {
   color: #DADADA;
-  font-size: clamp(1.2rem, 1.25vw, 1.35rem);
+  font-size: clamp(1.19rem, 1.25vw, 1.35rem);
   line-height: 1.6;
   margin-bottom: 1.2rem;
   font-style: normal;

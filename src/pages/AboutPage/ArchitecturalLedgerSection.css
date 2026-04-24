@@ -398,7 +398,7 @@
   color: #596061;
 }
 
-@media (max-width: 1600px) and (min-width: 1400px) {
+@media (max-width: 1800px) and (min-width: 1400px) {
  .ledger-infrastructure-title{
   font-size: clamp(2rem, 4.5vw, 2.8rem);
  }
