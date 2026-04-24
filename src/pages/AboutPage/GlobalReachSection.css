@@ -53,7 +53,7 @@
   width: 100%;
   border-radius: 12px;
   margin-bottom: clamp(3rem, 4vw, 4rem);
-  min-height: clamp(330px, 40vw, 282px);
+  min-height: clamp(310px, 40vw, 282px);
   background-color: #c8d4de;
   overflow: visible;
   /* allow ship overflow */
@@ -118,7 +118,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2.5vw, 3rem);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.5rem, 3vw, 1.5rem);
   z-index: 3;
   align-items: flex-start;
 }
@@ -132,12 +132,12 @@
 /* Divider lines */
 .global-reach-stat-card:not(:last-child)::after {
   content: '';
-  position: absolute;
-  top: 10%;
-  right: -1.5rem;
-  width: 1px;
-  height: 80%;
-  background: rgba(255, 255, 255, 0.4);
+    position: absolute;
+    top: 29%;
+    right: -0.5rem;
+    width: 1px;
+    height: 45%;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 /* Typography */
@@ -148,16 +148,17 @@
 }
 
 .global-reach-stat-title {
-  font-size: clamp(0.85rem, 1vw, 1rem);
+  font-size: clamp(0.92rem, 1vw, 1rem);
   margin-bottom: 0.5rem;
   opacity: 0.95;
 }
 
 .global-reach-stat-desc {
-  font-size: clamp(0.85rem, 0.75vw, 0.8rem);
+  font-size: clamp(0.9rem, 0.75vw, 0.8rem);
   line-height: 1.5;
-  opacity: 0.75;
-  font-weight: 200 !important;
+  opacity: 0.7;
+  font-weight: 100 !important;
+  color: #FFFFFF;
 }
 
 /* ─── World Section ─────────────────────────────────────── */
@@ -198,6 +199,12 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+@media (max-width:2500px) and (min-width:1400px){
+  .global-reach-world-title{
+    font-size: clamp(2.2rem, 3vw, 2rem);
+  }
 }
 
 /* ─── Mobile ───────────────────────────────────────────── */
