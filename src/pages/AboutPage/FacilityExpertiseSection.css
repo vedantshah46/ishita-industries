@@ -40,14 +40,14 @@
 .facility-right-col {
   display: flex;
   flex-direction: column;
-  gap: 2.5em;
+  gap: 3.5em;
 }
 
 @media (max-width: 1400px) and (min-width: 1200px) {
   .facility-right-col {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
+    gap: 2.5em;
   }
 }
 
