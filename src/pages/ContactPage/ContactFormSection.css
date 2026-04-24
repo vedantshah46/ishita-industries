@@ -1,11 +1,11 @@
 .contact-form-section {
   background-color: #ffffff;
-  padding: clamp(4rem, 6vw, 6rem) 0;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   width: 100%;
 }
 
 .contact-form-container {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
@@ -18,19 +18,24 @@
 .contact-subheading {
   display: block;
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15em;
-  color: #666666;
   margin-bottom: 1rem;
   text-transform: uppercase;
+  text-align: center;
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  line-height: 1.2;
+  letter-spacing: 0.38em;
+  color: #596061;
 }
 
 .contact-heading {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
+  font-size: clamp(4.7rem, 4.45vw, 4.3rem);
   font-weight: 400;
-  color: #343434;
-  margin: 0;
+  line-height: 0.93;
+  letter-spacing: -0.06em;
+  color: #373c42;
+  text-align: center;
 }
 
 .contact-form {
@@ -46,7 +51,15 @@
 
 .form-group {
   flex: 1;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  color: #343434;
 }
 
 .form-group.full-width {
@@ -56,10 +69,10 @@
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  padding: 0.75rem 0;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #c4c4c4;
+  padding: 0.8rem 1rem;
+  background: #ffffff;
+  border: 1px solid #343434;
+  border-radius: 2px;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: #333333;
@@ -67,20 +80,14 @@
   transition: border-color 0.3s ease;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #333333;
-  font-weight: 400;
-}
-
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-bottom-color: #343434;
+  border-color: #343434;
 }
 
 .contact-form textarea {
   resize: vertical;
-  min-height: 100px;
+  min-height: 120px;
 }
 
 .form-submit {
@@ -93,9 +100,9 @@
   background-color: #343434;
   color: #ffffff;
   border: none;
-  padding: 0.6rem 2.5rem;
+  padding: 0.8rem 3rem;
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

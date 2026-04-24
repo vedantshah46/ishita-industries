@@ -6,7 +6,7 @@ const ContactInfoSection = () => {
     <section className="contact-info-section">
       <div className="contact-info-container">
         <div className="contact-cards-wrapper">
-          
+
           {/* Left Column: Email */}
           <div className="info-card email-card">
             <div className="info-icon">
@@ -27,7 +27,7 @@ const ContactInfoSection = () => {
 
           {/* Right Column: Address & Contact */}
           <div className="right-cards">
-            
+
             {/* Address */}
             <div className="info-card address-card">
               <div className="info-icon">
@@ -38,9 +38,7 @@ const ContactInfoSection = () => {
               </div>
               <h3 className="info-title">Address</h3>
               <p className="info-text">
-                Plot No – 32, R.S No – 706, Vision Industrial Park,<br/>
-                Lalpur Road, Changa, Jamnagar – 361012, Gujarat,<br/>
-                India.
+                Plot No – 32, R.S No – 706, Vision Industrial Park, Lalpur Road, Changa, Jamnagar – 361012, Gujarat, India.
               </p>
             </div>
 
@@ -53,11 +51,11 @@ const ContactInfoSection = () => {
               </div>
               <h3 className="info-title">Contact</h3>
               <p className="info-text">
-                +91 932 799 2077<br/>
+                +91 932 799 2077<br />
                 +91 982 569 2077
               </p>
             </div>
-            
+
           </div>
         </div>
       </div>

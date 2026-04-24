@@ -1,6 +1,6 @@
 .contact-hero-section {
   background-color: #F9F9F9;
-  padding: clamp(6rem, 8vw, 8rem) 0 clamp(4rem, 6vw, 6rem);
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   width: 100%;
 }
 
@@ -12,24 +12,27 @@
 
 .contact-hero-title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-  line-height: 1.1;
   font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.8rem, 6.5vw, 90px);
+  line-height: 1;
+  letter-spacing: -2px;
+  vertical-align: middle;
   color: #343434;
-  margin-bottom: clamp(1.5rem, 2.5vw, 2.5rem);
-  letter-spacing: -0.02em;
+  max-width: 800px;
 }
 
 .contact-hero-highlight {
-  color: #a0a0a0;
+  color: #59606166;
 }
 
 .contact-hero-subtitle {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-size: clamp(1rem, 1.6vw, 18px);
   line-height: 1.6;
   font-weight: 400;
-  color: #343434;
+  color: #2D3435;
   margin: 0;
   max-width: 800px;
+  margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
 }

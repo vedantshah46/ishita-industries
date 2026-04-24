@@ -1,11 +1,12 @@
 .contact-info-section {
-  background-color: #F9F9F9;
-  padding: 0 0 clamp(4rem, 6vw, 6rem);
+  background-color: #FFFFFF;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   width: 100%;
 }
 
 .contact-info-container {
-  max-width: 1000px; /* narrowed slightly to match image proportion */
+  max-width: 1100px;
+  /* narrowed slightly to match image proportion */
   margin: 0 auto;
   padding-inline: clamp(1rem, 3vw, 2rem);
 }
@@ -18,7 +19,7 @@
 
 .info-card {
   background-color: #ffffff;
-  border: 1px solid #eaeaea;
+  border: 1px solid #00000033;
   padding: clamp(2rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
@@ -35,7 +36,8 @@
   gap: 20px;
 }
 
-.address-card, .contact-card {
+.address-card,
+.contact-card {
   flex: 1;
 }
 
@@ -46,8 +48,9 @@
 
 .info-title {
   font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  font-weight: 700; /* bold like the image */
+  font-size: clamp(1.5rem, 0.72vw, 0.75rem);
+  font-weight: 700;
+  /* bold like the image */
   color: #343434;
   margin-bottom: 1.2rem;
 }
@@ -60,7 +63,7 @@
 
 .info-list li {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  font-size: clamp(1.1rem, 0.72vw, 0.75rem);
   color: #666666;
   margin-bottom: 1rem;
   line-height: 1.5;
@@ -68,7 +71,7 @@
 
 .info-text {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(0.95rem, 1vw, 1.05rem);
+  font-size: clamp(1.1rem, 0.72vw, 0.75rem);
   color: #666666;
   line-height: 1.6;
   margin: 0;
