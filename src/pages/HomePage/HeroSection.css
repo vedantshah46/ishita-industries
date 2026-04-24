@@ -240,13 +240,7 @@
   font-weight: 300;
 }
 
-@media (max-width: 1600px) and (min-width: 1520px) {
-  .hero-shell {
-    max-width: 1500px;
-  }
-}
-
-@media (max-width: 1520px) and (min-width: 1465px) {
+@media (max-width: 1600px) and (min-width: 1465px) {
   .hero-shell {
     max-width: 1400px;
   }
