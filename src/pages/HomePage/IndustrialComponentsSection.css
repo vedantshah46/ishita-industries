@@ -130,7 +130,7 @@
 }
 
 .industrial-components-image {
-  width: 100%;
+    width: 140%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -155,6 +155,9 @@
     align-items: end;
     gap: 1.5rem;
     margin-bottom: 2rem;
+  }
+  .industrial-components-image {
+    width: 100%;
   }
 
   .industrial-components-intro {
