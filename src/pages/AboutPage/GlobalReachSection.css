@@ -118,7 +118,9 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2.5vw, 3rem);
-  padding: clamp(1.5rem, 3vw, 1.5rem);
+padding: clamp(1.5rem, 3vw, 1.5rem); /* Top, Right, Bottom, Left */
+padding-left: clamp(2.5rem, 5.5vw, 1.5rem); /* Increased left padding */
+
   z-index: 3;
   align-items: flex-start;
 }
@@ -131,15 +133,14 @@
 
 /* Divider lines */
 .global-reach-stat-card:not(:last-child)::after {
-  content: '';
+    content: '';
     position: absolute;
-    top: 29%;
-    right: -0.5rem;
+    top: 48px;
+    right: -1rem;
     width: 1px;
-    height: 45%;
-    background: rgba(255, 255, 255, 0.4);
+    height: 95px;
+    background: #ffff;
 }
-
 /* Typography */
 .global-reach-stat-value {
   font-weight: 600;
