@@ -10,8 +10,8 @@
   padding-inline: clamp(1rem, 3vw, 2rem);
   background-image: url('../../Images/about-homepage-ellipse circle.png');
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 850px auto;
+    background-position: center 50%;
+    background-size: 700px auto;
 }
 
 .components-delivered-content {
