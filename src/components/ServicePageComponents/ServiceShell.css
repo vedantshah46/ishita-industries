@@ -1,0 +1,32 @@
+/* ─── Service Shell (Common Container) ─────────────────────── */
+
+.service-shell {
+  width: 100% !important;
+  max-width: 1210px !important;
+  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
+  margin-inline: auto !important;
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .service-shell {
+    max-width: 1325px !important;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .service-shell {
+    max-width: 1260px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .service-shell {
+    max-width: 1520px !important;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .service-shell {
+    padding-inline: 0.75rem;
+  }
+}

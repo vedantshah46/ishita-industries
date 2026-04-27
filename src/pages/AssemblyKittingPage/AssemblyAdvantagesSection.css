@@ -1,0 +1,134 @@
+/* ─── Assembly Advantages Section ───────────────────────────── */
+
+.assembly-advantages-section {
+  background-color: #2D3435;
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+  color: #FFFFFF;
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(3rem, 6vw, 8rem);
+}
+
+.advantages-text-col {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.advantages-text-col.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.advantages-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  color: #FFFFFF;
+  margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
+  letter-spacing: -0.02em;
+}
+
+.advantages-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.25vw, 1.3rem);
+  line-height: 1.7;
+  color: #ACB3B4;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  max-width: 540px;
+}
+
+.advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid rgba(172, 179, 180, 0.2);
+}
+
+.advantages-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(172, 179, 180, 0.2);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(1rem, 1.1vw, 1.15rem);
+  color: #FFFFFF;
+  transition: padding-left 0.3s ease;
+}
+
+.advantages-item:hover {
+  padding-left: 0.5rem;
+  color: #DDE4E5;
+}
+
+.advantages-icon {
+  color: #ACB3B4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advantages-image-col {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.advantages-image-col.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.advantages-image-wrapper {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.advantages-image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+.advantages-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.advantages-image-wrapper:hover .advantages-img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 991.98px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .advantages-text-col {
+    order: 2;
+  }
+
+  .advantages-image-col {
+    order: 1;
+    transform: translateY(30px);
+  }
+
+  .advantages-image-col.is-visible {
+    transform: translateY(0);
+  }
+}

@@ -8,6 +8,9 @@ import ImportExportPage from './pages/ImportExportPage/ImportExportPage'
 import ContactPage from './pages/ContactPage/ContactPage'
 import EnvironmentPage from './pages/EnvironmentPage/EnvironmentPage'
 import SustainabilityPage from './pages/SustainabilityPage/SustainabilityPage'
+import GlobalLogisticPage from './pages/GlobalLogisticPage/GlobalLogisticPage'
+import CustomPackagingPage from './pages/CustomPackagingPage/CustomPackagingPage'
+import AssemblyKittingPage from './pages/AssemblyKittingPage/AssemblyKittingPage'
 import ScrollProgressBar from './components/ScrollProgressBar/ScrollProgressBar'
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
         <Route path="/import-export" element={<ImportExportPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/sustainability" element={<SustainabilityPage />} />
+        <Route path="/global-logistic" element={<GlobalLogisticPage />} />
+        <Route path="/custom-packaging" element={<CustomPackagingPage />} />
+        <Route path="/assembly-kitting" element={<AssemblyKittingPage />} />
       </Routes>
     </>
   )
