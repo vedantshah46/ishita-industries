@@ -1,11 +1,14 @@
 import React from 'react';
 import './ContactHeroSection.css';
+import useCurtainReveal from '../../hooks/useCurtainReveal';
 
 const ContactHeroSection = () => {
+  const titleRef = useCurtainReveal({ stagger: 0.065 });
+
   return (
     <section className="contact-hero-section">
-      <div className="contact-hero-container">
-        <h1 className="contact-hero-title">
+      <div className="container contact-hero-container">
+        <h1 className="contact-hero-title" ref={titleRef}>
           We offer products
           100% from <span className="contact-hero-highlight">extruded rods, profiles & section</span>
         </h1>

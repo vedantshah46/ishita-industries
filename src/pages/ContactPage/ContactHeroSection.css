@@ -6,8 +6,7 @@
 
 .contact-hero-container {
   max-width: 1210px;
-  margin: 0 auto;
-  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
 }
 
 .contact-hero-title {
@@ -43,21 +42,15 @@
   }
 }
 
-@media (min-width: 992px) {
-  .contact-hero-container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .contact-hero-container {
-    max-width: 1140px;
-  }
-}
-
-@media (min-width: 1400px) {
+@media (max-width: 1465px) and (min-width: 1400px) {
   .contact-hero-container {
     max-width: 1260px;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .contact-hero-container {
+    padding-inline: 0.75rem;
   }
 }
 

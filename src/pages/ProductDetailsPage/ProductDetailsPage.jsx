@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import NavbarRouter from '../../components/Navbar/NavbarRouter';
 import Footer from '../../components/Footer/Footer';
 import './ProductDetailsPage.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 // Import images
 import img1 from '../../Images/Electric Pin-1.png';
@@ -17,6 +18,10 @@ import arrowVector from '../../Images/arrow-vector.png';
 const ProductDetailsPage = () => {
   const images = [img1, img2, img3, img4];
   const [mainImage, setMainImage] = useState(images[0]);
+
+  const animRefs = useRef([]);
+  useScrollAnimation(animRefs);
+
   return (
     <>
       <NavbarRouter />
@@ -24,12 +29,18 @@ const ProductDetailsPage = () => {
         <div className="product-details-container">
 
           {/* Title Section */}
-          <div className="product-header">
+          <div 
+            className="product-header"
+            ref={(el) => (animRefs.current[0] = el)}
+          >
             <h1>Electric Pin</h1>
           </div>
 
           {/* Gallery Section */}
-          <div className="product-gallery">
+          <div 
+            className="product-gallery"
+            ref={(el) => (animRefs.current[1] = el)}
+          >
             <div className="main-image">
               <img src={mainImage} alt="Electric Pin Main" />
             </div>
@@ -47,7 +58,10 @@ const ProductDetailsPage = () => {
           </div>
 
           {/* Description Section */}
-          <div className="product-description">
+          <div 
+            className="product-description"
+            ref={(el) => (animRefs.current[2] = el)}
+          >
             <p>
               Brass Electrical Pins & Sockets, Brass Pin - Established in 1985, Ishita Industries specializes in the production of Brass Pin Conforming to Customer Technical Specification with ( Drawing & Sample ) & ensure Stringent Quality Standard especially for engineering Industry.
             </p>
@@ -58,34 +72,61 @@ const ProductDetailsPage = () => {
 
           {/* Specifications Grid */}
           <div className="specifications-grid">
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[3] = el)}
+              style={{ transitionDelay: '0ms' }}
+            >
               <h3>Tolerance we Maintain</h3>
               <p>ISO 2768-M (Any as per customize Specification)</p>
             </div>
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[4] = el)}
+              style={{ transitionDelay: '100ms' }}
+            >
               <h3>Finish We Serve</h3>
               <p>Nickel, Zinc, Tin, Lead, Chrome, Silver, Gold</p>
             </div>
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[5] = el)}
+              style={{ transitionDelay: '200ms' }}
+            >
               <h3>Size We Handle</h3>
               <p>Circumscribe Diameter 1.5MM to 200MM</p>
             </div>
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[6] = el)}
+              style={{ transitionDelay: '300ms' }}
+            >
               <h3>Length We Handle</h3>
               <p>Turning Length 400 MM</p>
             </div>
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[7] = el)}
+              style={{ transitionDelay: '400ms' }}
+            >
               <h3>Material we serve</h3>
               <p>As per customer Customer Requirements.</p>
             </div>
-            <div className="spec-card">
+            <div 
+              className="spec-card"
+              ref={(el) => (animRefs.current[8] = el)}
+              style={{ transitionDelay: '500ms' }}
+            >
               <h3>Process we Undertake</h3>
               <p>Turning, Forging, Milling, Stamping, Drilling, Molding, Grinding, Assembly & Finishing</p>
             </div>
           </div>
 
           {/* Threads Section */}
-          <div className="threads-section">
+          <div 
+            className="threads-section"
+            ref={(el) => (animRefs.current[9] = el)}
+          >
             <h2>Thread We Serve</h2>
             <div className="threads-list">
               <ul>
@@ -113,10 +154,14 @@ const ProductDetailsPage = () => {
 
           {/* Metal We Machine Section */}
           <div className="metal-section">
-            <h2>Metal We Machine</h2>
-            <p className="metal-subtitle">We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
+            <h2 ref={(el) => (animRefs.current[10] = el)}>Metal We Machine</h2>
+            <p className="metal-subtitle" ref={(el) => (animRefs.current[11] = el)}>We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
             <div className="metal-cards">
-              <div className="metal-card">
+              <div 
+                className="metal-card"
+                ref={(el) => (animRefs.current[12] = el)}
+                style={{ transitionDelay: '100ms' }}
+              >
                 <div className="metal-card-visual">
                   <img src={machine1} alt="Precision Machining Expertise" className="metal-card-image" />
                 </div>
@@ -124,7 +169,11 @@ const ProductDetailsPage = () => {
                   Precision Machining Expertise <img src={arrowVector} alt="" className="arrow" />
                 </div>
               </div>
-              <div className="metal-card">
+              <div 
+                className="metal-card"
+                ref={(el) => (animRefs.current[13] = el)}
+                style={{ transitionDelay: '200ms' }}
+              >
                 <div className="metal-card-visual">
                   <img src={machine2} alt="Industrial Components" className="metal-card-image" />
                 </div>
@@ -132,7 +181,11 @@ const ProductDetailsPage = () => {
                   Industrial Components <img src={arrowVector} alt="" className="arrow" />
                 </div>
               </div>
-              <div className="metal-card">
+              <div 
+                className="metal-card"
+                ref={(el) => (animRefs.current[14] = el)}
+                style={{ transitionDelay: '300ms' }}
+              >
                 <div className="metal-card-visual">
                   <img src={machine3} alt="Section Components" className="metal-card-image" />
                 </div>

@@ -1,7 +1,9 @@
+import { useRef } from 'react';
 import "../HomePage/FreeToContactUsSection.css";
 import "./WorkWithUsSection.css";
 import contactlogo from '../../Images/homepage-contact-us-logo.png';
 import arrow from '../../Images/arrow-vector.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const contactLinksData = [
   { text: "Get Company Brochure", href: "#" },
@@ -10,6 +12,9 @@ const contactLinksData = [
 ];
 
 function WorkWithUsSection() {
+  const animRefs = useRef([]);
+  useScrollAnimation(animRefs);
+
   return (
     <section className="free-to-contact-us-section work-with-us-section">
       <div className="container contactus-shell">
@@ -25,7 +30,10 @@ function WorkWithUsSection() {
         </div>
 
         <div className="contactus-cta-block">
-          <div className="contactus-card">
+          <div 
+            className="contactus-card"
+            ref={(el) => (animRefs.current[0] = el)}
+          >
             
             <div className="contactus-content work-with-us-content">
               <h3 className="contactus-title mb-0 work-with-us-card-title">
@@ -49,7 +57,12 @@ function WorkWithUsSection() {
 
           <div className="contactus-links-grid">
             {contactLinksData.map((link, index) => (
-              <a key={index} href={link.href} className="contactus-link-card">
+              <a 
+                key={index} 
+                href={link.href} 
+                className="contactus-link-card"
+                ref={(el) => (animRefs.current[index + 1] = el)}
+              >
                 <span className="contactus-link-text">{link.text}</span>
                 <img src={arrow} alt="" className="contact-arrow-img-rotate"/>
               </a>

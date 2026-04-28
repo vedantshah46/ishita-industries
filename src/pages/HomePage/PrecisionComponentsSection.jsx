@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './PrecisionComponentsSection.css'
 import turnedImage from '../../Images/brass-turned-component.png'
 import forgedImage from '../../Images/brass-forged-component.png'
@@ -6,6 +7,7 @@ import broachImage from '../../Images/bras-broach-component.png'
 import  stampingImage from '../../Images/brass-stamping-component.png'
 import castingImage from '../../Images/brass-casting-component.png'
 import arrowVector from '../../Images/arrow-vector.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
 
 const componentCards = [
   {
@@ -35,10 +37,16 @@ const componentCards = [
 ]
 
 function PrecisionComponentsSection() {
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="precision-components-section">
       <div className="container precision-components-shell">
-        <div className="precision-components-header">
+        <div 
+          className="precision-components-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="precision-components-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-components-title mb-0">
@@ -48,8 +56,13 @@ function PrecisionComponentsSection() {
         </div>
 
         <div className="precision-components-grid">
-          {componentCards.map((card) => (
-            <article key={card.title} className="precision-components-card">
+          {componentCards.map((card, index) => (
+            <article 
+              key={card.title} 
+              className="precision-components-card"
+              ref={(el) => (animRefs.current[1 + index] = el)}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <div className="precision-components-visual">
                 <img src={card.image} alt="" className="precision-components-image" />
               </div>

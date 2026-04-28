@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './Footer.css'
 import companyLogo from '../../Images/company-footer-logo.png'
 import linkedin from '../../Images/footer-linkedin.png'
@@ -5,6 +6,7 @@ import facebook from '../../Images/footer-facebook.png'
 import twitter from '../../Images/footer-twitter.png'
 import pinterest from '../../Images/footer-pinterest.png'
 import { Link } from 'react-router-dom'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
 
 const footerLinks = {
   about: [
@@ -33,6 +35,9 @@ const footerLinks = {
 }
 
 function Footer() {
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <footer className="footer-section">
       <div className="container footer-shell">
@@ -40,7 +45,10 @@ function Footer() {
         {/* ── Desktop top row ── */}
         <div className="footer-top-row">
 
-          <div className="footer-nav-col">
+          <div 
+            className="footer-nav-col"
+            ref={(el) => (animRefs.current[0] = el)}
+          >
             <h4 className="footer-col-title">About Us</h4>
             <ul className="footer-link-list">
               {footerLinks.about.map((link) => (
@@ -49,7 +57,11 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="footer-nav-col">
+          <div 
+            className="footer-nav-col"
+            ref={(el) => (animRefs.current[1] = el)}
+            style={{ transitionDelay: '100ms' }}
+          >
             <h4 className="footer-col-title">Industrial Components</h4>
             <ul className="footer-link-list">
               {footerLinks.components.map((link) => (
@@ -58,7 +70,11 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="footer-nav-col">
+          <div 
+            className="footer-nav-col"
+            ref={(el) => (animRefs.current[2] = el)}
+            style={{ transitionDelay: '200ms' }}
+          >
             <h4 className="footer-col-title">Machining Expertise</h4>
             <ul className="footer-link-list">
               {footerLinks.expertise.map((link) => (
@@ -67,7 +83,11 @@ function Footer() {
             </ul>
           </div>
 
-          <div className="footer-contact-col">
+          <div 
+            className="footer-contact-col"
+            ref={(el) => (animRefs.current[3] = el)}
+            style={{ transitionDelay: '300ms' }}
+          >
             <div className="footer-logo">
               <img src={companyLogo} alt="Ishita Industries" />
             </div>
@@ -100,7 +120,10 @@ function Footer() {
         </div>
 
         {/* ── Mobile-only layout ── */}
-        <div className="footer-mobile-layout">
+        <div 
+          className="footer-mobile-layout"
+          ref={(el) => (animRefs.current[4] = el)}
+        >
 
           {/* Logo + contact */}
           <div className="footer-mobile-contact">
@@ -148,7 +171,10 @@ function Footer() {
         </div>
 
         {/* ── Bottom row (shared) ── */}
-        <div className="footer-bottom-row">
+        <div 
+          className="footer-bottom-row"
+          ref={(el) => (animRefs.current[5] = el)}
+        >
           <hr className="footer-divider" />
           <div className="footer-bottom-content">
             <p className="copyright-text">Copyright 2026 - Ishita Industries All Copyrights Reserved</p>

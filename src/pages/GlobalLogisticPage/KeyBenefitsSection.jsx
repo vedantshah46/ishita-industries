@@ -22,12 +22,13 @@ const KeyBenefitsSection = () => {
           </h2>
         </div>
 
-        <div
-          className="key-benefits-cards"
-          ref={(el) => (animRefs.current[1] = el)}
-        >
+        <div className="key-benefits-cards">
           {/* Door-to-Door Delivery */}
-          <div className="key-benefit-card">
+          <div 
+            className="key-benefit-card"
+            ref={(el) => (animRefs.current[1] = el)}
+            style={{ transitionDelay: '0ms' }}
+          >
             <div className="key-benefit-icon-wrap">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="1" y="3" width="15" height="13"></rect>
@@ -43,7 +44,11 @@ const KeyBenefitsSection = () => {
           </div>
 
           {/* Secure Packaging */}
-          <div className="key-benefit-card">
+          <div 
+            className="key-benefit-card"
+            ref={(el) => (animRefs.current[2] = el)}
+            style={{ transitionDelay: '100ms' }}
+          >
             <div className="key-benefit-icon-wrap">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 8V20.9932C21 21.5501 20.5552 22 20.0066 22H3.9934C3.44476 22 3 21.5501 3 20.9932V8H21ZM11 13V15H13V13H11ZM22 5V7H2V5H22ZM18 2V4H6V2H18Z"></path>
@@ -56,7 +61,11 @@ const KeyBenefitsSection = () => {
           </div>
 
           {/* Global Coverage */}
-          <div className="key-benefit-card">
+          <div 
+            className="key-benefit-card"
+            ref={(el) => (animRefs.current[3] = el)}
+            style={{ transitionDelay: '200ms' }}
+          >
             <div className="key-benefit-icon-wrap">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>

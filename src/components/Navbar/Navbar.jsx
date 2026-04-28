@@ -6,6 +6,7 @@ import downloadLogo from '../../Images/navbar-download-logo.png';
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import FullscreenMenu from '../FullscreenMenu/FullscreenMenu';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -16,8 +17,26 @@ const navLinks = [
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleToggle = () => setIsOpen(prev => !prev);
+  const handleMenuOpen = () => setIsMenuOpen(true);
+  const handleMenuClose = () => setIsMenuOpen(false);
+
+  // Lock body scroll when fullscreen menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('fm-body-lock')
+      if (window.__lenis) window.__lenis.stop()
+    } else {
+      document.body.classList.remove('fm-body-lock')
+      if (window.__lenis) window.__lenis.start()
+    }
+    return () => {
+      document.body.classList.remove('fm-body-lock')
+      if (window.__lenis) window.__lenis.start()
+    }
+  }, [isMenuOpen])
 
   return (
     <header className="site-header">
@@ -72,7 +91,7 @@ function Navbar() {
               </button>
 
               {/* Desktop-only Menu button */}
-              <button type="button" className="menu-btn d-none d-lg-inline-flex">
+              <button type="button" className="menu-btn d-none d-lg-inline-flex" onClick={handleMenuOpen}>
                 Menu
                 <span className="menu-icon" aria-hidden="true">
                   <img src={ToggleLogo} alt="" />
@@ -82,6 +101,9 @@ function Navbar() {
           </div>
         </div>
       </nav>
+
+      {/* Fullscreen menu overlay */}
+      <FullscreenMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
     </header>
   )
 }

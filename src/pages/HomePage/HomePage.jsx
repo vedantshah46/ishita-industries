@@ -10,6 +10,7 @@ import FactsSection from './FactsSection'
 import ComponentsDeliveredSection from './ComponentsDeliveredSection'
 import InternationalReachSection from './InternationalReachSection'
 import FreeToContactUsSection from './FreeToContactUsSection'
+import KnowledgeHubSection from './KnowledgeHubSection'
 import UniqueSellingPropositionSection from './UniqueSellingPropositionSection'
 import MarqueeTicker from '../../components/MarqueeTicker/MarqueeTicker'
 import Footer from '../../components/Footer/Footer'
@@ -60,6 +61,7 @@ function Homepage() {
       <UniqueSellingPropositionSection />
       <InternationalReachSection />
       <FreeToContactUsSection />
+      <KnowledgeHubSection />
       <Footer />
     </>
   )

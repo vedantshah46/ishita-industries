@@ -46,7 +46,7 @@
 .facility-right-col {
   display: flex;
   flex-direction: column;
-  gap: 3.7em;
+  gap: 2.75em;
 }
 
 @media (max-width: 1400px) and (min-width: 1200px) {
@@ -243,7 +243,7 @@
   height: 1px;
   background-color: rgba(45, 52, 53, 0.1);
   /* #2D34351A */
-  margin: 30px 0;
+  margin: 33px 0;
 }
 
 .metals-copy {
@@ -277,9 +277,8 @@
 /* ─── ISO Card ──────────────────────────────────────────── */
 .facility-iso-card {
   position: relative;
-  height: 145px;
+  height: 140px;
   overflow: hidden;
-  border-radius: 4px;
 }
 
 .iso-bg {
@@ -522,4 +521,29 @@
   .facility-expertise-section .container {
     max-width: 1520px;
   }
+}
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.facility-header-block,
+.facility-left-col,
+.facility-right-col {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.facility-header-block.is-visible,
+.facility-left-col.is-visible,
+.facility-right-col.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.facility-left-col.is-visible {
+  transition-delay: 0.1s;
+}
+
+.facility-right-col.is-visible {
+  transition-delay: 0.2s;
 }

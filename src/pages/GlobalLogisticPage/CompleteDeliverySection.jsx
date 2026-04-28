@@ -58,7 +58,11 @@ const CompleteDeliverySection = () => {
           </div>
 
           <div className="logistic-spec-cards-wrapper">
-            <div className="logistic-spec-card">
+            <div 
+              className="logistic-spec-card"
+              ref={(el) => (animRefs.current[2] = el)}
+              style={{ transitionDelay: '0ms' }}
+            >
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
               </div>
@@ -69,7 +73,11 @@ const CompleteDeliverySection = () => {
               <p className="logistic-spec-card-kicker">ACTIVE NETWORK</p>
             </div>
 
-            <div className="logistic-spec-card">
+            <div 
+              className="logistic-spec-card"
+              ref={(el) => (animRefs.current[3] = el)}
+              style={{ transitionDelay: '150ms' }}
+            >
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>
               </div>
@@ -80,7 +88,11 @@ const CompleteDeliverySection = () => {
               <p className="logistic-spec-card-kicker">SCHENGEN OPTIMIZED</p>
             </div>
 
-            <div className="logistic-spec-card">
+            <div 
+              className="logistic-spec-card"
+              ref={(el) => (animRefs.current[4] = el)}
+              style={{ transitionDelay: '300ms' }}
+            >
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
               </div>

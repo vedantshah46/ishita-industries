@@ -23,6 +23,7 @@ function EnvironmentContentSection() {
           <div 
             className="env-card-new"
             ref={(el) => (animRefs.current[1] = el)}
+            style={{ transitionDelay: '0ms' }}
           >
             <div className="env-card-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -39,6 +40,7 @@ function EnvironmentContentSection() {
           <div 
             className="env-card-new"
             ref={(el) => (animRefs.current[2] = el)}
+            style={{ transitionDelay: '100ms' }}
           >
             <div className="env-card-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -55,6 +57,7 @@ function EnvironmentContentSection() {
           <div 
             className="env-card-new"
             ref={(el) => (animRefs.current[3] = el)}
+            style={{ transitionDelay: '200ms' }}
           >
             <div className="env-card-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -73,6 +76,7 @@ function EnvironmentContentSection() {
           <div 
             className="env-card-new"
             ref={(el) => (animRefs.current[4] = el)}
+            style={{ transitionDelay: '300ms' }}
           >
             <div className="env-card-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

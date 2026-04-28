@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ContactMapSection.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const ContactMapSection = () => {
+  const animRefs = useRef([]);
+  useScrollAnimation(animRefs);
+
   return (
     <section className="contact-map-section">
-      <div className="contact-map-container">
+      <div 
+        className="contact-map-container"
+        ref={(el) => (animRefs.current[0] = el)}
+      >
         <h2 className="map-heading">In Google Map</h2>
         
         <div className="map-wrapper">

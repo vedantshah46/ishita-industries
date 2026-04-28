@@ -1,6 +1,7 @@
 import Navbar from '../../components/Navbar/NavbarRouter'
 import Footer from '../../components/Footer/Footer'
 import QualityHeroSection from './QualityHeroSection'
+import CertificationQualitySection from './CertificationQualitySection'
 import QualityApproachSection from './QualityApproachSection'
 import QualityDeclarationsSection from './QualityDeclarationsSection'
 import QualityEquipmentSection from './QualityEquipmentSection'
@@ -11,6 +12,7 @@ function QualityPage() {
     <>
       <Navbar />
       <QualityHeroSection />
+      <CertificationQualitySection />
       <QualityApproachSection />
       <QualityDeclarationsSection />
       <QualityEquipmentSection />

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ManufacturingProcessFlow.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 import WarehouseScrap from '../../Images/Warehouse for Imported Scrap Honey.png';
 import FoundryImg from '../../Images/Foundry.jpg';
@@ -27,21 +28,25 @@ const processes = [
 ];
 
 const ManufacturingProcessFlow = () => {
+  const animRefs = useRef([]);
+  useScrollAnimation(animRefs);
+
   return (
     <section className="mfg-process-section">
-      <div className="mfg-process-shell">
-        <div className="mfg-process-header">
-          <div className="mfg-process-kicker">Quality Testing Lab</div>
-          <div className="mfg-process-title">Verified quality. Proven performance.</div>
-        </div>
+      <div
+        className="mfg-process-header"
+        ref={(el) => (animRefs.current[0] = el)}
+      >
+        <div className="mfg-process-kicker">Quality Testing Lab</div>
+        <div className="mfg-process-title">Verified quality. Proven performance.</div>
+      </div>
 
+      <div className="mfg-process-shell">
         <div className="mfg-process-grid">
           {processes.map((process, index) => {
             const row = Math.floor(index / 3);
             const col = index % 3;
             const isEvenRow = row % 2 === 0;
-            const isLastInRow = col === 2 || index === processes.length - 1;
-            const isFirstInRow = col === 0;
             const isLastItem = index === processes.length - 1;
 
             // Determine connection type
@@ -54,23 +59,18 @@ const ManufacturingProcessFlow = () => {
               else if (col === 2 && !isLastItem) connectionType = "down-left";
             }
 
-            // Visual order in the grid: 
-            // Row 0: 0, 1, 2
-            // Row 1: 5, 4, 3
-            // Row 2: 6, 7, 8
-            // Row 3: 11, 10, 9
-            // Row 4: 12
-
-            // To achieve this, we can use grid-area or just reorder the array before mapping.
-            // But let's try a simpler approach: calculate grid position.
             let gridColumn = isEvenRow ? col + 1 : 3 - col;
             let gridRow = row + 1;
+
+            // Stagger delay: reset per row, 100ms between cards within row
+            const delayInRow = col * 100;
 
             return (
               <div
                 className={`mfg-process-card-wrapper ${connectionType ? `has-connect-${connectionType}` : ''}`}
                 key={process.id}
-                style={{ gridColumn, gridRow }}
+                style={{ '--grid-col': gridColumn, '--grid-row': gridRow, transitionDelay: `${delayInRow}ms` }}
+                ref={(el) => (animRefs.current[index + 1] = el)}
               >
                 <div className="mfg-process-card">
                   <div className="mfg-process-image">

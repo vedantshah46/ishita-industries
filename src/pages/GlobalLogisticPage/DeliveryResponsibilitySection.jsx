@@ -26,6 +26,7 @@ const DeliveryResponsibilitySection = () => {
           <div 
             className="delivery-card light-card"
             ref={(el) => (animRefs.current[1] = el)}
+            style={{ transitionDelay: '0ms' }}
           >
             <div className="card-top">
               <p className="card-kicker">STANDARD</p>
@@ -39,6 +40,7 @@ const DeliveryResponsibilitySection = () => {
           <div 
             className="delivery-card light-card"
             ref={(el) => (animRefs.current[2] = el)}
+            style={{ transitionDelay: '100ms' }}
           >
             <div className="card-top">
               <p className="card-kicker">INSURANCE</p>
@@ -52,6 +54,7 @@ const DeliveryResponsibilitySection = () => {
           <div 
             className="delivery-card light-card"
             ref={(el) => (animRefs.current[3] = el)}
+            style={{ transitionDelay: '200ms' }}
           >
             <div className="card-top">
               <p className="card-kicker">CUSTOMS</p>
@@ -65,6 +68,7 @@ const DeliveryResponsibilitySection = () => {
           <div 
             className="delivery-card dark-card"
             ref={(el) => (animRefs.current[4] = el)}
+            style={{ transitionDelay: '300ms' }}
           >
             <div className="card-top">
               <p className="card-kicker">PREFERRED SERVICE</p>

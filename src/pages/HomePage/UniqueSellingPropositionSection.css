@@ -26,7 +26,7 @@
 
 .usp-title {
   margin-top: clamp(1rem, 1.4vw, 1.35rem);
-  font-size: clamp(4.1rem, 4.1vw, 4.18rem)  ;
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem);
   font-weight: 400;
   line-height: 0.95;
   letter-spacing: -0.055em;
@@ -80,8 +80,8 @@
   text-align: center;
   opacity: 0;
   transition: transform 1.4s 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.8s 0.3s ease,
-              box-shadow 1.2s 1.4s ease;
+    opacity 0.8s 0.3s ease,
+    box-shadow 1.2s 1.4s ease;
 }
 
 .usp-section.is-visible .usp-center-disc {
@@ -115,6 +115,7 @@
     opacity: 1;
     border-color: rgba(201, 168, 76, 0.35);
   }
+
   100% {
     transform: scale(1.6);
     opacity: 0;
@@ -156,7 +157,7 @@
   width: clamp(171px, 18vw, 225px);
   height: clamp(238px, 27.5vw, 252px);
   border-radius: 14px;
-  background:#373737;
+  background: #373737;
   transform-origin: 50% 100%;
   display: flex;
   align-items: flex-start;
@@ -190,6 +191,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 0.8s;
 }
+
 .usp-section.is-visible .usp-fan-card-1 {
   opacity: 1;
   transform: translate(-80%, -100%) rotate(-55deg);
@@ -199,6 +201,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 1.05s;
 }
+
 .usp-section.is-visible .usp-fan-card-2 {
   opacity: 1;
   transform: translate(-58%, -113%) rotate(-25deg);
@@ -209,6 +212,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 1.3s;
 }
+
 .usp-section.is-visible .usp-fan-card-3 {
   opacity: 1;
   transform: translate(-46%, -117%) rotate(15deg);
@@ -219,6 +223,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 1.55s;
 }
+
 .usp-section.is-visible .usp-fan-card-4 {
   opacity: 1;
   transform: translate(-22%, -91%) rotate(46deg);
@@ -229,6 +234,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 1.8s;
 }
+
 .usp-section.is-visible .usp-fan-card-5 {
   opacity: 1;
   transform: translate(-15%, -42%) rotate(62deg);
@@ -238,6 +244,7 @@
   transform: translate(-50%, -100%) rotate(0deg);
   transition-delay: 2.05s;
 }
+
 .usp-section.is-visible .usp-fan-card-6 {
   opacity: 1;
   transform: translate(-52%, -60%) rotate(124deg);
@@ -427,7 +434,8 @@
 
 @media (max-width: 991.98px) {
   .usp-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
   }
 

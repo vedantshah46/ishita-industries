@@ -116,8 +116,8 @@
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .results-header {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
+    flex-direction: column;
+    text-align: center;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -139,7 +139,6 @@
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
   .results-header {
-    grid-template-columns: 1fr;
     gap: 0.75rem;
   }
 
@@ -204,4 +203,19 @@
   .results-shell {
     max-width: 1520px;
   }
+}
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.results-header,
+.results-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.results-header.is-visible,
+.results-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

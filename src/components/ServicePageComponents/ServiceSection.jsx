@@ -25,12 +25,14 @@ const ServiceSection = ({
           </div>
         </div>
 
-        <div 
-          className="service-grid"
-          ref={(el) => (animRefs.current[1] = el)}
-        >
+        <div className="service-grid">
           {services.map((service, idx) => (
-            <div key={idx} className="service-card">
+            <div 
+              key={idx} 
+              className="service-card"
+              ref={(el) => (animRefs.current[idx + 1] = el)}
+              style={{ transitionDelay: `${idx * 100}ms` }}
+            >
               <div className="service-card-icon">
                 {service.icon}
               </div>

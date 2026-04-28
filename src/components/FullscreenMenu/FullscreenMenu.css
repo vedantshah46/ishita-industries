@@ -1,0 +1,285 @@
+/* ═══════════════════════════════════════════════════════════
+   Fullscreen Menu Overlay - Matched to provided design
+   ═══════════════════════════════════════════════════════════ */
+
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  visibility: hidden;
+  /* Parent only handles visibility/layering */
+}
+
+.fullscreen-menu.is-open {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.fm-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.98);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.fullscreen-menu.is-open .fm-backdrop {
+  opacity: 1;
+}
+
+.fm-content {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  transform: translateX(100%);
+  display: block;
+  z-index: 10;
+}
+
+/* ─── Container ─────────────────────────────────────────── */
+.fm-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding: 2rem 5% 3rem 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Header: Back Arrow + Menu Title ───────────────────── */
+.fm-header {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.fm-back {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1f1f22;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.fm-back:hover {
+  transform: translateX(-3px);
+}
+
+.fm-title {
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f1f22;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ─── Navigation List ───────────────────────────────────── */
+.fm-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.fm-item {
+  border-bottom: 1px solid #e0e0e0;
+  opacity: 0;
+}
+
+.fm-link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.fm-link {
+  display: block;
+  padding: 0.65rem 0;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #343434;
+  text-decoration: none;
+  line-height: 1.2;
+  transition: color 0.3s ease, padding-left 0.3s ease;
+  white-space: nowrap;
+  flex: 1;
+}
+
+.fm-link:hover {
+  color: #000;
+  padding-left: 8px;
+}
+
+.fm-chevron {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #8c919d;
+  padding: 0.5rem;
+  transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-chevron.is-rotated {
+  transform: rotate(180deg);
+}
+
+/* ─── Sub-menu ─────────────────────────────────────────── */
+.fm-sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.fm-sub-menu.is-open {
+  max-height: 500px;
+  opacity: 1;
+  margin-bottom: 0.5rem;
+}
+
+.fm-sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 1.25rem;
+  border-left: 1px solid #eee;
+}
+
+.fm-sub-link {
+  display: block;
+  padding: 0.4rem 0;
+  font-family: 'Kantumruy Pro', sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.fm-sub-link:hover {
+  color: #000;
+  padding-left: 5px;
+}
+
+/* ─── Decorative Product Images ─────────────────────────── */
+.fm-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.fm-img {
+  position: absolute;
+  object-fit: contain;
+  opacity: 0;
+  filter: contrast(1.05) brightness(1.02);
+}
+
+/* Image 1 - Top Right */
+.fm-img--1 {
+  top: 7%;
+  right: 9%;
+  z-index: 2;
+  opacity: 0.85;
+}
+
+/* Image 2 - Center Left (Behind text) */
+.fm-img--2 {
+  bottom: 1%;
+  right: 3%;
+  z-index: 0;
+  opacity: 0.25;
+  /* Lower opacity so text remains readable */
+}
+
+/* Image 3 - Bottom Right */
+.fm-img--3 {
+  bottom: 3%;
+  z-index: 3;
+}
+
+/* Image 4 - Bottom Left */
+.fm-img--4 {
+  top: 20%;
+  left: 5%;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+/* ─── Tablet (769px–991px) ─────────────────────────────── */
+@media (max-width: 991.98px) {
+  .fm-container {
+    padding: 1.75rem 2rem;
+  }
+
+  .fm-link {
+    font-size: 1.3rem;
+    padding: 0.6rem 0;
+  }
+
+  .fm-title {
+    font-size: 1.6rem;
+  }
+
+  .fm-img--1,
+  .fm-img--2,
+  .fm-img--3 {
+    opacity: 0.25 !important;
+  }
+
+  .fm-img--4 {
+    display: none;
+  }
+}
+
+/* ─── Mobile (≤768px) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .fm-container {
+    padding: 1.25rem 1.25rem;
+    max-width: 100%;
+  }
+
+  .fm-link {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .fm-title {
+    font-size: 1.8rem;
+  }
+
+  .fm-header {
+    margin-bottom: 2.5rem;
+    gap: 1.5rem;
+  }
+
+  /* Hide decorative images on mobile */
+  .fm-images {
+    display: none;
+  }
+}
+
+/* ─── Body scroll lock ─────────────────────────────────── */
+body.fm-body-lock {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+}

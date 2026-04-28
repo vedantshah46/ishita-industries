@@ -213,11 +213,12 @@
 /* Responsive Design */
 @media (max-width: 900px) {
   .product-gallery {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .thumbnails {
-    flex-direction: row;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: none;
   }
 
   .specifications-grid {
@@ -225,7 +226,7 @@
   }
 
   .threads-list {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 20px;
   }
 
@@ -258,4 +259,31 @@
   .product-details-container {
     max-width: 1520px;
   }
+}
+
+/* ── Scroll-reveal animations ────────────────────────────── */
+.product-header,
+.product-gallery,
+.product-description,
+.spec-card,
+.threads-section,
+.metal-section h2,
+.metal-subtitle,
+.metal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-header.is-visible,
+.product-gallery.is-visible,
+.product-description.is-visible,
+.spec-card.is-visible,
+.threads-section.is-visible,
+.metal-section h2.is-visible,
+.metal-subtitle.is-visible,
+.metal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

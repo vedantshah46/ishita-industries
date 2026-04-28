@@ -95,7 +95,8 @@
 .sust-safety-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sust-safety-header.is-visible,
@@ -105,7 +106,7 @@
 }
 
 .sust-safety-card {
-  transition-delay: 0.1s;
+  transition-delay: 0.15s;
 }
 
 @media (max-width: 767.98px) {

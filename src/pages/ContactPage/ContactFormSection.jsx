@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './ContactFormSection.css';
+import useScrollAnimation from '../../hooks/useScrollAnimation';
 
 const ContactFormSection = () => {
+  const animRefs = useRef([]);
+  useScrollAnimation(animRefs);
+
   return (
-    <section className="contact-form-section">
-      <div className="contact-form-container">
+    <section className="contact-form-section" id="contact-form-section">
+      <div 
+        className="contact-form-container"
+        ref={(el) => (animRefs.current[0] = el)}
+      >
         <div className="contact-form-header">
           <span className="contact-subheading">GET IN TOUCH</span>
           <h2 className="contact-heading">Send us a message</h2>
