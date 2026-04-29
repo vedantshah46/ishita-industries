@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import './PrecisionComponentsSection.css'
 import turnedImage from '../../Images/brass-turned-component.png'
 import forgedImage from '../../Images/brass-forged-component.png'
@@ -57,11 +58,12 @@ function PrecisionComponentsSection() {
 
         <div className="precision-components-grid">
           {componentCards.map((card, index) => (
-            <article 
+            <Link 
+              to="/product/electric-pin"
               key={card.title} 
               className="precision-components-card"
               ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 100}ms`, textDecoration: 'none' }}
             >
               <div className="precision-components-visual">
                 <img src={card.image} alt="" className="precision-components-image" />
@@ -71,7 +73,7 @@ function PrecisionComponentsSection() {
                 <p className="precision-components-caption mb-0">{card.title}</p>
                 <img src={arrowVector} alt="" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

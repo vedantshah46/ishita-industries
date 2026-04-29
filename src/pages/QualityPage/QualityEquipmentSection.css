@@ -1,7 +1,7 @@
 /* ─── Base ──────────────────────────────────────────────── */
 .quality-equip-section {
   padding: clamp(3rem, 5.2vw, 4.9rem) 0 clamp(3rem, 5vw, 4.7rem);
-  background: #F9F9F9;
+  background: #FAFAFA;
 }
 
 .quality-equip-shell {

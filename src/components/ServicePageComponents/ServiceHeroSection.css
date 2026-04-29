@@ -1,7 +1,7 @@
 /* ─── Generic Service Hero Section ────────────────────────── */
 
 .service-hero {
-  background-color: #F9F9F9;
+  background-color: #FAFAFA;
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 0;
 }
 
@@ -76,7 +76,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #F2F4F4;
+  background-color: #FAFAFA;
 }
 
 .service-hero-split-title {

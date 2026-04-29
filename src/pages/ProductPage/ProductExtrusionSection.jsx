@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import './ProductExtrusionSection.css'
 import extrusionImage from '../../Images/ProductExtrusion-Brass Extrusion Rods.png'
 import hollowImage from '../../Images/ProductExtrusion-Brass Hollow Rods.png'
@@ -40,11 +41,12 @@ function ProductExtrusionSection() {
 
         <div className="product-extrusion-grid">
           {componentCards.map((card, index) => (
-            <article 
+            <Link 
+              to="/product/electric-pin"
               key={card.title} 
               className="product-extrusion-card"
               ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
+              style={{ transitionDelay: `${index * 80}ms`, textDecoration: 'none' }}
             >
               <div className="product-extrusion-visual">
                 <img src={card.image} alt={card.title} className="product-extrusion-image" />
@@ -54,7 +56,7 @@ function ProductExtrusionSection() {
                 <p className="product-extrusion-caption mb-0">{card.title}</p>
                 <img src={arrowVector} alt="" className="product-extrusion-arrow" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

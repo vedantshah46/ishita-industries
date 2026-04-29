@@ -1,7 +1,7 @@
 /* ─── Base ──────────────────────────────────────────────── */
 .industrial-components-section {
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
-  background-color: #f9f9f9;
+  background-color: #FAFAFA;
 }
 
 .industrial-components-shell {

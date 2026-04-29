@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import Navbar from "../../components/Navbar/NavbarRouter";
 import AboutHeroSection from "./AboutHeroSection";
 import ManufacturingInfrastructureSection from "./ManufacturingInfrastructureSection";
@@ -14,22 +16,34 @@ import FreeToContactUsSection from '../HomePage/FreeToContactUsSection'
 import Footer from '../../components/Footer/Footer'
 
 function AboutPage() {
+  const { hash } = useLocation()
+
+  useEffect(() => {
+    if (hash) {
+      // Small delay so the DOM is painted before scrolling
+      setTimeout(() => {
+        const el = document.querySelector(hash)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+      }, 100)
+    }
+  }, [hash])
+
   return (
     <>
       <Navbar />
-      <AboutHeroSection />
+      <div id="core-value"><AboutHeroSection /></div>
       <MeetOurTeamSection />
-      <ManufacturingInfrastructureSection />
-      <FacilityExpertiseSection />
+      <div id="infrastructure"><ManufacturingInfrastructureSection /></div>
+      <div id="our-capabilities"><FacilityExpertiseSection /></div>
       <CertificationSection />
-      <QualityAssuranceSection />
+      <div id="quality-assurance"><QualityAssuranceSection /></div>
       <FastenerStandardsSection />
-      <PerformanceResultsSection />
-      <UniqueSellingPropositionSection/>
-      <GlobalReachSection />
-      <ArchitecturalLedgerSection />
-      <FreeToContactUsSection/>
-      <Footer/>
+      <div id="our-capabilities"><PerformanceResultsSection /></div>
+      <div id="our-usp"><UniqueSellingPropositionSection /></div>
+      <div id="across-the-globe"><GlobalReachSection /></div>
+      <div id="csr"><ArchitecturalLedgerSection /></div>
+      <FreeToContactUsSection />
+      <Footer />
     </>
   );
 }

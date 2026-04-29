@@ -2,7 +2,7 @@
 .environment-content-section {
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   /* Reduced top/bottom padding */
-  background-color: #F9F9F9;
+  background-color: #FAFAFA;
   /* Light off-white background like the image */
 }
 

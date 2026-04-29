@@ -1,6 +1,8 @@
 import { useRef } from 'react'
 import './QualityApproachSection.css'
-import qualityApproachImg from '../../Images/Quality-approach.png'
+import qualityApproachImg1 from '../../Images/Quality-approach.png'
+import qualityApproachImg2 from '../../Images/Machine Maintenance.png'
+import qualityApproachImg3 from '../../Images/Employee Skill upgradation.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
 import useCurtainReveal from '../../hooks/useCurtainReveal'
 
@@ -9,19 +11,19 @@ const approachCards = [
     title: 'Online Quality Check',
     description:
       'Our advanced online quality monitoring systems enable real-time tracking and reporting, helping us quickly identify and resolve any issues. This proactive approach ensures consistent quality and maintains high standards throughout our entire manufacturing process.',
-    image: qualityApproachImg,
+    image: qualityApproachImg1,
   },
   {
     title: 'Machine Maintenance',
     description:
       'Regular maintenance of our machinery ensures consistent product quality and performance. Our dedicated team conducts routine inspections and timely repairs to keep equipment in optimal condition, reducing downtime and preventing defects.',
-    image: qualityApproachImg,
+    image: qualityApproachImg2,
   },
   {
     title: 'Employee Skill upgradation',
     description:
       'We continuously invest in training programs to keep our team aligned with the latest quality control methods and industry standards. Regular skill development ensures our workforce stays updated and capable of maintaining high-quality performance.',
-    image: qualityApproachImg,
+    image: qualityApproachImg3,
   },
 ]
 

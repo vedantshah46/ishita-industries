@@ -10,37 +10,16 @@
 
 /* Scrolled state — dark compact bar */
 .site-header.theme-white {
-  background: #FFFFFF;
+  background: #FAFAFA;
 }
 .site-header.theme-f9 {
-  background: #F9F9F9;
+  background: #FAFAFA;
 }
 
 /* ─── Transparent Theme (for Import/Export Page) ─── */
 .site-header.theme-transparent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: transparent;
-  z-index: 999;
-}
-
-.site-header.theme-transparent .nav-link,
-.site-header.theme-transparent .menu-btn {
-  color: #ffffff;
-}
-
-.site-header.theme-transparent .brochure-btn {
-  color: #ffffff;
-  border-color: #ffffff;
-}
-
-.site-header.theme-transparent .brand-logo,
-.site-header.theme-transparent .icon-globe img,
-.site-header.theme-transparent .brochure-icon img,
-.site-header.theme-transparent .menu-icon img {
-  filter: brightness(0) invert(1);
+  position: relative;
+  background: #FAFAFA;
 }
 
 @font-face {

@@ -14,6 +14,7 @@ const menuLinks = [
     label: 'About',
     to: '/about',
     subLinks: [
+      { label: 'Overview', to: '/about' },
       { label: 'Sustainability', to: '/sustainability' },
       { label: 'Environmental', to: '/environment' }
     ]
@@ -22,6 +23,7 @@ const menuLinks = [
     label: 'Products',
     to: '/product',
     subLinks: [
+      { label: 'All Products', to: '/product' },
       { label: 'Brass Turned Components', to: '/product/electric-pin' },
       { label: 'Brass Forged Components', to: '/product/electric-pin' },
       { label: 'Brass Milling Components', to: '/product/electric-pin' },
@@ -216,13 +218,22 @@ function FullscreenMenu({ isOpen, onClose }) {
                 ref={(el) => (itemsRef.current[index] = el)}
               >
                 <div className="fm-link-row">
-                  <NavLink
-                    className="fm-link"
-                    to={link.to}
-                    onClick={onClose}
-                  >
-                    {link.label}
-                  </NavLink>
+                  {link.subLinks ? (
+                    <button
+                      className="fm-link"
+                      onClick={() => handleDropdownToggle(link.label)}
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <NavLink
+                      className="fm-link"
+                      to={link.to}
+                      onClick={onClose}
+                    >
+                      {link.label}
+                    </NavLink>
+                  )}
                   {link.subLinks && (
                     <button
                       className={`fm-chevron ${openDropdown === link.label ? 'is-rotated' : ''}`}

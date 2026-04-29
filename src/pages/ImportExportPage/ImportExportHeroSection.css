@@ -1,7 +1,7 @@
 .import-export-hero-section {
   width: 100%;
   position: relative;
-  background-color: #F9F9F9;
+  background-color: #FAFAFA;
   /* Adjust padding so it sits correctly under navbar or flush with top */
   padding-top: 0; 
 }

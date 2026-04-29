@@ -2,7 +2,7 @@
 
 .mfg-process-section {
   padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
-  background-color: #ffffff;
+  background-color: #FAFAFA;
   display: flex;
   flex-direction: column;
   align-items: center;

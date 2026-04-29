@@ -3,7 +3,7 @@
 /* ─── Base ──────────────────────────────────────────────── */
 .quality-hero-section {
   padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
-  background-color: #F9F9F9;
+  background-color: #FAFAFA;
 }
 
 .quality-hero-shell {
@@ -93,7 +93,6 @@
 /* ─── Factory image ──────────────────────────────────────── */
 .quality-hero-factory-frame {
   margin-top: clamp(1.3rem, 2.2vw, 2rem);
-  border: 1px solid #b9c0c6;
   background: #edf2f6;
   overflow: hidden;
   max-width: 100%;

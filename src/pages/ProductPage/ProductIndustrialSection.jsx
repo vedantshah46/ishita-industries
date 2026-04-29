@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router-dom'
 import './ProductIndustrialSection.css'
 import electricImage from '../../Images/ProductIndustrial-electrical.png'
 import automotiveImage from '../../Images/ProductIndustrial-automotive.png'
@@ -50,11 +51,12 @@ function ProductIndustrialSection() {
 
         <div className="product-industrial-grid">
           {componentCards.map((card, index) => (
-            <article 
+            <Link 
+              to="/product/electric-pin"
               key={card.title} 
               className="product-industrial-card"
               ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
+              style={{ transitionDelay: `${index * 80}ms`, textDecoration: 'none' }}
             >
               <div className="product-industrial-visual">
                 <img src={card.image} alt={card.title} className="product-industrial-image" />
@@ -64,7 +66,7 @@ function ProductIndustrialSection() {
                 <p className="product-industrial-caption mb-0">{card.title}</p>
                 <img src={arrowVector} alt="" className="product-industrial-arrow" />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
