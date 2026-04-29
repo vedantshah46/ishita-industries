@@ -102,7 +102,28 @@
   }
 }
 
+@media (max-width: 991px) {
+  .service-grid-title {
+    font-size: clamp(2.6rem, 5vw, 3.4rem);
+  }
+}
+
 @media (max-width: 767.98px) {
+  .service-grid-title {
+    font-size: 2.2rem;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .service-grid-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+  }
+
+  .service-grid-header {
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
   .service-grid {
     grid-template-columns: 1fr;
     row-gap: 3.5rem;
@@ -110,5 +131,11 @@
 
   .service-grid-section {
     padding: 5rem 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .service-grid-title {
+    font-size: 1.75rem;
   }
 }

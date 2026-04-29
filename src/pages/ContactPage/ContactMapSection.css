@@ -35,3 +35,9 @@
   border-radius: 4px;
   overflow: hidden;
 }
+
+@media (max-width: 767px) {
+  .contact-map-section {
+    padding-top: 3rem;
+  }
+}

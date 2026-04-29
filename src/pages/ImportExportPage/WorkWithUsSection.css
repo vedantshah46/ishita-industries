@@ -53,3 +53,55 @@
   display: flex;
   justify-content: center;
 }
+
+/* ─── Tablet ─── */
+@media (max-width: 991px) {
+  .work-with-us-title,
+  .work-with-us-subtitle {
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  }
+
+  .work-with-us-card-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+  }
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 768px) {
+  .work-with-us-title {
+    font-size: 1.5rem;
+  }
+
+  .work-with-us-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .work-with-us-card-title {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .work-with-us-card-text {
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .work-with-us-header {
+    margin-bottom: clamp(1.2rem, 3vw, 2rem);
+  }
+}
+
+/* ─── Small phones ─── */
+@media (max-width: 400px) {
+  .work-with-us-title {
+    font-size: 1.3rem;
+  }
+
+  .work-with-us-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .work-with-us-card-title {
+    font-size: 1.2rem;
+  }
+}

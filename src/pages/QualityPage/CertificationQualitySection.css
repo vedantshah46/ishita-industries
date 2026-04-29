@@ -197,6 +197,10 @@
     grid-column: 1 / -1;
     justify-self: center;
   }
+
+  .logo-item-5 img {
+    max-width: 140px;
+  }
 }
 
 /* ─── Animation States ─── */

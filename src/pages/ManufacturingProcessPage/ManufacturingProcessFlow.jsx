@@ -31,6 +31,19 @@ const ManufacturingProcessFlow = () => {
   const animRefs = useRef([]);
   useScrollAnimation(animRefs);
 
+  const [cols, setCols] = React.useState(3);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 575) setCols(1);
+      else if (window.innerWidth <= 1024) setCols(2);
+      else setCols(3);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section className="mfg-process-section">
       <div
@@ -44,22 +57,26 @@ const ManufacturingProcessFlow = () => {
       <div className="mfg-process-shell">
         <div className="mfg-process-grid">
           {processes.map((process, index) => {
-            const row = Math.floor(index / 3);
-            const col = index % 3;
+            const row = Math.floor(index / cols);
+            const col = index % cols;
             const isEvenRow = row % 2 === 0;
             const isLastItem = index === processes.length - 1;
 
             // Determine connection type
             let connectionType = "";
-            if (isEvenRow) {
-              if (col < 2 && !isLastItem) connectionType = "right";
-              else if (col === 2 && !isLastItem) connectionType = "down-right";
+            if (cols === 1) {
+              if (!isLastItem) connectionType = "down";
             } else {
-              if (col < 2 && !isLastItem) connectionType = "left";
-              else if (col === 2 && !isLastItem) connectionType = "down-left";
+              if (isEvenRow) {
+                if (col < cols - 1 && !isLastItem) connectionType = "right";
+                else if (col === cols - 1 && !isLastItem) connectionType = "down-right";
+              } else {
+                if (col < cols - 1 && !isLastItem) connectionType = "left";
+                else if (col === cols - 1 && !isLastItem) connectionType = "down-left";
+              }
             }
 
-            let gridColumn = isEvenRow ? col + 1 : 3 - col;
+            let gridColumn = cols === 1 ? 1 : (isEvenRow ? col + 1 : cols - col);
             let gridRow = row + 1;
 
             // Stagger delay: reset per row, 100ms between cards within row
@@ -84,6 +101,7 @@ const ManufacturingProcessFlow = () => {
                     <div className="connector-dot">
                       {connectionType === 'right' && <ArrowRight />}
                       {connectionType === 'left' && <ArrowLeft />}
+                      {connectionType === 'down' && <ArrowDown />}
                       {connectionType === 'down-right' && <ArrowDown />}
                       {connectionType === 'down-left' && <ArrowDown />}
                     </div>

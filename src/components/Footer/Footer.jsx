@@ -178,7 +178,9 @@ function Footer() {
           <hr className="footer-divider" />
           <div className="footer-bottom-content">
             <p className="copyright-text">Copyright 2026 - Ishita Industries All Copyrights Reserved</p>
-            <p className="credit-text">Designed &amp; Developed By Codelix IT Solutions Pvt. Ltd.</p>
+            <p className="credit-text">
+              Designed & Developed By <a href="https://codelixitsolutions.com/" target="_blank" rel="noopener noreferrer">Codelix IT Solutions Pvt. Ltd.</a>
+            </p>
           </div>
         </div>
 

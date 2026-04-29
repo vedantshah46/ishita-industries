@@ -56,9 +56,7 @@ function FullscreenMenu({ isOpen, onClose }) {
     }
   }, [isOpen])
 
-  const handleDropdownToggle = (e, label) => {
-    e.preventDefault()
-    e.stopPropagation()
+  const handleDropdownToggle = (label) => {
     setOpenDropdown(prev => prev === label ? '' : label)
   }
   const backdropRef = useRef(null)
@@ -221,14 +219,14 @@ function FullscreenMenu({ isOpen, onClose }) {
                   <NavLink
                     className="fm-link"
                     to={link.to}
-                    onClick={link.subLinks ? (e) => handleDropdownToggle(e, link.label) : onClose}
+                    onClick={onClose}
                   >
                     {link.label}
                   </NavLink>
                   {link.subLinks && (
                     <button
                       className={`fm-chevron ${openDropdown === link.label ? 'is-rotated' : ''}`}
-                      onClick={(e) => handleDropdownToggle(e, link.label)}
+                      onClick={() => handleDropdownToggle(link.label)}
                       aria-label="Toggle sub-menu"
                     >
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

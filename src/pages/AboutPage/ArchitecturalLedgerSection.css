@@ -450,11 +450,27 @@
 }
 
 @media (max-width: 991.98px) {
+  .ledger-shell {
+    padding-inline: clamp(1rem, 4vw, 1.5rem) !important;
+  }
+
   .ledger-header {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: clamp(2rem, 4vw, 3rem);
+  }
+
+  .ledger-title {
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    line-height: 1.05;
+  }
+
+  .ledger-kicker {
+    font-size: 0.75rem;
+    letter-spacing: 2.5px;
+    margin-bottom: 0;
+    text-align: center;
   }
 
   .ledger-intro {
@@ -463,6 +479,7 @@
 
   .ledger-bento {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
   .ledger-card--inception,
@@ -470,10 +487,34 @@
   .ledger-card--saga,
   .ledger-card--satisfaction {
     grid-column: span 1;
+    padding: 1.75rem !important;
   }
 
-  .ledger-card--inception {
-    padding-right: 0;
+  .ledger-inception-title {
+    max-width: 100%;
+    font-size: 2.2rem;
+  }
+
+  .ledger-inception-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ledger-inception-desc {
+    flex: 1;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+
+  .ledger-inception-image-wrapper {
+    flex: 1;
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+
+  .ledger-inception-image {
+    width: 100%;
+    height: 100%;
   }
 
   .ledger-infrastructure {
@@ -494,54 +535,123 @@
 }
 
 @media (max-width: 767.98px) {
-  .ledger-inception-row {
-    flex-direction: column-reverse;
-    align-items: flex-start;
+  .ledger-card--inception {
+    border-top: none !important;
   }
 
-  .ledger-infrastructure-content {
-    padding-top: 0rem;
+  .ledger-inception-title {
+    font-size: 1.85rem;
+  }
+
+  .ledger-inception-desc {
+    font-size: 0.95rem;
+  }
+
+  .ledger-card--applications {
+    padding: 1.5rem !important;
+  }
+
+  .ledger-applications-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ledger-card--saga,
+  .ledger-card--satisfaction {
+    min-height: auto;
+  }
+
+  .ledger-saga-title {
+    font-size: 1.4rem;
+  }
+
+  .ledger-saga-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .ledger-stat-box {
+    flex: 1 1 45%;
+    padding: 1rem;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
   }
 
   .ledger-infrastructure {
     display: flex;
     flex-direction: column;
-  }
-
-  /* 👇 Move image to top */
-  .ledger-infrastructure-image-wrapper {
-    order: -1;
-    margin-bottom: 1.5rem;
-  }
-
-  .ledger-infrastructure-content {
-    order: 1;
-  }
-
-  .ledger-inception-image {
-    width: 85%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
+    gap: 2rem;
     margin-top: 3rem;
   }
 
-  .ledger-inception-desc {
-    margin-top: 0rem;
+  .ledger-infrastructure-content {
+    padding: 1.5rem !important;
+    order: 1;
   }
 
-  .ledger-inception-image-wrapper {
-    width: 100%;
-    max-width: 300px;
+  .ledger-infrastructure-title {
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
   }
 
-  .ledger-saga-stats {
-    flex-direction: column;
+  .ledger-infrastructure-desc {
+    font-size: 0.95rem;
+  }
+
+  .ledger-infrastructure-image-wrapper {
+    order: 0;
+    margin-bottom: 0;
+  }
+
+  .caps-header {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
   }
 
   .caps-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .caps-card {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .caps-card:last-child {
+    border-bottom: none;
+  }
+
+  .caps-number {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    color: #343434;
+  }
+
+  .caps-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+  }
+
+  .caps-desc {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 400px) {
+  .ledger-title {
+    font-size: 2rem;
   }
 }
 
