@@ -1,26 +1,77 @@
 import React, { useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import NavbarRouter from '../../components/Navbar/NavbarRouter';
 import Footer from '../../components/Footer/Footer';
 import './ProductDetailsPage.css';
 import useScrollAnimation from '../../hooks/useScrollAnimation';
-
-// Import images
-import img1 from '../../Images/Electric Pin-1.png';
-import img2 from '../../Images/Electric Pin-2.jpg';
-import img3 from '../../Images/Electric Pin-3.png';
-import img4 from '../../Images/Electric Pin-4.png';
-
-import machine1 from '../../Images/Precision Machining Expertise.png';
-import machine2 from '../../Images/Industrial Components.png';
-import machine3 from '../../Images/Section Components.jpg';
+import { useProduct } from '../../hooks/useProduct';
 import arrowVector from '../../Images/arrow-vector.png';
 
 const ProductDetailsPage = () => {
-  const images = [img1, img2, img3, img4];
-  const [mainImage, setMainImage] = useState(images[0]);
+  const { slug } = useParams();
+  const { product, loading, error } = useProduct(slug || 'electric-pin');
 
+  const [mainImage, setMainImage] = useState(null);
   const animRefs = useRef([]);
   useScrollAnimation(animRefs);
+
+  // Set main image when product loads
+  React.useEffect(() => {
+    if (product?.product_images?.length) {
+      setMainImage(product.product_images[0].image_url);
+    } else if (product?.image_url) {
+      setMainImage(product.image_url);
+    }
+  }, [product]);
+
+  if (loading) {
+    return (
+      <>
+        <NavbarRouter />
+        <section className="product-details-wrapper">
+          <div className="product-details-container">
+            <div className="product-details-loading">
+              <div className="skeleton-shimmer" style={{ height: 40, width: '40%', marginBottom: 32 }} />
+              <div className="skeleton-shimmer" style={{ height: 400, width: '100%', marginBottom: 24 }} />
+              <div className="skeleton-shimmer" style={{ height: 120, width: '100%' }} />
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <>
+        <NavbarRouter />
+        <section className="product-details-wrapper">
+          <div className="product-details-container">
+            <div className="product-header">
+              <h1>Product Not Found</h1>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </>
+    );
+  }
+
+  const images = product.product_images?.map(img => img.image_url) ?? [product.image_url];
+  const specs = product.product_specs ?? [];
+  const tags = product.product_tags ?? [];
+  const related = product.related_products ?? [];
+
+  // Split tags into two columns
+  const midpoint = Math.ceil(tags.length / 2);
+  const tagsCol1 = tags.slice(0, midpoint);
+  const tagsCol2 = tags.slice(midpoint);
+
+  // Split description into paragraphs
+  const descParagraphs = product.description
+    ? product.description.split('\n').filter(p => p.trim())
+    : [];
 
   return (
     <>
@@ -33,7 +84,7 @@ const ProductDetailsPage = () => {
             className="product-header"
             ref={(el) => (animRefs.current[0] = el)}
           >
-            <h1>Electric Pin</h1>
+            <h1>{product.name}</h1>
           </div>
 
           {/* Gallery Section */}
@@ -42,7 +93,7 @@ const ProductDetailsPage = () => {
             ref={(el) => (animRefs.current[1] = el)}
           >
             <div className="main-image">
-              <img src={mainImage} alt="Electric Pin Main" />
+              <img src={mainImage} alt={`${product.name} Main`} />
             </div>
             <div className="thumbnails">
               {images.map((img, index) => (
@@ -62,139 +113,74 @@ const ProductDetailsPage = () => {
             className="product-description"
             ref={(el) => (animRefs.current[2] = el)}
           >
-            <p>
-              Brass Electrical Pins & Sockets, Brass Pin - Established in 1985, Ishita Industries specializes in the production of Brass Pin Conforming to Customer Technical Specification with ( Drawing & Sample ) & ensure Stringent Quality Standard especially for engineering Industry.
-            </p>
-            <p>
-              We are using the best quality of brass with the aid of pioneered technology in tandem with predefined industry norms & standards.
-            </p>
+            {descParagraphs.map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
           </div>
 
           {/* Specifications Grid */}
-          <div className="specifications-grid">
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[3] = el)}
-              style={{ transitionDelay: '0ms' }}
-            >
-              <h3>Tolerance we Maintain</h3>
-              <p>ISO 2768-M (Any as per customize Specification)</p>
+          {specs.length > 0 && (
+            <div className="specifications-grid">
+              {specs.map((spec, index) => (
+                <div 
+                  key={spec.label}
+                  className="spec-card"
+                  ref={(el) => (animRefs.current[3 + index] = el)}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  <h3>{spec.label}</h3>
+                  <p>{spec.value}</p>
+                </div>
+              ))}
             </div>
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[4] = el)}
-              style={{ transitionDelay: '100ms' }}
-            >
-              <h3>Finish We Serve</h3>
-              <p>Nickel, Zinc, Tin, Lead, Chrome, Silver, Gold</p>
-            </div>
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[5] = el)}
-              style={{ transitionDelay: '200ms' }}
-            >
-              <h3>Size We Handle</h3>
-              <p>Circumscribe Diameter 1.5MM to 200MM</p>
-            </div>
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[6] = el)}
-              style={{ transitionDelay: '300ms' }}
-            >
-              <h3>Length We Handle</h3>
-              <p>Turning Length 400 MM</p>
-            </div>
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[7] = el)}
-              style={{ transitionDelay: '400ms' }}
-            >
-              <h3>Material we serve</h3>
-              <p>As per customer Customer Requirements.</p>
-            </div>
-            <div 
-              className="spec-card"
-              ref={(el) => (animRefs.current[8] = el)}
-              style={{ transitionDelay: '500ms' }}
-            >
-              <h3>Process we Undertake</h3>
-              <p>Turning, Forging, Milling, Stamping, Drilling, Molding, Grinding, Assembly & Finishing</p>
-            </div>
-          </div>
+          )}
 
           {/* Threads Section */}
-          <div 
-            className="threads-section"
-            ref={(el) => (animRefs.current[9] = el)}
-          >
-            <h2>Thread We Serve</h2>
-            <div className="threads-list">
-              <ul>
-                <li>Metric ISO Thread (M)</li>
-                <li>Unified Coarse thread (UNC)</li>
-                <li>Unified Coarse thread for Screw thread inserts [(EG UNC(STI)]</li>
-                <li>British Standard pipe thread (BSP) OR (BSPT) OR (G)</li>
-                <li>British Standard</li>
-                <li>British Standard Fine thread (BSF)</li>
-                <li>American National Straight Pipe Thread (NPSM)</li>
-                <li>American National Pipe Thread (NPT)</li>
-              </ul>
-              <ul>
-                <li>Metric ISO Fine Thread (MF)</li>
-                <li>Unified Fine thread (UNF)</li>
-                <li>Unified Extra Fine thread (UNEF)</li>
-                <li>Whitworth Standard parallel internal pipe thread (RP)</li>
-                <li>Whitworth thread (BSW)</li>
-                <li>Steel Conduit Thread (DIN 40430 - Pg)</li>
-                <li>British Association (BA) Thread</li>
-                <li>Custom Thread Specifications (As Per Drawing)</li>
-              </ul>
+          {tags.length > 0 && (
+            <div 
+              className="threads-section"
+              ref={(el) => (animRefs.current[3 + specs.length] = el)}
+            >
+              <h2>Thread We Serve</h2>
+              <div className="threads-list">
+                <ul>
+                  {tagsCol1.map((t, i) => (
+                    <li key={i}>{t.tag}</li>
+                  ))}
+                </ul>
+                <ul>
+                  {tagsCol2.map((t, i) => (
+                    <li key={i}>{t.tag}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Metal We Machine Section */}
-          <div className="metal-section">
-            <h2 ref={(el) => (animRefs.current[10] = el)}>Metal We Machine</h2>
-            <p className="metal-subtitle" ref={(el) => (animRefs.current[11] = el)}>We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
-            <div className="metal-cards">
-              <div 
-                className="metal-card"
-                ref={(el) => (animRefs.current[12] = el)}
-                style={{ transitionDelay: '100ms' }}
-              >
-                <div className="metal-card-visual">
-                  <img src={machine1} alt="Precision Machining Expertise" className="metal-card-image" />
-                </div>
-                <div className="metal-card-title">
-                  Precision Machining Expertise <img src={arrowVector} alt="" className="arrow" />
-                </div>
-              </div>
-              <div 
-                className="metal-card"
-                ref={(el) => (animRefs.current[13] = el)}
-                style={{ transitionDelay: '200ms' }}
-              >
-                <div className="metal-card-visual">
-                  <img src={machine2} alt="Industrial Components" className="metal-card-image" />
-                </div>
-                <div className="metal-card-title">
-                  Industrial Components <img src={arrowVector} alt="" className="arrow" />
-                </div>
-              </div>
-              <div 
-                className="metal-card"
-                ref={(el) => (animRefs.current[14] = el)}
-                style={{ transitionDelay: '300ms' }}
-              >
-                <div className="metal-card-visual">
-                  <img src={machine3} alt="Section Components" className="metal-card-image" />
-                </div>
-                <div className="metal-card-title">
-                  Section Components <img src={arrowVector} alt="" className="arrow" />
-                </div>
+          {related.length > 0 && (
+            <div className="metal-section">
+              <h2 ref={(el) => (animRefs.current[4 + specs.length] = el)}>Metal We Machine</h2>
+              <p className="metal-subtitle" ref={(el) => (animRefs.current[5 + specs.length] = el)}>We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
+              <div className="metal-cards">
+                {related.map((item, index) => (
+                  <div 
+                    key={item.name}
+                    className="metal-card"
+                    ref={(el) => (animRefs.current[6 + specs.length + index] = el)}
+                    style={{ transitionDelay: `${(index + 1) * 100}ms` }}
+                  >
+                    <div className="metal-card-visual">
+                      <img src={item.image_url} alt={item.name} className="metal-card-image" />
+                    </div>
+                    <div className="metal-card-title">
+                      {item.name} <img src={arrowVector} alt="" className="arrow" />
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          )}
 
         </div>
       </section>

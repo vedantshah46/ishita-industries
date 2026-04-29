@@ -1,39 +1,16 @@
 import { useRef } from 'react'
 import './ProductIndustrialSection.css'
-import electricImage from '../../Images/ProductIndustrial-electrical.png'
-import automotiveImage from '../../Images/ProductIndustrial-automotive.png'
-import fastenerImage from '../../Images/ProductIndustrial-fastner.png'
-import engineeringImage from '../../Images/ProductIndustrial-engineering.png'
-import cpvcImage from '../../Images/ProductIndustrial-CPVC PPR Inserts.png'
 import arrowVector from '../../Images/arrow-vector.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
-
-const componentCards = [
-  {
-    title: 'Electric',
-    image: electricImage,
-  },
-  {
-    title: 'Automotive',
-    image: automotiveImage,
-  },
-  {
-    title: 'Fastner',
-    image: fastenerImage,
-  },
-  {
-    title: 'Engineering',
-    image: engineeringImage,
-  },
-  {
-    title: 'CPVC PPR Inserts',
-    image: cpvcImage,
-  },
-]
+import { useProducts } from '../../hooks/useProducts'
+import { industrialProducts } from '../../data/staticProducts'
 
 function ProductIndustrialSection() {
+  const { products, loading, error } = useProducts('industrial')
   const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useScrollAnimation(animRefs, products.length)
+
+  if (error) return null
 
   return (
     <section className="product-industrial-section">
@@ -49,23 +26,37 @@ function ProductIndustrialSection() {
         </div>
 
         <div className="product-industrial-grid">
-          {componentCards.map((card, index) => (
-            <article 
-              key={card.title} 
-              className="product-industrial-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              <div className="product-industrial-visual">
-                <img src={card.image} alt={card.title} className="product-industrial-image" />
-              </div>
+          {loading
+            ? Array.from({ length: 5 }).map((_, i) => (
+                <article key={i} className="product-industrial-card skeleton-card">
+                  <div className="product-industrial-visual skeleton-shimmer" />
+                  <div className="product-industrial-caption-row">
+                    <div className="skeleton-text" />
+                  </div>
+                </article>
+              ))
+            : products.map((card, index) => (
+                <article 
+                  key={card.slug} 
+                  className="product-industrial-card"
+                  ref={(el) => (animRefs.current[1 + index] = el)}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <div className="product-industrial-visual">
+                    <img
+                      src={card.image_url || (industrialProducts.find(p => p.slug === card.slug)?.image_url) || ''}
+                      alt={card.name}
+                      className="product-industrial-image"
+                    />
+                  </div>
 
-              <div className="product-industrial-caption-row">
-                <p className="product-industrial-caption mb-0">{card.title}</p>
-                <img src={arrowVector} alt="" className="product-industrial-arrow" />
-              </div>
-            </article>
-          ))}
+                  <div className="product-industrial-caption-row">
+                    <p className="product-industrial-caption mb-0">{card.name}</p>
+                    <img src={arrowVector} alt="" className="product-industrial-arrow" />
+                  </div>
+                </article>
+              ))
+          }
         </div>
       </div>
     </section>

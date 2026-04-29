@@ -1,29 +1,16 @@
 import { useRef } from 'react'
 import './ProductExtrusionSection.css'
-import extrusionImage from '../../Images/ProductExtrusion-Brass Extrusion Rods.png'
-import hollowImage from '../../Images/ProductExtrusion-Brass Hollow Rods.png'
-import profileImage from '../../Images/ProductExtrusion-Brass Profile & Section Rods.png'
 import arrowVector from '../../Images/arrow-vector.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
-
-const componentCards = [
-  {
-    title: 'Brass Extrusion Rods',
-    image: extrusionImage,
-  },
-  {
-    title: 'Brass Hollow Rods',
-    image: hollowImage,
-  },
-  {
-    title: 'Brass Profile & Section Rods',
-    image: profileImage,
-  },
-]
+import { useProducts } from '../../hooks/useProducts'
+import { extrusionProducts } from '../../data/staticProducts'
 
 function ProductExtrusionSection() {
+  const { products, loading, error } = useProducts('extrusion')
   const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useScrollAnimation(animRefs, products.length)
+
+  if (error) return null
 
   return (
     <section className="product-extrusion-section">
@@ -39,23 +26,37 @@ function ProductExtrusionSection() {
         </div>
 
         <div className="product-extrusion-grid">
-          {componentCards.map((card, index) => (
-            <article 
-              key={card.title} 
-              className="product-extrusion-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              <div className="product-extrusion-visual">
-                <img src={card.image} alt={card.title} className="product-extrusion-image" />
-              </div>
+          {loading
+            ? Array.from({ length: 3 }).map((_, i) => (
+                <article key={i} className="product-extrusion-card skeleton-card">
+                  <div className="product-extrusion-visual skeleton-shimmer" />
+                  <div className="product-extrusion-caption-row">
+                    <div className="skeleton-text" />
+                  </div>
+                </article>
+              ))
+            : products.map((card, index) => (
+                <article 
+                  key={card.slug} 
+                  className="product-extrusion-card"
+                  ref={(el) => (animRefs.current[1 + index] = el)}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <div className="product-extrusion-visual">
+                    <img
+                      src={card.image_url || (extrusionProducts.find(p => p.slug === card.slug)?.image_url) || ''}
+                      alt={card.name}
+                      className="product-extrusion-image"
+                    />
+                  </div>
 
-              <div className="product-extrusion-caption-row">
-                <p className="product-extrusion-caption mb-0">{card.title}</p>
-                <img src={arrowVector} alt="" className="product-extrusion-arrow" />
-              </div>
-            </article>
-          ))}
+                  <div className="product-extrusion-caption-row">
+                    <p className="product-extrusion-caption mb-0">{card.name}</p>
+                    <img src={arrowVector} alt="" className="product-extrusion-arrow" />
+                  </div>
+                </article>
+              ))
+          }
         </div>
       </div>
     </section>

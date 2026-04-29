@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import About       from './pages/AboutPage/About'
 import Homepage    from './pages/HomePage/HomePage'
 import ProductPage from './pages/ProductPage/ProductPage'
@@ -13,7 +13,16 @@ import CustomPackagingPage from './pages/CustomPackagingPage/CustomPackagingPage
 import AssemblyKittingPage from './pages/AssemblyKittingPage/AssemblyKittingPage'
 import ManufacturingProcessPage from './pages/ManufacturingProcessPage/ManufacturingProcessPage'
 import BlogPage from './pages/BlogPage/BlogPage'
+import BlogPostPage from './pages/BlogPostPage/BlogPostPage'
 import ScrollProgressBar from './components/ScrollProgressBar/ScrollProgressBar'
+
+// Admin pages
+import AdminLogin from './pages/AdminPage/AdminLogin'
+import AdminLayout from './pages/AdminPage/AdminLayout'
+import AdminProductList from './pages/AdminPage/products/AdminProductList'
+import AdminProductForm from './pages/AdminPage/products/AdminProductForm'
+import AdminBlogList from './pages/AdminPage/blog/AdminBlogList'
+import AdminBlogForm from './pages/AdminPage/blog/AdminBlogForm'
 
 function App() {
   return (
@@ -25,7 +34,7 @@ function App() {
         <Route path="/"      element={<Homepage />} />
         <Route path="/about" element={<About />} />
         <Route path="/product" element={<ProductPage />} />
-        <Route path="/product/electric-pin" element={<ProductDetailsPage />} />
+        <Route path="/product/:slug" element={<ProductDetailsPage />} />
         <Route path="/quality" element={<QualityPage />} />
         <Route path="/environment" element={<EnvironmentPage />} />
         <Route path="/import-export" element={<ImportExportPage />} />
@@ -36,6 +45,19 @@ function App() {
         <Route path="/assembly-kitting" element={<AssemblyKittingPage />} />
         <Route path="/manufacturing-process" element={<ManufacturingProcessPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+
+        {/* Admin routes — not linked from public navbar, accessed by direct URL */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<Navigate to="/admin/products" replace />} />
+          <Route path="products" element={<AdminProductList />} />
+          <Route path="products/new" element={<AdminProductForm />} />
+          <Route path="products/:id" element={<AdminProductForm />} />
+          <Route path="blog" element={<AdminBlogList />} />
+          <Route path="blog/new" element={<AdminBlogForm />} />
+          <Route path="blog/:id" element={<AdminBlogForm />} />
+        </Route>
       </Routes>
     </>
   )

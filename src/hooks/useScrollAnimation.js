@@ -31,15 +31,22 @@ import { useEffect } from 'react'
  */
 function useScrollAnimation(
   refsArray,
-  { threshold = 0.1, rootMargin = '0px 0px -60px 0px' } = {}
+  // Pass a primitive (e.g. list length) to re-observe when async items arrive.
+  // Pass an options object for threshold/rootMargin; omit for defaults.
+  triggerOrOptions = {},
 ) {
+  const isOptions = typeof triggerOrOptions === 'object' && triggerOrOptions !== null
+  const trigger   = isOptions ? undefined : triggerOrOptions
+  const { threshold = 0.1, rootMargin = '0px 0px -60px 0px' } =
+    isOptions ? triggerOrOptions : {}
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target) // animate once, stop watching
+            observer.unobserve(entry.target)
           }
         })
       },
@@ -51,8 +58,7 @@ function useScrollAnimation(
     })
 
     return () => observer.disconnect()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
-  // ↑ empty deps: refsArray and options are stable across renders
+  }, [trigger]) // eslint-disable-line react-hooks/exhaustive-deps
 }
 
 export default useScrollAnimation

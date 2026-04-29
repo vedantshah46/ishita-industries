@@ -1,44 +1,16 @@
 import { useRef } from 'react'
 import './ProductPrecisionSection.css'
-import turnedImage from '../../Images/brass-turned-component.png'
-import forgedImage from '../../Images/brass-forged-component.png'
-import millingImage from '../../Images/brass-milling-component.png'
-import pressedImage from '../../Images/bras-broach-component.png' // Using broach as placeholder for pressed
-import stampingImage from '../../Images/brass-stamping-component.png'
-import castingImage from '../../Images/brass-casting-component.png'
 import arrowVector from '../../Images/arrow-vector.png'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
-
-const componentCards = [
-  {
-    title: 'Brass Turned Component',
-    image: turnedImage,
-  },
-  {
-    title: 'Brass Forged Component',
-    image: forgedImage,
-  },
-  {
-    title: 'Brass Milling Component',
-    image: millingImage,
-  },
-  {
-    title: 'Brass Pressed Component',
-    image: pressedImage,
-  },
-  {
-    title: 'Brass Stamped Component',
-    image: stampingImage,
-  },
-  {
-    title: 'Brass Casting Component',
-    image: castingImage,
-  },
-]
+import { useProducts } from '../../hooks/useProducts'
+import { precisionProducts } from '../../data/staticProducts'
 
 function ProductPrecisionSection() {
+  const { products, loading, error } = useProducts('precision')
   const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useScrollAnimation(animRefs, products.length)
+
+  if (error) return null
 
   return (
     <section className="product-precision-section">
@@ -54,23 +26,37 @@ function ProductPrecisionSection() {
         </div>
 
         <div className="product-precision-grid">
-          {componentCards.map((card, index) => (
-            <article 
-              key={card.title} 
-              className="product-precision-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
-              <div className="product-precision-visual">
-                <img src={card.image} alt={card.title} className="product-precision-image" />
-              </div>
+          {loading
+            ? Array.from({ length: 6 }).map((_, i) => (
+                <article key={i} className="product-precision-card skeleton-card">
+                  <div className="product-precision-visual skeleton-shimmer" />
+                  <div className="product-precision-caption-row">
+                    <div className="skeleton-text" />
+                  </div>
+                </article>
+              ))
+            : products.map((card, index) => (
+                <article 
+                  key={card.slug} 
+                  className="product-precision-card"
+                  ref={(el) => (animRefs.current[1 + index] = el)}
+                  style={{ transitionDelay: `${index * 80}ms` }}
+                >
+                  <div className="product-precision-visual">
+                    <img
+                      src={card.image_url || (precisionProducts.find(p => p.slug === card.slug)?.image_url) || ''}
+                      alt={card.name}
+                      className="product-precision-image"
+                    />
+                  </div>
 
-              <div className="product-precision-caption-row">
-                <p className="product-precision-caption mb-0">{card.title}</p>
-                <img src={arrowVector} alt="" className="product-precision-arrow" />
-              </div>
-            </article>
-          ))}
+                  <div className="product-precision-caption-row">
+                    <p className="product-precision-caption mb-0">{card.name}</p>
+                    <img src={arrowVector} alt="" className="product-precision-arrow" />
+                  </div>
+                </article>
+              ))
+          }
         </div>
       </div>
     </section>
