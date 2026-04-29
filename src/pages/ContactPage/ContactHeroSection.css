@@ -1,0 +1,61 @@
+.contact-hero-section {
+  background-color: #F9F9F9;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+  width: 100%;
+}
+
+.contact-hero-container {
+  max-width: 1210px;
+  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
+}
+
+.contact-hero-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.8rem, 6.5vw, 90px);
+  line-height: 1;
+  letter-spacing: -2px;
+  vertical-align: middle;
+  color: #343434;
+  max-width: 800px;
+}
+
+.contact-hero-highlight {
+  color: #59606166;
+}
+
+.contact-hero-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1rem, 1.6vw, 18px);
+  line-height: 1.6;
+  font-weight: 400;
+  color: #2D3435;
+  margin: 0;
+  max-width: 800px;
+  margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .contact-hero-container {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .contact-hero-container {
+    max-width: 1260px;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .contact-hero-container {
+    padding-inline: 0.75rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .contact-hero-container {
+    max-width: 1520px;
+  }
+}

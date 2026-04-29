@@ -28,9 +28,11 @@
   margin-top: clamp(1rem, 1.5vw, 2rem);
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  font-size: clamp(40px, 6.5vw, 100px);
-  line-height: 1.188; /* 118.8px / 100px */
-  letter-spacing: -0.066em; /* -6.6px / 100px */
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem);
+  line-height: 1.188;
+  /* 118.8px / 100px */
+  letter-spacing: -0.066em;
+  /* -6.6px / 100px */
   color: #2d3435;
   vertical-align: middle;
 }
@@ -74,7 +76,8 @@
 
 @media (max-width: 991.98px) {
   .reach-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
   }
 
@@ -84,7 +87,32 @@
 }
 
 @media (max-width: 500px) {
-  .reach-title{
+  .reach-title {
     font-size: clamp(35px, 3.5vw, 50px);
   }
+}
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.reach-header {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reach-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reach-map-container {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reach-map-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

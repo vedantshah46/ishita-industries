@@ -1,0 +1,42 @@
+/* ─── Global Logistic Shell ──────────────────────────────────
+   Mirrors the styling of .about-hero-shell for consistency
+   across main pages.
+   ──────────────────────────────────────────────────────────── */
+
+.global-logistic-shell {
+  width: 100% !important;
+  max-width: 1210px !important;
+  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
+  margin-inline: auto !important; /* Ensure centering */
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .global-logistic-shell {
+    max-width: 1325px !important;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .global-logistic-shell {
+    max-width: 1260px !important;
+  }
+}
+
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
+@media (max-width: 991.98px) {
+  /* Inherits from base */
+}
+
+/* ─── Extra small (< 400px) ─────────────────────────────── */
+@media (max-width: 399.98px) {
+  .global-logistic-shell {
+    padding-inline: 0.75rem;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .global-logistic-shell {
+    max-width: 1520px !important;
+  }
+}

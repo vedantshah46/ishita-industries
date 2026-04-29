@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,500&display=swap');
+
+/* ─── Base ──────────────────────────────────────────────── */
+.quality-hero-section {
+  padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
+  background-color: #F9F9F9;
+}
+
+.quality-hero-shell {
+  max-width: 1210px;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+}
+
+.quality-hero-top {
+  display: block;
+}
+
+/* ─── Hero Title ─────────────────────────────────────────── */
+.quality-hero-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.8rem, 6.5vw, 90px);
+  line-height: 1.2;
+  letter-spacing: -2px;
+  vertical-align: middle;
+  color: #343434;
+}
+
+/* ─── "Delivering Precision." ───────────────────────────── */
+.quality-hero-title-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(2rem, 8vw, 90px);
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #59606166;
+  margin-top: 0.1em;
+  white-space: nowrap;
+  display: block;
+}
+
+/* ─── Meta row ───────────────────────────────────────────── */
+.quality-hero-meta {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  align-items: end;
+  margin-top: clamp(1.25rem, 2vw, 1.7rem);
+}
+
+/* ─── Body copy ──────────────────────────────────────────── */
+.quality-hero-copy {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1rem, 1.6vw, 18px);
+  line-height: 1.6;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #2D3435;
+  max-width: 950px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+/* ─── EST. line block ────────────────────────────────────── */
+.quality-hero-line-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-self: end;
+  gap: 0.8rem;
+}
+
+.quality-hero-line {
+  width: 96px;
+  height: 4.5px;
+  background: #343434;
+  display: block;
+}
+
+.quality-hero-est {
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: #343434;
+  white-space: nowrap;
+  margin-top: 5px;
+}
+
+/* ─── Factory image ──────────────────────────────────────── */
+.quality-hero-factory-frame {
+  margin-top: clamp(1.3rem, 2.2vw, 2rem);
+  border: 1px solid #b9c0c6;
+  background: #edf2f6;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.quality-hero-factory-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: clamp(260px, 38vw, 480px);
+}
+
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .quality-hero-title {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 0.93;
+    letter-spacing: 2px;
+  }
+
+  .quality-hero-title-light {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .quality-hero-meta {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .quality-hero-copy {
+    max-width: 100%;
+  }
+
+  .quality-hero-line-block {
+    justify-self: start;
+    align-items: flex-start;
+  }
+
+  .quality-hero-factory-image {
+    height: clamp(220px, 42vw, 400px);
+  }
+}
+
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .quality-hero-title {
+    font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 1px;
+  }
+
+  .quality-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .quality-hero-copy {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-top: 16px;
+  }
+
+  .quality-hero-factory-image {
+    height: clamp(180px, 50vw, 300px);
+  }
+}
+
+/* ─── Small mobile (< 576px) ────────────────────────────── */
+@media (max-width: 575.98px) {
+  .quality-hero-title {
+    font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+
+  .quality-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .quality-hero-factory-image {
+    height: clamp(160px, 55vw, 260px);
+  }
+}
+
+/* ─── Extra small (< 400px) ─────────────────────────────── */
+@media (max-width: 399.98px) {
+  .quality-hero-shell {
+    padding-inline: 0.75rem;
+  }
+
+  .quality-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.05;
+    letter-spacing: 0px;
+  }
+
+  .quality-hero-title-light {
+    font-size: 1.85rem;
+    line-height: 100%;
+  }
+}
+
+/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
+@media (min-width: 1600px) {
+  .quality-hero-shell {
+    max-width: 1520px;
+  }
+}
+
+/* ── Scroll-reveal states ───────────────────────────────────── */
+.quality-hero-meta,
+.quality-hero-factory-frame {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.quality-hero-meta.is-visible,
+.quality-hero-factory-frame.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .quality-hero-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .quality-hero-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .quality-hero-shell {
+    max-width: 1520px;
+  }
+}

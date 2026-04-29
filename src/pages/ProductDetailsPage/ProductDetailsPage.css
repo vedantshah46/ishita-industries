@@ -1,0 +1,289 @@
+.product-details-wrapper {
+  background-color: #ffffff;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+}
+
+.product-details-container {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  font-family: 'Inter', sans-serif;
+  color: #333;
+}
+
+.product-header h1 {
+  font-weight: 700;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: #343434;
+}
+
+/* Gallery Section */
+.product-gallery {
+  display: grid;
+  grid-template-columns: 1fr 80px;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.main-image {
+  border: 1px solid #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #343434;
+}
+
+.main-image img {
+  width: 100%;
+  height: 375px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.thumbnails {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.thumbnails img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid #343434;
+  cursor: pointer;
+  background-color: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.thumbnails img:hover,
+.thumbnails img.active {
+  border-color: #ff9900;
+}
+
+/* Description Section */
+.product-description {
+  margin-bottom: 40px;
+}
+
+.product-description p {
+  margin-bottom: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  line-height: 1.65;
+  color: #222222;
+}
+
+/* Specifications Grid */
+.specifications-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.spec-card {
+  border: 1px solid #343434;
+  border-radius: 6px;
+  padding: 24px 20px;
+  background-color: #ffffff;
+}
+
+.spec-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: #343434;
+}
+
+.spec-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  font-weight: 400;
+  color: #838385;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Threads Section */
+.threads-section {
+  margin-bottom: 80px;
+}
+
+.threads-section h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #343434;
+}
+
+.threads-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.threads-list ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.threads-list li {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  color: #000000;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Metal Section */
+.metal-section {
+  text-align: center;
+}
+
+.metal-section h2 {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: clamp(1.2rem, 2.5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: #343434;
+}
+
+.metal-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 3.5rem);
+  font-weight: 400;
+  color: #9098A0;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.metal-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.metal-card {
+  text-align: left;
+  cursor: pointer;
+}
+
+.metal-card-visual {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid #000000;
+  margin-bottom: 10px;
+}
+
+.metal-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.metal-card:hover .metal-card-image {
+  transform: scale(1.1);
+}
+
+.metal-card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: clamp(1.05rem, 0.86vw, 0.9rem);
+  color: #000000;
+  margin-top: clamp(0.4rem, 0.5vw, 0.5rem);
+}
+
+.metal-card-title .arrow {
+  width: 3%;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .product-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .thumbnails {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: none;
+  }
+
+  .specifications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .threads-list {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .metal-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .specifications-grid,
+  .metal-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .product-details-container {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .product-details-container {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .product-details-container {
+    max-width: 1520px;
+  }
+}
+
+/* ── Scroll-reveal animations ────────────────────────────── */
+.product-header,
+.product-gallery,
+.product-description,
+.spec-card,
+.threads-section,
+.metal-section h2,
+.metal-subtitle,
+.metal-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-header.is-visible,
+.product-gallery.is-visible,
+.product-description.is-visible,
+.spec-card.is-visible,
+.threads-section.is-visible,
+.metal-section h2.is-visible,
+.metal-subtitle.is-visible,
+.metal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -162,3 +162,18 @@
     aspect-ratio: 1 / 1;
   }
 }
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.precision-components-header,
+.precision-components-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.precision-components-header.is-visible,
+.precision-components-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

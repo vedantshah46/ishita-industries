@@ -5,6 +5,7 @@
 
 .cert-shell {
   max-width: 1210px;
+  margin: 0 auto;
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
@@ -85,7 +86,7 @@
 }
 
 @media (max-width: 1600px) and (min-width: 1465px) {
-  .cert-shell{
+  .cert-shell {
     max-width: 1325px;
   }
 }
@@ -96,9 +97,16 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .cert-shell {
+    max-width: 1520px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .cert-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
     margin-bottom: 2rem;
   }

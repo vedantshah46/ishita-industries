@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './FastenerStandardsSection.css'
 import fsOne from '../../Images/fastner-standard-one.png'
 import fsTwo from '../../Images/fastner-standard-two.png'
@@ -5,6 +6,7 @@ import fsThree from '../../Images/fastner-standard-three.png'
 import fsFour from '../../Images/fastner-standard-four.png'
 import fsFive from '../../Images/fastner-standard-five.png'
 import fsSix from '../../Images/fastner-standard-six.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
 
 const standardsData = [
   {
@@ -46,10 +48,16 @@ const standardsData = [
 ]
 
 function FastenerStandardsSection() {
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="fastener-standards-section">
       <div className="container fastener-shell">
-        <div className="fastener-header">
+        <div 
+          className="fastener-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="fastener-kicker mb-0">ENGINEERED FOR PRECISION</p>
             <h2 className="fastener-title mb-0">FASTENER STANDARDS.</h2>
@@ -58,8 +66,13 @@ function FastenerStandardsSection() {
 
         <div className="fastener-table-container">
           <div className="fastener-grid">
-            {standardsData.map((item) => (
-              <article key={item.id} className="fastener-card">
+            {standardsData.map((item, index) => (
+              <article 
+                key={item.id} 
+                className="fastener-card"
+                ref={(el) => (animRefs.current[1 + index] = el)}
+                style={{ transitionDelay: `${index * 80}ms` }}
+              >
                 <div className="fastener-card-logo">
                   <img src={item.image} alt={item.alt} />
                 </div>

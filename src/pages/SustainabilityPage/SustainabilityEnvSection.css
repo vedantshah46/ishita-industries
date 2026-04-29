@@ -1,0 +1,251 @@
+.sust-env-section {
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+  background-color: #F9F9F9;
+}
+
+.sust-env-shell {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+}
+
+/* Header */
+.sust-env-header {
+  margin-bottom: 3rem;
+}
+
+.sust-env-kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  letter-spacing: 4.8px;
+  text-transform: uppercase;
+  color: #596061;
+  margin-bottom: 1rem;
+}
+
+.sust-env-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 4.15vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0.4px;
+  color: #2D3435;
+  margin-bottom: 2rem;
+}
+
+.sust-env-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+}
+
+.sust-env-copy {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  line-height: 1.65;
+  color: #596061;
+  max-width: 775px;
+  margin: 0;
+}
+
+.sust-env-btn {
+  background-color: #E6E9EA;
+  border: none;
+  padding: 1rem 2rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: #2D3435;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.sust-env-btn:hover {
+  background-color: #DDE1E2;
+}
+
+/* Grid Layout */
+.sust-env-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.5rem;
+}
+
+.sust-env-grid-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+/* Base Card Styles */
+.sust-env-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.sust-env-card-content {
+  margin-top: auto;
+  z-index: 2;
+}
+
+.sust-env-card-content h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.sust-env-card-content p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Specific Cards */
+.sust-env-card-water {
+  min-height: 700px;
+  align-items: center;
+  justify-content: center;
+}
+
+.sust-env-card-water .sust-env-card-icon-large {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.9;
+  color: #FFFFFF;
+}
+
+.sust-env-card-water .sust-env-card-content {
+  width: 100%;
+  text-align: left;
+}
+
+.sust-env-card-energy {
+  grid-column: 1 / -1;
+  min-height: 250px;
+}
+
+.sust-env-card-waste {
+  min-height: 250px;
+}
+
+.sust-env-card-waste h3,
+.sust-env-card-waste p {
+  margin-bottom: 0.2rem;
+}
+
+.sust-env-card-waste p {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.sust-env-card-dna {
+  background-color: #6B6B6B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 250px;
+}
+
+.sust-dna-icon {
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.sust-env-card-content-center h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.sust-env-card-content-center p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Animations */
+.sust-env-header,
+.sust-env-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sust-env-header.is-visible,
+.sust-env-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .sust-env-header-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .sust-env-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .sust-env-grid-right {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .sust-env-card-energy {
+    grid-column: 1;
+  }
+}
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .sust-env-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .sust-env-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .sust-env-shell {
+    max-width: 1520px;
+  }
+}

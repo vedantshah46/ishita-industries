@@ -15,14 +15,6 @@
   justify-content: center;
   align-items: center;
   gap: clamp(1.5rem, 4vw, 5rem);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.precision-section.is-visible .precision-header {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .precision-kicker {
@@ -72,28 +64,11 @@
   flex-direction: column;
 }
 
-.precision-card--left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition: opacity 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.precision-card--right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition: opacity 0.8s 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.precision-section.is-visible .precision-card--left,
-.precision-section.is-visible .precision-card--right {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 /* ─── Visual (image wrapper) ─────────────────────────────── */
 .precision-visual {
   position: relative;
-  height: clamp(240px, 41vw, 500px);
+  width: 100%;
+  aspect-ratio: 1 / 1;
   border: 1px solid #000000;
   overflow: hidden;
   background: #f5f5f5;
@@ -130,8 +105,9 @@
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .precision-header {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1.5rem;
   }
 
@@ -142,13 +118,14 @@
 
   .precision-grid {
     grid-template-columns: 1fr 1fr;
+    padding: 0px 20px;
   }
 }
 
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
   .precision-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 0.75rem;
   }
 
@@ -167,7 +144,7 @@
   }
 
   .precision-visual {
-    height: clamp(160px, 38vw, 240px);
+    width: 100%;
   }
 }
 
@@ -180,7 +157,7 @@
   }
 
   .precision-visual {
-    height: 220px;
+    width: 100%;
   }
 
   .precision-title {
@@ -203,8 +180,9 @@
 
 .precision-header {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .precision-header.is-visible {
@@ -213,32 +191,34 @@
 }
 
 /* Left card: slides in from the left */
-.precision-card-left {
+.precision-card--left {
   opacity: 0;
-  transform: translateX(-32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: 0.15s;
 }
 
 /* Right card: slides in from the right */
-.precision-card-right {
+.precision-card--right {
   opacity: 0;
-  transform: translateX(32px);
-  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: 0.25s;
 }
 
-.precision-card-left.is-visible,
-.precision-card-right.is-visible {
+.precision-card--left.is-visible,
+.precision-card--right.is-visible {
   opacity: 1;
   transform: translateX(0);
 }
 
 /* Image zoom on hover — .precision-visual already has overflow: hidden */
 .precision-visual img {
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .precision-visual:hover img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }

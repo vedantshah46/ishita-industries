@@ -5,11 +5,43 @@
   position: relative;
   z-index: 200;
   padding: clamp(0.75rem, 1.5vw, 1.25rem) 0;
-  background: #fafafa;
+  background: #FAFAFA;
 }
 
 /* Scrolled state — dark compact bar */
+.site-header.theme-white {
+  background: #FFFFFF;
+}
+.site-header.theme-f9 {
+  background: #F9F9F9;
+}
 
+/* ─── Transparent Theme (for Import/Export Page) ─── */
+.site-header.theme-transparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 999;
+}
+
+.site-header.theme-transparent .nav-link,
+.site-header.theme-transparent .menu-btn {
+  color: #ffffff;
+}
+
+.site-header.theme-transparent .brochure-btn {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.site-header.theme-transparent .brand-logo,
+.site-header.theme-transparent .icon-globe img,
+.site-header.theme-transparent .brochure-icon img,
+.site-header.theme-transparent .menu-icon img {
+  filter: brightness(0) invert(1);
+}
 
 @font-face {
   font-family: 'Kantumruy';
@@ -197,8 +229,13 @@
     padding-bottom: 0.65rem;
   }
 
-  .brand-logo--desktop { display: none; }
-  .brand-logo--mobile  { display: block; }
+  .brand-logo--desktop {
+    display: none;
+  }
+
+  .brand-logo--mobile {
+    display: block;
+  }
 
   .nav-shell {
     align-items: center;

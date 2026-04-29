@@ -4,7 +4,9 @@
 }
 
 .about-infra-shell {
-  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
 .about-infra-header {
@@ -153,7 +155,8 @@
 
 @media (max-width: 991.98px) {
   .about-infra-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
   }
 
@@ -207,4 +210,21 @@
 .about-infra-stats.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .about-infra-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .about-infra-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .about-infra-shell {
+    max-width: 1520px;
+  }
 }

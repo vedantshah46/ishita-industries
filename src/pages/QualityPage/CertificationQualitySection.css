@@ -1,0 +1,238 @@
+.cert-quality-section {
+  padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.cert-quality-shell {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+}
+
+/* ─── Header ─── */
+.cert-quality-header-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 3.5vw, 4rem);
+  text-align: center;
+}
+
+.cert-quality-kicker {
+  text-align: center;
+  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
+  line-height: 1.2;
+  letter-spacing: 0.34em;
+  color: #596061;
+  text-transform: uppercase;
+}
+
+.cert-quality-title {
+  margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
+  font-size: clamp(4.65rem, 4.1vw, 4.18rem);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  color: #2D3435;
+  text-transform: uppercase;
+}
+
+/* ─── Content ─── */
+.cert-quality-content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+  margin-top: clamp(3rem, 5vw, 5rem);
+}
+
+/* ─── Left Column: Logo Grid ─── */
+.cert-quality-left {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cert-quality-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  max-width: 600px;
+}
+
+.cert-quality-logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+}
+
+.cert-quality-logo-item img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.cert-quality-logo-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Logo specific positioning for 3+2 look */
+.logo-item-4 {
+  grid-column: 1 / 2;
+  justify-self: right;
+}
+
+.logo-item-5 {
+  grid-column: 2 / 3;
+  justify-self: left;
+}
+
+/* ─── Right Column: Certificate ─── */
+.cert-quality-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.cert-document-frame {
+  width: 100%;
+  max-width: 360px;
+  background: #ffffff;
+  padding: 1px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+}
+
+.cert-document-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cert-document-caption {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-caption-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cert-dot {
+  width: 4px;
+  height: 4px;
+  background-color: #333333;
+  border-radius: 50%;
+}
+
+.cert-caption-text {
+  font-size: clamp(1rem, 0.9vw, 1.05rem);
+  line-height: 1.35;
+  color: #000000;
+}
+
+.cert-arrow {
+  display: inline-block;
+  width: auto;
+  height: 7px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  margin-right: 0.5rem;
+
+}
+
+.cert-quality-right:hover .cert-arrow {
+  transform: translateX(4px);
+}
+
+/* ─── Mobile Responsiveness ─── */
+@media (max-width: 991.98px) {
+  .cert-quality-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .cert-quality-left {
+    order: 2;
+    justify-content: center;
+  }
+
+  .cert-quality-right {
+    order: 1;
+    align-items: center;
+  }
+
+  .logo-item-4,
+  .logo-item-5 {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .cert-quality-title {
+    font-size: 2.5rem;
+  }
+
+  .cert-quality-logo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 2rem 1.5rem;
+  }
+
+  .logo-item-4 {
+    grid-column: auto;
+    justify-self: center;
+  }
+
+  .logo-item-5 {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .logo-item-5 img {
+    max-width: 140px;
+  }
+}
+
+/* ─── Animation States ─── */
+.cert-quality-header,
+.cert-quality-logo-item,
+.cert-quality-right {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cert-quality-header.is-visible,
+.cert-quality-logo-item.is-visible,
+.cert-quality-right.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .cert-quality-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .cert-quality-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .cert-quality-shell {
+    max-width: 1520px;
+  }
+}

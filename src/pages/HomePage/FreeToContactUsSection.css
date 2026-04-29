@@ -1,5 +1,5 @@
 .free-to-contact-us-section {
-  background-color: #fafafa ;
+  background-color: #fafafa;
   padding: clamp(1rem, 3vw, 2rem) 0 clamp(3rem, 5.2vw, 4.6rem);
 }
 
@@ -14,7 +14,7 @@
 
 .contactus-card {
   position: relative;
-  background-color: #fbfbfb  ;
+  background-color: #fbfbfb;
   border: 1px solid #99A2AF33;
   border-radius: 12px;
   padding: 45px 20px 30px;
@@ -25,16 +25,16 @@
 
 /* Apply the imported background grid image and invert it to be light/white */
 .contactus-card::before {
-    content: '';
-    position: absolute;
-    inset: 25px -90px -90px;
-    background-image: url(/src/Images/contact-us-grid.png);
-    background-size: auto;
-    background-position: center;
-    background-repeat: no-repeat;
-    filter: invert(1);
-    opacity: 0.5;
-    pointer-events: none;
+  content: '';
+  position: absolute;
+  inset: 25px -90px -90px;
+  background-image: url(/src/Images/contact-us-grid.png);
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: invert(1);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .contactus-icon {
@@ -84,6 +84,7 @@
   transition: all 0.2s ease-in-out;
   border: 1px solid #000000;
   border-radius: 50px;
+  text-decoration: none;
 }
 
 .contactus-btn-arrow {
@@ -170,6 +171,12 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .contactus-shell {
+    max-width: 1520px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .contactus-title {
     font-size: 1.8rem;
@@ -190,3 +197,23 @@
     margin: 0 auto 1.5rem;
   }
 }
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.contactus-card,
+.contactus-link-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactus-card.is-visible,
+.contactus-link-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger link cards */
+.contactus-link-card:nth-child(1) { transition-delay: 0.1s; }
+.contactus-link-card:nth-child(2) { transition-delay: 0.2s; }
+.contactus-link-card:nth-child(3) { transition-delay: 0.3s; }

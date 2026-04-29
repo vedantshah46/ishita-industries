@@ -1,6 +1,12 @@
 .facility-expertise-section {
-  padding: 80px 0;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
   background-color: #f9f9f9;
+}
+
+.facility-expertise-section .container {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
 .facility-main-kicker {
@@ -40,7 +46,7 @@
 .facility-right-col {
   display: flex;
   flex-direction: column;
-  gap: 3.7em;
+  gap: 2.75em;
 }
 
 @media (max-width: 1400px) and (min-width: 1200px) {
@@ -237,7 +243,7 @@
   height: 1px;
   background-color: rgba(45, 52, 53, 0.1);
   /* #2D34351A */
-  margin: 30px 0;
+  margin: 33px 0;
 }
 
 .metals-copy {
@@ -260,7 +266,7 @@
 
 .finish-badge {
   background: #ffffff;
-  padding:7px;
+  padding: 7px;
   text-align: center;
   font-size: 15px;
   color: #2D3435;
@@ -271,9 +277,8 @@
 /* ─── ISO Card ──────────────────────────────────────────── */
 .facility-iso-card {
   position: relative;
-  height: 120px;
+  height: 140px;
   overflow: hidden;
-  border-radius: 4px;
 }
 
 .iso-bg {
@@ -498,4 +503,47 @@
   .metal-name {
     font-size: 24px;
   }
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .facility-expertise-section .container {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .facility-expertise-section .container {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .facility-expertise-section .container {
+    max-width: 1520px;
+  }
+}
+
+/* ── Scroll Animations ───────────────────────────────────── */
+.facility-header-block,
+.facility-left-col,
+.facility-right-col {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.facility-header-block.is-visible,
+.facility-left-col.is-visible,
+.facility-right-col.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.facility-left-col.is-visible {
+  transition-delay: 0.1s;
+}
+
+.facility-right-col.is-visible {
+  transition-delay: 0.2s;
 }

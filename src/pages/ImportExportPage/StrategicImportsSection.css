@@ -1,0 +1,138 @@
+.strategic-imports-section {
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.strategic-shell {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+}
+
+.strategic-title {
+  font-family: 'Inter', sans-serif;
+  text-align: center;
+  font-size: clamp(1.2rem, 2.5vw, 3.5rem);
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  color: #343434;
+}
+
+.strategic-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 3.5rem);
+  font-weight: 400;
+  color: #9098A0;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+
+
+.strategic-map {
+  width: 100%;
+  max-width: 1210px;
+  height: auto;
+}
+
+.strategic-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  line-height: 1.65;
+  color: #222222;
+  /* Pull text up over the map */
+  margin-top: -6%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── Spread Around The World Styles ─── */
+
+.spread-shell {
+  max-width: 1210px;
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  text-align: center;
+  padding-top: clamp(0.5rem, 1vw, 1rem);
+}
+
+.spread-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: #343434;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.spread-title strong {
+  font-weight: 600;
+}
+
+.flags-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(5px, 1.5vw, 30px);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.country-flag {
+  width: clamp(20px, 8vw, 90px);
+  height: auto;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.spread-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  line-height: 1.65;
+  color: #222222;
+  margin: 0 auto;
+}
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .strategic-shell, .spread-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .strategic-shell, .spread-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .strategic-shell, .spread-shell {
+    max-width: 1520px;
+  }
+}
+
+/* ─── Scroll-reveal states ───────────────────────────────── */
+.strategic-title,
+.strategic-subtitle,
+.strategic-map-container,
+.strategic-text,
+.spread-title,
+.country-flag,
+.spread-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.strategic-title.is-visible,
+.strategic-subtitle.is-visible,
+.strategic-map-container.is-visible,
+.strategic-text.is-visible,
+.spread-title.is-visible,
+.country-flag.is-visible,
+.spread-text.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

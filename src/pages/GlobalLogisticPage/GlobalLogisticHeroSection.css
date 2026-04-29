@@ -1,0 +1,144 @@
+.global-logistic-hero {
+  background-color: #F9f9f9;
+  padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
+}
+
+.global-logistic-hero-content {
+  margin-bottom: 40px;
+}
+
+.hero-text-wrapper {
+  max-width: 800px;
+}
+
+.global-hero-top {
+  display: block;
+}
+
+.global-hero-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.8rem, 6.5vw, 90px);
+  line-height: 1;
+  letter-spacing: -2px;
+  vertical-align: middle;
+  color: #343434;
+}
+
+.global-hero-title-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(2rem, 8vw, 90px);
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #59606166;
+  margin-top: 0.1em;
+  white-space: nowrap;
+  display: block;
+}
+
+.global-hero-copy {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.2rem, 2.5vw, 1rem);
+  line-height: 1.6;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: #2D3435;
+  max-width: 950px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+
+.hero-image-wrapper {
+  margin-top: clamp(1.3rem, 2.2vw, 2rem);
+  border: 1px solid #b9c0c6;
+  background: #edf2f6;
+  overflow: hidden;
+  max-width: 100%;
+
+  /* ── Scroll-reveal ─────────────────────────────────────────── */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-image-wrapper.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-banner-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  height: clamp(260px, 38vw, 480px);
+}
+
+@media (max-width: 991.98px) {
+  .global-hero-title {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 0.93;
+    letter-spacing: 2px;
+  }
+
+  .global-hero-title-light {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .global-logistic-hero {
+    padding: 120px 0 40px 0;
+  }
+
+  .global-hero-title {
+    font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 1px;
+  }
+
+  .global-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+
+  .global-hero-copy {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .global-hero-title {
+    font-size: 2.35rem;
+    line-height: 0.93;
+    letter-spacing: 0px;
+    text-align: center;
+  }
+
+  .global-hero-title-light {
+    font-size: 2.35rem;
+    line-height: 100%;
+    letter-spacing: 0px;
+  }
+}
+
+@media (max-width: 399.98px) {
+  .global-hero-title {
+    font-size: 1.85rem;
+    line-height: 1.05;
+    letter-spacing: 0px;
+  }
+
+  .global-hero-title-light {
+    font-size: 1.85rem;
+    line-height: 100%;
+  }
+}

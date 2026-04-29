@@ -1,0 +1,134 @@
+/* ─── Key Benefits Section ───────────────────────────────────
+   "Operational Excellence – Key Logistic Benefits"
+   ──────────────────────────────────────────────────────────── */
+
+.key-benefits-section {
+  padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
+  background-color: #ffffff;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.key-benefits-header {
+  text-align: center;
+  margin-bottom: clamp(4rem, 7vw, 6.5rem);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+}
+
+.key-benefits-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.key-benefits-kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  letter-spacing: 4.8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #596061;
+}
+
+.key-benefits-title {
+  margin-top: clamp(0.6rem, 1vw, 1rem);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(4.2rem, 4.35vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: 0.4px;
+  vertical-align: middle;
+  color: #343434;
+}
+
+/* ─── Cards Grid ─────────────────────────────────────────── */
+.key-benefits-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+}
+
+/* ─── Individual Card ────────────────────────────────────── */
+.key-benefit-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.key-benefit-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Icon Container ─────────────────────────────────────── */
+.key-benefit-icon-wrap {
+  width: clamp(72px, 7vw, 90px);
+  height: clamp(72px, 7vw, 90px);
+  border-radius: 12px;
+  background-color: #E8EAEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+/* ─── Card Title ─────────────────────────────────────────── */
+.key-benefit-card-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 2.2vw, 2rem);
+  color: #2D3435;
+  margin-bottom: clamp(0.6rem, 1.2vw, 1rem);
+  letter-spacing: 0.2px;
+}
+
+/* ─── Card Description ───────────────────────────────────── */
+.key-benefit-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.2vw, 1.4rem);
+  line-height: 1.8;
+  color: #596061;
+  max-width: 400px;
+}
+
+/* ─── Tablet (< 992px) ───────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .key-benefits-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+/* ─── Mobile (< 768px) ───────────────────────────────────── */
+@media (max-width: 767.98px) {
+  .key-benefits-cards {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 5vw, 3rem);
+  }
+
+  .key-benefits-title {
+    font-size: 2.1rem;
+    letter-spacing: 0.4px;
+  }
+
+  .key-benefits-kicker {
+    letter-spacing: 3px;
+  }
+}
+
+/* ─── Small mobile (< 576px) ─────────────────────────────── */
+@media (max-width: 575.98px) {
+  .key-benefits-title {
+    font-size: 1.85rem;
+    line-height: 1;
+  }
+}

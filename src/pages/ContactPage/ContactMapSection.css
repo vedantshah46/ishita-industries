@@ -1,0 +1,43 @@
+.contact-map-section {
+  background-color: #ffffff;
+  padding: 0 0 clamp(4rem, 6vw, 6rem);
+  width: 100%;
+}
+
+.contact-map-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-map-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.map-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: #343434;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.map-wrapper {
+  width: 100%;
+  height: clamp(300px, 40vw, 450px);
+  background-color: #e5e3df; /* Map placeholder color */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .contact-map-section {
+    padding-top: 3rem;
+  }
+}

@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import './FacilityExpertiseSection.css'
 import capabilitiesImg from '../../Images/about-our-capabilities.png'
 import isoBg from '../../Images/about-capabilities-two.png' // Assuming this for the ISO box background
@@ -6,6 +7,7 @@ import processTwo from '../../Images/about-process-we-undertake-two.png'
 import processThree from '../../Images/about-process-we-undertake-three.png'
 import processFour from '../../Images/about-process-we-undertake-four.png'
 import processFive from '../../Images/about-process-we-undertake-five.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
 
 const processes = [
   { id: 1, name: 'Turning & Forging', icon: processOne },
@@ -19,15 +21,26 @@ const metals = ['BRASS', 'COPPER', 'STEEL', 'ALUMINUM', 'BRONZE']
 const finishes = ['NICKEL', 'TIN', 'ZINC', 'SILVER', 'GOLD', 'CHROME', 'LEAD', 'OXIDISING']
 
 function FacilityExpertiseSection() {
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
+
   return (
     <section className="facility-expertise-section">
       <div className="container">
-        <p className="facility-main-kicker">FROM DESIGN TO DELIVERY</p>
-        <h2 className="facility-main-heading">OUR CAPABILITIES.</h2>
+        <div 
+          className="facility-header-block"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
+          <p className="facility-main-kicker">FROM DESIGN TO DELIVERY</p>
+          <h2 className="facility-main-heading">OUR CAPABILITIES.</h2>
+        </div>
 
         <div className="facility-grid">
           {/* Left Column (Main Area) */}
-          <div className="facility-left-col">
+          <div 
+            className="facility-left-col"
+            ref={(el) => (animRefs.current[1] = el)}
+          >
             {/* Top Banner Card */}
             <div className="facility-banner-card">
               <img src={capabilitiesImg} alt="Machining Floor" className="facility-banner-img" />
@@ -84,7 +97,10 @@ function FacilityExpertiseSection() {
           </div>
 
           {/* Right Column (Sidebars) */}
-          <div className="facility-right-col">
+          <div 
+            className="facility-right-col"
+            ref={(el) => (animRefs.current[2] = el)}
+          >
             {/* Metals Card */}
             <div className="facility-card facility-metals-card">
               <div className="facility-card-header">

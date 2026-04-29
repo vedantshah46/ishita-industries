@@ -151,8 +151,9 @@
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .industrial-components-header {
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
@@ -179,7 +180,7 @@
 
   /* Header stacks */
   .industrial-components-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 0.5rem;
   }
 

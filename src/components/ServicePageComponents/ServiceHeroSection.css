@@ -1,0 +1,135 @@
+/* ─── Generic Service Hero Section ────────────────────────── */
+
+.service-hero {
+  background-color: #F9F9F9;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 0;
+}
+
+.service-hero-top {
+  display: block;
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .service-hero-split-text-inner {
+    padding-left: calc(50vw - 1325px / 2 + clamp(0.95rem, 2.8vw, 1.55rem));
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .service-hero-split-text-inner {
+    padding-left: calc(50vw - 1260px / 2 + clamp(0.95rem, 2.8vw, 1.55rem));
+  }
+}
+
+@media (min-width: 1600px) {
+  .service-hero-split-text-inner {
+    padding-left: calc(50vw - 1520px / 2 + clamp(0.95rem, 2.8vw, 1.55rem));
+  }
+}
+
+
+.service-hero-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.8rem, 6.5vw, 90px);
+  line-height: 1;
+  letter-spacing: -2px;
+  color: #343434;
+}
+
+.service-hero-title-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(2rem, 8vw, 90px);
+  color: #59606166;
+  margin-top: 0.1em;
+}
+
+.service-hero-tagline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.25vw, 1.3rem);
+  line-height: 1.6;
+  color: #596061;
+  max-width: 800px;
+  margin-top: clamp(1rem, 2vw, 1.8rem);
+}
+
+.service-hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-hero-split.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-hero-split-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #F2F4F4;
+}
+
+.service-hero-split-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  color: #2D3435;
+  margin-bottom: clamp(1.2rem, 2vw, 1.8rem);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.service-hero-split-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.1rem, 1.25vw, 1.3rem);
+  line-height: 1.7;
+  color: #596061;
+  max-width: 580px;
+}
+
+.service-hero-split-line {
+  width: 80px;
+  height: 2px;
+  background-color: #B2B7B8;
+  margin-top: clamp(1.8rem, 3.5vw, 3rem);
+}
+
+.service-hero-split-image {
+  overflow: hidden;
+  background: #edf2f6;
+}
+
+.service-hero-banner-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 991.98px) {
+
+  .service-hero-title,
+  .service-hero-title-light {
+    font-size: clamp(2.35rem, 4vw, 3.5rem);
+    text-align: center;
+  }
+
+  .service-hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .service-hero-split-text-inner {
+    padding: 3rem 1.5rem;
+  }
+}

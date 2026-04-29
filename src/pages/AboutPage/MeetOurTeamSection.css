@@ -5,7 +5,8 @@
 
 .meet-team-shell {
   max-width: 1210px;
-  padding-inline: clamp(0.95rem, 2.8vw, 1.55rem);
+  margin: 0 auto;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
 .meet-team-header {
@@ -66,6 +67,7 @@
   height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center 20%; /* Prioritize faces in the crop */
 }
 
 .team-card-overlay {
@@ -127,7 +129,7 @@
 }
 
 @media (max-width: 1600px) and (min-width: 1465px) {
-  .meet-team-shell{
+  .meet-team-shell {
     max-width: 1325px;
   }
 }
@@ -138,9 +140,16 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .meet-team-shell {
+    max-width: 1520px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .meet-team-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1rem;
   }
 
@@ -162,6 +171,25 @@
 
   .meet-team-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .team-card {
+    min-height: 460px; /* Taller on mobile for better portrait ratio */
+  }
+
+  .team-card-overlay {
+    height: auto;
+    min-height: 54px;
+    padding: 12px 14px;
+  }
+
+  .team-card-name {
+    font-size: 0.9rem;
+  }
+
+  .team-card-role {
+    font-size: 0.65rem;
   }
 }
 

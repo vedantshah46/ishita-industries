@@ -1,39 +1,21 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import './PrecisionExpertiseSection.css'
 import precisionMmachineExpertiseOne from '../../Images/precision-machine-expertise-one.png'
 import precisionMachineExpertiseTwo from '../../Images/precision-machine-expertise-two.png'
+import useScrollAnimation from '../../hooks/useScrollAnimation'
 
-function PrecisionExpertiseSection() {
-  const sectionRef = useRef(null)
-
-  useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible')
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      {
-        threshold: 0.15,
-        rootMargin: '0px 0px -60px 0px',
-      }
-    )
-
-    observer.observe(section)
-    return () => observer.disconnect()
-  }, [])
+function PrecisionExpertiseSection({ className = "" }) {
+  const animRefs = useRef([])
+  useScrollAnimation(animRefs)
 
   return (
-    <section className="precision-section" ref={sectionRef}>
+    <section className={`precision-section ${className}`}>
       <div className="container precision-shell">
 
-        <div className="precision-header">
+        <div 
+          className="precision-header"
+          ref={(el) => (animRefs.current[0] = el)}
+        >
           <div>
             <p className="precision-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-title mb-0">
@@ -43,7 +25,10 @@ function PrecisionExpertiseSection() {
         </div>
 
         <div className="precision-grid">
-          <article className="precision-card precision-card--left">
+          <article 
+            className="precision-card precision-card--left"
+            ref={(el) => (animRefs.current[1] = el)}
+          >
             <div className="precision-visual precision-visual-brass" aria-hidden="true">
               <img src={precisionMmachineExpertiseOne}/>
             </div>
@@ -52,7 +37,10 @@ function PrecisionExpertiseSection() {
             </p>
           </article>
 
-          <article className="precision-card precision-card--right">
+          <article 
+            className="precision-card precision-card--right"
+            ref={(el) => (animRefs.current[2] = el)}
+          >
             <div className="precision-visual precision-visual-alloy" aria-hidden="true">
               <img src={precisionMachineExpertiseTwo}/>
             </div>

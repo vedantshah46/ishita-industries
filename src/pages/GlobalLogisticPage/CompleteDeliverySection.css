@@ -1,0 +1,280 @@
+.complete-delivery-section {
+  padding: clamp(2.4rem, 4.6vw, 4rem) 0 clamp(3rem, 5vw, 4.8rem);
+  background-color: #FFFFFF;
+}
+
+.complete-delivery-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.complete-delivery-header.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.complete-delivery-kicker {
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  letter-spacing: 4.8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  color: #596061;
+}
+
+.complete-delivery-title {
+  margin-top: 1.2rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(4.2rem, 4.35vw, 4.2rem);
+  line-height: 0.93;
+  vertical-align: middle;
+  color: #2d3435;
+}
+
+.complete-delivery-content {
+  background-color: #F2F4F4;
+  padding: clamp(2rem, 4vw, 50px) clamp(1.25rem, 3vw, 35px);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.complete-delivery-content.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ddp-top-row {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-bottom: 5rem;
+  align-items: center;
+}
+
+.ddp-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  color: #2D3435;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.ddp-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-bottom: 1.8rem;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  line-height: 1.65;
+  color: #596061;
+}
+
+.ddp-desc:last-child {
+  margin-bottom: 0;
+}
+
+.ddp-badge-col {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.ddp-badge {
+  border: 12px solid #6c7374;
+  padding: clamp(2rem, 3.5vw, 3rem) clamp(2rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 420px;
+  width: 100%;
+  background-color: transparent;
+}
+
+.ddp-badge-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  line-height: 0.95;
+  letter-spacing: -2px;
+  color: #6c7374;
+  margin: 0 0 2.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ddp-badge-kicker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ddp-badge-kicker .line {
+  height: 1px;
+  background-color: #6c7374;
+  width: 40px;
+}
+
+.ddp-badge-kicker span:not(.line) {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
+  letter-spacing: 2px;
+  color: #2D3435;
+}
+
+.specialization-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.logistic-spec-kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 1.8vw, 1.6rem);
+  letter-spacing: 0.2em;
+  color: #2D3435;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.logistic-spec-line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #2D3435;
+}
+
+.logistic-spec-kicker-right {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: clamp(0.85rem, 0.65vw, 0.75rem);
+  letter-spacing: 0.1em;
+  color: #596061;
+  margin: 0;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.logistic-spec-cards-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.logistic-spec-card {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-left: 4px solid #5F5E5E;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logistic-spec-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logistic-spec-icon {
+  margin-bottom: clamp(1.2rem, 2.5vw, 2rem);
+  color: #2D3435;
+}
+
+.logistic-spec-card-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.4rem, 1.8vw, 1.65rem);
+  color: #2D3435;
+  margin-bottom: 1.2rem;
+  letter-spacing: 0.2px;
+}
+
+.logistic-spec-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(0.825rem, 0.75vw, 0.95rem);
+  line-height: 1.8;
+  color: #596061;
+  margin-bottom: clamp(1.25rem, 3.5vw, 2.2rem);
+  flex-grow: 1;
+}
+
+.logistic-spec-card-kicker {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.65rem, 0.55vw, 0.75rem);
+  letter-spacing: 0.15em;
+  color: #596061;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 992px) {
+  .complete-delivery-title {
+    font-size: clamp(2.6rem, 5vw, 3.4rem);
+  }
+
+  .ddp-top-row {
+    grid-template-columns: 1fr;
+  }
+
+  .ddp-badge-col {
+    justify-content: flex-start;
+  }
+
+  .logistic-spec-cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .complete-delivery-title {
+    font-size: 2.2rem;
+    line-height: 1.05;
+  }
+
+  .complete-delivery-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 2.5px;
+  }
+
+  .complete-delivery-header {
+    margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .specialization-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .logistic-spec-line {
+    width: 100%;
+  }
+
+  .logistic-spec-card {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .complete-delivery-title {
+    font-size: 1.75rem;
+  }
+}

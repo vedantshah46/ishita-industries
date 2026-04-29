@@ -1,0 +1,27 @@
+.import-export-hero-section {
+  width: 100%;
+  position: relative;
+  background-color: #F9F9F9;
+  /* Adjust padding so it sits correctly under navbar or flush with top */
+  padding-top: 0; 
+}
+
+.import-export-hero-image {
+  width: 100%;
+  height: auto;
+  min-height: 50vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Scroll-reveal states ───────────────────────────────── */
+.import-export-hero-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.import-export-hero-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

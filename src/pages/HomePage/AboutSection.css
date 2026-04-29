@@ -141,7 +141,8 @@
 
 @media (max-width: 991.98px) {
   .about-header {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    text-align: center;
     gap: 1.25rem;
   }
 

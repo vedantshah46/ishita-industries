@@ -1,0 +1,167 @@
+/* ─── Base ──────────────────────────────────────────────── */
+.environment-content-section {
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+  /* Reduced top/bottom padding */
+  background-color: #F9F9F9;
+  /* Light off-white background like the image */
+}
+
+.environment-content-shell {
+  max-width: 1210px;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  margin: 0 auto;
+}
+
+/* ─── Header ────────────────────────────────────────────── */
+.environment-content-header-new {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  /* Added responsive bottom margin */
+}
+
+.vertical-bar {
+  width: 3px;
+  height: 20px;
+  background-color: #333333;
+}
+
+.header-kicker-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #2D3435;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ─── Grid ──────────────────────────────────────────────── */
+.environment-content-grid-new {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: #FFFFFF;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+  /* Very subtle shadow */
+}
+
+/* ─── Cards ─────────────────────────────────────────────── */
+.env-card-new {
+  padding: 2.5rem;
+  /* Reduced card padding */
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #F0F0F0;
+  transition: background-color 0.3s ease;
+}
+
+.env-card-new:last-child {
+  border-right: none;
+}
+
+.env-card-new:hover {
+  background-color: #FDFDFD;
+}
+
+.env-card-icon {
+  color: #333333;
+  margin-bottom: 3.5rem;
+  /* Increased space below icon */
+}
+
+.env-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  /* Requested responsive size */
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #2D3435;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+  /* Increased space below title */
+  margin-top: 0;
+}
+
+.env-card-text {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.15rem, 0.72vw, 0.75rem);
+  /* Requested responsive size */
+  line-height: 1.6;
+  color: #596061;
+  margin: 0;
+}
+
+/* ─── Tablet/Mobile Adjustments ──────────────────────────── */
+@media (max-width: 991.98px) {
+  .environment-content-grid-new {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .env-card-new {
+    border-bottom: 1px solid #F0F0F0;
+  }
+
+  .env-card-new:nth-child(2) {
+    border-right: none;
+  }
+
+  .env-card-new:nth-child(3) {
+    border-bottom: none;
+  }
+
+  .env-card-new:nth-child(4) {
+    border-bottom: none;
+    border-right: none;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .environment-content-grid-new {
+    grid-template-columns: 1fr;
+  }
+
+  .env-card-new {
+    border-right: none;
+    border-bottom: 1px solid #F0F0F0;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .env-card-new:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ── Scroll-reveal states ───────────────────────────────────── */
+.environment-content-header-new,
+.env-card-new {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.environment-content-header-new.is-visible,
+.env-card-new.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Container Responsive Resizing ───────────────────────── */
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .container.environment-content-shell {
+    max-width: 1325px;
+  }
+}
+
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .container.environment-content-shell {
+    max-width: 1260px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .container.environment-content-shell {
+    max-width: 1520px;
+  }
+}

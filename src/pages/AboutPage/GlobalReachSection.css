@@ -8,6 +8,7 @@
 
 .global-reach-shell {
   max-width: 1210px;
+  margin: 0 auto;
   padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
 }
 
@@ -214,26 +215,113 @@ padding-left: clamp(2.5rem, 5.5vw, 1.5rem); /* Increased left padding */
   }
 }
 
+@media (min-width: 1600px) {
+  .global-reach-shell {
+    max-width: 1520px;
+  }
+}
+
 @media (max-width:2500px) and (min-width:1400px){
   .global-reach-world-title{
     font-size: clamp(2.2rem, 3vw, 2rem);
   }
 }
 
+/* ─── Tablet ───────────────────────────────────────────── */
+@media (max-width: 991px) {
+  .global-reach-title {
+    font-size: clamp(2.6rem, 5.5vw, 3.4rem);
+  }
+
+  .global-reach-banner-container {
+    margin-top: 6rem;
+    min-height: 240px;
+  }
+
+  .global-reach-boat-wrap {
+    top: -70px;
+    width: 92%;
+  }
+
+  .global-reach-boat-image {
+    transform: scale(1.1);
+  }
+
+  .global-reach-banner-stats {
+    width: 90%;
+    gap: clamp(0.75rem, 2vw, 1.5rem);
+    padding: clamp(1rem, 2.5vw, 1.5rem);
+  }
+
+  .global-reach-stat-desc {
+    font-size: 0.78rem;
+  }
+
+  .global-reach-world-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .global-reach-flags-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 /* ─── Mobile ───────────────────────────────────────────── */
 @media (max-width: 767px) {
+  .global-reach-section {
+    padding: clamp(2rem, 4vw, 3rem) 0;
+  }
+
+  .global-reach-kicker {
+    font-size: 0.7rem;
+    letter-spacing: 2.5px;
+  }
+
+  .global-reach-title {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+    line-height: 1.05;
+  }
+
+  .global-reach-intro {
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+  }
+
   .global-reach-banner-container {
     display: flex;
     flex-direction: column;
+    margin-top: 5rem;
+    min-height: auto;
+    background-color: transparent;
+    overflow: visible; /* Don't clip the boat! */
   }
 
   .global-reach-water-bg {
     position: relative;
-    height: 200px;
+    width: 100%;
+    height: 160px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden; /* Clip the water image to the corners */
+    z-index: 1;
+    background-color: #c8d4de;
   }
 
   .global-reach-boat-wrap {
+    position: absolute;
     top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    z-index: 5; /* Above water and stats */
+    pointer-events: none;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .global-reach-boat-image {
+    width: 100%;
+    transform: scale(1.15);
   }
 
   .global-reach-banner-overlay {
@@ -242,8 +330,26 @@ padding-left: clamp(2.5rem, 5.5vw, 1.5rem); /* Increased left padding */
 
   .global-reach-banner-stats {
     position: static;
+    width: 100%;
     background: #101a26;
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .global-reach-stat-value {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .global-reach-stat-title {
+    font-size: 0.88rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .global-reach-stat-desc {
+    font-size: 0.78rem;
   }
 
   /* Remove divider on mobile */
@@ -253,6 +359,41 @@ padding-left: clamp(2.5rem, 5.5vw, 1.5rem); /* Increased left padding */
 
   .global-reach-world-container {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .global-reach-world-title {
+    font-size: 1.6rem;
+  }
+
+  .global-reach-flags-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.6em;
+    margin-top: 1.25rem;
+  }
+}
+
+/* ─── Small phones ─────────────────────────────────────── */
+@media (max-width: 400px) {
+  .global-reach-title {
+    font-size: 1.75rem;
+  }
+
+  .global-reach-banner-container {
+    margin-top: 3rem;
+  }
+
+  .global-reach-boat-wrap {
+    top: -20px;
+    width: 90%;
+  }
+
+  .global-reach-water-bg {
+    height: 150px;
+  }
+
+  .global-reach-flags-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 

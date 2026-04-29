@@ -1,0 +1,65 @@
+/* ─── Service Quote Bar ──────────────────────────────────────── */
+
+.service-quote-bar {
+  background-color: #FAFAFA;
+  padding: clamp(2.2rem, 3.5vw, 3.2rem) 0;
+  border-top: 1.5px solid #ACB3B426;
+  border-bottom: 1.5px solid #ACB3B426;
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.service-quote-bar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-quote-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.service-quote-bar-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 1.5vw, 1.85rem);
+  line-height: 1.6;
+  color: #2D3435;
+}
+
+.service-quote-bar-lines {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex-shrink: 0;
+}
+
+.service-quote-bar-line {
+  display: block;
+  height: 12px;
+}
+
+.service-quote-bar-line--dark {
+  width: 90px;
+  background-color: #5F5E5E;
+}
+
+.service-quote-bar-line--light {
+  width: 40px;
+  background-color: #DDE4E5;
+}
+
+@media (max-width: 991.98px) {
+  .service-quote-bar-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .service-quote-bar-lines {
+    justify-content: center;
+  }
+}
