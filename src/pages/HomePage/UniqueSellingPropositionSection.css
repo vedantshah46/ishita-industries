@@ -52,11 +52,17 @@
   margin-top: clamp(2.6rem, 4vw, 3.3rem);
 }
 
+/* Single scaling token — everything inside the wheel is sized relative to this */
 .usp-wheel {
+  --wheel-size: clamp(360px, 36vw, 520px);
+  --card-w: calc(var(--wheel-size) * 0.38);
+  --card-h: calc(var(--wheel-size) * 0.52);
+  --disc-size: calc(var(--wheel-size) * 0.60);
+
   position: absolute;
   left: 40%;
   top: 65%;
-  width: min(560px, 95vw);
+  width: var(--wheel-size);
   aspect-ratio: 1 / 1;
   transform: translate(-50%, -50%);
 }
@@ -66,8 +72,8 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(250px, 29vw, 550px);
-  height: clamp(250px, 29vw, 550px);
+  width: var(--disc-size);
+  height: var(--disc-size);
   border-radius: 50%;
   background: #f1f1f1;
   border: 5px solid #f2f2f2;
@@ -154,33 +160,32 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(171px, 18vw, 225px);
-  height: clamp(238px, 27.5vw, 252px);
-  border-radius: 14px;
+  width: var(--card-w);
+  height: var(--card-h);
+  border-radius: calc(var(--wheel-size) * 0.026);
   background: #373737;
   transform-origin: 50% 100%;
   display: flex;
   align-items: flex-start;
-  padding: 1.15rem 0.75rem 1rem;
+  padding: calc(var(--wheel-size) * 0.022) calc(var(--wheel-size) * 0.014) calc(var(--wheel-size) * 0.019);
   color: rgba(247, 247, 247, 0.92);
   box-shadow: 10px 10px 31.8px -0.736963px #9098a0;
-  /* Initial: all stacked at center, no rotation */
   opacity: 0;
   transition: opacity 0.8s ease, transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .usp-fan-index {
-  margin-right: 10px;
-  font-size: clamp(1.7rem, 2.25vw, 2.15rem);
+  margin-right: calc(var(--wheel-size) * 0.018);
+  font-size: calc(var(--wheel-size) * 0.074);
   line-height: 1;
   font-weight: 300;
   letter-spacing: -0.02em;
-  margin-left: 14px;
+  margin-left: calc(var(--wheel-size) * 0.026);
 }
 
 .usp-fan-label {
-  width: 64px;
-  font-size: clamp(0.72rem, 0.58vw, 0.62rem);
+  width: calc(var(--card-w) * 0.44);
+  font-size: calc(var(--wheel-size) * 0.022);
   line-height: 1.3;
   text-transform: uppercase;
   color: rgba(245, 245, 245, 0.88);
@@ -205,7 +210,6 @@
 .usp-section.is-visible .usp-fan-card-2 {
   opacity: 1;
   transform: translate(-58%, -113%) rotate(-25deg);
-  height: clamp(238px, 27.5vw, 240px);
 }
 
 .usp-fan-card-3 {
@@ -216,7 +220,6 @@
 .usp-section.is-visible .usp-fan-card-3 {
   opacity: 1;
   transform: translate(-46%, -117%) rotate(15deg);
-  height: clamp(220px, 27.5vw, 220px);
 }
 
 .usp-fan-card-4 {
@@ -227,7 +230,6 @@
 .usp-section.is-visible .usp-fan-card-4 {
   opacity: 1;
   transform: translate(-22%, -91%) rotate(46deg);
-  height: clamp(220px, 27.5vw, 230px);
 }
 
 .usp-fan-card-5 {
@@ -253,7 +255,7 @@
 
 
 .usp-center-disc p {
-  font-size: clamp(2rem, 2.5vw, 2.3rem);
+  font-size: calc(var(--disc-size) * 0.115);
   line-height: 1;
   letter-spacing: -0.01em;
   color: #8d8d8d;
@@ -261,7 +263,7 @@
 
 .usp-center-disc h3 {
   margin: 0.17em 0;
-  font-size: clamp(2.35rem, 3vw, 2.9rem);
+  font-size: calc(var(--disc-size) * 0.135);
   font-weight: 500;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -404,6 +406,20 @@
   .usp-shell {
     max-width: 1520px;
   }
+
+  .usp-wheel {
+    --wheel-size: clamp(460px, 32vw, 540px);
+  }
+}
+
+@media (min-width: 2000px) {
+  .usp-showcase {
+    min-height: 820px;
+  }
+
+  .usp-wheel {
+    --wheel-size: clamp(500px, 28vw, 580px);
+  }
 }
 
 @media (max-width: 1199.98px) {
@@ -452,13 +468,14 @@
   }
 
   .usp-wheel {
+    --wheel-size: clamp(340px, 60vw, 480px);
     position: relative;
     left: auto;
     top: auto;
     transform: none;
     margin: 0 auto;
-    width: min(560px, 98vw);
-    height: 540px;
+    width: var(--wheel-size);
+    height: calc(var(--wheel-size) * 1.1);
     aspect-ratio: auto;
   }
 
@@ -475,37 +492,11 @@
     font-size: clamp(2.15rem, 9.4vw, 2.7rem);
   }
 
-  /* Wheel: sized to comfortably contain all fanned cards */
+  /* Re-define wheel size for mobile so all proportions inherit automatically */
   .usp-wheel {
-    width: min(340px, 88vw);
-    height: 380px;
+    --wheel-size: clamp(260px, 78vw, 340px);
+    height: calc(var(--wheel-size) * 1.05);
     overflow: visible;
-  }
-
-  /* Compact cards that stay within the wheel */
-  .usp-fan-card {
-    width: 70px;
-    height: 120px;
-    padding: 0.55rem 0.4rem;
-    border-radius: 9px;
-    box-shadow: 4px 4px 14px -1px #9098a0;
-  }
-
-  .usp-fan-index {
-    font-size: 0.95rem;
-    margin-left: 4px;
-    margin-right: 4px;
-  }
-
-  .usp-fan-label {
-    width: 38px;
-    font-size: 0.42rem;
-    line-height: 1.25;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
   }
 
   /* Pre-animation: cards stacked at center */
@@ -518,7 +509,7 @@
     transform: translate(-50%, -100%) rotate(0deg);
   }
 
-  /* Fan out with tighter translates to keep cards inside the wheel */
+  /* Fan out */
   .usp-section.is-visible .usp-fan-card-1 {
     opacity: 1;
     transform: translate(-70%, -95%) rotate(-50deg);
@@ -527,19 +518,16 @@
   .usp-section.is-visible .usp-fan-card-2 {
     opacity: 1;
     transform: translate(-55%, -105%) rotate(-22deg);
-    height: 120px;
   }
 
   .usp-section.is-visible .usp-fan-card-3 {
     opacity: 1;
     transform: translate(-45%, -108%) rotate(12deg);
-    height: 112px;
   }
 
   .usp-section.is-visible .usp-fan-card-4 {
     opacity: 1;
     transform: translate(-15%, -88%) rotate(40deg);
-    height: 115px;
   }
 
   .usp-section.is-visible .usp-fan-card-5 {
@@ -552,21 +540,7 @@
     transform: translate(-44%, -75%) rotate(118deg);
   }
 
-  /* Center disc scaled for mobile */
-  .usp-center-disc {
-    width: 150px;
-    height: 150px;
-  }
-
-  .usp-center-disc p {
-    font-size: 1.05rem;
-  }
-
-  .usp-center-disc h3 {
-    font-size: 1.3rem;
-  }
-
-  /* Feature items: constrain width and fix text overflow */
+  /* Feature items */
   .usp-feature {
     max-width: 100%;
     flex-wrap: nowrap;
