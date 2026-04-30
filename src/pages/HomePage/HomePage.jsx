@@ -46,14 +46,14 @@ function Homepage() {
       <HeroSection />
 
       {/* Strip 1: between Hero and About — sets the industrial tone */}
-      <MarqueeTicker items={TICKER_ITEMS_1} speed={30} variant="light" />
+      {/* <MarqueeTicker items={TICKER_ITEMS_1} speed={30} variant="light" /> */}
 
       <AboutSection />
       <ComponentsDeliveredSection />
       <PrecisionExpertiseSection />
       <PrecisionComponentsSection />
-      <CapabilitiesSectionNew />
       <IndustrialComponentsSection />
+      <CapabilitiesSectionNew />
 
       {/* Strip 2: between Industrial and USP — reversed for variety */}
       <MarqueeTicker items={TICKER_ITEMS_2} speed={35} direction="right" variant="dark" />

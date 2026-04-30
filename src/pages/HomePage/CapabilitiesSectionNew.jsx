@@ -8,12 +8,15 @@ import machineIcon from '../../Images/machining-capabilities-icon.png'
 import settingBgIcon from '../../Images/setting-bg-icon.png';
 
 const metals = [
-  'Stainless Steel',
-  'Carbon Steel',
-  'Aluminum Alloys',
-  'Brass & Copper',
-  'Titanium',
-  'Inconel',
+"Copper",
+"Brass",
+"Bronze",
+"Aluminium",
+"Zinc",
+"Mild Steel",
+"Stainless Steel",
+"Carbon Steel",
+"Alloy Steel"
 ]
 
 const finishingProcesses = [

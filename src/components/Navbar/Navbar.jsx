@@ -8,11 +8,24 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import FullscreenMenu from '../FullscreenMenu/FullscreenMenu';
 
+const aboutSubLinks = [
+  { name: 'Core Value', hash: '#core-value' },
+  { name: 'Meet Our Team', hash: '' },
+  { name: 'Infrastructure', hash: '#infrastructure' },
+  { name: 'Our Capabilities', hash: '#our-capabilities' },
+  { name: 'Quality Assurance', hash: '#quality-assurance' },
+  { name: 'Our USP', hash: '#our-usp' },
+  { name: 'Global Reach', hash: '#across-the-globe' },
+  { name: 'CSR', hash: '#csr' },
+]
+
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Product', path: '/product' },
-  { name: 'Quality', path: '/quality' }
+  { name: 'About', path: '/about', dropdown: aboutSubLinks },
+  { name: 'Mfg. Capabilities', path: '/manufacturing-process' },
+  { name: 'Products', path: '/product' },
+  { name: 'Service', path: '/contact' },
+  { name: 'RFQ', path: '/contact' },
+  { name: 'Updates', path: '/blog' },
 ]
 
 function Navbar() {
@@ -71,8 +84,17 @@ function Navbar() {
           <div className="collapse navbar-collapse justify-content-lg-between" id="mainNavbar">
             <ul className="navbar-nav mx-auto nav-links-list">
               {navLinks.map((link) => (
-                <li className="nav-item" key={link.name}>
+                <li className={`nav-item${link.dropdown ? ' has-dropdown' : ''}`} key={link.name}>
                   <Link className="nav-link" to={link.path}>{link.name}</Link>
+                  {link.dropdown && (
+                    <ul className="nav-dropdown">
+                      {link.dropdown.map((sub) => (
+                        <li key={sub.name}>
+                          <Link to={`/about${sub.hash}`}>{sub.name}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>
@@ -90,13 +112,6 @@ function Navbar() {
                 </span>
               </button>
 
-              {/* Desktop-only Menu button */}
-              <button type="button" className="menu-btn d-none d-lg-inline-flex" onClick={handleMenuOpen}>
-                Menu
-                <span className="menu-icon" aria-hidden="true">
-                  <img src={ToggleLogo} alt="" />
-                </span>
-              </button>
             </div>
           </div>
         </div>

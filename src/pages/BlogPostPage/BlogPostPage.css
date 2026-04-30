@@ -51,7 +51,7 @@
 /* ── Two-column body ──────────────────────────────────────────── */
 .bpp-body {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: clamp(2rem, 4vw, 5rem);
 }
 
@@ -172,16 +172,15 @@
 
 .bpp-content pre code { background: none; padding: 0; }
 
-/* ── Right: STICKY sidebar ────────────────────────────────────── */
+/* ── Right: sidebar column ────────────────────────────────────── */
 .bpp-sidebar {
   flex: 0 0 clamp(260px, 33%, 533px);
   width: clamp(260px, 33%, 533px);
+  position: relative;
 }
 
-/* The inner wrapper is what becomes sticky */
-.bpp-sidebar-inner {
-  position: sticky;
-  top: 100px;        /* clears the fixed navbar */
+.bpp-sidebar-sticky {
+  height: fit-content;
 }
 
 .bpp-divider {
@@ -265,12 +264,14 @@
     flex: none;
     width: 100%;
     max-width: 620px;
+    position: static;
   }
 
-  .bpp-sidebar-inner {
-    position: static;
-    max-height: none;
-    overflow-y: visible;
+  .bpp-sidebar-sticky {
+    position: static !important;
+    width: 100% !important;
+    top: auto !important;
+    bottom: auto !important;
   }
 }
 

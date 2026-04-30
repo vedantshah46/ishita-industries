@@ -30,7 +30,7 @@ function AboutSection() {
         >
           <div className="about-header-main">
             <p className="about-kicker mb-0">OUR STORY BEGINS HERE SINCE 1944</p>
-            <h2 className="about-title mb-0" ref={titleRef}>ABOUT ISHITA.</h2>
+            <h2 className="about-title mb-0" ref={titleRef}>ABOUT ISHITA INDUSTRIES.</h2>
           </div>
         </div>
 

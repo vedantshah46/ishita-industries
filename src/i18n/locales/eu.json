@@ -1,0 +1,22 @@
+{
+  "nav": {
+    "about": "About",
+    "mfg_capabilities": "Mfg. Capabilities",
+    "products": "Products",
+    "service": "Service",
+    "rfq": "RFQ",
+    "updates": "Updates",
+    "brochure": "Brochure",
+    "menu": "Menu"
+  },
+  "about_sections": {
+    "core_value": "Core Value",
+    "meet_our_team": "Meet Our Team",
+    "infrastructure": "Infrastructure",
+    "our_capabilities": "Our Capabilities",
+    "quality_assurance": "Quality Assurance",
+    "our_usp": "Our USP",
+    "global_reach": "Global Reach",
+    "csr": "CSR"
+  }
+}

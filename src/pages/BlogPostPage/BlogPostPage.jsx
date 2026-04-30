@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import NavbarRouter from '../../components/Navbar/NavbarRouter'
 import Footer from '../../components/Footer/Footer'
@@ -47,6 +48,55 @@ function BlogPostPage() {
   const formatDate = (d) =>
     d ? new Date(d).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : ''
 
+  const bodyRef = useRef(null)
+  const sidebarColRef = useRef(null)
+  const sidebarRef = useRef(null)
+  const [sidebarStyle, setSidebarStyle] = useState({})
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const body = bodyRef.current
+      const sidebarCol = sidebarColRef.current
+      const sidebar = sidebarRef.current
+      if (!body || !sidebarCol || !sidebar) return
+
+      const bodyRect = body.getBoundingClientRect()
+      const colRect = sidebarCol.getBoundingClientRect()
+      const sidebarHeight = sidebar.offsetHeight
+      const navOffset = 100
+
+      if (bodyRect.top > navOffset) {
+        // above the blog body — normal flow
+        setSidebarStyle({})
+      } else if (bodyRect.bottom - navOffset > sidebarHeight) {
+        // inside the blog body — fix to viewport using exact left position
+        setSidebarStyle({
+          position: 'fixed',
+          top: navOffset,
+          left: colRect.left,
+          width: sidebarCol.offsetWidth,
+        })
+      } else {
+        // near the bottom — anchor so it doesn't go past bpp-body
+        setSidebarStyle({
+          position: 'absolute',
+          bottom: 0,
+          top: 'auto',
+          left: 'auto',
+          width: '100%',
+        })
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('resize', handleScroll, { passive: true })
+    handleScroll()
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
+  }, [post])
+
   if (loading) {
     return (
       <div className="bpp-page">
@@ -82,7 +132,7 @@ function BlogPostPage() {
           <h1 className="bpp-page-title">{post.title}</h1>
 
           {/* Two-column body */}
-          <div className="bpp-body">
+          <div className="bpp-body" ref={bodyRef}>
 
             {/* ── Left: scrollable article ── */}
             <article className="bpp-article">
@@ -106,10 +156,10 @@ function BlogPostPage() {
               />
             </article>
 
-            {/* ── Right: sticky sidebar ── */}
+            {/* ── Right: fixed sidebar ── */}
             {relatedPosts.length > 0 && (
-              <aside className="bpp-sidebar">
-                <div className="bpp-sidebar-inner">
+              <aside className="bpp-sidebar" ref={sidebarColRef}>
+                <div className="bpp-sidebar-sticky" ref={sidebarRef} style={sidebarStyle}>
                   {relatedPosts.map((rp, i) => (
                     <div key={rp.id || rp.slug}>
                       <RelatedPostCard post={rp} />

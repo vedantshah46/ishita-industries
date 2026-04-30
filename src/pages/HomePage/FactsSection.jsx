@@ -12,6 +12,7 @@ const factsData = [
   { number: '22000ft +', rawNumber: 22000, suffix: 'ft +', label: 'Of Infrastructure' },
   { number: '5+',        rawNumber: 5,     suffix: '+',    label: 'Skilled Engineered' },
   { number: '60+',       rawNumber: 60,    suffix: '+',    label: 'Employees' },
+  { number: '3500+',       rawNumber: 3500,    suffix: '+',    label: 'Components Delivered' },
 ]
 
 /**
