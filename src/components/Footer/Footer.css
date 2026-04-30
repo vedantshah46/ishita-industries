@@ -299,3 +299,28 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.footer-phones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-phone-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-phone {
+  margin: 0 !important;
+}
+

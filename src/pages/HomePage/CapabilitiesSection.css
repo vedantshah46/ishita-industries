@@ -149,7 +149,7 @@
 }
 
 .cap-card-mark img {
- height: 160px;
+  height: 160px;
 }
 
 .cap-card-mark span:nth-child(2) {
@@ -313,53 +313,24 @@
 
 .cap-finishing-list {
   margin-top: 3.15rem;
-  display: flex;
-  flex-direction: column;
-  gap:40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.75rem;
+  row-gap: 0;
 }
 
 .cap-finishing-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.85rem;
-  padding: 2rem 0 0.2rem 0;
-  border-top: 1px solid #3434341A;
-}
-
-.cap-finishing-item:last-child {
-  border-bottom: 1px solid #ffffff1a;
-}
-
-.cap-finishing-item:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.cap-finishing-label {
-  display: block;
-  font-size: 0.7rem;
-  line-height: 1.2;
-  letter-spacing: 0.12em;
-  color: #8e949b;
-  font-weight: 600;
-  margin-bottom: 8px;
-  text-transform: uppercase;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #3434341A;
 }
 
 .cap-finishing-name {
-  margin-top: 0.15rem;
-  font-size: 1.45rem;
+  font-size: 1.2rem;
   line-height: 1.2;
   color: #343434;
-  font-weight: 600;
-}
-
-.cap-finishing-arrow {
-  font-size: 0.88rem;
-  line-height: 1;
-  color: #34343480;
-  flex-shrink: 0;
+  font-weight: 500;
 }
 
 @media (max-width: 1600px) and (min-width: 1465px) {
@@ -472,13 +443,14 @@
 
 /* ─── Small mobile (< 576px) ────────────────────────────── */
 @media (max-width: 575.98px) {
-  .capabilities-title{
+  .capabilities-title {
     font-size: clamp(24px, 1.5vw, 30px);
   }
 
- .cap-visual-overlay{
-  padding: 2rem;
- }
+  .cap-visual-overlay {
+    padding: 2rem;
+  }
+
   .cap-stats-grid,
   .cap-metals-grid {
     grid-template-columns: 1fr 1fr;
@@ -559,8 +531,9 @@
 
 /* ─── Process We Undertake ────────────────────────────────── */
 .process-undertake-wrapper {
-  margin-top: 1.75rem; /* Match the gap of the capabilities grid */
-    background-color: #2b2d2f;
+  margin-top: 1.75rem;
+  /* Match the gap of the capabilities grid */
+  background-color: #2b2d2f;
   border-radius: 12px;
   padding: clamp(2.5rem, 5vw, 4.5rem);
   color: #ffffff;

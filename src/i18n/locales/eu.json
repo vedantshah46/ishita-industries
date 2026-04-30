@@ -8,7 +8,26 @@
     "rfq": "RFQ",
     "updates": "Updates",
     "brochure": "Brochure",
-    "menu": "Menu"
+    "menu": "Menu",
+    "quality": "Quality",
+    "process": "Process",
+    "sustainability": "Sustainability"
+  },
+  "products_dropdown": {
+    "turned": "Brass Turned Components",
+    "forged": "Brass Forged Components",
+    "milling": "Brass Milling Components",
+    "broach": "Brass Broach Components",
+    "stamped": "Brass Stamped Components"
+  },
+  "services_dropdown": {
+    "shipping": "Global Shipping & Logistic",
+    "packaging": "Custom Packaging",
+    "assembly": "Assembly & Kitting"
+  },
+  "sustainability_dropdown": {
+    "sustainability": "Sustainability",
+    "environmental": "Environmental"
   },
   "about_sections": {
     "core_value": "Core Value",
@@ -31,9 +50,9 @@
     "caption": "Precision , Reliability , Performance"
   },
   "home_about": {
-    "kicker": "OUR STORY BEGINS HERE SINCE 1944",
+    "kicker": "Since 1994 — Precision Metals Manufacturing",
     "title": "ABOUT ISHITA INDUSTRIES.",
-    "desc": "Founded in Jamnagar the Brass City of India, Ishita Industries has evolved from a local workshop into a global leader in custom brass component manufacturing. We don't just machine parts; we engineer reliability. Built on a foundation of strict quality control, we now serve international markets across Electrical, Automotive, and Industrial sectors. We bridge the gap between Indian manufacturing cost-efficiency and German-standard precision.",
+    "desc": "Founded in Jamnagar the Brass City of India, Ishita Industries has evolved from a local workshop into a global leader in custom multy metal engineering. We don't just machine parts; we engineer reliability. Built on a foundation of strict quality control, we now serve international markets across Electrical, Automotive, and Industrial sectors. We bridge the gap between Indian manufacturing cost-efficiency and German-standard precision.",
     "badge1": "ISO Certified Manufacturing SET-UP",
     "badge2": "34+ Years Engineering Exp.",
     "badge3": "Exporting to Europe, USA, Canada & Saudi Arabia",
@@ -55,7 +74,7 @@
     "tolerance_value": "Up to 0.1mm",
     "infra_title": "Manufacturing",
     "infra_sub": "Infrastructure",
-    "infra_desc": "Global standard logistics and high-volume assembly lines for tier-one industrial requirements.",
+    "infra_desc": "Engineered for precision, optimized for efficiency, and built to meet global manufacturing standards.",
     "metals_label": "METAL WE WORK",
     "metal_1": "Stainless Steel",
     "metal_2": "Carbon Steel",
@@ -86,8 +105,7 @@
     "countries_label": "Country Export",
     "infra_label": "Of Infrastructure",
     "engineers_label": "Skilled Engineered",
-    "employees_label": "Employees",
-    "delivered_label": "Components Delivered"
+    "employees_label": "Employees"
   },
   "intl_reach": {
     "kicker": "CONNECTING GLOBAL MARKETS",

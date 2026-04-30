@@ -7,7 +7,26 @@
     "rfq": "Demande de Devis",
     "updates": "Actualités",
     "brochure": "Brochure",
-    "menu": "Menu"
+    "menu": "Menu",
+    "quality": "Qualité",
+    "process": "Processus",
+    "sustainability": "Durabilité"
+  },
+  "products_dropdown": {
+    "turned": "Composants en Laiton Tournés",
+    "forged": "Composants en Laiton Forgés",
+    "milling": "Composants en Laiton Fraisés",
+    "broach": "Composants en Laiton Brochés",
+    "stamped": "Composants en Laiton Estampés"
+  },
+  "services_dropdown": {
+    "shipping": "Expédition et Logistique Mondiale",
+    "packaging": "Emballage Personnalisé",
+    "assembly": "Assemblage et Kit"
+  },
+  "sustainability_dropdown": {
+    "sustainability": "Durabilité",
+    "environmental": "Environnemental"
   },
   "about_sections": {
     "core_value": "Valeurs Fondamentales",
@@ -85,8 +104,7 @@
     "countries_label": "Pays d'Exportation",
     "infra_label": "D'Infrastructure",
     "engineers_label": "Ingénieurs Qualifiés",
-    "employees_label": "Employés",
-    "delivered_label": "Composants Livrés"
+    "employees_label": "Employés"
   },
   "intl_reach": {
     "kicker": "CONNECTER LES MARCHÉS MONDIAUX",

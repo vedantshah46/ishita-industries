@@ -80,8 +80,7 @@ function CapabilitiesSection() {
                 <span className="d-block">Infrastructure</span>
               </h3>
               <p className="cap-visual-copy mb-0">
-                Global standard logistics through volume assembly lines for trusted industrial
-                requirements.
+                Engineered for precision, optimized for efficiency, and built to meet global manufacturing standards.
               </p>
               <div className="cap-visual-meta">
                 <span>ISO 9001</span>

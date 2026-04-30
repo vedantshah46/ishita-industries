@@ -7,7 +7,26 @@
     "rfq": "Angebotsanfrage",
     "updates": "Neuigkeiten",
     "brochure": "Broschüre",
-    "menu": "Menü"
+    "menu": "Menü",
+    "quality": "Qualität",
+    "process": "Prozess",
+    "sustainability": "Nachhaltigkeit"
+  },
+  "products_dropdown": {
+    "turned": "Gedrehte Messingkomponenten",
+    "forged": "Geschmiedete Messingkomponenten",
+    "milling": "Frästeile aus Messing",
+    "broach": "Räumteile aus Messing",
+    "stamped": "Stanzteile aus Messing"
+  },
+  "services_dropdown": {
+    "shipping": "Globale Schifffahrt & Logistik",
+    "packaging": "Individuelle Verpackung",
+    "assembly": "Montage & Kitting"
+  },
+  "sustainability_dropdown": {
+    "sustainability": "Nachhaltigkeit",
+    "environmental": "Umwelt"
   },
   "about_sections": {
     "core_value": "Grundwerte",

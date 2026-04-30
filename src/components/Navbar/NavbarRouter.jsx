@@ -7,7 +7,6 @@ import companyLogoMobile from '../../Images/ishita-navbar-logo-mobile.png'
 import browserLogo from '../../Images/navbar-browser-logo.png'
 import downloadLogo from '../../Images/navbar-download-logo.png'
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png'
-import FullscreenMenu from '../FullscreenMenu/FullscreenMenu'
 
 const languages = [
   { label: 'European', code: 'eu' },
@@ -22,18 +21,39 @@ const aboutSubLinks = [
   { key: 'about_sections.core_value',       hash: '#core-value' },
   { key: 'about_sections.meet_our_team',    hash: '' },
   { key: 'about_sections.infrastructure',   hash: '#infrastructure' },
-  { key: 'about_sections.our_capabilities', hash: '#our-capabilities' },
+  { key: 'nav.mfg_capabilities',            hash: '#our-capabilities' },
   { key: 'about_sections.quality_assurance',hash: '#quality-assurance' },
   { key: 'about_sections.our_usp',          hash: '#our-usp' },
   { key: 'about_sections.global_reach',     hash: '#across-the-globe' },
   { key: 'about_sections.csr',              hash: '#csr' },
 ]
 
+const productSubLinks = [
+  { key: 'products_dropdown.turned',  to: '/product/electric-pin' },
+  { key: 'products_dropdown.forged',  to: '/product/electric-pin' },
+  { key: 'products_dropdown.milling', to: '/product/electric-pin' },
+  { key: 'products_dropdown.broach',  to: '/product/electric-pin' },
+  { key: 'products_dropdown.stamped', to: '/product/electric-pin' },
+]
+
+const serviceSubLinks = [
+  { key: 'services_dropdown.shipping',  to: '/global-logistic' },
+  { key: 'services_dropdown.packaging', to: '/custom-packaging' },
+  { key: 'services_dropdown.assembly',  to: '/assembly-kitting' },
+]
+
+const sustainabilitySubLinks = [
+  { key: 'sustainability_dropdown.sustainability', to: '/sustainability' },
+  { key: 'sustainability_dropdown.environmental',  to: '/environment' },
+]
+
 const navLinks = [
   { key: 'nav.about',            to: '/about', dropdown: aboutSubLinks },
-  { key: 'nav.mfg_capabilities', to: '/manufacturing-process' },
-  { key: 'nav.products',         to: '/product' },
-  { key: 'nav.service',          to: '/contact' },
+  { key: 'nav.process',          to: '/manufacturing-process' },
+  { key: 'nav.products',         to: '/product', dropdown: productSubLinks },
+  { key: 'nav.quality',          to: '/quality' },
+  { key: 'nav.sustainability',   to: '/sustainability', dropdown: sustainabilitySubLinks },
+  { key: 'nav.service',          to: '/contact', dropdown: serviceSubLinks },
   { key: 'nav.rfq',              to: '/contact' },
   { key: 'nav.updates',          to: '/blog' },
 ]
@@ -41,7 +61,6 @@ const navLinks = [
 function NavbarRouter() {
   const { t, i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const langRef = useRef(null)
@@ -74,24 +93,8 @@ function NavbarRouter() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add('fm-body-lock')
-      document.documentElement.classList.add('fm-body-lock')
-    } else {
-      document.body.classList.remove('fm-body-lock')
-      document.documentElement.classList.remove('fm-body-lock')
-    }
-    return () => {
-      document.body.classList.remove('fm-body-lock')
-      document.documentElement.classList.remove('fm-body-lock')
-    }
-  }, [isMenuOpen])
-
   const handleToggle  = () => setIsOpen((prev) => !prev)
   const handleNavClick = () => setIsOpen(false)
-  const handleMenuOpen  = () => setIsMenuOpen(true)
-  const handleMenuClose = () => setIsMenuOpen(false)
 
   const handleLangSelect = (code) => {
     i18n.changeLanguage(code)
@@ -124,14 +127,16 @@ function NavbarRouter() {
             {/* Mobile toggle */}
             <button
               type="button"
-              className={`menu-btn navbar-toggler border-0 shadow-none d-lg-none ${isMenuOpen ? 'is-open' : ''}`}
-              aria-expanded={isMenuOpen}
+              className={`menu-btn navbar-toggler border-0 shadow-none d-lg-none ${isOpen ? 'is-open' : ''}`}
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar"
+              aria-expanded={isOpen}
               aria-label="Toggle navigation"
-              onClick={handleMenuOpen}
+              onClick={handleToggle}
             >
-              {t('nav.menu')}
               <span className="menu-icon" aria-hidden="true">
-                <img src={ToggleLogo} alt="" className={`toggle-icon ${isMenuOpen ? 'rotate' : ''}`} />
+                <img src={ToggleLogo} alt="" className={`toggle-icon ${isOpen ? 'rotate' : ''}`} />
               </span>
             </button>
 
@@ -151,7 +156,10 @@ function NavbarRouter() {
                       <ul className="nav-dropdown">
                         {link.dropdown.map((sub) => (
                           <li key={sub.key}>
-                            <NavLink to={`/about${sub.hash}`} onClick={handleNavClick}>
+                            <NavLink 
+                              to={sub.to ? sub.to : `/about${sub.hash}`} 
+                              onClick={handleNavClick}
+                            >
                               {t(sub.key)}
                             </NavLink>
                           </li>
@@ -199,21 +207,11 @@ function NavbarRouter() {
                     <img src={downloadLogo} alt="" />
                   </span>
                 </button>
-
-                {/* Desktop Menu button */}
-                <button type="button" className="menu-btn d-none d-lg-inline-flex" onClick={handleMenuOpen}>
-                  {t('nav.menu')}
-                  <span className="menu-icon" aria-hidden="true">
-                    <img src={ToggleLogo} alt="" />
-                  </span>
-                </button>
               </div>
             </div>
           </div>
         </nav>
       </header>
-
-      <FullscreenMenu isOpen={isMenuOpen} onClose={handleMenuClose} />
     </>
   )
 }

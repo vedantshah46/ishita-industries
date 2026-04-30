@@ -12,6 +12,7 @@
 .site-header.theme-white {
   background: #FAFAFA;
 }
+
 .site-header.theme-f9 {
   background: #FAFAFA;
 }
@@ -65,7 +66,7 @@
 
 /* ─── Nav links ──────────────────────────────────────────── */
 .nav-links-list {
-  gap: clamp(0.6rem, 2.5vw, 2.2rem);
+  gap: clamp(0.6rem, 2.5vw, 1.2rem);
 }
 
 .nav-link:hover {
@@ -97,6 +98,16 @@
   min-width: 200px;
   z-index: 300;
   border-radius: 4px;
+}
+
+.nav-dropdown::before {
+  content: '';
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+  right: 0;
+  height: 0.5rem;
+  background: transparent;
 }
 
 .has-dropdown:hover .nav-dropdown {

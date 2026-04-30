@@ -47,7 +47,7 @@
 .components-delivered-number {
   font-size: clamp(4rem, 9vw, 8rem);
   font-weight: 400;
-  color: #2c3136;
+  color: #EEA61F;
   line-height: 1;
   margin: 0;
   margin-bottom: clamp(1.5rem, 1.5vw, 1rem);
@@ -55,7 +55,7 @@
 
 .components-delivered-label {
   font-size: clamp(0.8rem, 1.8vw, 3rem);
-  color: #5e6469;
+  color: #EEA61F;
   font-weight: 500;
   margin: 0;
   text-transform: uppercase;
@@ -64,8 +64,18 @@
 }
 
 @media (max-width: 767.98px) {
+  .components-delivered-shell {
+    background-size: 300px auto;
+  }
+
+  .components-delivered-map {
+    width: 80%;
+    max-width: 300px;
+  }
+
   .components-delivered-content {
     padding: 3.5rem 0;
+    min-height: 250px;
   }
 
   .components-delivered-number {

@@ -21,8 +21,13 @@ const metals = [
 
 const finishingProcesses = [
   'Electro - Plating',
-  'Zinc Coating',
-  'Oxidizing',
+  'Electrophoretic Lacquering',
+  'Electro - Less Plating',
+  'E-Coating',
+  'Zinc Plating',
+  'Passivation',
+  'Oxidising',
+  'Cleaning & Deburring',
 ]
 
 const mainProcesses = [
@@ -116,8 +121,7 @@ function CapabilitiesSectionNew() {
                   <span className="d-block">Infrastructure</span>
                 </h3>
                 <p className="cap-visual-copy mb-0">
-                  Global standard logistics and high-volume assembly lines for tier-one industrial
-                  requirements.
+                  Engineered for precision, optimized for efficiency, and built to meet global manufacturing standards.
                 </p>
                 <div className="cap-visual-meta">
                   <span>ISO 9001</span>
@@ -156,13 +160,7 @@ function CapabilitiesSectionNew() {
               <div className="cap-finishing-list">
                 {finishingProcesses.map((process, index) => (
                   <div key={process} className="cap-finishing-item">
-                    <div>
-                      <span className="cap-finishing-label">PROCESS 0{index + 1}</span>
-                      <p className="cap-finishing-name mb-0">{process}</p>
-                    </div>
-                    <span className="cap-finishing-arrow" aria-hidden="true">
-                      &#8250;
-                    </span>
+                    <p className="cap-finishing-name mb-0">{process}</p>
                   </div>
                 ))}
               </div>

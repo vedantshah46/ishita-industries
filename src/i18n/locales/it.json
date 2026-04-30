@@ -7,7 +7,26 @@
     "rfq": "Richiesta Offerta",
     "updates": "Aggiornamenti",
     "brochure": "Brochure",
-    "menu": "Menu"
+    "menu": "Menu",
+    "quality": "Qualità",
+    "process": "Processo",
+    "sustainability": "Sostenibilità"
+  },
+  "products_dropdown": {
+    "turned": "Componenti in Ottone Torniti",
+    "forged": "Componenti in Ottone Forgiati",
+    "milling": "Componenti in Ottone Fresati",
+    "broach": "Componenti in Ottone Brocciati",
+    "stamped": "Componenti in Ottone Stampati"
+  },
+  "services_dropdown": {
+    "shipping": "Spedizioni e Logistica Globale",
+    "packaging": "Imballaggio Personalizzato",
+    "assembly": "Assemblaggio e Kitting"
+  },
+  "sustainability_dropdown": {
+    "sustainability": "Sostenibilità",
+    "environmental": "Ambientale"
   },
   "about_sections": {
     "core_value": "Valori Fondamentali",

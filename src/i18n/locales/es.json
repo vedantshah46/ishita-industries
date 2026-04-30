@@ -7,7 +7,26 @@
     "rfq": "Solicitud de Cotización",
     "updates": "Actualizaciones",
     "brochure": "Folleto",
-    "menu": "Menú"
+    "menu": "Menú",
+    "quality": "Calidad",
+    "process": "Proceso",
+    "sustainability": "Sostenibilidad"
+  },
+  "products_dropdown": {
+    "turned": "Componentes de Latón Torneados",
+    "forged": "Componentes de Latón Forjados",
+    "milling": "Componentes de Latón Fresados",
+    "broach": "Componentes de Latón Brochados",
+    "stamped": "Componentes de Latón Estampados"
+  },
+  "services_dropdown": {
+    "shipping": "Envío y Logística Global",
+    "packaging": "Embalaje Personalizado",
+    "assembly": "Ensamblaje y Kitting"
+  },
+  "sustainability_dropdown": {
+    "sustainability": "Sostenibilidad",
+    "environmental": "Medioambiental"
   },
   "about_sections": {
     "core_value": "Valores Fundamentales",

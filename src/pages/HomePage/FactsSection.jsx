@@ -4,21 +4,20 @@ import './FactsSection.css'
 import useCurtainReveal from '../../hooks/useCurtainReveal'
 
 const factsData = [
-  { number: '34+',       rawNumber: 34,    suffix: '+',    labelKey: 'facts.years_label' },
-  { number: '8500+',     rawNumber: 8500,  suffix: '+',    labelKey: 'facts.components_label' },
-  { number: '6+',        rawNumber: 6,     suffix: '+',    labelKey: 'facts.countries_label' },
+  { number: '34+', rawNumber: 34, suffix: '+', labelKey: 'facts.years_label' },
+  { number: '8500+', rawNumber: 8500, suffix: '+', labelKey: 'facts.components_label' },
+  { number: '6+', rawNumber: 6, suffix: '+', labelKey: 'facts.countries_label' },
   { number: '22000ft +', rawNumber: 22000, suffix: 'ft +', labelKey: 'facts.infra_label' },
-  { number: '5+',        rawNumber: 5,     suffix: '+',    labelKey: 'facts.engineers_label' },
-  { number: '60+',       rawNumber: 60,    suffix: '+',    labelKey: 'facts.employees_label' },
-  { number: '3500+',     rawNumber: 3500,  suffix: '+',    labelKey: 'facts.delivered_label' },
+  { number: '5+', rawNumber: 5, suffix: '+', labelKey: 'facts.engineers_label' },
+  { number: '60+', rawNumber: 60, suffix: '+', labelKey: 'facts.employees_label' },
 ]
 
 function animateCounter(element, target, suffix, duration = 1600) {
   const startTime = performance.now()
   const tick = (now) => {
-    const elapsed  = now - startTime
+    const elapsed = now - startTime
     const progress = Math.min(elapsed / duration, 1)
-    const eased    = 1 - Math.pow(1 - progress, 3)
+    const eased = 1 - Math.pow(1 - progress, 3)
     element.textContent = Math.floor(eased * target).toLocaleString() + suffix
     if (progress < 1) requestAnimationFrame(tick)
   }
@@ -28,7 +27,7 @@ function animateCounter(element, target, suffix, duration = 1600) {
 function FactsSection() {
   const { t } = useTranslation()
   const titleRef = useCurtainReveal({ stagger: 0.09, duration: 1 })
-  const cardRefs   = useRef([])
+  const cardRefs = useRef([])
   const numberRefs = useRef([])
 
   useEffect(() => {

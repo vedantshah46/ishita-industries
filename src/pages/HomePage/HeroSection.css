@@ -12,11 +12,13 @@
 
 @media (max-width: 991.98px) {
   .hero-scroll-wrapper {
-    height: auto; /* disable runway on mobile */
+    height: auto;
+    /* disable runway on mobile */
   }
 
   .hero-section {
-    position: static; /* disable sticky on mobile */
+    position: static;
+    /* disable sticky on mobile */
     min-height: auto;
     padding-top: clamp(4rem, 12vw, 6rem);
     padding-bottom: clamp(2rem, 8vw, 4rem);
@@ -29,6 +31,7 @@
     opacity: 0;
     transform: translateY(35px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -39,6 +42,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -49,6 +53,7 @@
     opacity: 0;
     transform: translateX(60px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -60,6 +65,7 @@
     opacity: 0;
     transform: translateY(40px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -154,6 +160,7 @@
   line-height: 1;
   padding: clamp(0.45rem, 0.6vw, 0.58rem) clamp(1rem, 1.4vw, 1.25rem);
   letter-spacing: 0.01em;
+  text-decoration: none;
 }
 
 .hero-cta-icon {
@@ -293,11 +300,13 @@
 
 @media (max-width: 1199.98px) {
   .hero-scroll-wrapper {
-    height: auto; /* disable runway on mobile/laptop */
+    height: auto;
+    /* disable runway on mobile/laptop */
   }
 
   .hero-section {
-    position: static; /* disable sticky on mobile/laptop */
+    position: static;
+    /* disable sticky on mobile/laptop */
     min-height: auto;
     padding-top: clamp(4rem, 12vw, 6rem);
     padding-bottom: clamp(2rem, 8vw, 4rem);
@@ -375,6 +384,7 @@
 }
 
 @media (min-width: 1600px) {
+
   .hero-shell,
   .nav-shell {
     max-width: 1520px;

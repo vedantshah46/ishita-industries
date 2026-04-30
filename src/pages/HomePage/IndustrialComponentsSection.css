@@ -100,7 +100,7 @@
   flex-wrap: wrap;
   gap: 1.25em;
   max-width: 680px;
-  padding-left: clamp(1rem, 3vw, 4rem);
+  /* padding-left: clamp(1rem, 3vw, 4rem); */
 }
 
 .industrial-components-badge {
@@ -130,7 +130,7 @@
 }
 
 .industrial-components-image {
-    width: 140%;
+  width: 100%;
   height: auto;
   display: block;
   object-fit: contain;
@@ -157,6 +157,7 @@
     gap: 1.5rem;
     margin-bottom: 2rem;
   }
+
   .industrial-components-image {
     width: 100%;
   }
@@ -250,30 +251,42 @@
 /* ─── Small mobile (< 480px) ────────────────────────────── */
 @media (max-width: 479.98px) {
   .industrial-components-shell {
-    padding-inline: 0.75rem;
+    padding-inline: 1rem;
   }
 
   .industrial-components-title {
     font-size: 1.75rem;
   }
 
+  .industrial-components-row {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "title"
+      "image"
+      "badges";
+    gap: 1rem;
+  }
+
   .industrial-components-row-title {
-    font-size: 2.5rem;
-    padding-top: 5rem;
+    font-size: 2.2rem;
+    padding-top: 0;
   }
 
   .industrial-components-badges {
-    padding-top: 3rem;
+    padding-top: 0;
     padding-bottom: 1rem;
   }
 
   .industrial-components-visual {
-    width: clamp(96px, 50vw, 246px);
+    width: 100%;
+    max-width: 220px;
+    margin: 0;
   }
 
   .industrial-components-badge {
     font-size: 0.95rem;
-    padding: 0.45rem 0.95rem;
+    padding: 0.5rem 1rem;
   }
 }
 
