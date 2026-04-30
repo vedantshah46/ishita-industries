@@ -3,78 +3,79 @@ import { NavLink, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import './Navbar.css'
 import companyLogo from '../../Images/ishita-navbar-logo.png'
-import companyLogoMobile from '../../Images/ishita-navbar-logo-mobile.png'
+import companyLogoMobile from '../../Images/ishita-navbar-logo.png'
 import browserLogo from '../../Images/navbar-browser-logo.png'
 import downloadLogo from '../../Images/navbar-download-logo.png'
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png'
 
 const languages = [
   { label: 'European', code: 'eu' },
-  { label: 'Italian',  code: 'it' },
-  { label: 'German',   code: 'de' },
-  { label: 'French',   code: 'fr' },
-  { label: 'Spanish',  code: 'es' },
-  { label: 'English',  code: 'en' },
+  { label: 'Italian', code: 'it' },
+  { label: 'German', code: 'de' },
+  { label: 'French', code: 'fr' },
+  { label: 'Spanish', code: 'es' },
+  { label: 'English', code: 'en' },
 ]
 
 const aboutSubLinks = [
-  { key: 'about_sections.core_value',       hash: '#core-value' },
-  { key: 'about_sections.meet_our_team',    hash: '' },
-  { key: 'about_sections.infrastructure',   hash: '#infrastructure' },
-  { key: 'nav.mfg_capabilities',            hash: '#our-capabilities' },
-  { key: 'about_sections.quality_assurance',hash: '#quality-assurance' },
-  { key: 'about_sections.our_usp',          hash: '#our-usp' },
-  { key: 'about_sections.global_reach',     hash: '#across-the-globe' },
-  { key: 'about_sections.csr',              hash: '#csr' },
+  { key: 'about_sections.core_value', hash: '#core-value' },
+  { key: 'about_sections.meet_our_team', hash: '' },
+  { key: 'about_sections.infrastructure', hash: '#infrastructure' },
+  { key: 'nav.mfg_capabilities', hash: '#our-capabilities' },
+  { key: 'about_sections.quality_assurance', hash: '#quality-assurance' },
+  { key: 'about_sections.our_usp', hash: '#our-usp' },
+  { key: 'about_sections.global_reach', hash: '#across-the-globe' },
+  { key: 'about_sections.csr', hash: '#csr' },
 ]
 
 const productSubLinks = [
-  { key: 'products_dropdown.turned',  to: '/product/electric-pin' },
-  { key: 'products_dropdown.forged',  to: '/product/electric-pin' },
+  { key: 'products_dropdown.turned', to: '/product/electric-pin' },
+  { key: 'products_dropdown.forged', to: '/product/electric-pin' },
   { key: 'products_dropdown.milling', to: '/product/electric-pin' },
-  { key: 'products_dropdown.broach',  to: '/product/electric-pin' },
+  { key: 'products_dropdown.broach', to: '/product/electric-pin' },
   { key: 'products_dropdown.stamped', to: '/product/electric-pin' },
 ]
 
 const serviceSubLinks = [
-  { key: 'services_dropdown.shipping',  to: '/global-logistic' },
+  { key: 'services_dropdown.shipping', to: '/global-logistic' },
   { key: 'services_dropdown.packaging', to: '/custom-packaging' },
-  { key: 'services_dropdown.assembly',  to: '/assembly-kitting' },
+  { key: 'services_dropdown.assembly', to: '/assembly-kitting' },
 ]
 
 const sustainabilitySubLinks = [
   { key: 'sustainability_dropdown.sustainability', to: '/sustainability' },
-  { key: 'sustainability_dropdown.environmental',  to: '/environment' },
+  { key: 'sustainability_dropdown.environmental', to: '/environment' },
 ]
 
 const navLinks = [
-  { key: 'nav.about',            to: '/about', dropdown: aboutSubLinks },
-  { key: 'nav.process',          to: '/manufacturing-process' },
-  { key: 'nav.products',         to: '/product', dropdown: productSubLinks },
-  { key: 'nav.quality',          to: '/quality' },
-  { key: 'nav.sustainability',   to: '/sustainability', dropdown: sustainabilitySubLinks },
-  { key: 'nav.service',          to: '/contact', dropdown: serviceSubLinks },
-  { key: 'nav.rfq',              to: '/contact' },
-  { key: 'nav.updates',          to: '/blog' },
+  { key: 'nav.about', to: '/about', dropdown: aboutSubLinks },
+  { key: 'nav.process', to: '/manufacturing-process' },
+  { key: 'nav.products', to: '/product', dropdown: productSubLinks },
+  { key: 'nav.quality', to: '/quality' },
+  { key: 'nav.sustainability', to: '/sustainability', dropdown: sustainabilitySubLinks },
+  { key: 'nav.service', to: '/contact', dropdown: serviceSubLinks },
+  { key: 'nav.rfq', to: '/contact' },
+  { key: 'nav.updates', to: '/blog' },
 ]
 
 function NavbarRouter() {
   const { t, i18n } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState('nav.about')
   const [isScrolled, setIsScrolled] = useState(false)
   const [isLangOpen, setIsLangOpen] = useState(false)
   const langRef = useRef(null)
   const location = useLocation()
 
-  const isImportExport    = location.pathname === '/import-export'
-  const isProductPage     = location.pathname === '/product'
-  const isQualityPage     = location.pathname === '/quality'
-  const isLogisticPage    = location.pathname === '/global-logistic'
-  const isPackagingPage   = location.pathname === '/custom-packaging'
-  const isAssemblyPage    = location.pathname === '/assembly-kitting'
+  const isImportExport = location.pathname === '/import-export'
+  const isProductPage = location.pathname === '/product'
+  const isQualityPage = location.pathname === '/quality'
+  const isLogisticPage = location.pathname === '/global-logistic'
+  const isPackagingPage = location.pathname === '/custom-packaging'
+  const isAssemblyPage = location.pathname === '/assembly-kitting'
   const isEnvironmentPage = location.pathname === '/environment'
-  const isContactPage     = location.pathname === '/contact'
-  const isBlogPage        = location.pathname === '/blog'
+  const isContactPage = location.pathname === '/contact'
+  const isBlogPage = location.pathname === '/blog'
   const isProductInnerPage = location.pathname.startsWith('/product/')
 
   useEffect(() => {
@@ -93,8 +94,14 @@ function NavbarRouter() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
-  const handleToggle  = () => setIsOpen((prev) => !prev)
+  const handleToggle = () => setIsOpen((prev) => !prev)
   const handleNavClick = () => setIsOpen(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setOpenDropdown('nav.about')
+    }
+  }, [isOpen])
 
   const handleLangSelect = (code) => {
     i18n.changeLanguage(code)
@@ -103,11 +110,11 @@ function NavbarRouter() {
 
   const headerClass = [
     'site-header',
-    isScrolled       ? 'scrolled'         : '',
-    isImportExport   ? 'theme-transparent' : '',
+    isScrolled ? 'scrolled' : '',
+    isImportExport ? 'theme-transparent' : '',
     (isProductPage || isProductInnerPage) ? 'theme-white' : '',
     (isQualityPage || isLogisticPage || isPackagingPage || isAssemblyPage ||
-     isEnvironmentPage || isContactPage || isBlogPage) ? 'theme-f9' : '',
+      isEnvironmentPage || isContactPage || isBlogPage) ? 'theme-f9' : '',
   ].filter(Boolean).join(' ')
 
   return (
@@ -143,21 +150,35 @@ function NavbarRouter() {
             <div className="collapse navbar-collapse justify-content-lg-between" id="mainNavbar">
               <ul className="navbar-nav mx-auto nav-links-list">
                 {navLinks.map((link) => (
-                  <li className={`nav-item${link.dropdown ? ' has-dropdown' : ''}`} key={link.key}>
-                    <NavLink
-                      className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
-                      to={link.to}
-                      end={link.to === '/'}
-                      onClick={handleNavClick}
-                    >
-                      {t(link.key)}
-                    </NavLink>
+                  <li className={`nav-item${link.dropdown ? ' has-dropdown' : ''} ${openDropdown === link.key ? 'mobile-open' : ''}`} key={link.key}>
+                    <div className="nav-item-wrap">
+                      <NavLink
+                        className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
+                        to={link.to}
+                        end={link.to === '/'}
+                        onClick={handleNavClick}
+                      >
+                        {t(link.key)}
+                      </NavLink>
+                      {link.dropdown && (
+                        <button 
+                          type="button"
+                          className={`mobile-dropdown-toggle d-lg-none ${openDropdown === link.key ? 'is-rotated' : ''}`}
+                          onClick={() => setOpenDropdown(prev => prev === link.key ? '' : link.key)}
+                          aria-label="Toggle Dropdown"
+                        >
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
+                        </button>
+                      )}
+                    </div>
                     {link.dropdown && (
                       <ul className="nav-dropdown">
                         {link.dropdown.map((sub) => (
                           <li key={sub.key}>
-                            <NavLink 
-                              to={sub.to ? sub.to : `/about${sub.hash}`} 
+                            <NavLink
+                              to={sub.to ? sub.to : `/about${sub.hash}`}
                               onClick={handleNavClick}
                             >
                               {t(sub.key)}

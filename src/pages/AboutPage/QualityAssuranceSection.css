@@ -118,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 70px;
+  min-height: 100px;
 }
 
 .quality-assurance-badge-image {
@@ -252,6 +252,7 @@
     max-width: 1520px;
   }
 }
+
 /* ── Scroll-reveal states ───────────────────────────────────── */
 .quality-assurance-header,
 .quality-assurance-card,

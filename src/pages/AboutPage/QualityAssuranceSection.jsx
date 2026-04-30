@@ -1,34 +1,34 @@
 import { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import './QualityAssuranceSection.css'
-import vernierImage   from '../../Images/quality-assurance-one.png'
-import visionImage    from '../../Images/quality-assurance-two.png'
-import sortingImage   from '../../Images/quality-assurance-three.png'
-import hardnessImage  from '../../Images/quality-assurance-four.png'
+import vernierImage from '../../Images/quality-assurance-one.png'
+import visionImage from '../../Images/quality-assurance-two.png'
+import sortingImage from '../../Images/quality-assurance-three.png'
+import hardnessImage from '../../Images/quality-assurance-four.png'
 import roughnessImage from '../../Images/quality-assurance-six.png'
-import threadImage    from '../../Images/quality-assurance-seven.png'
-import heightImage    from '../../Images/quality-assurance-eight.png'
-import rohsLogo    from '../../Images/iso-certificate-one.png'
-import reachLogo   from '../../Images/iso-certificate-two.png'
-import zegLogo     from '../../Images/iso-certificate-three.png'
-import tuvLogo     from '../../Images/iso-certificate-four.png'
-import ppapLogo    from '../../Images/iso-certificate-five.png'
-import ipqaLogo    from '../../Images/iso-certificate-seven.png'
-import sevenQcLogo from '../../Images/iso-certificate-six.png'
+import threadImage from '../../Images/quality-assurance-seven.png'
+import heightImage from '../../Images/quality-assurance-eight.png'
+import rohsLogo from '../../Images/iso-certificate-one.svg'
+import reachLogo from '../../Images/iso-certificate-two.svg'
+import zegLogo from '../../Images/iso-certificate-three.svg'
+import tuvLogo from '../../Images/iso-certificate-four.svg'
+import ppapLogo from '../../Images/iso-certificate-five.svg'
+import ipqaLogo from '../../Images/iso-certificate-seven.svg'
+import sevenQcLogo from '../../Images/iso-certificate-six.svg'
 import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal   from '../../hooks/useCurtainReveal'
+import useCurtainReveal from '../../hooks/useCurtainReveal'
 
 const equipmentImages = [vernierImage, visionImage, sortingImage, visionImage, hardnessImage, roughnessImage, threadImage, heightImage]
-const equipmentKeys   = ['quality.tool_1','quality.tool_2','quality.tool_3','quality.tool_4','quality.tool_5','quality.tool_6','quality.tool_7','quality.tool_8']
+const equipmentKeys = ['quality.tool_1', 'quality.tool_2', 'quality.tool_3', 'quality.tool_4', 'quality.tool_5', 'quality.tool_6', 'quality.tool_7', 'quality.tool_8']
 
 const assuranceBadges = [
-  { title: 'ROHS',  image: rohsLogo    },
-  { title: 'REACH', image: reachLogo   },
-  { title: 'ZED',   image: zegLogo     },
-  { title: 'TUV',   image: tuvLogo     },
-  { title: 'PPAP',  image: ppapLogo    },
-  { title: '7QC',   image: sevenQcLogo },
-  { title: 'IPQA',  image: ipqaLogo    },
+  { title: 'ROHS', image: rohsLogo },
+  { title: 'REACH', image: reachLogo },
+  { title: 'ZED', image: zegLogo },
+  { title: 'TUV', image: tuvLogo },
+  { title: 'PPAP', image: ppapLogo },
+  { title: '7QC', image: sevenQcLogo },
+  { title: 'IPQA', image: ipqaLogo },
 ]
 
 function QualityAssuranceSection() {

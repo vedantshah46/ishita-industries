@@ -69,8 +69,8 @@
   }
 
   .components-delivered-map {
-    width: 80%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 450px;
   }
 
   .components-delivered-content {
