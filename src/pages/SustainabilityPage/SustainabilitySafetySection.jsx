@@ -1,23 +1,31 @@
-import { useRef } from 'react'
+import { motion } from 'motion/react'
 import './SustainabilitySafetySection.css'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
 
 function SustainabilitySafetySection() {
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
-
   return (
     <section className="sust-safety-section">
       <div className="container sust-safety-shell">
 
         {/* Header */}
-        <div className="sust-safety-header" ref={(el) => (animRefs.current[0] = el)}>
+        <motion.div 
+          className="sust-safety-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+        >
           <p className="sust-safety-kicker">ZERO HARM POLICY</p>
           <h2 className="sust-safety-title">Occupational Health & Safety</h2>
-        </div>
+        </motion.div>
 
         {/* Card */}
-        <div className="sust-safety-card" ref={(el) => (animRefs.current[1] = el)}>
+        <motion.div 
+          className="sust-safety-card"
+          initial={{ opacity: 0, scale: 0.95, y: 40 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ type: "spring", stiffness: 70, damping: 20, delay: 0.2 }}
+        >
           <p className="sust-safety-copy">
             Safety is not just a metric; it is our culture. We maintain an uncompromising stance on Occupational<br />
             Health & Safety (OHS), ensuring every team member returns home safely. Our protocols exceed<br />
@@ -39,7 +47,7 @@ function SustainabilitySafetySection() {
               <span>REAL-TIME MONITORING</span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

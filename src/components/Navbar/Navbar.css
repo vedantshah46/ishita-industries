@@ -164,6 +164,7 @@
   }
 
   .nav-dropdown {
+    display: block; /* Override desktop display: none */
     position: static;
     transform: none;
     box-shadow: none;
@@ -260,8 +261,8 @@
 
 /* ── Toggle icon animation ── */
 .toggle-icon {
-  width: 18px;
-  height: 14px;
+  width: 26px;
+  height: 20px;
   object-fit: contain;
   transition: transform 0.3s ease, opacity 0.3s ease;
   transform-origin: center;

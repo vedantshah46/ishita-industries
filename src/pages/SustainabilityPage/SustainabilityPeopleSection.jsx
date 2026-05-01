@@ -1,21 +1,41 @@
-import { useRef } from 'react'
+import { motion } from 'motion/react'
 import './SustainabilityPeopleSection.css'
 import peopleImage from '../../Images/Sustainability_people.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+
+const imageVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+}
+
+const contentVariants = {
+  hidden: { opacity: 0 },
+  visible: { 
+    opacity: 1, 
+    transition: { 
+      staggerChildren: 0.15,
+      delayChildren: 0.2
+    } 
+  }
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+}
 
 function SustainabilityPeopleSection() {
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
-
   return (
     <section className="sust-people-section">
       <div className="container sust-people-shell">
         <div className="sust-people-grid">
           
           {/* Left Column: Image */}
-          <div 
+          <motion.div 
             className="sust-people-visual"
-            ref={(el) => (animRefs.current[0] = el)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={imageVariants}
           >
             <div className="sust-people-image-wrap">
               <img 
@@ -24,25 +44,28 @@ function SustainabilityPeopleSection() {
                 className="sust-people-image" 
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Content */}
-          <div 
+          <motion.div 
             className="sust-people-content"
-            ref={(el) => (animRefs.current[1] = el)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={contentVariants}
           >
-            <p className="sust-people-kicker">HUMAN CAPITAL</p>
-            <h2 className="sust-people-title">Our People</h2>
+            <motion.p variants={itemVariants} className="sust-people-kicker">HUMAN CAPITAL</motion.p>
+            <motion.h2 variants={itemVariants} className="sust-people-title">Our People</motion.h2>
             
-            <p className="sust-people-copy">
+            <motion.p variants={itemVariants} className="sust-people-copy">
               Our people are the foundation of our success. We focus on 
               developing talent, providing equal opportunities, and creating a fair, 
               inclusive workplace. Through continuous training, open 
               communication, and modern practices, we empower our team to 
               grow while driving sustainable development and long-term success.
-            </p>
+            </motion.p>
 
-            <div className="sust-people-stats">
+            <motion.div variants={itemVariants} className="sust-people-stats">
               <div className="sust-stat-item">
                 <span className="stat-value">45%</span>
                 <span className="stat-label">DIVERSITY RATIO</span>
@@ -51,8 +74,8 @@ function SustainabilityPeopleSection() {
                 <span className="stat-value">12k+</span>
                 <span className="stat-label">TRAINING HOURS</span>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
         </div>
       </div>
