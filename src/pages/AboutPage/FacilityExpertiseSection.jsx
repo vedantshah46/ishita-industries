@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './FacilityExpertiseSection.css'
 import capabilitiesImg from '../../Images/about-our-capabilities.png'
@@ -8,7 +8,7 @@ import processTwo   from '../../Images/about-process-we-undertake-two.png'
 import processThree from '../../Images/about-process-we-undertake-three.png'
 import processFour  from '../../Images/about-process-we-undertake-four.png'
 import processFive  from '../../Images/about-process-we-undertake-five.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import anime from 'animejs'
 
 const processIcons = [processOne, processTwo, processThree, processFour, processFive]
 const processKeys  = ['facility.proc_1','facility.proc_2','facility.proc_3','facility.proc_4','facility.proc_5']
@@ -17,19 +17,60 @@ const finishKeys   = ['facility.finish_1','facility.finish_2','facility.finish_3
 
 function FacilityExpertiseSection() {
   const { t } = useTranslation()
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.facility-header-block > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.facility-left-col > *',
+          translateX: [-40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          delay: anime.stagger(150),
+          easing: 'easeOutExpo'
+        }, '-=400')
+        .add({
+          targets: '.facility-right-col > *',
+          translateX: [40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          delay: anime.stagger(150),
+          easing: 'easeOutExpo'
+        }, '-=800')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="facility-expertise-section">
+    <section className="facility-expertise-section" ref={sectionRef}>
       <div className="container">
-        <div className="facility-header-block" ref={(el) => (animRefs.current[0] = el)}>
+        <div className="facility-header-block">
           <p className="facility-main-kicker">{t('facility.kicker')}</p>
           <h2 className="facility-main-heading">{t('facility.title')}</h2>
         </div>
 
         <div className="facility-grid">
-          <div className="facility-left-col" ref={(el) => (animRefs.current[1] = el)}>
+          <div className="facility-left-col">
             <div className="facility-banner-card">
               <img src={capabilitiesImg} alt="Machining Floor" className="facility-banner-img" />
               <div className="facility-banner-overlay">
@@ -78,7 +119,7 @@ function FacilityExpertiseSection() {
             </div>
           </div>
 
-          <div className="facility-right-col" ref={(el) => (animRefs.current[2] = el)}>
+          <div className="facility-right-col">
             <div className="facility-card facility-metals-card">
               <div className="facility-card-header">
                 <span className="header-line" />

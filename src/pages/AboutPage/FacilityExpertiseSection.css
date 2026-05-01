@@ -522,27 +522,10 @@
   }
 }
 
-/* ── Scroll Animations ───────────────────────────────────── */
-.facility-header-block,
-.facility-left-col,
-.facility-right-col {
+/* ── Animations ── */
+.facility-header-block > *,
+.facility-left-col > *,
+.facility-right-col > * {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.facility-header-block.is-visible,
-.facility-left-col.is-visible,
-.facility-right-col.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.facility-left-col.is-visible {
-  transition-delay: 0.1s;
-}
-
-.facility-right-col.is-visible {
-  transition-delay: 0.2s;
+  will-change: transform, opacity;
 }

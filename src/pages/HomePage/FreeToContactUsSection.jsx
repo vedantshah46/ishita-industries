@@ -1,15 +1,101 @@
 import { Link } from 'react-router-dom'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import './FreeToContactUsSection.css'
 import contactlogo from '../../Images/homepage-contact-us-logo.png'
 import arrow from '../../Images/arrow-vector.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 function FreeToContactUsSection() {
   const { t } = useTranslation()
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const titleEl = sectionRef.current?.querySelector('.contactus-title')
+    if (!titleEl) return
+    
+    const text = new SplitType(titleEl, { types: 'chars' })
+    
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return
+      hasAnimated.current = true
+
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+      })
+
+      const mainCard = sectionRef.current.querySelector('.contactus-card')
+      const icon = sectionRef.current.querySelector('.contactus-icon')
+      const desc = sectionRef.current.querySelector('.contactus-text')
+      const btn = sectionRef.current.querySelector('.contactus-btn')
+      const linkCards = sectionRef.current.querySelectorAll('.contactus-link-card')
+
+      // Main Card reveal with snap
+      tl.add({
+        targets: mainCard,
+        opacity: [0, 1],
+        scale: [0.98, 1],
+        translateY: [60, 0],
+        duration: 1400,
+        easing: 'spring(1, 90, 20, 0)'
+      })
+      // Character level title reveal
+      .add({
+        targets: text.chars,
+        translateY: [20, 0],
+        opacity: [0, 1],
+        rotateX: [-30, 0],
+        delay: anime.stagger(15),
+        duration: 800
+      }, '-=1100')
+      // Icon and description
+      .add({
+        targets: [icon, desc, btn],
+        opacity: [0, 1],
+        translateY: [15, 0],
+        delay: anime.stagger(100),
+        duration: 800
+      }, '-=900')
+      // Bottom links with elegant rotation
+      .add({
+        targets: linkCards,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        rotateX: [15, 0],
+        delay: anime.stagger(120),
+        duration: 1000,
+        begin: (anim) => {
+          sectionRef.current.querySelector('.contactus-links-grid').style.perspective = '1000px';
+        }
+      }, '-=800')
+    }
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation()
+    }, 10000)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation()
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+      text?.revert()
+    }
+  }, [])
 
   const contactLinksData = [
     { text: t('contact_cta.btn_brochure'), href: '#' },
@@ -18,10 +104,10 @@ function FreeToContactUsSection() {
   ]
 
   return (
-    <section className="free-to-contact-us-section">
+    <section className="free-to-contact-us-section" ref={sectionRef}>
       <div className="container contactus-shell">
         <div className="contactus-cta-block">
-          <div className="contactus-card" ref={(el) => (animRefs.current[0] = el)}>
+          <div className="contactus-card">
             <div className="contactus-icon">
               <img src={contactlogo} alt="Contact Logo" />
             </div>
@@ -51,7 +137,6 @@ function FreeToContactUsSection() {
                 key={index}
                 href={link.href}
                 className="contactus-link-card"
-                ref={(el) => (animRefs.current[index + 1] = el)}
               >
                 <span className="contactus-link-text">{link.text}</span>
                 <img src={arrow} alt="" className="contact-arrow-img-rotate" />

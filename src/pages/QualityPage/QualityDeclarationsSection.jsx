@@ -1,7 +1,7 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import './QualityDeclarationsSection.css'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 const declarations = [
   {
@@ -32,18 +32,76 @@ const declarations = [
 ]
 
 function QualityDeclarationsSection() {
-  const titleRef = useCurtainReveal({ stagger: 0.065 })
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const hasAnimated = useRef(false)
 
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useEffect(() => {
+    const text = new SplitType(titleRef.current, { types: 'chars' })
+    
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return
+      hasAnimated.current = true
+
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+      })
+
+      const kicker = sectionRef.current.querySelector('.quality-decl-kicker')
+      const cards = sectionRef.current.querySelectorAll('.quality-decl-card')
+
+      tl.add({
+        targets: kicker,
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 800
+      })
+      .add({
+        targets: text.chars,
+        translateY: [30, 0],
+        rotateX: [-90, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(15),
+        duration: 800
+      }, '-=600')
+      .add({
+        targets: cards,
+        opacity: [0, 1],
+        translateY: [40, 0],
+        delay: anime.stagger(100),
+        duration: 1000
+      }, '-=600')
+    }
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation()
+    }, 10000)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation()
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+      text.revert()
+    }
+  }, [])
 
   return (
-    <section className="quality-decl-section">
+    <section className="quality-decl-section" ref={sectionRef}>
       <div className="container quality-decl-shell">
-        <div
-          className="quality-decl-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="quality-decl-header">
           <div className="quality-decl-header-content">
             <p className="quality-decl-kicker mb-0">REGULARTORY DECLARATION</p>
             <h2 className="quality-decl-title mb-0" ref={titleRef}>
@@ -57,8 +115,6 @@ function QualityDeclarationsSection() {
             <div
               key={item.title}
               className="quality-decl-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 60}ms` }}
             >
               <h3 className="quality-decl-card-title mb-0">{item.title}</h3>
               <p className="quality-decl-card-text mb-0">{item.description}</p>

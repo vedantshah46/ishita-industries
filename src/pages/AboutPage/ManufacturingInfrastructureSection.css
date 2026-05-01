@@ -196,20 +196,12 @@
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.about-infra-header,
+/* ── Animations ── */
+.about-infra-header-wrap > *,
 .about-infra-visual-card,
-.about-infra-stats {
+.about-infra-stat-card {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.about-infra-header.is-visible,
-.about-infra-visual-card.is-visible,
-.about-infra-stats.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }
 @media (max-width: 1600px) and (min-width: 1465px) {
   .about-infra-shell {

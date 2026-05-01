@@ -262,28 +262,53 @@
 }
 
 /* ── Scroll-reveal animations ────────────────────────────── */
-.product-header,
-.product-gallery,
-.product-description,
+.product-header h1 {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.product-header {
+  perspective: 1000px;
+}
+
+.main-image,
+.thumbnails img,
+.product-description p,
 .spec-card,
 .threads-section,
 .metal-section h2,
 .metal-subtitle,
 .metal-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
-.product-header.is-visible,
-.product-gallery.is-visible,
-.product-description.is-visible,
-.spec-card.is-visible,
-.threads-section.is-visible,
-.metal-section h2.is-visible,
-.metal-subtitle.is-visible,
-.metal-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+/* Utility to ensure visibility for error/loading states */
+.no-anim h1,
+.no-anim p,
+.product-error-view .product-header,
+.product-details-loading .skeleton-shimmer {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.product-error-view {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-error-view .product-header {
+  text-align: center;
+}
+
+.product-error-view h1 {
+  color: #e53e3e;
+  margin-bottom: 1rem;
+}
+
+.product-error-view p {
+  font-size: 1.1rem;
+  color: #666;
 }

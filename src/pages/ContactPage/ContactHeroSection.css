@@ -36,6 +36,11 @@
   margin-top: clamp(1.25rem, 2.5vw, 2.25rem);
 }
 
+.contact-hero-title,
+.contact-hero-subtitle {
+  will-change: transform, opacity;
+}
+
 @media (max-width: 1600px) and (min-width: 1465px) {
   .contact-hero-container {
     max-width: 1325px;

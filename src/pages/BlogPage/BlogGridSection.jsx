@@ -1,8 +1,8 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './BlogGridSection.css'
 import blogImg from '../../Images/blog_image.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs';
 import { useBlogPosts } from '../../hooks/useBlogPosts';
 
 function formatDate(d) {
@@ -12,21 +12,61 @@ function formatDate(d) {
 }
 
 function BlogGridSection() {
-  const animRefs = useRef([]);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
   const { posts, loading } = useBlogPosts({ limit: 50 });
 
-  useScrollAnimation(animRefs, posts.length);
+  useEffect(() => {
+    if (loading || posts.length === 0) return;
+
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return;
+      hasAnimated.current = true;
+
+      const cards = sectionRef.current.querySelectorAll('.blog-card');
+      
+      anime({
+        targets: cards,
+        opacity: [0, 1],
+        translateY: [40, 0],
+        delay: anime.stagger(100),
+        easing: 'easeOutExpo',
+        duration: 1000
+      });
+    };
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation();
+    }, 6000);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [loading, posts]);
 
   if (loading) return null;
 
   return (
-    <div className="blog-posts-grid">
+    <div className="blog-posts-grid" ref={sectionRef}>
       {posts.map((post, index) => (
         <div
           key={post.id}
           className="blog-card"
-          ref={(el) => (animRefs.current[index] = el)}
-          style={{ transitionDelay: `${(index % 3) * 100}ms` }}
         >
           <div className="blog-card-image-wrap">
             <img src={post.cover_url || blogImg} alt={post.title} className="blog-card-img" />

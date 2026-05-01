@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './GlobalReachSection.css'
 import waterImage      from '../../Images/about-us-international-one.png'
@@ -14,8 +14,7 @@ import usFlag          from '../../Images/us-flag.png'
 import ukFlag          from '../../Images/uk-flag.png'
 import uaeFlag         from '../../Images/uae-flag.png'
 import thaiLandFlag    from '../../Images/thailand-flag.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal   from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
 
 const shipStats = [
   { id: 1, valueKey: 'global.stat1_value', titleKey: 'global.stat1_label', descKey: 'global.stat1_desc' },
@@ -38,22 +37,75 @@ const flagsData = [
 
 function GlobalReachSection() {
   const { t } = useTranslation()
-  const titleRef = useCurtainReveal({ stagger: 0.065 })
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.global-reach-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.global-reach-banner-container',
+          scale: [0.98, 1],
+          opacity: [0, 1],
+          duration: 1000,
+          easing: 'easeOutExpo'
+        }, '-=400')
+        .add({
+          targets: '.global-reach-stat-card',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(120)
+        }, '-=600')
+        .add({
+          targets: '.global-reach-world-container',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          easing: 'easeOutExpo'
+        }, '-=400')
+        .add({
+          targets: '.global-reach-flag-item',
+          scale: [0.5, 1],
+          opacity: [0, 1],
+          duration: 600,
+          delay: anime.stagger(60, { grid: [5, 2], from: 'center' }),
+          easing: 'easeOutBack(1.5)'
+        }, '-=600')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="global-reach-section">
+    <section className="global-reach-section" ref={sectionRef}>
       <div className="container global-reach-shell">
 
-        <div className="global-reach-header" ref={(el) => (animRefs.current[0] = el)}>
+        <div className="global-reach-header">
           <div>
             <p className="global-reach-kicker mb-0">{t('global.kicker')}</p>
-            <h2 className="global-reach-title mb-0" ref={titleRef}>{t('global.title')}</h2>
+            <h2 className="global-reach-title mb-0">{t('global.title')}</h2>
           </div>
         </div>
 
-        <div className="global-reach-banner-container" ref={(el) => (animRefs.current[1] = el)}>
+        <div className="global-reach-banner-container">
           <div className="global-reach-water-bg">
             <img src={waterImage} alt="" className="global-reach-water-image" />
           </div>
@@ -72,7 +124,7 @@ function GlobalReachSection() {
           </div>
         </div>
 
-        <div className="global-reach-world-container" ref={(el) => (animRefs.current[2] = el)}>
+        <div className="global-reach-world-container">
           <div className="global-reach-map">
             <img src={map} alt="World Map" className="global-reach-map-image" />
           </div>

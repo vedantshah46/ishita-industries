@@ -25,6 +25,8 @@
   letter-spacing: -2px;
   vertical-align: middle;
   color: #343434;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  perspective: 1000px;
 }
 
 /* ─── "Distributing Quality." ───────────────────────────── */
@@ -425,20 +427,19 @@
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.about-hero-meta,
-.about-hero-factory-frame,
-.about-chairman-intro,
-.about-chairman-card {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
+/* ── Animations ── */
+.about-hero-title .line {
+  overflow: hidden;
 }
 
-.about-hero-meta.is-visible,
-.about-hero-factory-frame.is-visible,
-.about-chairman-intro.is-visible,
-.about-chairman-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.about-hero-meta > *,
+.about-hero-factory-frame,
+.about-chairman-intro > *,
+.about-chairman-card,
+.about-chairman-card-title,
+.about-chairman-card-text,
+.about-chairman-signoff,
+.about-chairman-photo-wrap {
+  opacity: 0;
+  will-change: transform, opacity;
 }

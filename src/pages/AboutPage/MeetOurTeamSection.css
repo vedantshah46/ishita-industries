@@ -193,18 +193,9 @@
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.meet-team-header,
+/* ── Animations ── */
+.meet-team-header > *,
 .team-card {
   opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.meet-team-header.is-visible,
-.team-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

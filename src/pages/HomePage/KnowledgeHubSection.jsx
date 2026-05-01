@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './KnowledgeHubSection.css'
 import blogImg from '../../Images/blog_image.png'
 import { Link } from 'react-router-dom'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 const latestPosts = [
   {
@@ -31,26 +32,84 @@ const latestPosts = [
 
 function KnowledgeHubSection() {
   const { t } = useTranslation()
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    let titleSplit = null
+    if (titleRef.current) {
+      titleSplit = new SplitType(titleRef.current, { types: 'chars' })
+      anime.set(titleSplit.chars, { opacity: 0, translateY: 20 })
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true
+
+          const tl = anime.timeline({
+            easing: 'easeOutQuart'
+          })
+
+          tl.add({
+            targets: '.hub-kicker',
+            translateY: [30, 0],
+            opacity: [0, 1],
+            duration: 800,
+          })
+
+          if (titleSplit && titleSplit.chars) {
+            tl.add({
+              targets: titleSplit.chars,
+              opacity: [0, 1],
+              translateY: [20, 0],
+              duration: 800,
+              delay: anime.stagger(15),
+              easing: 'spring(1, 80, 10, 0)'
+            }, '-=600')
+          }
+
+          tl.add({
+            targets: '.hub-card',
+            translateY: [40, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            delay: anime.stagger(120),
+            easing: 'easeOutBack'
+          }, '-=500')
+
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+      if (titleSplit) titleSplit.revert()
+    }
+  }, [])
 
   return (
-    <section className="knowledge-hub-section">
+    <section className="knowledge-hub-section" ref={sectionRef}>
       <div className="container hub-shell">
-        <div className="hub-header text-center" ref={(el) => (animRefs.current[0] = el)}>
+        <div className="hub-header text-center">
           <div>
             <p className="hub-kicker mb-0">{t('knowledge_hub.kicker')}</p>
-            <h2 className="hub-title mb-0">{t('knowledge_hub.title')}</h2>
+            <h2 className="hub-title mb-0" ref={titleRef}>{t('knowledge_hub.title')}</h2>
           </div>
         </div>
 
         <div className="hub-grid">
-          {latestPosts.map((post, index) => (
+          {latestPosts.map((post) => (
             <div
               key={post.id}
               className="hub-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="hub-card-image-wrap">
                 <img src={post.image} alt={post.title} className="hub-card-img" />

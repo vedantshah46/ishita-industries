@@ -1,12 +1,12 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import './IndustrialComponentsSection.css'
 import electrical from '../../Images/industrial-electrical.png'
-import automative  from '../../Images/industrial-automotive.png'
-import fastener    from '../../Images/industrial-fastener.png'
-import engineer    from '../../Images/industrial-Engineered.png'
-import cpvcppr     from '../../Images/industrial-CPVC-PPR.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal   from '../../hooks/useCurtainReveal'
+import automative from '../../Images/industrial-automotive.png'
+import fastener from '../../Images/industrial-fastener.png'
+import engineer from '../../Images/industrial-Engineered.png'
+import cpvcppr from '../../Images/industrial-CPVC-PPR.png'
+import useCurtainReveal from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
 
 const industrialData = [
   {
@@ -61,21 +61,52 @@ const industrialData = [
   },
 ]
 
-const chunkArray = (array, size) => {
-  const result = []
-  for (let i = 0; i < array.length; i += size) {
-    result.push(array.slice(i, i + size))
-  }
-  return result
-}
-
 function IndustrialComponentsSection() {
-  // GSAP curtain reveal on the section heading
   const titleRef = useCurtainReveal({ stagger: 0.07 })
-
-  // Shared hook for row fade-ups
   const rowRefs = useRef([])
-  useScrollAnimation(rowRefs)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target
+
+            // Unobserve to run only once
+            observer.unobserve(el)
+
+            const imgEl = el.querySelector('.industrial-components-image')
+
+            // Row slide up
+            anime({
+              targets: el,
+              translateY: [60, 0],
+              opacity: [0, 1],
+              duration: 800,
+              easing: 'easeOutQuart'
+            })
+
+            // Image scale down parallax-like entry
+            if (imgEl) {
+              anime({
+                targets: imgEl,
+                scale: [1.2, 1],
+                duration: 1200,
+                easing: 'easeOutCubic'
+              })
+            }
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    rowRefs.current.forEach((row) => {
+      if (row) observer.observe(row)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <section className="industrial-components-section">
@@ -95,7 +126,6 @@ function IndustrialComponentsSection() {
               key={item.title}
               className="industrial-components-row"
               ref={(el) => (rowRefs.current[index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <h3 className="industrial-components-row-title mb-0">{item.title}</h3>
 
@@ -107,7 +137,7 @@ function IndustrialComponentsSection() {
                 ))}
               </div>
 
-              <div className="industrial-components-visual">
+              <div className="industrial-components-visual" style={{ overflow: 'hidden' }}>
                 <img
                   src={item.image}
                   alt={item.title}

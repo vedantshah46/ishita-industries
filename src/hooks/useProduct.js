@@ -25,10 +25,17 @@ export function useProduct(slug) {
       .then(({ data, error: fetchError }) => {
         if (fetchError || !data) {
           // Fall back to static data
-          setProduct(staticProductDetails[slug] ?? null)
-          if (fetchError) setError(fetchError)
+          const staticData = staticProductDetails[slug]
+          if (staticData) {
+            setProduct(staticData)
+            setError(null) // Suppress error if we have static fallback
+          } else {
+            setProduct(null)
+            setError(fetchError || new Error('Product not found'))
+          }
         } else {
           setProduct(data)
+          setError(null)
         }
         setLoading(false)
       })

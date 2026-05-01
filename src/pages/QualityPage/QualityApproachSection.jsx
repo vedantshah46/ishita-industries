@@ -1,10 +1,10 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import './QualityApproachSection.css'
 import qualityApproachImg1 from '../../Images/Quality-approach.png'
 import qualityApproachImg2 from '../../Images/Machine Maintenance.png'
 import qualityApproachImg3 from '../../Images/Employee Skill upgradation.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 const approachCards = [
   {
@@ -28,18 +28,76 @@ const approachCards = [
 ]
 
 function QualityApproachSection() {
-  const titleRef = useCurtainReveal({ stagger: 0.065 })
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const hasAnimated = useRef(false)
 
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useEffect(() => {
+    const text = new SplitType(titleRef.current, { types: 'chars' })
+    
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return
+      hasAnimated.current = true
+
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+      })
+
+      const kicker = sectionRef.current.querySelector('.quality-approach-kicker')
+      const cards = sectionRef.current.querySelectorAll('.quality-approach-card')
+
+      tl.add({
+        targets: kicker,
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 800
+      })
+      .add({
+        targets: text.chars,
+        translateY: [30, 0],
+        rotateX: [-90, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(20),
+        duration: 800
+      }, '-=600')
+      .add({
+        targets: cards,
+        opacity: [0, 1],
+        translateY: [40, 0],
+        delay: anime.stagger(150),
+        duration: 1000
+      }, '-=600')
+    }
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation()
+    }, 10000)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation()
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    return () => {
+      clearTimeout(timer)
+      observer.disconnect()
+      text.revert()
+    }
+  }, [])
 
   return (
-    <section className="quality-approach-section">
+    <section className="quality-approach-section" ref={sectionRef}>
       <div className="container quality-approach-shell">
-        <div
-          className="quality-approach-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="quality-approach-header">
           <div className="quality-approach-header-content">
             <p className="quality-approach-kicker mb-0">QUALITY IN EVERY STEP</p>
             <h2 className="quality-approach-title mb-0" ref={titleRef}>
@@ -53,8 +111,6 @@ function QualityApproachSection() {
             <article
               key={card.title}
               className="quality-approach-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="quality-approach-image-wrap">
                 <img

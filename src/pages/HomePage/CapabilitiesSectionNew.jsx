@@ -1,22 +1,22 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import './CapabilitiesSection.css'
 import capVisualImage from '../../Images/manufacturing-infrastructure.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal from '../../hooks/useCurtainReveal'
 import metalWeWork from '../../Images/metal-we-work.png'
 import machineIcon from '../../Images/machining-capabilities-icon.png'
-import settingBgIcon from '../../Images/setting-bg-icon.png';
+import settingBgIcon from '../../Images/setting-bg-icon.png'
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 const metals = [
-"Copper",
-"Brass",
-"Bronze",
-"Aluminium",
-"Zinc",
-"Mild Steel",
-"Stainless Steel",
-"Carbon Steel",
-"Alloy Steel"
+  "Copper",
+  "Brass",
+  "Bronze",
+  "Aluminium",
+  "Zinc",
+  "Mild Steel",
+  "Stainless Steel",
+  "Carbon Steel",
+  "Alloy Steel"
 ]
 
 const finishingProcesses = [
@@ -43,22 +43,81 @@ const mainProcesses = [
 ]
 
 function CapabilitiesSectionNew() {
-  // GSAP curtain reveal on the main heading
-  const titleRef = useCurtainReveal({ stagger: 0.055 })
+  const sectionRef = useRef(null)
+  const titleRef = useRef(null)
+  const hasAnimated = useRef(false)
 
-  // Scroll reveal for header + cards
-  // Index map: [0] = header, [1..4] = cap cards
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  useEffect(() => {
+    let titleSplit = null;
+    if (titleRef.current) {
+      titleSplit = new SplitType(titleRef.current, { types: 'chars' });
+      anime.set(titleSplit.chars, { opacity: 0, translateY: 20 });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.capabilities-kicker',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+        })
+
+        if (titleSplit && titleSplit.chars) {
+          tl.add({
+            targets: titleRef.current,
+            opacity: 1,
+            duration: 1
+          }, '-=800')
+          .add({
+            targets: titleSplit.chars,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 800,
+            delay: anime.stagger(15),
+            easing: 'spring(1, 80, 10, 0)'
+          }, '-=800')
+        }
+
+        tl.add({
+          targets: '.cap-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          scale: [0.98, 1],
+          duration: 1000,
+          delay: anime.stagger(100),
+          easing: 'easeOutBack'
+        }, '-=600')
+        .add({
+          targets: '.process-undertake-wrapper',
+          opacity: [0, 1],
+          translateY: [30, 0],
+          duration: 800
+        }, '-=600')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.05 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+
+    return () => {
+      observer.disconnect()
+      if (titleSplit) titleSplit.revert()
+    }
+  }, [])
 
   return (
-    <section className="capabilities-section">
+    <section className="capabilities-section" ref={sectionRef}>
       <div className="container capabilities-shell">
 
-        <div
-          className="capabilities-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="capabilities-header">
           <div>
             <p className="capabilities-kicker mb-0">CORE ECOSYSTEM</p>
             <h2 className="capabilities-title mb-0" ref={titleRef}>
@@ -69,10 +128,7 @@ function CapabilitiesSectionNew() {
 
         <div className="capabilities-grid">
           <div className="capabilities-row capabilities-row-top">
-            <article
-              className="cap-card cap-card-machining"
-              ref={(el) => (animRefs.current[1] = el)}
-            >
+            <article className="cap-card cap-card-machining">
               <div className="cap-card-topline">
                 <img src={machineIcon} alt="" />
                 <span>UNIT 04 / OPS</span>
@@ -107,12 +163,9 @@ function CapabilitiesSectionNew() {
               </div>
             </article>
 
-            <article
-              className="cap-card cap-card-visual"
-              ref={(el) => (animRefs.current[2] = el)}
-            >
+            <article className="cap-card cap-card-visual">
               <div className="cap-visual-image" aria-hidden="true">
-                <img src={capVisualImage} />
+                <img src={capVisualImage} alt="Manufacturing Infrastructure" />
               </div>
 
               <div className="cap-visual-overlay">
@@ -132,12 +185,9 @@ function CapabilitiesSectionNew() {
           </div>
 
           <div className="capabilities-row capabilities-row-bottom">
-            <article
-              className="cap-card cap-card-metals"
-              ref={(el) => (animRefs.current[3] = el)}
-            >
+            <article className="cap-card cap-card-metals">
               <div className="cap-card-section-label">
-                <img src={metalWeWork} alt="" className='metal-we-work-img'/>
+                <img src={metalWeWork} alt="" className='metal-we-work-img' />
                 <span>METAL WE WORK</span>
               </div>
 
@@ -151,10 +201,7 @@ function CapabilitiesSectionNew() {
               </div>
             </article>
 
-            <article
-              className="cap-card cap-card-finishing"
-              ref={(el) => (animRefs.current[4] = el)}
-            >
+            <article className="cap-card cap-card-finishing">
               <h3 className="cap-finishing-title mb-0">SURFACE FINISHING</h3>
 
               <div className="cap-finishing-list">
@@ -170,15 +217,15 @@ function CapabilitiesSectionNew() {
 
         {/* Process We Undertake Box */}
         <div className="process-undertake-wrapper">
-            <h2 className="process-main-title">PROCESS WE UNDERTAKE</h2>
-            <div className="process-grid">
-              {mainProcesses.map((item) => (
-                <div key={item.id} className="process-item">
-                  <span className="process-id">PROCESS {item.id}</span>
-                  <h3 className="process-name">{item.name}</h3>
-                </div>
-              ))}
-            </div>
+          <h2 className="process-main-title">PROCESS WE UNDERTAKE</h2>
+          <div className="process-grid">
+            {mainProcesses.map((item) => (
+              <div key={item.id} className="process-item">
+                <span className="process-id">PROCESS {item.id}</span>
+                <h3 className="process-name">{item.name}</h3>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

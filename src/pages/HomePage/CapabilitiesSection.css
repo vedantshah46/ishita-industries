@@ -477,7 +477,7 @@
    when the element enters the viewport.
    ─────────────────────────────────────────────────────────────── */
 
-.capabilities-header {
+.capabilities-kicker {
   opacity: 0;
   transform: translateY(28px);
   transition:
@@ -485,7 +485,7 @@
     transform 0.7s ease-out;
 }
 
-.capabilities-header.is-visible {
+.capabilities-kicker.is-visible {
   opacity: 1;
   transform: translateY(0);
 }

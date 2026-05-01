@@ -137,16 +137,8 @@
 }
 
 /* ── Scroll Animations ───────────────────────────────────── */
-.product-industrial-header-container,
+.product-industrial-header-container > *,
 .product-industrial-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.product-industrial-header-container.is-visible,
-.product-industrial-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

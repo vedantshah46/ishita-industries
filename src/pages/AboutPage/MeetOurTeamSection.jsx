@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './MeetOurTeamSection.css'
 import hiteshImage  from '../../Images/hitesh.png'
@@ -6,8 +6,7 @@ import raviImage    from '../../Images/ravi.png'
 import chintanImage from '../../Images/chintan.png'
 import rajImage     from '../../Images/raj.png'
 import linkedIn from '../../Images/meet-out-team-linkedin.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal   from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
 
 const teamMembers = [
   { name: 'Hitesh Ajudiya', roleKey: 'team.role_finance',    image: hiteshImage  },
@@ -18,17 +17,50 @@ const teamMembers = [
 
 function MeetOurTeamSection() {
   const { t } = useTranslation()
-  const titleRef = useCurtainReveal({ stagger: 0.065 })
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.meet-team-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.team-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          scale: [0.92, 1],
+          duration: 1000,
+          delay: anime.stagger(120),
+          easing: 'easeOutBack(1, .8)'
+        }, '-=400')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="meet-team-section">
+    <section className="meet-team-section" ref={sectionRef}>
       <div className="container meet-team-shell">
-        <div className="meet-team-header" ref={(el) => (animRefs.current[0] = el)}>
+        <div className="meet-team-header">
           <div>
             <p className="meet-team-kicker mb-0">{t('team.kicker')}</p>
-            <h2 className="meet-team-title mb-0" ref={titleRef}>{t('team.title')}</h2>
+            <h2 className="meet-team-title mb-0">{t('team.title')}</h2>
           </div>
         </div>
 
@@ -37,8 +69,6 @@ function MeetOurTeamSection() {
             <article
               key={member.name}
               className="team-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 80}ms` }}
             >
               <div className="team-card-image-wrap">
                 <img src={member.image} alt={member.name} className="team-card-image" />

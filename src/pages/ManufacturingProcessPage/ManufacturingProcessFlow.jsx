@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import './ManufacturingProcessFlow.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs';
 
 import WarehouseScrap from '../../Images/Warehouse for Imported Scrap Honey.png';
 import FoundryImg from '../../Images/Foundry.jpg';
@@ -28,12 +28,11 @@ const processes = [
 ];
 
 const ManufacturingProcessFlow = () => {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+  const [cols, setCols] = useState(3);
 
-  const [cols, setCols] = React.useState(3);
-
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 575) setCols(1);
       else if (window.innerWidth <= 1024) setCols(2);
@@ -44,14 +43,71 @@ const ManufacturingProcessFlow = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  useEffect(() => {
+    if (hasAnimated.current) return;
+
+    // Safety fallback
+    const safetyTimer = setTimeout(() => {
+      if (!hasAnimated.current) {
+        hasAnimated.current = true;
+        const ctx = sectionRef.current;
+        if (ctx) {
+          ctx.querySelectorAll('.mfg-process-header > *, .mfg-process-card-wrapper, .connector').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+          });
+        }
+      }
+    }, 6000);
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        });
+
+        tl.add({
+          targets: '.mfg-process-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.mfg-process-card-wrapper',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          duration: 1000,
+          delay: anime.stagger(80),
+          easing: 'easeOutBack(1, .8)'
+        }, '-=400')
+        .add({
+          targets: '.connector',
+          opacity: [0, 1],
+          scale: [0, 1],
+          duration: 600,
+          delay: anime.stagger(50)
+        }, '-=800');
+
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => {
+      clearTimeout(safetyTimer);
+      observer.disconnect();
+    };
+  }, [cols]);
+
   return (
-    <section className="mfg-process-section">
-      <div
-        className="mfg-process-header"
-        ref={(el) => (animRefs.current[0] = el)}
-      >
-        <div className="mfg-process-kicker">Quality Testing Lab</div>
-        <div className="mfg-process-title">Verified quality. Proven performance.</div>
+    <section className="mfg-process-section" ref={sectionRef}>
+      <div className="mfg-process-header">
+        <div className="mfg-process-kicker">Manufacturing Process</div>
+        <div className="mfg-process-title">Excellence in every step.</div>
       </div>
 
       <div className="mfg-process-shell">
@@ -79,15 +135,11 @@ const ManufacturingProcessFlow = () => {
             let gridColumn = cols === 1 ? 1 : (isEvenRow ? col + 1 : cols - col);
             let gridRow = row + 1;
 
-            // Stagger delay: reset per row, 100ms between cards within row
-            const delayInRow = col * 100;
-
             return (
               <div
                 className={`mfg-process-card-wrapper ${connectionType ? `has-connect-${connectionType}` : ''}`}
                 key={process.id}
-                style={{ '--grid-col': gridColumn, '--grid-row': gridRow, transitionDelay: `${delayInRow}ms` }}
-                ref={(el) => (animRefs.current[index + 1] = el)}
+                style={{ '--grid-col': gridColumn, '--grid-row': gridRow }}
               >
                 <div className="mfg-process-card">
                   <div className="mfg-process-image">

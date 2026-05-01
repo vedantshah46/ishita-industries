@@ -665,54 +665,12 @@
   }
 }
 
-/* ── Scroll Animations ───────────────────────────────────── */
-.ledger-header,
+/* ── Animations ── */
+.ledger-header > *,
 .ledger-card,
-.ledger-infrastructure-content,
-.ledger-infrastructure-image-wrapper,
-.caps-header,
+.ledger-infrastructure > *,
+.caps-header > *,
 .caps-card {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ledger-header.is-visible,
-.ledger-card.is-visible,
-.ledger-infrastructure-content.is-visible,
-.ledger-infrastructure-image-wrapper.is-visible,
-.caps-header.is-visible,
-.caps-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.ledger-header.is-visible {
-  padding: clamp(1.5rem, 4vw, 3rem);
-}
-
-/* Staggered delays for grid items */
-.caps-card:nth-child(1) {
-  transition-delay: 0.1s;
-}
-
-.caps-card:nth-child(2) {
-  transition-delay: 0.2s;
-}
-
-.caps-card:nth-child(3) {
-  transition-delay: 0.3s;
-}
-
-.caps-card:nth-child(4) {
-  transition-delay: 0.4s;
-}
-
-.caps-card:nth-child(5) {
-  transition-delay: 0.5s;
-}
-
-.caps-card:nth-child(6) {
-  transition-delay: 0.6s;
+  will-change: transform, opacity;
 }

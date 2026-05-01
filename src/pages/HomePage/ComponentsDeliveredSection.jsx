@@ -1,37 +1,57 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import './ComponentsDeliveredSection.css'
 import mapImage from '../../Images/component-part-delivered.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import anime from 'animejs'
 
 function ComponentsDeliveredSection() {
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
-  const [count, setCount] = useState(0)
-  const [hasCounted, setHasCounted] = useState(false)
   const containerRef = useRef(null)
+  const numberRef = useRef(null)
+  const hasAnimated = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasCounted) {
-          setHasCounted(true)
-          let start = 0
-          const end = 3500
-          const duration = 2000 // 2 seconds
-          const increment = end / (duration / 16) // 60fps
-          
-          const timer = setInterval(() => {
-            start += increment
-            if (start >= end) {
-              setCount(end)
-              clearInterval(timer)
-            } else {
-              setCount(Math.ceil(start))
-            }
-          }, 16)
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true
+
+          const tl = anime.timeline({
+            easing: 'easeOutQuart'
+          })
+
+          const counterObj = { val: 0 }
+
+          tl.add({
+            targets: '.components-delivered-map',
+            translateX: '-50%',
+            translateY: '-50%',
+            scale: [0.95, 1],
+            opacity: [0, 1],
+            duration: 1200,
+            easing: 'easeOutCubic'
+          })
+            .add({
+              targets: '.components-delivered-text-overlay',
+              translateY: ['-1rem', '-2rem'],
+              opacity: [0, 1],
+              duration: 1000,
+              easing: 'easeOutCubic'
+            }, '-=800')
+            .add({
+              targets: counterObj,
+              val: 3500,
+              duration: 2000,
+              easing: 'easeOutExpo',
+              update: () => {
+                if (numberRef.current) {
+                  numberRef.current.innerText = Math.round(counterObj.val).toLocaleString() + '+'
+                }
+              }
+            }, '-=1000')
+
+          observer.disconnect()
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.05 }
     )
 
     if (containerRef.current) {
@@ -39,26 +59,19 @@ function ComponentsDeliveredSection() {
     }
 
     return () => observer.disconnect()
-  }, [hasCounted])
+  }, [])
 
   return (
-    <section className="components-delivered-section">
+    <section className="components-delivered-section" ref={containerRef}>
       <div className="components-delivered-shell">
         <div className="components-delivered-content">
-          <img 
-            src={mapImage} 
-            alt="Global delivery map" 
-            className="components-delivered-map" 
-            ref={(el) => (animRefs.current[0] = el)}
+          <img
+            src={mapImage}
+            alt="Global delivery map"
+            className="components-delivered-map"
           />
-          <div 
-            className="components-delivered-text-overlay"
-            ref={(el) => {
-              animRefs.current[1] = el
-              containerRef.current = el
-            }}
-          >
-            <h2 className="components-delivered-number">{count}+</h2>
+          <div className="components-delivered-text-overlay">
+            <h2 className="components-delivered-number" ref={numberRef}>0+</h2>
             <p className="components-delivered-label">
               COMPONENTS &amp; PARTS DELIVERED GLOBALLY
             </p>
