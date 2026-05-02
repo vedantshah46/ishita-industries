@@ -1,67 +1,112 @@
-import { motion } from 'motion/react'
+import { useEffect, useRef } from 'react'
 import './SustainabilityHeroSection.css'
 import heroImage from '../../Images/Sustainability_hero_banner.png'
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-}
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { 
-    opacity: 1, 
-    y: 0,
-    transition: { type: "spring", stiffness: 70, damping: 20 } 
-  },
-}
-
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.9, filter: "blur(15px)" },
-  visible: { 
-    opacity: 1, 
-    scale: 1,
-    filter: "blur(0px)",
-    transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 } 
-  },
-}
+import anime from 'animejs'
+import SplitType from 'split-type'
 
 function SustainabilityHeroSection() {
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    // Split the title into characters
+    const titleText = new SplitType('.sust-hero-title', { types: 'lines, words, chars' })
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true
+
+            const tl = anime.timeline({
+              easing: 'spring(1, 80, 10, 0)',
+            })
+
+            // 1. Kicker fade in
+            tl.add({
+              targets: '.sust-hero-kicker',
+              opacity: [0, 1],
+              translateY: [20, 0],
+              duration: 800,
+              easing: 'easeOutExpo'
+            })
+            // 2. Title characters reveal
+            .add({
+              targets: titleText.chars,
+              translateY: [40, 0],
+              opacity: [0, 1],
+              rotateX: [-90, 0],
+              delay: anime.stagger(15),
+              duration: 1200
+            }, '-=600')
+            // 3. Copy fade up
+            .add({
+              targets: '.sust-hero-copy',
+              translateY: [40, 0],
+              opacity: [0, 1],
+              duration: 1000,
+              easing: 'easeOutCubic'
+            }, '-=800')
+            // 4. Visual reveal
+            .add({
+              targets: '.sust-hero-visual',
+              translateY: [50, 0],
+              opacity: [0, 1],
+              scale: [0.95, 1],
+              duration: 1200,
+              easing: 'easeOutQuint'
+            }, '-=1000')
+
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.05 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    // Fallback: If it's the hero section, it should probably animate quickly
+    const timeout = setTimeout(() => {
+      if (!hasAnimated.current && sectionRef.current) {
+        // Double check if we should trigger
+        const rect = sectionRef.current.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Manually trigger if observer missed it
+          sectionRef.current.dispatchEvent(new CustomEvent('trigger-animation')); 
+          // Actually, let's just trigger the timeline logic here if needed, 
+          // but observer is usually fine with threshold 0.05.
+        }
+      }
+    }, 1000);
+
+    return () => {
+      observer.disconnect()
+      titleText.revert()
+    }
+  }, [])
+
   return (
-    <section className="sust-hero-section">
+    <section className="sust-hero-section" ref={sectionRef}>
       <div className="container sust-hero-shell">
         <div className="sust-hero-grid">
 
           {/* Left Column: Content */}
-          <motion.div 
-            className="sust-hero-content"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.p variants={itemVariants} className="sust-hero-kicker">BUILDING A GREENER FUTURE</motion.p>
-            <motion.h1 variants={itemVariants} className="sust-hero-title">
+          <div className="sust-hero-content">
+            <p className="sust-hero-kicker">BUILDING A GREENER FUTURE</p>
+            <h1 className="sust-hero-title" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}>
               Safety, Quality,<br />Excellence.
-            </motion.h1>
-            <motion.p variants={itemVariants} className="sust-hero-copy">
+            </h1>
+            <p className="sust-hero-copy">
               Committed to responsible manufacturing, reducing environmental
               impact, and creating long-term value through sustainable practices.
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
           {/* Right Column: Image */}
-          <motion.div
-            className="sust-hero-visual"
-            variants={imageVariants}
-            initial="hidden"
-            animate="visible"
-          >
+          <div className="sust-hero-visual">
             <div className="sust-hero-image-wrap">
               <img
                 src={heroImage}
@@ -69,7 +114,7 @@ function SustainabilityHeroSection() {
                 className="sust-hero-image"
               />
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>

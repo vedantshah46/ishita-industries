@@ -1,17 +1,61 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './ContactMapSection.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs';
 
 const ContactMapSection = () => {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return;
+      hasAnimated.current = true;
+
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+      });
+
+      tl.add({
+        targets: sectionRef.current.querySelector('.map-heading'),
+        opacity: [0, 1],
+        translateY: [30, 0],
+        duration: 800
+      })
+      .add({
+        targets: sectionRef.current.querySelector('.map-wrapper'),
+        opacity: [0, 1],
+        scale: [0.95, 1],
+        duration: 1000
+      }, '-=400');
+    };
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation();
+    }, 10000);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <section className="contact-map-section">
-      <div 
-        className="contact-map-container"
-        ref={(el) => (animRefs.current[0] = el)}
-      >
+    <section className="contact-map-section" ref={sectionRef}>
+      <div className="contact-map-container">
         <h2 className="map-heading">In Google Map</h2>
         
         <div className="map-wrapper">

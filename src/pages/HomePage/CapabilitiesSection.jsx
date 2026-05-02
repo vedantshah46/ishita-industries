@@ -1,4 +1,6 @@
+import { useRef, useEffect } from 'react'
 import './CapabilitiesSection.css'
+import anime from 'animejs'
 
 const metals = [
   'Stainless Steel',
@@ -16,8 +18,50 @@ const processes = [
 ]
 
 function CapabilitiesSection() {
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true
+
+          const tl = anime.timeline({
+            easing: 'easeOutQuart'
+          })
+
+          tl.add({
+            targets: '.capabilities-header',
+            translateY: [30, 0],
+            opacity: [0, 1],
+            duration: 800,
+          })
+          .add({
+            targets: '.cap-card',
+            translateY: [40, 0],
+            opacity: [0, 1],
+            scale: [0.95, 1],
+            duration: 1000,
+            delay: anime.stagger(150),
+            easing: 'easeOutBack'
+          }, '-=500')
+
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.15 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="capabilities-section">
+    <section className="capabilities-section" ref={sectionRef}>
       <div className="container capabilities-shell">
         <div className="capabilities-header">
           <div>

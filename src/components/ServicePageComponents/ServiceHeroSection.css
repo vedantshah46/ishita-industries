@@ -56,20 +56,17 @@
   margin-top: clamp(1rem, 2vw, 1.8rem);
 }
 
+.service-hero-title,
+.service-hero-tagline {
+  will-change: transform, opacity;
+}
+
 .service-hero-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
   width: 100%;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.service-hero-split.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }
 
 .service-hero-split-text {
@@ -105,7 +102,14 @@
   margin-top: clamp(1.8rem, 3.5vw, 3rem);
 }
 
+.service-hero-split-title,
+.service-hero-split-desc,
+.service-hero-split-line {
+  will-change: transform, opacity;
+}
+
 .service-hero-split-image {
+  will-change: transform, opacity;
   overflow: hidden;
   background: #edf2f6;
 }

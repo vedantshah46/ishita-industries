@@ -126,9 +126,21 @@
   transition: all 0.2s ease;
 }
 
+.contactus-card,
+.contactus-link-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactus-card:hover,
 .contactus-link-card:hover {
-  background-color: #f8f9fa;
-  border-color: #e9ecef;
+  background-color: #ffffff;
+  border-color: #000000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.contactus-title .char {
+  display: inline-block;
 }
 
 .contactus-link-text {
@@ -198,22 +210,18 @@
   }
 }
 
-/* ── Scroll Animations ───────────────────────────────────── */
 .contactus-card,
 .contactus-link-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
-.contactus-card.is-visible,
-.contactus-link-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.contactus-icon,
+.contactus-title,
+.contactus-text,
+.contactus-btn {
+  will-change: transform, opacity;
 }
 
-/* Stagger link cards */
-.contactus-link-card:nth-child(1) { transition-delay: 0.1s; }
-.contactus-link-card:nth-child(2) { transition-delay: 0.2s; }
-.contactus-link-card:nth-child(3) { transition-delay: 0.3s; }
+.contactus-links-grid {
+  transform-style: preserve-3d;
+}

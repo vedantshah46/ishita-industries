@@ -253,20 +253,10 @@
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.quality-assurance-header,
+/* ── Animations ── */
+.quality-assurance-header > *,
 .quality-assurance-card,
-.quality-assurance-badges {
+.quality-assurance-badge {
   opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 0.6s ease-out,
-    transform 0.6s ease-out;
-}
-
-.quality-assurance-header.is-visible,
-.quality-assurance-card.is-visible,
-.quality-assurance-badges.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

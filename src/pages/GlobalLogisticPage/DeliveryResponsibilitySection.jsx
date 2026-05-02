@@ -1,33 +1,65 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './DeliveryResponsibilitySection.css';
 import './GlobalLogisticShell.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
-import useCurtainReveal from '../../hooks/useCurtainReveal';
+import anime from 'animejs';
 
 const DeliveryResponsibilitySection = () => {
-  const titleRef = useCurtainReveal({ stagger: 0.065 });
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+
+            const tl = anime.timeline({
+              easing: 'easeOutExpo',
+            });
+
+            // 1. Header fade in
+            tl.add({
+              targets: '.delivery-header',
+              opacity: [0, 1],
+              translateY: [30, 0],
+              duration: 1000
+            })
+            // 2. Cards staggered reveal
+            .add({
+              targets: '.delivery-card',
+              translateY: [40, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(150),
+              duration: 1200
+            }, '-=600');
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="delivery-responsibility-section">
+    <section className="delivery-responsibility-section" ref={sectionRef}>
       <div className="global-logistic-shell">
-        <div 
-          className="delivery-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="delivery-header">
           <p className="delivery-kicker mb-0">REGULATORY DECLARATION</p>
-          <h2 className="delivery-title mb-0" ref={titleRef}>
+          <h2 className="delivery-title mb-0">
             Delivery Responsibility
           </h2>
         </div>
         
         <div className="delivery-cards-wrapper">
-          <div 
-            className="delivery-card light-card"
-            ref={(el) => (animRefs.current[1] = el)}
-            style={{ transitionDelay: '0ms' }}
-          >
+          <div className="delivery-card light-card">
             <div className="card-top">
               <p className="card-kicker">STANDARD</p>
               <h3 className="card-title">FOB: Free On Board</h3>
@@ -37,11 +69,7 @@ const DeliveryResponsibilitySection = () => {
             </div>
           </div>
 
-          <div 
-            className="delivery-card light-card"
-            ref={(el) => (animRefs.current[2] = el)}
-            style={{ transitionDelay: '100ms' }}
-          >
+          <div className="delivery-card light-card">
             <div className="card-top">
               <p className="card-kicker">INSURANCE</p>
               <h3 className="card-title">CIF: Cost, Insurance &amp; Freight</h3>
@@ -51,11 +79,7 @@ const DeliveryResponsibilitySection = () => {
             </div>
           </div>
 
-          <div 
-            className="delivery-card light-card"
-            ref={(el) => (animRefs.current[3] = el)}
-            style={{ transitionDelay: '200ms' }}
-          >
+          <div className="delivery-card light-card">
             <div className="card-top">
               <p className="card-kicker">CUSTOMS</p>
               <h3 className="card-title">DDU : Delivered Duty Unpaid</h3>
@@ -65,11 +89,7 @@ const DeliveryResponsibilitySection = () => {
             </div>
           </div>
 
-          <div 
-            className="delivery-card dark-card"
-            ref={(el) => (animRefs.current[4] = el)}
-            style={{ transitionDelay: '300ms' }}
-          >
+          <div className="delivery-card dark-card">
             <div className="card-top">
               <p className="card-kicker">PREFERRED SERVICE</p>
               <h3 className="card-title">DDP: Complete Door-to-Door Delivery</h3>

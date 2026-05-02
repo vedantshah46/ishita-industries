@@ -1,9 +1,9 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import "../HomePage/FreeToContactUsSection.css";
 import "./WorkWithUsSection.css";
 import contactlogo from '../../Images/homepage-contact-us-logo.png';
 import arrow from '../../Images/arrow-vector.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs'
 
 const contactLinksData = [
   { text: "Get Company Brochure", href: "#" },
@@ -12,14 +12,53 @@ const contactLinksData = [
 ];
 
 function WorkWithUsSection() {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true;
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        });
+
+        tl.add({
+          targets: '.work-with-us-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.contactus-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          easing: 'easeOutExpo'
+        }, '-=400')
+        .add({
+          targets: '.contactus-link-card',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(120),
+          easing: 'easeOutQuad'
+        }, '-=600');
+
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="free-to-contact-us-section work-with-us-section">
+    <section className="free-to-contact-us-section work-with-us-section" ref={sectionRef}>
       <div className="container contactus-shell">
         
-        {/* The two lines added at the top */}
         <div className="work-with-us-header">
           <h2 className="work-with-us-title">
             Work With Us
@@ -32,7 +71,6 @@ function WorkWithUsSection() {
         <div className="contactus-cta-block">
           <div 
             className="contactus-card"
-            ref={(el) => (animRefs.current[0] = el)}
           >
             
             <div className="contactus-content work-with-us-content">
@@ -61,7 +99,6 @@ function WorkWithUsSection() {
                 key={index} 
                 href={link.href} 
                 className="contactus-link-card"
-                ref={(el) => (animRefs.current[index + 1] = el)}
               >
                 <span className="contactus-link-text">{link.text}</span>
                 <img src={arrow} alt="" className="contact-arrow-img-rotate"/>

@@ -178,40 +178,11 @@
    Images zoom subtly on hover via overflow: hidden on .precision-visual.
    ─────────────────────────────────────────────────────────────── */
 
-.precision-header {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.precision-header.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Left card: slides in from the left */
-.precision-card--left {
-  opacity: 0;
-  transform: translateX(-40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.15s;
-}
-
-/* Right card: slides in from the right */
+.precision-kicker,
+.precision-card--left,
 .precision-card--right {
   opacity: 0;
-  transform: translateX(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  transition-delay: 0.25s;
-}
-
-.precision-card--left.is-visible,
-.precision-card--right.is-visible {
-  opacity: 1;
-  transform: translateX(0);
+  will-change: transform, opacity;
 }
 
 /* Image zoom on hover — .precision-visual already has overflow: hidden */

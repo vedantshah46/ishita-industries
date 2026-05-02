@@ -1,19 +1,54 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './ServicePromiseSection.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs';
 
 const ServicePromiseSection = ({ 
   quoteText, 
   specs = [] 
 }) => {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return;
+      hasAnimated.current = true;
+
+      anime({
+        targets: sectionRef.current,
+        opacity: [0, 1],
+        translateY: [30, 0],
+        easing: 'easeOutExpo',
+        duration: 1000
+      });
+    };
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation();
+    }, 12000);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <section
-      className="service-promise-section"
-      ref={(el) => (animRefs.current[0] = el)}
-    >
+    <section className="service-promise-section" ref={sectionRef}>
       <div className="service-shell">
         <div className="service-promise-content">
           <div className="service-promise-icon" aria-hidden="true">

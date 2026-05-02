@@ -28,20 +28,24 @@
   position: absolute;
   top: 55%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.95);
   width: 100%;
-  max-width: 850px;
+  max-width: 1075px;
   height: auto;
   z-index: 0;
   user-select: none;
   pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
 .components-delivered-text-overlay {
   position: relative;
   z-index: 1;
   text-align: center;
-  transform: translateY(-2rem);
+  transform: translateY(-1rem);
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
 .components-delivered-number {
@@ -91,33 +95,4 @@
     margin: 0 auto;
     line-height: 1.4;
   }
-
-  .components-delivered-text-overlay.is-visible {
-    transform: translateY(-1rem);
-  }
-}
-
-/* ── Scroll Animations ───────────────────────────────────── */
-.components-delivered-map {
-  opacity: 0;
-  scale: 0.95;
-  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
-    scale 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.components-delivered-map.is-visible {
-  opacity: 1;
-  scale: 1;
-}
-
-.components-delivered-text-overlay {
-  opacity: 0;
-  transform: translateY(-1rem);
-  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.components-delivered-text-overlay.is-visible {
-  opacity: 1;
-  transform: translateY(-2rem);
 }

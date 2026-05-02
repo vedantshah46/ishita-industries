@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 import './UniqueSellingPropositionSection.css'
 
 const uspItems = [
-  { id: '01', titleKey: 'usp.card1_title', descKey: 'usp.card1_desc', featureClass: 'usp-feature-material',    icon: 'integrity'   },
+  { id: '01', titleKey: 'usp.card1_title', descKey: 'usp.card1_desc', featureClass: 'usp-feature-material', icon: 'integrity' },
   { id: '02', titleKey: 'usp.card2_title', descKey: 'usp.card2_desc', featureClass: 'usp-feature-engineering', icon: 'engineering' },
-  { id: '03', titleKey: 'usp.card3_title', descKey: 'usp.card3_desc', featureClass: 'usp-feature-rfq',         icon: 'rfq'         },
-  { id: '04', titleKey: 'usp.card4_title', descKey: 'usp.card4_desc', featureClass: 'usp-feature-quality',     icon: 'quality'     },
-  { id: '05', titleKey: 'usp.card5_title', descKey: 'usp.card5_desc', featureClass: 'usp-feature-oem',         icon: 'oem'         },
+  { id: '03', titleKey: 'usp.card3_title', descKey: 'usp.card3_desc', featureClass: 'usp-feature-rfq', icon: 'rfq' },
+  { id: '04', titleKey: 'usp.card4_title', descKey: 'usp.card4_desc', featureClass: 'usp-feature-quality', icon: 'quality' },
+  { id: '05', titleKey: 'usp.card5_title', descKey: 'usp.card5_desc', featureClass: 'usp-feature-oem', icon: 'oem' },
   { id: '06', titleKey: 'usp.card6_title', descKey: 'usp.card6_desc', featureClass: 'usp-feature-partnership', icon: 'partnership' },
 ]
 
@@ -55,12 +55,12 @@ function Icon({ type }) {
 
 function UniqueSellingPropositionSection() {
   const { t } = useTranslation()
-  const sectionRef  = useRef(null)
+  const sectionRef = useRef(null)
   const showcaseRef = useRef(null)
 
   useEffect(() => {
     const showcase = showcaseRef.current
-    const section  = sectionRef.current
+    const section = sectionRef.current
     if (!showcase || !section) return
 
     const observer = new IntersectionObserver(

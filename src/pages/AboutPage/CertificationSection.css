@@ -132,16 +132,9 @@
     letter-spacing: 3px;
 }
 }
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.cert-header,
+/* ── Animations ── */
+.cert-header > *,
 .cert-card-wrapper {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.cert-header.is-visible,
-.cert-card-wrapper.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

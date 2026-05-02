@@ -23,15 +23,15 @@
   padding: clamp(2rem, 4vw, 3rem);
   display: flex;
   flex-direction: column;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
 }
 
-.info-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.info-icon,
+.info-title,
+.info-list li,
+.info-text {
+  will-change: transform, opacity;
 }
 
 .email-card {

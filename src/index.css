@@ -18,6 +18,30 @@ body {
   background-color: #FAFAFA;
   overflow-x: hidden;
   max-width: 100vw;
+  /* Ensure Lenis has a clear path */
+  height: auto;
+}
+
+/* Lenis essential CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 #root {

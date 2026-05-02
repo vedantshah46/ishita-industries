@@ -6,15 +6,6 @@
 .complete-delivery-header {
   text-align: center;
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.complete-delivery-header.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .complete-delivery-kicker {
@@ -43,15 +34,22 @@
 .complete-delivery-content {
   background-color: #F2F4F4;
   padding: clamp(2rem, 4vw, 50px) clamp(1.25rem, 3vw, 35px);
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.complete-delivery-content.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.logistic-spec-card {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-left: 4px solid #5F5E5E;
+}
+
+.complete-delivery-header,
+.complete-delivery-content,
+.logistic-spec-card {
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
 .ddp-top-row {

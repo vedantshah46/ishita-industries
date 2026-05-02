@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import { useRef, useEffect } from 'react'
+import anime from 'animejs'
 import './ArchitecturalLedgerSection.css'
 import foundationOfModernInfra from '../../Images/foundation-of-modern-infra.png'
 import backboneOfPrecision from '../../Images/backbone-of-precision.png' 
@@ -43,17 +43,86 @@ const capabilitiesData = [
 ]
 
 function ArchitecturalLedgerSection() {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const ledgerRef = useRef(null)
+  const capsRef = useRef(null)
+  const hasAnimatedLedger = useRef(false)
+  const hasAnimatedCaps = useRef(false)
+
+  // Ledger Animation
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimatedLedger.current) {
+        hasAnimatedLedger.current = true
+        const tl = anime.timeline({ easing: 'easeOutQuart' })
+
+        tl.add({
+          targets: '.ledger-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.ledger-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          duration: 1000,
+          delay: anime.stagger(150),
+          easing: 'easeOutBack(1, .8)'
+        }, '-=400')
+        .add({
+          targets: '.ledger-infrastructure > *',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          delay: anime.stagger(200)
+        }, '-=600')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (ledgerRef.current) observer.observe(ledgerRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  // Capabilities Animation
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimatedCaps.current) {
+        hasAnimatedCaps.current = true
+        const tl = anime.timeline({ easing: 'easeOutQuart' })
+
+        tl.add({
+          targets: '.caps-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.caps-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          duration: 1000,
+          delay: anime.stagger(100),
+          easing: 'easeOutBack(1.2, .8)'
+        }, '-=400')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (capsRef.current) observer.observe(capsRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <>
-      <section className="architectural-ledger-section">
+      <section className="architectural-ledger-section" ref={ledgerRef}>
         <div className="container ledger-shell">
-        <div 
-          className="ledger-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="ledger-header">
           <div>
             <p className="ledger-kicker mb-0">FROM VISION TO MANUFACTURING</p>
             <h2 className="ledger-title mb-0">
@@ -64,14 +133,10 @@ function ArchitecturalLedgerSection() {
 
         <div className="ledger-bento">
           {/* Box 01 */}
-          <article 
-            className="ledger-card ledger-card--inception"
-            ref={(el) => (animRefs.current[1] = el)}
-          >
+          <article className="ledger-card ledger-card--inception">
             <div className="ledger-card-content">
               <span className="ledger-number">01 — INCEPTION</span>
               <div>
-
               <h3 className="ledger-inception-title">Defining the <br /> foundation of modern infrastructure.</h3>
               </div>
               <div className="ledger-inception-row">
@@ -86,16 +151,13 @@ function ArchitecturalLedgerSection() {
           </article>
 
           {/* Box 02 */}
-          <article 
-            className="ledger-card ledger-card--applications"
-            ref={(el) => (animRefs.current[2] = el)}
-          >
+          <article className="ledger-card ledger-card--applications">
             <span className="ledger-number ledger-number--dark">02 — APPLICATIONS</span>
             <h3 className="ledger-applications-title">Systemic Utility</h3>
             <ul className="ledger-applications-list">
               {applicationsList.map((app) => (
                 <li key={app.id}>
-                  <span className="app-icon" aria-hidden="true">{app.icon}</span>
+                   <span className="app-icon" aria-hidden="true">{app.icon}</span>
                   <span className="app-text">{app.text}</span>
                 </li>
               ))}
@@ -103,10 +165,7 @@ function ArchitecturalLedgerSection() {
           </article>
 
           {/* Box 03 */}
-          <article 
-            className="ledger-card ledger-card--saga"
-            ref={(el) => (animRefs.current[3] = el)}
-          >
+          <article className="ledger-card ledger-card--saga">
             <span className="ledger-number">03 — SUCCESS SAGA</span>
             <h3 className="ledger-saga-title">The journey of growth.</h3>
             <p className="ledger-saga-desc">
@@ -123,10 +182,7 @@ function ArchitecturalLedgerSection() {
           </article>
 
           {/* Box 04 */}
-          <article 
-            className="ledger-card ledger-card--satisfaction"
-            ref={(el) => (animRefs.current[4] = el)}
-          >
+          <article className="ledger-card ledger-card--satisfaction">
             <span className="ledger-number">04 — CLIENT SATISFACTION</span>
             <div className="ledger-satisfaction-content">
               <p className="ledger-quote italic mb-0">
@@ -142,10 +198,7 @@ function ArchitecturalLedgerSection() {
         </div>
 
         <div className="ledger-infrastructure">
-          <div 
-            className="ledger-infrastructure-content"
-            ref={(el) => (animRefs.current[5] = el)}
-          >
+          <div className="ledger-infrastructure-content">
             <span className="ledger-number">05 — INFRASTRUCTURE</span>
             <h3 className="ledger-infrastructure-title">THE BACKBONE OF<br />PRECISION.</h3>
             <p className="ledger-infrastructure-desc">
@@ -155,10 +208,7 @@ function ArchitecturalLedgerSection() {
               The use of Dual Frequency induction furnace for melting and alloying, Heavy presses for extrusion assure precision in production.
             </p>
           </div>
-          <div 
-            className="ledger-infrastructure-image-wrapper"
-            ref={(el) => (animRefs.current[6] = el)}
-          >
+          <div className="ledger-infrastructure-image-wrapper">
             <img src={backboneOfPrecision} alt="Infrastructure" className="ledger-infrastructure-image" />
           </div>
         </div>
@@ -166,12 +216,9 @@ function ArchitecturalLedgerSection() {
     </section>
 
       {/* 06 Capabilities */}
-      <section className="ledger-capabilities-section">
+      <section className="ledger-capabilities-section" ref={capsRef}>
         <div className="container ledger-shell">
-          <div 
-            className="caps-header"
-            ref={(el) => (animRefs.current[7] = el)}
-          >
+          <div className="caps-header">
             <div>
               <p className="ledger-kicker mb-0">06 — OUR STRENGTHS</p>
               <h2 className="ledger-title mb-0">CORE CAPABILITIES.</h2>
@@ -186,7 +233,6 @@ function ArchitecturalLedgerSection() {
               <article 
                 key={cap.id} 
                 className="caps-card"
-                ref={(el) => (animRefs.current[8 + idx] = el)}
               >
                 <span className="caps-number">{cap.number}</span>
                 <h3 className="caps-title">{cap.title}</h3>

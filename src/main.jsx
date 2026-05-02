@@ -19,11 +19,14 @@ gsap.registerPlugin(ScrollTrigger)
 // We drive it through GSAP's ticker so ScrollTrigger stays in sync.
 
 const lenis = new Lenis({
-  duration: 1.1,
-  // easeOutExpo: snappy start, graceful deceleration
-  easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)),
+  duration: 1.5, // Slower, more luxurious scroll
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smoother deceleration
+  direction: 'vertical',
+  gestureDirection: 'vertical',
   smoothWheel: true,
-  touchMultiplier: 1.5,
+  wheelMultiplier: 1,
+  touchMultiplier: 2,
+  infinite: false,
 })
 
 // Tell GSAP ScrollTrigger about every Lenis scroll event

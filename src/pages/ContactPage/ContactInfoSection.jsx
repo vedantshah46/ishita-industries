@@ -1,21 +1,83 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './ContactInfoSection.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
+import anime from 'animejs';
 
 const ContactInfoSection = () => {
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const triggerAnimation = () => {
+      if (hasAnimated.current || !sectionRef.current) return;
+      hasAnimated.current = true;
+
+      const tl = anime.timeline({
+        easing: 'easeOutExpo',
+      });
+
+      const cards = sectionRef.current.querySelectorAll('.info-card');
+      const icons = sectionRef.current.querySelectorAll('.info-icon');
+      const titles = sectionRef.current.querySelectorAll('.info-title');
+      const contents = sectionRef.current.querySelectorAll('.info-list li, .info-text');
+
+      tl.add({
+        targets: cards,
+        opacity: [0, 1],
+        translateY: [60, 0],
+        rotateX: [-15, 0],
+        delay: anime.stagger(200),
+        duration: 1200,
+        begin: (anim) => {
+          sectionRef.current.style.perspective = '1000px';
+        }
+      })
+      .add({
+        targets: icons,
+        scale: [0, 1],
+        opacity: [0, 1],
+        duration: 800,
+        delay: anime.stagger(100)
+      }, '-=1000')
+      .add({
+        targets: [titles, contents],
+        opacity: [0, 1],
+        translateY: [20, 0],
+        delay: anime.stagger(50),
+        duration: 800
+      }, '-=800');
+    };
+
+    const timer = setTimeout(() => {
+      if (!hasAnimated.current) triggerAnimation();
+    }, 6000);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <section className="contact-info-section">
+    <section className="contact-info-section" ref={sectionRef}>
       <div className="contact-info-container">
         <div className="contact-cards-wrapper">
 
           {/* Left Column: Email */}
-          <div 
-            className="info-card email-card"
-            ref={(el) => (animRefs.current[0] = el)}
-          >
+          <div className="info-card email-card">
             <div className="info-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#343434" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="3" y="5" width="18" height="14" rx="2" ry="2"></rect>
@@ -36,11 +98,7 @@ const ContactInfoSection = () => {
           <div className="right-cards">
 
             {/* Address */}
-            <div 
-              className="info-card address-card"
-              ref={(el) => (animRefs.current[1] = el)}
-              style={{ transitionDelay: '100ms' }}
-            >
+            <div className="info-card address-card">
               <div className="info-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#343434" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -54,11 +112,7 @@ const ContactInfoSection = () => {
             </div>
 
             {/* Contact */}
-            <div 
-              className="info-card contact-card"
-              ref={(el) => (animRefs.current[2] = el)}
-              style={{ transitionDelay: '200ms' }}
-            >
+            <div className="info-card contact-card">
               <div className="info-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#343434" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>

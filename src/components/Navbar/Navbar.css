@@ -90,32 +90,37 @@
   transform: translateX(-50%);
   background: #fff;
   border: 1px solid #e6e6ea;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
   padding: 0.5rem 0;
   list-style: none;
   margin: 0;
   min-width: 210px;
   z-index: 300;
   border-radius: 6px;
+  visibility: hidden;
+  opacity: 0;
   pointer-events: none;
-  clip-path: inset(0 0 100% 0 round 6px);
-  transition: clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(-50%, 10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0.25s;
 }
 
 /* hover bridge — fills the gap so cursor can travel from nav link to dropdown */
 .nav-dropdown::before {
   content: '';
   position: absolute;
-  top: -1.5rem;
-  left: -1rem;
-  right: -1rem;
-  height: 1.5rem;
+  top: -1.25rem; /* Reduced from -2rem to avoid covering the link */
+  left: 0;
+  right: 0;
+  height: 1.25rem;
   background: transparent;
 }
 
 .has-dropdown:hover .nav-dropdown {
+  visibility: visible;
+  opacity: 1;
   pointer-events: auto;
-  clip-path: inset(0 0 0% 0 round 6px);
+  transform: translate(-50%, 0);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s 0s;
 }
 
 .nav-dropdown li a {
@@ -164,7 +169,8 @@
   }
 
   .nav-dropdown {
-    display: block; /* Override desktop display: none */
+    display: block;
+    /* Override desktop display: none */
     position: static;
     transform: none;
     box-shadow: none;
@@ -178,7 +184,7 @@
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding 0.3s ease-in-out, border-color 0.3s ease-in-out;
   }
-  
+
   .has-dropdown.mobile-open .nav-dropdown {
     max-height: 400px;
     opacity: 1;
@@ -443,6 +449,11 @@
 }
 
 .lang-option--active {
+  font-weight: 600;
+  color: #111;
+}
+
+lang-option--active {
   font-weight: 600;
   color: #111;
 }

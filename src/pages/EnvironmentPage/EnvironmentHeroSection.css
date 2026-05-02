@@ -203,17 +203,10 @@
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
+/* ── Animation defaults ─────────────────────────────────────── */
+.environment-hero-kicker,
 .environment-hero-meta,
 .environment-hero-visual {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.environment-hero-meta.is-visible,
-.environment-hero-visual.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

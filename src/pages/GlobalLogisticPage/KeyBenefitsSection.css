@@ -11,14 +11,6 @@
 .key-benefits-header {
   text-align: center;
   margin-bottom: clamp(4rem, 7vw, 6.5rem);
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.key-benefits-header.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .key-benefits-kicker {
@@ -44,28 +36,23 @@
   color: #343434;
 }
 
-/* ─── Cards Grid ─────────────────────────────────────────── */
 .key-benefits-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(2rem, 4vw, 4rem);
 }
 
-/* ─── Individual Card ────────────────────────────────────── */
 .key-benefit-card {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.key-benefit-card.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.key-benefits-header,
+.key-benefit-card {
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
 /* ─── Icon Container ─────────────────────────────────────── */

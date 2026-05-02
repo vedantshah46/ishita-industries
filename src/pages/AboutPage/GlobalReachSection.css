@@ -397,18 +397,12 @@ padding-left: clamp(2.5rem, 5.5vw, 1.5rem); /* Increased left padding */
   }
 }
 
-/* ── Scroll-reveal states ───────────────────────────────────── */
-.global-reach-header,
+/* ── Animations ── */
+.global-reach-header > *,
 .global-reach-banner-container,
-.global-reach-world-container {
+.global-reach-stat-card,
+.global-reach-world-container,
+.global-reach-flag-item {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease-out, transform 0.65s ease-out;
-}
-
-.global-reach-header.is-visible,
-.global-reach-banner-container.is-visible,
-.global-reach-world-container.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  will-change: transform, opacity;
 }

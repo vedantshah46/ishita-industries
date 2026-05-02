@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './QualityAssuranceSection.css'
 import vernierImage from '../../Images/quality-assurance-one.png'
@@ -15,8 +15,7 @@ import tuvLogo from '../../Images/iso-certificate-four.svg'
 import ppapLogo from '../../Images/iso-certificate-five.svg'
 import ipqaLogo from '../../Images/iso-certificate-seven.svg'
 import sevenQcLogo from '../../Images/iso-certificate-six.svg'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
-import useCurtainReveal from '../../hooks/useCurtainReveal'
+import anime from 'animejs'
 
 const equipmentImages = [vernierImage, visionImage, sortingImage, visionImage, hardnessImage, roughnessImage, threadImage, heightImage]
 const equipmentKeys = ['quality.tool_1', 'quality.tool_2', 'quality.tool_3', 'quality.tool_4', 'quality.tool_5', 'quality.tool_6', 'quality.tool_7', 'quality.tool_8']
@@ -33,17 +32,57 @@ const assuranceBadges = [
 
 function QualityAssuranceSection() {
   const { t } = useTranslation()
-  const titleRef = useCurtainReveal({ stagger: 0.065 })
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+        
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.quality-assurance-header > *',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(150)
+        })
+        .add({
+          targets: '.quality-assurance-card',
+          translateY: [40, 0],
+          opacity: [0, 1],
+          scale: [0.95, 1],
+          duration: 1000,
+          delay: anime.stagger(100),
+          easing: 'easeOutBack(1, .8)'
+        }, '-=400')
+        .add({
+          targets: '.quality-assurance-badge',
+          scale: [0.8, 1],
+          opacity: [0, 1],
+          duration: 800,
+          delay: anime.stagger(80)
+        }, '-=600')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.1 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="quality-assurance-section">
+    <section className="quality-assurance-section" ref={sectionRef}>
       <div className="container quality-assurance-shell">
-        <div className="quality-assurance-header" ref={(el) => (animRefs.current[0] = el)}>
+        <div className="quality-assurance-header">
           <div>
             <p className="quality-assurance-kicker mb-0">{t('quality.kicker')}</p>
-            <h2 className="quality-assurance-title mb-0" ref={titleRef}>{t('quality.title')}</h2>
+            <h2 className="quality-assurance-title mb-0">{t('quality.title')}</h2>
           </div>
         </div>
 
@@ -52,8 +91,6 @@ function QualityAssuranceSection() {
             <article
               key={key}
               className="quality-assurance-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 60}ms` }}
             >
               <div className="quality-assurance-image-wrap">
                 <img src={equipmentImages[index]} alt={t(key)} className="quality-assurance-image" />
@@ -63,7 +100,7 @@ function QualityAssuranceSection() {
           ))}
         </div>
 
-        <div className="quality-assurance-badges" ref={(el) => (animRefs.current[9] = el)}>
+        <div className="quality-assurance-badges">
           {assuranceBadges.map((badge) => (
             <div key={badge.title} className="quality-assurance-badge">
               <img src={badge.image} alt={badge.title} className="quality-assurance-badge-image" />

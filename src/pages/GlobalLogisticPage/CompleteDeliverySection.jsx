@@ -1,31 +1,71 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './CompleteDeliverySection.css';
 import './GlobalLogisticShell.css';
-import useScrollAnimation from '../../hooks/useScrollAnimation';
-import useCurtainReveal from '../../hooks/useCurtainReveal';
+import anime from 'animejs';
 
 const CompleteDeliverySection = () => {
-  const titleRef = useCurtainReveal({ stagger: 0.065 });
-  const animRefs = useRef([]);
-  useScrollAnimation(animRefs);
+  const sectionRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated.current) {
+            hasAnimated.current = true;
+
+            const tl = anime.timeline({
+              easing: 'easeOutExpo',
+            });
+
+            // 1. Section header fade in
+            tl.add({
+              targets: '.complete-delivery-header',
+              opacity: [0, 1],
+              translateY: [30, 0],
+              duration: 1000
+            })
+            // 2. Main content block fade up
+            .add({
+              targets: '.complete-delivery-content',
+              opacity: [0, 1],
+              translateY: [30, 0],
+              duration: 1000
+            }, '-=600')
+            // 3. Staggered reveal of spec cards
+            .add({
+              targets: '.logistic-spec-card',
+              translateY: [40, 0],
+              opacity: [0, 1],
+              delay: anime.stagger(150),
+              duration: 1200
+            }, '-=800');
+
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="complete-delivery-section">
+    <section className="complete-delivery-section" ref={sectionRef}>
       <div className="global-logistic-shell">
-        <div 
-          className="complete-delivery-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="complete-delivery-header">
           <p className="complete-delivery-kicker mb-0">SERVICE CLASSIFICATION : INCOTERM 2020</p>
-          <h2 className="complete-delivery-title mb-0" ref={titleRef}>
+          <h2 className="complete-delivery-title mb-0">
             Complete Delivery Responsibility
           </h2>
         </div>
         
-        <div 
-          className="complete-delivery-content"
-          ref={(el) => (animRefs.current[1] = el)}
-        >
+        <div className="complete-delivery-content">
           <div className="ddp-top-row">
             <div className="ddp-text-col">
               <h3 className="ddp-title">DDP - Complete Delivery<br />Responsibility</h3>
@@ -58,11 +98,7 @@ const CompleteDeliverySection = () => {
           </div>
 
           <div className="logistic-spec-cards-wrapper">
-            <div 
-              className="logistic-spec-card"
-              ref={(el) => (animRefs.current[2] = el)}
-              style={{ transitionDelay: '0ms' }}
-            >
+            <div className="logistic-spec-card">
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
               </div>
@@ -73,11 +109,7 @@ const CompleteDeliverySection = () => {
               <p className="logistic-spec-card-kicker">ACTIVE NETWORK</p>
             </div>
 
-            <div 
-              className="logistic-spec-card"
-              ref={(el) => (animRefs.current[3] = el)}
-              style={{ transitionDelay: '150ms' }}
-            >
+            <div className="logistic-spec-card">
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h12"></path><path d="M4 14h9"></path><path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"></path></svg>
               </div>
@@ -88,11 +120,7 @@ const CompleteDeliverySection = () => {
               <p className="logistic-spec-card-kicker">SCHENGEN OPTIMIZED</p>
             </div>
 
-            <div 
-              className="logistic-spec-card"
-              ref={(el) => (animRefs.current[4] = el)}
-              style={{ transitionDelay: '300ms' }}
-            >
+            <div className="logistic-spec-card">
               <div className="logistic-spec-icon">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2D3435" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
               </div>

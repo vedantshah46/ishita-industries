@@ -1,14 +1,14 @@
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './PrecisionComponentsSection.css'
 import turnedImage from '../../Images/brass-turned-component.png'
 import forgedImage from '../../Images/brass-forged-component.png'
 import millingImage from '../../Images/brass-milling-component.png'
 import broachImage from '../../Images/bras-broach-component.png'
-import  stampingImage from '../../Images/brass-stamping-component.png'
+import stampingImage from '../../Images/brass-stamping-component.png'
 import castingImage from '../../Images/brass-casting-component.png'
 import arrowVector from '../../Images/arrow-vector.png'
-import useScrollAnimation from '../../hooks/useScrollAnimation'
+import anime from 'animejs'
 
 const componentCards = [
   {
@@ -38,16 +38,45 @@ const componentCards = [
 ]
 
 function PrecisionComponentsSection() {
-  const animRefs = useRef([])
-  useScrollAnimation(animRefs)
+  const sectionRef = useRef(null)
+  const hasAnimated = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasAnimated.current) {
+        hasAnimated.current = true
+
+        const tl = anime.timeline({
+          easing: 'easeOutQuart'
+        })
+
+        tl.add({
+          targets: '.precision-components-header',
+          translateY: [30, 0],
+          opacity: [0, 1],
+          duration: 800,
+        })
+          .add({
+            targets: '.precision-components-card',
+            translateY: [30, 0],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(100),
+            easing: 'easeOutBack'
+          }, '-=600')
+
+        observer.disconnect()
+      }
+    }, { threshold: 0.15 })
+
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <section className="precision-components-section">
+    <section className="precision-components-section" ref={sectionRef}>
       <div className="container precision-components-shell">
-        <div 
-          className="precision-components-header"
-          ref={(el) => (animRefs.current[0] = el)}
-        >
+        <div className="precision-components-header">
           <div>
             <p className="precision-components-kicker mb-0">ALL KINDS OF PRECISION</p>
             <h2 className="precision-components-title mb-0">
@@ -57,13 +86,12 @@ function PrecisionComponentsSection() {
         </div>
 
         <div className="precision-components-grid">
-          {componentCards.map((card, index) => (
-            <Link 
+          {componentCards.map((card) => (
+            <Link
               to="/product/electric-pin"
-              key={card.title} 
+              key={card.title}
               className="precision-components-card"
-              ref={(el) => (animRefs.current[1 + index] = el)}
-              style={{ transitionDelay: `${index * 100}ms`, textDecoration: 'none' }}
+              style={{ textDecoration: 'none' }}
             >
               <div className="precision-components-visual">
                 <img src={card.image} alt="" className="precision-components-image" />

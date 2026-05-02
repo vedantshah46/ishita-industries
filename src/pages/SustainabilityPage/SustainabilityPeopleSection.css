@@ -46,6 +46,7 @@
 .sust-people-content {
   display: flex;
   flex-direction: column;
+  max-width: 550px;
 }
 
 .sust-people-kicker {
@@ -147,24 +148,14 @@
   }
 }
 
-/* Scroll Animation States */
+/* Animation defaults */
 .sust-people-visual,
-.sust-people-content {
+.sust-people-kicker,
+.sust-people-title,
+.sust-people-copy,
+.sust-stat-item {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sust-people-visual.is-visible,
-.sust-people-content.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.sust-people-content {
-  transition-delay: 0.1s;
-  max-width: 550px;
+  will-change: transform, opacity;
 }
 
 /* Container breakpoints */
