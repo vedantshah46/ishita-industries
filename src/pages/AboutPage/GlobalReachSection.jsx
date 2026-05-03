@@ -28,11 +28,13 @@ const flagsData = [
   { id: 2, image: thaiLandFlag,    alt: 'Thailand'     },
   { id: 3, image: canadaFlag,      alt: 'Canada'       },
   { id: 4, image: uaeFlag,         alt: 'UAE'          },
-  { id: 5, image: ausFlag,         alt: 'Australia'    },
-  { id: 6, image: southAfricaFlag, alt: 'South Africa' },
+  // { id: 5, image: ausFlag,         alt: 'Australia'    },
+  // { id: 5, image: southAfricaFlag, alt: 'South Africa' },
+  { id: 5, image: franceFlag,      alt: 'France'       },
+  { id: 6, image: saudiArabiaFlag, alt: 'Saudi Arabia' },
   { id: 7, image: starFlag,        alt: 'Star'         },
-  { id: 8, image: saudiArabiaFlag, alt: 'Saudi Arabia' },
-  { id: 9, image: franceFlag,      alt: 'France'       },
+
+
 ]
 
 function GlobalReachSection() {
