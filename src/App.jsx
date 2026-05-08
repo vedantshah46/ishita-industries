@@ -8,6 +8,8 @@ const Homepage    = lazy(() => import('./pages/HomePage/HomePage'))
 const About       = lazy(() => import('./pages/AboutPage/About'))
 const ProductPage = lazy(() => import('./pages/ProductPage/ProductPage'))
 const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage/ProductDetailsPage'))
+const SubCategoryPage    = lazy(() => import('./pages/SubCategoryPage/SubCategoryPage'))
+const ProductListPage    = lazy(() => import('./pages/ProductListPage/ProductListPage'))
 const QualityPage = lazy(() => import('./pages/QualityPage/QualityPage'))
 const ImportExportPage = lazy(() => import('./pages/ImportExportPage/ImportExportPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage/ContactPage'))
@@ -42,7 +44,9 @@ function App() {
           <Route path="/"      element={<Homepage />} />
           <Route path="/about" element={<About />} />
           <Route path="/product" element={<ProductPage />} />
-          <Route path="/product/:slug" element={<ProductDetailsPage />} />
+          <Route path="/product/:superCat/:subCat/:slug" element={<ProductDetailsPage />} />
+          <Route path="/product/:superCat/:subCat" element={<ProductListPage />} />
+          <Route path="/product/:superCat" element={<SubCategoryPage />} />
           <Route path="/quality" element={<QualityPage />} />
           <Route path="/environment" element={<EnvironmentPage />} />
           <Route path="/import-export" element={<ImportExportPage />} />

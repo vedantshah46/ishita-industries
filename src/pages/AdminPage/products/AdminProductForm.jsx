@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { supabase } from '../../../lib/supabase'
+import { CATEGORIES } from '../../../data/categories'
 import LoadingSpinner from '../../../components/ui/LoadingSpinner'
 import Toast from '../../../components/ui/Toast'
 
@@ -24,6 +25,7 @@ function AdminProductForm() {
     name: '',
     slug: '',
     category: 'precision',
+    sub_category: '',
     description: '',
     image_url: '',
     is_active: true,
@@ -53,13 +55,14 @@ function AdminProductForm() {
       }
 
       setForm({
-        name:       data.name        || '',
-        slug:       data.slug        || '',
-        category:   data.category    || 'precision',
-        description: data.description || '',
-        image_url:  data.image_url   || '',
-        is_active:  data.is_active   ?? true,
-        sort_order: data.sort_order  ?? 0,
+        name:         data.name         || '',
+        slug:         data.slug         || '',
+        category:     data.category     || 'precision',
+        sub_category: data.sub_category || '',
+        description:  data.description  || '',
+        image_url:    data.image_url    || '',
+        is_active:    data.is_active    ?? true,
+        sort_order:   data.sort_order   ?? 0,
       })
 
       setGalleryImages(
@@ -142,14 +145,15 @@ function AdminProductForm() {
       const primaryUrl = resolved[0]?.image_url || form.image_url
 
       const productData = {
-        name:        form.name,
-        slug:        form.slug,
-        category:    form.category,
-        description: form.description,
-        image_url:   primaryUrl,
-        is_active:   form.is_active,
-        sort_order:  parseInt(form.sort_order) || 0,
-        updated_at:  new Date().toISOString(),
+        name:         form.name,
+        slug:         form.slug,
+        category:     form.category,
+        sub_category: form.sub_category || null,
+        description:  form.description,
+        image_url:    primaryUrl,
+        is_active:    form.is_active,
+        sort_order:   parseInt(form.sort_order) || 0,
+        updated_at:   new Date().toISOString(),
       }
 
       let productId = id
@@ -248,20 +252,38 @@ function AdminProductForm() {
           </div>
         </div>
 
-        {/* ── Category & Sort Order ─────────────────────────────── */}
+        {/* ── Category & Sub-Category ───────────────────────────── */}
         <div className="admin-form-row">
           <div className="admin-form-group">
             <label className="admin-form-label">Category *</label>
             <select
               className="admin-form-select"
               value={form.category}
-              onChange={(e) => setForm(prev => ({ ...prev, category: e.target.value }))}
+              onChange={(e) => setForm(prev => ({ ...prev, category: e.target.value, sub_category: '' }))}
             >
-              <option value="precision">Precision Machining</option>
-              <option value="industrial">Industrial Components</option>
-              <option value="extrusion">Extrusion Products</option>
+              {CATEGORIES.map(cat => (
+                <option key={cat.slug} value={cat.slug}>{cat.name}</option>
+              ))}
             </select>
           </div>
+          <div className="admin-form-group">
+            <label className="admin-form-label">Sub-Category *</label>
+            <select
+              className="admin-form-select"
+              value={form.sub_category}
+              onChange={(e) => setForm(prev => ({ ...prev, sub_category: e.target.value }))}
+              required
+            >
+              <option value="">— Select sub-category —</option>
+              {(CATEGORIES.find(c => c.slug === form.category)?.subcategories || []).map(sub => (
+                <option key={sub.slug} value={sub.slug}>{sub.name}</option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {/* ── Sort Order ────────────────────────────────────────── */}
+        <div className="admin-form-row">
           <div className="admin-form-group">
             <label className="admin-form-label">Sort Order</label>
             <input

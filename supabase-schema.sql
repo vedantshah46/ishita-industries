@@ -11,6 +11,7 @@ create table products (
   name        text not null,
   description text,
   category    text not null,               -- 'precision' | 'industrial' | 'extrusion'
+  sub_category text,                        -- e.g. 'brass-turned' | 'electric' | 'brass-extrusion-rods'
   image_url   text,
   is_active   boolean default true,
   sort_order  integer default 0,
