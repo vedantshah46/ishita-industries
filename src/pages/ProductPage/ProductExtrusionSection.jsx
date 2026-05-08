@@ -73,7 +73,7 @@ function ProductExtrusionSection() {
             ))
             : products.map((card, index) => (
               <Link 
-                to="/product/electric-pin"
+                to={`/product/${card.slug}`}
                 key={card.slug}
                 className="product-extrusion-card-link"
               >

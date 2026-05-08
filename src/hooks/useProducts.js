@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { precisionProducts, industrialProducts, extrusionProducts, staticProducts } from '../data/staticProducts.js'
+import { precisionProducts, industrialProducts, extrusionProducts, staticProducts, staticProductDetails } from '../data/staticProducts.js'
 import { supabase } from '../lib/supabase.js'
 
 function getStaticByCategory(category) {
@@ -41,7 +41,15 @@ export function useProducts(category) {
         // Nothing in Supabase yet — show static fallback
         setProducts(getStaticByCategory(category))
       } else {
-        setProducts(data)
+        // For any product missing an image_url, fill it from static fallback
+        const merged = data.map(p => {
+          if (!p.image_url) {
+            const fallback = staticProductDetails[p.slug]
+            return fallback ? { ...p, image_url: fallback.image_url } : p
+          }
+          return p
+        })
+        setProducts(merged)
       }
       setLoading(false)
     })
