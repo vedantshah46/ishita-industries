@@ -73,7 +73,7 @@ function ProductIndustrialSection() {
             ))
             : products.map((card, index) => (
               <Link 
-                to="/product/electric-pin"
+                to={`/product/${card.slug}`}
                 key={card.slug}
                 className="product-industrial-card-link"
               >

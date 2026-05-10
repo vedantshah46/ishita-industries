@@ -1,0 +1,193 @@
+.pcat-section {
+  background-color: #FAFAFA;
+  padding: clamp(3rem, 5.5vw, 4.9rem) 0 clamp(3rem, 5.2vw, 4.6rem);
+}
+
+.pcat-shell {
+  max-width: 1210px;
+  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  margin: 0 auto;
+}
+
+/* ── Header ──────────────────────────────────────────────────── */
+.pcat-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: clamp(2.5rem, 3.5vw, 3.5rem);
+}
+
+.pcat-header > * {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.pcat-kicker {
+  text-align: center;
+  font-size: clamp(1.6rem, 2.6vw, 3rem);
+  line-height: 1.3;
+  color: #343434;
+  font-weight: 500;
+}
+
+.pcat-title {
+  margin-top: 0.5rem;
+  font-size: clamp(1.6rem, 2.6vw, 3rem);
+  font-weight: 300;
+  line-height: 1.1;
+  text-align: center;
+  color: #9098A0;
+}
+
+/* ── Breadcrumb ──────────────────────────────────────────────── */
+.pcat-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.pcat-breadcrumb a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.pcat-breadcrumb a:hover {
+  color: #000;
+}
+
+.pcat-breadcrumb-sep {
+  color: #ccc;
+}
+
+.pcat-breadcrumb-current {
+  color: #000;
+  font-weight: 500;
+}
+
+/* ── Grid ────────────────────────────────────────────────────── */
+.pcat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 1.5vw, 1.15rem);
+  row-gap: 2.5rem;
+}
+
+/* ── Card ────────────────────────────────────────────────────── */
+.pcat-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.pcat-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.pcat-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  overflow: hidden;
+}
+
+.pcat-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid #000;
+  pointer-events: none;
+  z-index: 1;
+  transition: border-color 0.3s ease;
+}
+
+.pcat-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  transform: scale(1.04);
+  transition: transform 1.5s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.pcat-card:hover .pcat-image {
+  transform: scale(1.15) translateY(-6px);
+}
+
+.pcat-caption-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.pcat-caption {
+  font-size: clamp(1.05rem, 0.86vw, 0.9rem);
+  line-height: 1.35;
+  color: #000;
+}
+
+.pcat-arrow {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ── Skeleton ────────────────────────────────────────────────── */
+.pcat-skeleton-visual {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 2px;
+}
+
+.pcat-skeleton-label {
+  height: 1rem;
+  width: 60%;
+  margin-top: 1rem;
+  border-radius: 4px;
+}
+
+/* ── Empty state ─────────────────────────────────────────────── */
+.pcat-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #888;
+  font-size: 1rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .pcat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 575.98px) {
+  .pcat-kicker,
+  .pcat-title {
+    font-size: 2rem;
+  }
+  .pcat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1600px) and (min-width: 1465px) {
+  .pcat-shell { max-width: 1325px; }
+}
+@media (max-width: 1465px) and (min-width: 1400px) {
+  .pcat-shell { max-width: 1260px; }
+}
+@media (min-width: 1600px) {
+  .pcat-shell { max-width: 1520px; }
+}

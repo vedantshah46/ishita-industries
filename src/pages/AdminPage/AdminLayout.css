@@ -437,6 +437,89 @@
   font-size: 0.9rem;
 }
 
+/* ── Form hint text ──────────────────────────────────────────────── */
+.admin-form-hint {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 4px 0 10px;
+  line-height: 1.5;
+}
+
+.admin-form-hint strong {
+  color: #c8a84e;
+}
+
+.admin-form-hint kbd {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.75rem;
+  color: #ccc;
+}
+
+/* ── Gallery grid ────────────────────────────────────────────────── */
+.admin-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.admin-gallery-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.admin-gallery-badge {
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  background: #c8a84e;
+  color: #000;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.admin-gallery-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #333;
+}
+
+.admin-gallery-alt {
+  font-size: 0.78rem !important;
+  padding: 6px 8px !important;
+}
+
+.admin-gallery-remove {
+  background: none;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #ef4444;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.admin-gallery-remove:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* ── Legacy single-image preview (kept for compatibility) ─────────── */
 .admin-image-preview {
   display: flex;
   gap: 12px;

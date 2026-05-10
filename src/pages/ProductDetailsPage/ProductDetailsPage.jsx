@@ -7,6 +7,15 @@ import { useProduct } from '../../hooks/useProduct';
 import anime from 'animejs';
 import SplitType from 'split-type';
 import arrowVector from '../../Images/arrow-vector.png';
+import machine1 from '../../Images/Precision Machining Expertise.png';
+import machine2 from '../../Images/Industrial Components.png';
+import machine3 from '../../Images/Section Components.jpg';
+
+const METAL_WE_MACHINE = [
+  { name: 'Precision Machining Expertise', image_url: machine1 },
+  { name: 'Industrial Components',         image_url: machine2 },
+  { name: 'Section Components',            image_url: machine3 },
+];
 
 const ProductDetailsPage = () => {
   const { slug } = useParams();
@@ -176,7 +185,6 @@ const ProductDetailsPage = () => {
   const images = product.product_images?.map(img => img.image_url) ?? [product.image_url];
   const specs = product.product_specs ?? [];
   const tags = product.product_tags ?? [];
-  const related = product.related_products ?? [];
 
   // Split tags into two columns
   const midpoint = Math.ceil(tags.length / 2);
@@ -258,28 +266,23 @@ const ProductDetailsPage = () => {
             </div>
           )}
 
-          {/* Metal We Machine Section */}
-          {related.length > 0 && (
-            <div className="metal-section animate-item">
-              <h2>Metal We Machine</h2>
-              <p className="metal-subtitle">We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
-              <div className="metal-cards">
-                {related.map((item, index) => (
-                  <div 
-                    key={item.name}
-                    className="metal-card"
-                  >
-                    <div className="metal-card-visual">
-                      <img src={item.image_url} alt={item.name} className="metal-card-image" />
-                    </div>
-                    <div className="metal-card-title">
-                      {item.name} <img src={arrowVector} alt="" className="arrow" />
-                    </div>
+          {/* Metal We Machine Section — always shown on every product page */}
+          <div className="metal-section animate-item">
+            <h2>Metal We Machine</h2>
+            <p className="metal-subtitle">We work with MS, SS, Copper, Bronze, Brass, Aluminium</p>
+            <div className="metal-cards">
+              {METAL_WE_MACHINE.map((item) => (
+                <div key={item.name} className="metal-card">
+                  <div className="metal-card-visual">
+                    <img src={item.image_url} alt={item.name} className="metal-card-image" />
                   </div>
-                ))}
-              </div>
+                  <div className="metal-card-title">
+                    {item.name} <img src={arrowVector} alt="" className="arrow" />
+                  </div>
+                </div>
+              ))}
             </div>
-          )}
+          </div>
 
         </div>
       </section>

@@ -34,6 +34,16 @@ export function useProduct(slug) {
             setError(fetchError || new Error('Product not found'))
           }
         } else {
+          // If Supabase record has no images at all, fill them from static fallback
+          const staticFallback = staticProductDetails[slug]
+          const hasImages = data.image_url || data.product_images?.length > 0
+          if (!hasImages && staticFallback) {
+            data = {
+              ...data,
+              image_url:      staticFallback.image_url,
+              product_images: staticFallback.product_images ?? [],
+            }
+          }
           setProduct(data)
           setError(null)
         }
