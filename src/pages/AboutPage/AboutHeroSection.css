@@ -20,7 +20,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(1.8rem, 6.5vw, 90px);
+  font-size: clamp(2.45rem, 4vw, 4.42rem);
   line-height: 1;
   letter-spacing: -2px;
   vertical-align: middle;
@@ -34,7 +34,7 @@
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: clamp(2rem, 8vw, 90px);
+  font-size: clamp(2.45rem, 4vw, 4.42rem);
   letter-spacing: 0px;
   vertical-align: middle;
   color: #59606166;
@@ -161,7 +161,7 @@
 
 /* ─── Chairman card ──────────────────────────────────────── */
 .about-chairman-card {
-  margin-top: 4.5rem;
+  margin-top: 2rem;
   border: 1px solid #343434;
   border-radius: 16px;
   padding: clamp(1.5rem, 3.5vw, 3rem);
@@ -275,15 +275,15 @@
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
 @media (max-width: 991.98px) {
   .about-hero-title {
-    font-size: clamp(2.35rem, 4vw, 3.5rem);
     line-height: 0.93;
     letter-spacing: 2px;
+    text-align: left !important;
   }
 
   .about-hero-title-light {
-    font-size: clamp(2.35rem, 4vw, 3.5rem);
     line-height: 100%;
     letter-spacing: 0px;
+    text-align: left;
   }
 
   .about-hero-meta {
@@ -328,15 +328,15 @@
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
   .about-hero-title {
-    font-size: 2.35rem;
     line-height: 0.93;
     letter-spacing: 1px;
+    text-align: left !important;
   }
 
   .about-hero-title-light {
-    font-size: 2.35rem;
     line-height: 100%;
     letter-spacing: 0px;
+    text-align: left;
   }
 
   .about-hero-copy {
@@ -374,16 +374,23 @@
 /* ─── Small mobile (< 576px) ────────────────────────────── */
 @media (max-width: 575.98px) {
   .about-hero-title {
-    font-size: 2.35rem;
     line-height: 0.93;
     letter-spacing: 0px;
-    text-align: center;
+    text-align: left !important;
   }
 
   .about-hero-title-light {
-    font-size: 2.35rem;
     line-height: 100%;
     letter-spacing: 0px;
+    text-align: left;
+  }
+
+  .about-hero-copy {
+    text-align: left;
+  }
+
+  .about-hero-line-block {
+    align-items: flex-start;
   }
 
   .about-hero-factory-image {
@@ -409,14 +416,14 @@
   }
 
   .about-hero-title {
-    font-size: 1.85rem;
     line-height: 1.05;
     letter-spacing: 0px;
+    text-align: left;
   }
 
   .about-hero-title-light {
-    font-size: 1.85rem;
     line-height: 100%;
+    text-align: left;
   }
 }
 
@@ -432,9 +439,9 @@
   overflow: hidden;
 }
 
-.about-hero-meta > *,
+.about-hero-meta>*,
 .about-hero-factory-frame,
-.about-chairman-intro > *,
+.about-chairman-intro>*,
 .about-chairman-card,
 .about-chairman-card-title,
 .about-chairman-card-text,

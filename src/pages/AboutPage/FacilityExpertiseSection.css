@@ -41,12 +41,14 @@
   display: flex;
   flex-direction: column;
   gap: 3em;
+  justify-content: flex-end;
 }
 
 .facility-right-col {
   display: flex;
   flex-direction: column;
   gap: 2.75em;
+  justify-content: space-between;
 }
 
 @media (max-width: 1400px) and (min-width: 1200px) {
@@ -276,7 +278,7 @@
 /* ─── ISO Card ──────────────────────────────────────────── */
 .facility-iso-card {
   position: relative;
-  height: 140px;
+  height: 170px;
   overflow: hidden;
 }
 
@@ -486,6 +488,10 @@
     padding: 20px;
   }
 
+  .facility-iso-card {
+    height: 120px;
+  }
+
   .facility-tech-group {
     margin-bottom: 20px;
   }
@@ -523,9 +529,9 @@
 }
 
 /* ── Animations ── */
-.facility-header-block > *,
-.facility-left-col > *,
-.facility-right-col > * {
+.facility-header-block>*,
+.facility-left-col>*,
+.facility-right-col>* {
   opacity: 0;
   will-change: transform, opacity;
 }

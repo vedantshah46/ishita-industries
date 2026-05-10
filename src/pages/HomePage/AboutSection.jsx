@@ -22,7 +22,7 @@ function AboutSection() {
     // We do character-level splitting for the title
     let titleSplit = null;
     if (titleRef.current) {
-      titleSplit = new SplitType(titleRef.current, { types: 'chars' });
+      titleSplit = new SplitType(titleRef.current, { types: 'words,chars' });
       // Initially hide characters
       anime.set(titleSplit.chars, { opacity: 0, translateY: 20 });
     }

@@ -16,7 +16,7 @@ function FreeToContactUsSection() {
     const titleEl = sectionRef.current?.querySelector('.contactus-title')
     if (!titleEl) return
     
-    const text = new SplitType(titleEl, { types: 'chars' })
+    const text = new SplitType(titleEl, { types: 'words,chars' })
     
     const triggerAnimation = () => {
       if (hasAnimated.current || !sectionRef.current) return

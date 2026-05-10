@@ -16,22 +16,8 @@
   gap: clamp(1.6rem, 4vw, 6rem);
 }
 
-.usp-kicker {
-  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
-  line-height: 1.2;
-  letter-spacing: 0.34em;
-  color: #7a7d82;
-  text-align: center;
-}
+/* Kickers and Titles are now managed globally in index.css */
 
-.usp-title {
-  margin-top: clamp(1rem, 1.4vw, 1.35rem);
-  font-size: clamp(4.1rem, 4.1vw, 4.18rem);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  color: #33383d;
-}
 
 .usp-title span {
   margin-top: 0.16em;
@@ -488,10 +474,6 @@
 }
 
 @media (max-width: 767.98px) {
-  .usp-title {
-    font-size: clamp(2.15rem, 9.4vw, 2.7rem);
-  }
-
   /* Re-define wheel size for mobile so all proportions inherit automatically */
   .usp-wheel {
     --wheel-size: clamp(260px, 78vw, 340px);

@@ -169,13 +169,14 @@
     font-size: 2.35rem;
     line-height: 0.93;
     letter-spacing: 0px;
-    text-align: center;
+    text-align: left !important;
   }
 
   .quality-hero-title-light {
     font-size: 2.35rem;
     line-height: 100%;
     letter-spacing: 0px;
+    text-align: left;
   }
 
   .quality-hero-factory-image {
@@ -183,21 +184,26 @@
   }
 }
 
-/* ─── Extra small (< 400px) ─────────────────────────────── */
-@media (max-width: 399.98px) {
+/* ─── Extra small (< 480px) ─────────────────────────────── */
+@media (max-width: 480px) {
   .quality-hero-shell {
-    padding-inline: 0.75rem;
+    padding-inline: 0.9rem !important;
   }
 
   .quality-hero-title {
-    font-size: 1.85rem;
-    line-height: 1.05;
-    letter-spacing: 0px;
+    font-size: 1.85rem !important;
+    line-height: 1.05 !important;
+    text-align: left !important;
   }
 
   .quality-hero-title-light {
-    font-size: 1.85rem;
-    line-height: 100%;
+    font-size: 1.85rem !important;
+    line-height: 100% !important;
+    text-align: left !important;
+  }
+
+  .quality-hero-copy {
+    text-align: left !important;
   }
 }
 

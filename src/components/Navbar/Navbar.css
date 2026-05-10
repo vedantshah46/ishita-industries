@@ -40,7 +40,8 @@
 
 .nav-shell {
   max-width: 1210px;
-  padding-inline: clamp(0.85rem, 2.8vw, 1.5rem);
+  padding-inline: clamp(1rem, 3vw, 2rem);
+  margin: 0 auto;
 }
 
 /* ─── Brand / Logo ───────────────────────────────────────── */
@@ -108,7 +109,8 @@
 .nav-dropdown::before {
   content: '';
   position: absolute;
-  top: -1.25rem; /* Reduced from -2rem to avoid covering the link */
+  top: -1.25rem;
+  /* Reduced from -2rem to avoid covering the link */
   left: 0;
   right: 0;
   height: 1.25rem;
@@ -169,10 +171,9 @@
   }
 
   .nav-dropdown {
-    display: block;
-    /* Override desktop display: none */
+    display: block !important;
     position: static;
-    transform: none;
+    transform: none !important;
     box-shadow: none;
     border: none;
     border-left: 2px solid transparent;
@@ -181,16 +182,24 @@
     min-width: unset;
     max-height: 0;
     opacity: 0;
+    visibility: visible !important;
+    pointer-events: auto !important;
     overflow: hidden;
     transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, margin-top 0.3s ease-in-out, padding 0.3s ease-in-out, border-color 0.3s ease-in-out;
   }
 
-  .has-dropdown.mobile-open .nav-dropdown {
-    max-height: 400px;
-    opacity: 1;
-    margin-top: 0.25rem;
-    padding: 0.25rem 0 0.25rem 0.75rem;
-    border-left-color: #e2e2e5;
+  .nav-dropdown::before {
+    display: none !important;
+  }
+
+  .nav-item.mobile-open .nav-dropdown {
+    max-height: 800px !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    margin-top: 0.5rem !important;
+    padding: 0.25rem 0 0.5rem 1rem !important;
+    border-left: 2px solid #e2e2e5 !important;
   }
 
   .nav-dropdown li a {
@@ -306,6 +315,12 @@
   }
 }
 
+@media (min-width: 1600px) {
+  .nav-shell {
+    max-width: 1520px;
+  }
+}
+
 /* ─── Tablet (992px – 1199px) ────────────────────────────── */
 @media (max-width: 1199.98px) {
   .brand-logo--desktop {
@@ -399,6 +414,13 @@
 
   .menu-btn {
     font-size: 0.85rem;
+  }
+}
+
+/* ─── Mobile override (< 480px) ─────────────────────────── */
+@media (max-width: 479.98px) {
+  .nav-shell {
+    padding-inline: 0.9rem;
   }
 }
 

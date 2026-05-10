@@ -64,14 +64,14 @@ function FastenerStandardsSection() {
           duration: 800,
           delay: anime.stagger(150)
         })
-        .add({
-          targets: '.fastener-card',
-          scale: [0.9, 1],
-          opacity: [0, 1],
-          duration: 800,
-          delay: anime.stagger(100),
-          easing: 'easeOutBack(1.5)'
-        }, '-=400')
+          .add({
+            targets: '.fastener-card',
+            scale: [0.9, 1],
+            opacity: [0, 1],
+            duration: 800,
+            delay: anime.stagger(100),
+            easing: 'easeOutBack(1.5)'
+          }, '-=400')
 
         observer.disconnect()
       }
@@ -94,8 +94,8 @@ function FastenerStandardsSection() {
         <div className="fastener-table-container">
           <div className="fastener-grid">
             {standardsData.map((item) => (
-              <article 
-                key={item.id} 
+              <article
+                key={item.id}
                 className="fastener-card"
               >
                 <div className="fastener-card-logo">

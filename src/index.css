@@ -93,8 +93,13 @@ a {
 }
 
 @keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Reduced-motion: respect users who prefer less animation */
@@ -106,5 +111,275 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Mobile Typography: Prevent word breaking in section headers ── */
+@media (max-width: 991.98px) {
+
+  /* Targeted rule for elements split by SplitType */
+  h1 .word,
+  h2 .word,
+  h3 .word,
+  [class*="-title"]:not(.about-hero-title):not(.about-hero-title-light) .word,
+  [class*="--title"] .word,
+  [class*="-header"] .word,
+  .about-title .word,
+  .hero-title .word {
+    display: inline-block !important;
+    white-space: nowrap !important;
+    text-align: inherit !important;
+  }
+
+  /* Fallback for elements not using SplitType */
+  h1,
+  h2,
+  h3,
+  [class*="-title"]:not(.about-hero-title):not(.about-hero-title-light),
+  [class*="--title"] {
+    word-break: keep-all !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+}
+
+/* ── Unified Section Header Styles ───────────────────────────── */
+
+/* Kickers (Small labels above titles) */
+.precision-components-kicker,
+.industrial-components-kicker,
+.capabilities-kicker,
+.facts-kicker,
+.usp-kicker,
+.reach-kicker,
+.hub-kicker,
+.about-kicker,
+.precision-kicker,
+.quality-assurance-kicker,
+.results-kicker,
+.meet-team-kicker,
+.about-infra-kicker,
+.global-reach-kicker,
+.fastener-kicker,
+.facility-main-kicker,
+.facility-kicker,
+.cert-kicker,
+.about-chairman-kicker,
+.product-precision-kicker,
+.product-industrial-kicker,
+.product-extrusion-kicker,
+.quality-approach-kicker,
+.quality-equip-kicker,
+.cert-quality-kicker,
+.quality-decl-kicker,
+.sust-safety-kicker,
+.sust-env-kicker,
+.sust-hero-kicker {
+  text-align: center !important;
+  font-size: clamp(0.86rem, 0.8vw, 1.05rem) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.2em !important;
+  color: #767a80 !important;
+  margin-bottom: 0 !important;
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+/* Titles (Large section headings) */
+.precision-components-title,
+.industrial-components-title,
+.capabilities-title,
+.facts-title,
+.usp-title,
+.reach-title,
+.hub-title,
+.about-title,
+.precision-title,
+.quality-assurance-title,
+.results-title,
+.meet-team-title,
+.about-infra-title,
+.global-reach-title,
+.fastener-title,
+.facility-main-heading,
+.facility-title,
+.cert-title,
+.about-chairman-title,
+.product-precision-title,
+.product-industrial-title,
+.product-extrusion-title,
+.quality-approach-title,
+.quality-equip-title,
+.cert-quality-title,
+.quality-decl-title,
+.sust-safety-title,
+.sust-env-title,
+.sust-hero-title {
+  text-align: center !important;
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem) !important;
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.03em !important;
+  color: #2D3435 !important;
+  font-family: 'Inter', sans-serif !important;
+  display: block !important;
+}
+
+.meet-team-title {
+  text-align: center !important;
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem) !important;
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.03em !important;
+  color: #f3f1ed !important;
+  font-family: 'Inter', sans-serif !important;
+  display: block !important;
+}
+
+.meet-team-kicker {
+  text-align: center !important;
+  font-size: clamp(0.86rem, 0.8vw, 1.05rem) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.2em !important;
+  color: #6f6f6f !important;
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+/* Unified Mobile Overrides (Small Mobile) */
+@media (max-width: 575.98px) {
+
+  .precision-components-title,
+  .industrial-components-title,
+  .capabilities-title,
+  .facts-title,
+  .usp-title,
+  .reach-title,
+  .hub-title,
+  .about-title,
+  .precision-title,
+  .quality-assurance-title,
+  .results-title,
+  .meet-team-title,
+  .about-infra-title,
+  .global-reach-title,
+  .fastener-title,
+  .facility-main-heading,
+  .facility-title,
+  .cert-title,
+  .about-chairman-title,
+  .product-precision-title,
+  .product-industrial-title,
+  .product-extrusion-title,
+  .quality-approach-title,
+  .quality-equip-title,
+  .cert-quality-title,
+  .quality-decl-title,
+  .sust-safety-title,
+  .sust-env-title,
+  .sust-hero-title {
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+  }
+
+  .precision-components-kicker,
+  .industrial-components-kicker,
+  .capabilities-kicker,
+  .facts-kicker,
+  .usp-kicker,
+  .reach-kicker,
+  .hub-kicker,
+  .about-kicker,
+  .precision-kicker,
+  .quality-assurance-kicker,
+  .results-kicker,
+  .meet-team-kicker,
+  .about-infra-kicker,
+  .global-reach-kicker,
+  .fastener-kicker,
+  .facility-main-kicker,
+  .facility-kicker,
+  .cert-kicker,
+  .about-chairman-kicker,
+  .product-precision-kicker,
+  .product-industrial-kicker,
+  .product-extrusion-kicker,
+  .quality-approach-kicker,
+  .quality-equip-kicker,
+  .cert-quality-kicker,
+  .quality-decl-kicker,
+  .sust-safety-kicker,
+  .sust-env-kicker,
+  .sust-hero-kicker {
+    font-size: 0.85rem !important;
+    letter-spacing: 0.15em !important;
+  }
+
+}
+
+
+
+/* ── Specific Overrides ── */
+.ledger-kicker {
+  margin-top: 2.5rem !important;
+}
+
+.sust-people-kicker,
+.sust-env-kicker,
+.sust-hero-kicker,
+.environment-hero-kicker {
+  text-align: left !important;
+  font-size: clamp(0.86rem, 0.8vw, 1.05rem) !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.2em !important;
+  color: #767a80 !important;
+  margin-bottom: 0 !important;
+  display: block !important;
+  font-family: 'Inter', sans-serif !important;
+  text-transform: uppercase !important;
+}
+
+.sust-people-title,
+.sust-env-title,
+.sust-hero-title,
+.environment-hero-title {
+  text-align: left !important;
+  margin-top: clamp(1.85rem, 1.4vw, 1.2rem) !important;
+  font-size: clamp(4.1rem, 4.1vw, 4.18rem) !important;
+  font-weight: 400 !important;
+  line-height: 0.98 !important;
+  letter-spacing: -0.03em !important;
+  color: #2D3435 !important;
+  font-family: 'Inter', sans-serif !important;
+  display: block !important;
+}
+
+@media (max-width: 575.98px) {
+
+  .sust-people-title,
+  .sust-env-title,
+  .sust-hero-title,
+  .environment-hero-title {
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.02em !important;
+    text-align: left !important;
+    margin-bottom: 0px !important;
+  }
+
+  .sust-people-kicker,
+  .sust-env-kicker,
+  .sust-hero-kicker,
+  .environment-hero-kicker {
+    font-size: 0.85rem !important;
+    letter-spacing: 0.15em !important;
+    text-align: left !important;
   }
 }
