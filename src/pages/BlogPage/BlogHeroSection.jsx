@@ -11,7 +11,7 @@ function BlogHeroSection() {
   const hasAnimated = useRef(false)
 
   useEffect(() => {
-    const text = new SplitType(titleRef.current, { types: 'chars' })
+    const text = new SplitType(titleRef.current, { types: 'words,chars' })
     
     const triggerAnimation = () => {
       if (hasAnimated.current || !sectionRef.current) return

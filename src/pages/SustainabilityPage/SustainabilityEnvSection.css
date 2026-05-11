@@ -12,26 +12,13 @@
 /* Header */
 .sust-env-header {
   margin-bottom: 3rem;
+  text-align: left;
 }
 
-.sust-env-kicker {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
-  letter-spacing: 4.8px;
-  text-transform: uppercase;
-  color: #596061;
-  margin-bottom: 1rem;
-}
-
-.sust-env-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: clamp(3rem, 4.15vw, 3rem);
-  line-height: 1;
-  letter-spacing: 0.4px;
-  color: #2D3435;
-  margin-bottom: 2rem;
+@media (min-width: 992px) {
+  .sust-env-title {
+    white-space: nowrap;
+  }
 }
 
 .sust-env-header-row {
@@ -106,7 +93,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
   z-index: 1;
 }
 
@@ -218,6 +205,7 @@
   .sust-env-header-row {
     flex-direction: column;
     gap: 1.5rem;
+    align-items: flex-start;
   }
 
   .sust-env-grid {
@@ -229,6 +217,14 @@
   .sust-env-grid-right {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
+  }
+
+  .sust-env-copy {
+    margin-top: 1rem;
+  }
+
+  .sust-env-card-water {
+    min-height: 550px;
   }
 
   .sust-env-card-energy {

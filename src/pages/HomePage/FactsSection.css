@@ -16,22 +16,8 @@
   margin-bottom: clamp(3rem, 4.5vw, 4.5rem);
 }
 
-.facts-kicker {
-  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
-  line-height: 1.2;
-  letter-spacing: 0.2em;
-  color: #797d83;
-  text-align: center;
-}
+/* Kickers and Titles are now managed globally in index.css */
 
-.facts-title {
-  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
-  font-size: clamp(4.1rem, 4.1vw, 4.18rem);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: 0px;
-  color: #2D3435;
-}
 
 .facts-intro {
   padding-top: clamp(3.4rem, 4.7vw, 4.8rem);
@@ -127,10 +113,4 @@
   .facts-grid {
     grid-template-columns: 1fr;
   }
-}
-
-@media (max-width: 500px) {
-  .facts-title{
-    font-size: clamp(35px, 3.5vw, 50px);
-  }
-}
+}

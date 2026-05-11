@@ -16,26 +16,8 @@
   margin-bottom: clamp(2.5rem, 4vw, 4rem);
 }
 
-.reach-kicker {
-  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
-  line-height: 1.2;
-  letter-spacing: 0.2em;
-  color: #797d83;
-  text-align: center;
-}
+/* Kickers and Titles are now managed globally in index.css */
 
-.reach-title {
-  margin-top: clamp(1rem, 1.5vw, 2rem);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: clamp(4.1rem, 4.1vw, 4.18rem);
-  line-height: 1.188;
-  /* 118.8px / 100px */
-  letter-spacing: -0.066em;
-  /* -6.6px / 100px */
-  color: #2d3435;
-  vertical-align: middle;
-}
 
 .reach-title span {
   margin-top: 0.18em;
@@ -86,24 +68,23 @@
   }
 }
 
-@media (max-width: 500px) {
-  .reach-title {
-    font-size: clamp(35px, 3.5vw, 50px);
+@media (max-width: 991.98px) {
+
+
+  /* ── Scroll Animations ───────────────────────────────────── */
+  .reach-kicker,
+  .reach-map-container {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
-}
 
-/* ── Scroll Animations ───────────────────────────────────── */
-.reach-kicker,
-.reach-map-container {
-  opacity: 0;
-  transform: translateY(30px);
-  will-change: transform, opacity;
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-}
+  .reach-kicker.is-visible,
+  .reach-map-container.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-.reach-kicker.is-visible,
-.reach-map-container.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }

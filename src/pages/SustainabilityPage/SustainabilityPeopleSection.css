@@ -49,29 +49,10 @@
   max-width: 550px;
 }
 
-.sust-people-kicker {
-  text-align: left;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
-  letter-spacing: 4.8px;
-  vertical-align: middle;
-  text-transform: uppercase;
-  color: #596061;
-}
-
-.sust-people-title {
-  margin-top: clamp(0.5rem, 1.5vw, 1rem);
-  margin-bottom: clamp(1.2rem, 2.5vw, 1.25rem);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(3rem, 4.15vw, 3rem);
-  line-height: 1;
-  letter-spacing: 0.4px;
-  vertical-align: middle;
-  color: #2D3435;
+@media (min-width: 992px) {
+  .sust-people-title {
+    white-space: nowrap;
+  }
 }
 
 .sust-people-copy {

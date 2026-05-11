@@ -94,7 +94,7 @@
   font-weight: 400;
   line-height: 1.15;
   color: #2d3435;
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .ledger-inception-row {
@@ -666,10 +666,10 @@
 }
 
 /* ── Animations ── */
-.ledger-header > *,
+.ledger-header>*,
 .ledger-card,
-.ledger-infrastructure > *,
-.caps-header > *,
+.ledger-infrastructure>*,
+.caps-header>*,
 .caps-card {
   opacity: 0;
   will-change: transform, opacity;

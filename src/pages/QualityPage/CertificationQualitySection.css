@@ -20,25 +20,6 @@
   text-align: center;
 }
 
-.cert-quality-kicker {
-  text-align: center;
-  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
-  line-height: 1.2;
-  letter-spacing: 0.34em;
-  color: #596061;
-  text-transform: uppercase;
-}
-
-.cert-quality-title {
-  margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
-  font-size: clamp(4.65rem, 4.1vw, 4.18rem);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  color: #2D3435;
-  text-transform: uppercase;
-}
-
 /* ─── Content ─── */
 .cert-quality-content {
   display: grid;
@@ -178,9 +159,6 @@
 }
 
 @media (max-width: 575.98px) {
-  .cert-quality-title {
-    font-size: 2.5rem;
-  }
 
   .cert-quality-logo-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -229,5 +207,11 @@
 @media (min-width: 1600px) {
   .cert-quality-shell {
     max-width: 1520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cert-quality-shell {
+    padding-inline: 0.9rem !important;
   }
 }

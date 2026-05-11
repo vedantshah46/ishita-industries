@@ -22,21 +22,8 @@
   text-align: center;
 }
 
-.quality-decl-kicker {
+.quality-decl-header-content {
   text-align: center;
-  font-size: clamp(1.0rem, 0.72vw, 0.75rem);
-  line-height: 1.2;
-  letter-spacing: 0.34em;
-  color: #596061;
-}
-
-.quality-decl-title {
-  margin-top: clamp(0.95rem, 1.35vw, 1.2rem);
-  font-size: clamp(4.65rem, 4.1vw, 4.18rem);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  color: #2D3435;
 }
 
 /* ─── Card Grid ──────────────────────────────────────────── */
@@ -80,9 +67,6 @@
 
 /* ─── Mobile ─────────────────────────────────────────────── */
 @media (max-width: 575.98px) {
-  .quality-decl-title {
-    font-size: 2.5rem;
-  }
 
   .quality-decl-grid {
     grid-template-columns: 1fr;
@@ -113,5 +97,11 @@
 @media (min-width: 1600px) {
   .quality-decl-shell {
     max-width: 1520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quality-decl-shell {
+    padding-inline: 0.9rem !important;
   }
 }

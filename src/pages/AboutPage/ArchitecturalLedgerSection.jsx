@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react'
 import anime from 'animejs'
 import './ArchitecturalLedgerSection.css'
 import foundationOfModernInfra from '../../Images/modern-infra.png'
-import backboneOfPrecision from '../../Images/backbone.png' 
+import backboneOfPrecision from '../../Images/backbone.png'
 import utilityOne from '../../Images/systematic-utility-one.png'
 import utilityTwo from '../../Images/systematic-utility-two.png'
 import utilityThree from '../../Images/systematic-utility-three.png'
@@ -10,21 +10,29 @@ import utilityFour from '../../Images/systematic-utility-four.png'
 import correct from '../../Images/about-architecture-ledger-icon.png'
 
 const applicationsList = [
-  { id: 1, text: 'Automated Fabrications', icon: (
-  <img src={utilityOne}/>
-  ) },
-  { id: 2, text: 'Structural Integrity Audits', icon: (
-      <img src={utilityTwo}/>
+  {
+    id: 1, text: 'Automated Fabrications', icon: (
+      <img src={utilityOne} />
+    )
+  },
+  {
+    id: 2, text: 'Structural Integrity Audits', icon: (
+      <img src={utilityTwo} />
 
-  ) },
-  { id: 3, text: 'Scalable Data Pipelines', icon: (
-      <img src={utilityThree}/>
+    )
+  },
+  {
+    id: 3, text: 'Scalable Data Pipelines', icon: (
+      <img src={utilityThree} />
 
-  ) },
-  { id: 4, text: 'Logistic Synthetics', icon: (
-      <img src={utilityFour}/>
+    )
+  },
+  {
+    id: 4, text: 'Logistic Synthetics', icon: (
+      <img src={utilityFour} />
 
-  ) }
+    )
+  }
 ]
 
 const statsList = [
@@ -62,22 +70,22 @@ function ArchitecturalLedgerSection() {
           duration: 800,
           delay: anime.stagger(150)
         })
-        .add({
-          targets: '.ledger-card',
-          translateY: [40, 0],
-          opacity: [0, 1],
-          scale: [0.95, 1],
-          duration: 1000,
-          delay: anime.stagger(150),
-          easing: 'easeOutBack(1, .8)'
-        }, '-=400')
-        .add({
-          targets: '.ledger-infrastructure > *',
-          translateY: [40, 0],
-          opacity: [0, 1],
-          duration: 1000,
-          delay: anime.stagger(200)
-        }, '-=600')
+          .add({
+            targets: '.ledger-card',
+            translateY: [40, 0],
+            opacity: [0, 1],
+            scale: [0.95, 1],
+            duration: 1000,
+            delay: anime.stagger(150),
+            easing: 'easeOutBack(1, .8)'
+          }, '-=400')
+          .add({
+            targets: '.ledger-infrastructure > *',
+            translateY: [40, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            delay: anime.stagger(200)
+          }, '-=600')
 
         observer.disconnect()
       }
@@ -101,14 +109,14 @@ function ArchitecturalLedgerSection() {
           duration: 800,
           delay: anime.stagger(150)
         })
-        .add({
-          targets: '.caps-card',
-          translateY: [40, 0],
-          opacity: [0, 1],
-          duration: 1000,
-          delay: anime.stagger(100),
-          easing: 'easeOutBack(1.2, .8)'
-        }, '-=400')
+          .add({
+            targets: '.caps-card',
+            translateY: [40, 0],
+            opacity: [0, 1],
+            duration: 1000,
+            delay: anime.stagger(100),
+            easing: 'easeOutBack(1.2, .8)'
+          }, '-=400')
 
         observer.disconnect()
       }
@@ -122,98 +130,98 @@ function ArchitecturalLedgerSection() {
     <>
       <section className="architectural-ledger-section" ref={ledgerRef}>
         <div className="container ledger-shell">
-        <div className="ledger-header">
-          <div>
-            <p className="ledger-kicker mb-0">FROM VISION TO MANUFACTURING</p>
-            <h2 className="ledger-title mb-0">
-              THE ARCHITECTURAL LEDGER.
-            </h2>
+          <div className="ledger-header">
+            <div>
+              <p className="ledger-kicker mb-0">FROM VISION TO MANUFACTURING</p>
+              <h2 className="ledger-title mb-0">
+                THE ARCHITECTURAL LEDGER.
+              </h2>
+            </div>
           </div>
-        </div>
 
-        <div className="ledger-bento">
-          {/* Box 01 */}
-          <article className="ledger-card ledger-card--inception">
-            <div className="ledger-card-content">
-              <span className="ledger-number">01 — INCEPTION</span>
-              <div>
-              <h3 className="ledger-inception-title">Defining the <br /> foundation of modern infrastructure.</h3>
-              </div>
-              <div className="ledger-inception-row">
-                <p className="ledger-inception-desc mb-0">
-                  Components Manufactured: Adapters, Blocks, Bolts, Bushings, Cages, Clamps, Collars, Couplings, Dowels, Electronic Connectors, Electrical Pin, Electrical socket, Earthing & Grounding Component...
-                </p>
-                <div className="ledger-inception-image-wrapper">
-                  <img src={foundationOfModernInfra} alt="Inception Architecture" className="ledger-inception-image" />
+          <div className="ledger-bento">
+            {/* Box 01 */}
+            <article className="ledger-card ledger-card--inception">
+              <div className="ledger-card-content">
+                <span className="ledger-number">01 — INCEPTION</span>
+                <div>
+                  <h3 className="ledger-inception-title">Defining the <br /> foundation of modern infrastructure.</h3>
+                </div>
+                <div className="ledger-inception-row">
+                  <p className="ledger-inception-desc mb-0">
+                    Components Manufactured: Adapters, Blocks, Bolts, Bushings, Cages, Clamps, Collars, Couplings, Dowels, Electronic Connectors, Electrical Pin, Electrical socket, Earthing & Grounding Component...
+                  </p>
+                  <div className="ledger-inception-image-wrapper">
+                    <img src={foundationOfModernInfra} alt="Inception Architecture" className="ledger-inception-image" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          {/* Box 02 */}
-          <article className="ledger-card ledger-card--applications">
-            <span className="ledger-number ledger-number--dark">02 — APPLICATIONS</span>
-            <h3 className="ledger-applications-title">Systemic Utility</h3>
-            <ul className="ledger-applications-list">
-              {applicationsList.map((app) => (
-                <li key={app.id}>
-                   <span className="app-icon" aria-hidden="true">{app.icon}</span>
-                  <span className="app-text">{app.text}</span>
-                </li>
-              ))}
-            </ul>
-          </article>
+            {/* Box 02 */}
+            <article className="ledger-card ledger-card--applications">
+              <span className="ledger-number ledger-number--dark">02 — APPLICATIONS</span>
+              <h3 className="ledger-applications-title">Systemic Utility</h3>
+              <ul className="ledger-applications-list">
+                {applicationsList.map((app) => (
+                  <li key={app.id}>
+                    <span className="app-icon" aria-hidden="true">{app.icon}</span>
+                    <span className="app-text">{app.text}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
 
-          {/* Box 03 */}
-          <article className="ledger-card ledger-card--saga">
-            <span className="ledger-number">03 — SUCCESS SAGA</span>
-            <h3 className="ledger-saga-title">The journey of growth.</h3>
-            <p className="ledger-saga-desc">
-              Established in 1994, the company quickly evolved into a strong industrial presence by empowering local talent through skill development and training. With a focus on building a capable workforce, it transformed into a reliable manufacturing partner driven by precision, consistency, and continuous growth.
-            </p>
-            <div className="ledger-saga-stats">
-              {statsList.map((stat) => (
-                <div key={stat.id} className={`ledger-stat-box ledger-stat-box--${stat.theme}`}>
-                  <p className="stat-value mb-0">{stat.value}</p>
-                  <p className="stat-label mb-0">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          {/* Box 04 */}
-          <article className="ledger-card ledger-card--satisfaction">
-            <span className="ledger-number">04 — CLIENT SATISFACTION</span>
-            <div className="ledger-satisfaction-content">
-              <p className="ledger-quote italic mb-0">
-                “Due to our client-centric approach, we have been able to build huge client base all across the Asian countries. We follow ethical business practices and are committed to provide complete satisfaction to our clients.”
+            {/* Box 03 */}
+            <article className="ledger-card ledger-card--saga">
+              <span className="ledger-number">03 — SUCCESS SAGA</span>
+              <h3 className="ledger-saga-title">The journey of growth.</h3>
+              <p className="ledger-saga-desc">
+                Established in 1994, the company quickly evolved into a strong industrial presence by empowering local talent through skill development and training. With a focus on building a capable workforce, it transformed into a reliable manufacturing partner driven by precision, consistency, and continuous growth.
               </p>
-              <div className="ledger-author">
-                <span className="author-line"></span>
-                <span className="author-name">GLOBAL INFRASTRUCTURE CORP</span>
+              <div className="ledger-saga-stats">
+                {statsList.map((stat) => (
+                  <div key={stat.id} className={`ledger-stat-box ledger-stat-box--${stat.theme}`}>
+                    <p className="stat-value mb-0">{stat.value}</p>
+                    <p className="stat-label mb-0">{stat.label}</p>
+                  </div>
+                ))}
               </div>
-            </div>
-            <img className="ledger-watermark" src={correct}/>
-          </article>
-        </div>
+            </article>
 
-        <div className="ledger-infrastructure">
-          <div className="ledger-infrastructure-content">
-            <span className="ledger-number">05 — INFRASTRUCTURE</span>
-            <h3 className="ledger-infrastructure-title">THE BACKBONE OF<br />PRECISION.</h3>
-            <p className="ledger-infrastructure-desc">
-              Located in Jamnagar – Gujrat, our facility is well segregated into various departments such as manufacturing unit, storage unit and quality testing unit. Our manufacturing unit is stretched over a vast area of 25,000 sq. ft.
-            </p>
-            <p className="ledger-infrastructure-desc">
-              The use of Dual Frequency induction furnace for melting and alloying, Heavy presses for extrusion assure precision in production.
-            </p>
+            {/* Box 04 */}
+            <article className="ledger-card ledger-card--satisfaction">
+              <span className="ledger-number">04 — CLIENT SATISFACTION</span>
+              <div className="ledger-satisfaction-content">
+                <p className="ledger-quote italic mb-0">
+                  “Due to our client-centric approach, we have been able to build huge client base all across the Asian countries. We follow ethical business practices and are committed to provide complete satisfaction to our clients.”
+                </p>
+                <div className="ledger-author">
+                  <span className="author-line"></span>
+                  <span className="author-name">GLOBAL INFRASTRUCTURE CORP</span>
+                </div>
+              </div>
+              <img className="ledger-watermark" src={correct} />
+            </article>
           </div>
-          <div className="ledger-infrastructure-image-wrapper">
-            <img src={backboneOfPrecision} alt="Infrastructure" className="ledger-infrastructure-image" />
+
+          <div className="ledger-infrastructure">
+            <div className="ledger-infrastructure-content">
+              <span className="ledger-number">05 — INFRASTRUCTURE</span>
+              <h3 className="ledger-infrastructure-title">THE BACKBONE OF PRECISION.</h3>
+              <p className="ledger-infrastructure-desc">
+                Located in Jamnagar – Gujrat, our facility is well segregated into various departments such as manufacturing unit, storage unit and quality testing unit. Our manufacturing unit is stretched over a vast area of 25,000 sq. ft.
+              </p>
+              <p className="ledger-infrastructure-desc">
+                The use of Dual Frequency induction furnace for melting and alloying, Heavy presses for extrusion assure precision in production.
+              </p>
+            </div>
+            <div className="ledger-infrastructure-image-wrapper">
+              <img src={backboneOfPrecision} alt="Infrastructure" className="ledger-infrastructure-image" />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* 06 Capabilities */}
       <section className="ledger-capabilities-section" ref={capsRef}>
@@ -230,8 +238,8 @@ function ArchitecturalLedgerSection() {
 
           <div className="caps-grid">
             {capabilitiesData.map((cap, idx) => (
-              <article 
-                key={cap.id} 
+              <article
+                key={cap.id}
                 className="caps-card"
               >
                 <span className="caps-number">{cap.number}</span>

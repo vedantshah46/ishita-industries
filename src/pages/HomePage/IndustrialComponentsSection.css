@@ -18,22 +18,8 @@
   margin-bottom: clamp(2rem, 3vw, 3rem);
 }
 
-.industrial-components-kicker {
-  font-size: clamp(1.05rem, 0.82vw, 0.84rem);
-  line-height: 1.2;
-  letter-spacing: 0.2em;
-  color: #797d83;
-  text-align: center;
-}
+/* Kickers and Titles are now managed globally in index.css */
 
-.industrial-components-title {
-  margin-top: clamp(1.85rem, 1.4vw, 1.2rem);
-  font-size: clamp(4.35rem, 5vw, 5.1rem);
-  font-weight: 400;
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  color: #2D3435;
-}
 
 .industrial-components-title span {
   margin-top: 0.18em;
@@ -177,9 +163,6 @@
     gap: 0.5rem;
   }
 
-  .industrial-components-title {
-    font-size: 2rem;
-  }
 
   .industrial-components-intro {
     padding-top: 0.25rem;
@@ -244,10 +227,6 @@
 @media (max-width: 479.98px) {
   .industrial-components-shell {
     padding-inline: 1rem;
-  }
-
-  .industrial-components-title {
-    font-size: 1.75rem;
   }
 
   .industrial-components-row {

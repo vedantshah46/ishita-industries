@@ -24,25 +24,8 @@
 }
 
 /* ─── Kicker ─────────────────────────────────────────────── */
-.quality-equip-kicker {
+.quality-equip-header-content {
   text-align: center;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: clamp(1rem, 0.72vw, 0.75rem);
-  letter-spacing: 4.8px;
-  text-transform: uppercase;
-  color: #596061;
-}
-
-/* ─── Title ──────────────────────────────────────────────── */
-.quality-equip-title {
-  margin-top: 1.2rem;
-  font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-size: clamp(4.2rem, 4.35vw, 4.2rem);
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  color: #2d3435;
 }
 
 /* ─── Grid ───────────────────────────────────────────────── */
@@ -99,16 +82,9 @@
     row-gap: 2.5rem;
   }
 
-  .quality-equip-title {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-  }
 }
 
-@media (max-width: 575.98px) {
-  .quality-equip-title {
-    font-size: clamp(2rem, 10vw, 2.8rem);
-  }
-}
+@media (max-width: 575.98px) {}
 
 .quality-equip-header,
 .quality-equip-card {
@@ -119,6 +95,7 @@
 .quality-equip-kicker {
   will-change: transform, opacity;
 }
+
 @media (max-width: 1600px) and (min-width: 1465px) {
   .quality-equip-shell {
     max-width: 1325px;
@@ -134,5 +111,11 @@
 @media (min-width: 1600px) {
   .quality-equip-shell {
     max-width: 1520px;
+  }
+}
+
+@media (max-width: 480px) {
+  .quality-equip-shell {
+    padding-inline: 0.9rem !important;
   }
 }

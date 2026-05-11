@@ -25,28 +25,10 @@
   flex-direction: column;
 }
 
-.environment-hero-kicker {
-  text-align: left;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(1.05rem, 0.8vw, 0.86rem);
-  letter-spacing: 4.8px;
-  vertical-align: middle;
-  text-transform: uppercase;
-  color: #596061;
-}
-
-.environment-hero-title {
-  margin-top: clamp(1.2rem, 2.5vw, 2rem);
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: clamp(4.35rem, 4.15vw, 3.75rem);
-  line-height: 0.95;
-  letter-spacing: 0.4px;
-  vertical-align: middle;
-  color: #2D3435;
+@media (min-width: 992px) {
+  .environment-hero-title {
+    white-space: nowrap;
+  }
 }
 
 .environment-hero-meta {
@@ -164,7 +146,7 @@
 
   .environment-hero-grid {
     grid-template-columns: 1fr;
-    gap: 6rem;
+    gap: 3rem;
   }
 
   .environment-hero-content {

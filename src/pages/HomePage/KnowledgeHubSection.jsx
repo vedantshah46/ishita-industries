@@ -39,7 +39,7 @@ function KnowledgeHubSection() {
   useEffect(() => {
     let titleSplit = null
     if (titleRef.current) {
-      titleSplit = new SplitType(titleRef.current, { types: 'chars' })
+      titleSplit = new SplitType(titleRef.current, { types: 'words,chars' })
       anime.set(titleSplit.chars, { opacity: 0, translateY: 20 })
     }
 

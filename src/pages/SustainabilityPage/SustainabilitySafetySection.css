@@ -41,6 +41,12 @@
   margin: 0;
 }
 
+@media (min-width: 992px) {
+  .sust-safety-title {
+    white-space: nowrap;
+  }
+}
+
 /* Card */
 .sust-safety-card {
   background-color: #FFFFFF;
