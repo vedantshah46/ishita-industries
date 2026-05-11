@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import SEO from '../../components/SEO/SEO'
 import NavbarRouter from '../../components/Navbar/NavbarRouter'
 import Footer from '../../components/Footer/Footer'
 import FreeToContactUsSection from '../HomePage/FreeToContactUsSection'
@@ -123,6 +124,23 @@ function BlogPostPage() {
 
   return (
     <div className="bpp-page">
+      <SEO
+        title={post.title}
+        description={post.excerpt || post.title}
+        path={`/blog/${slug}`}
+        image={post.cover_url}
+        type="article"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          image: post.cover_url,
+          author: { '@type': 'Organization', name: 'Ishita Industries' },
+          publisher: { '@type': 'Organization', name: 'Ishita Industries', url: 'https://www.ishitabrass.com' },
+          datePublished: post.published_at,
+          mainEntityOfPage: `https://www.ishitabrass.com/blog/${slug}`,
+        }}
+      />
       <NavbarRouter />
 
       <main className="bpp-main">

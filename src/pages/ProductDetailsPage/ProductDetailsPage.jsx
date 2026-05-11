@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
+import SEO from '../../components/SEO/SEO';
 import NavbarRouter from '../../components/Navbar/NavbarRouter';
 import Footer from '../../components/Footer/Footer';
 import './ProductDetailsPage.css';
@@ -198,6 +199,27 @@ const ProductDetailsPage = () => {
 
   return (
     <>
+      <SEO
+        title={`${product.name} - Brass Component by Ishita Industries`}
+        description={product.description ? product.description.slice(0, 160) : `${product.name} - High-quality precision brass component manufactured by Ishita Industries, Jamnagar. ISO 9001 certified, available for global export.`}
+        keywords={`${product.name.toLowerCase()}, brass component, ${(product.product_tags || []).map(t => t.tag.toLowerCase()).join(', ')}, ishita industries`}
+        path={`/product/${slug}`}
+        image={product.image_url}
+        type="product"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: product.name,
+          description: product.description || `${product.name} by Ishita Industries`,
+          image: images,
+          manufacturer: {
+            '@type': 'Organization',
+            name: 'Ishita Industries',
+            url: 'https://www.ishitabrass.com',
+          },
+          brand: { '@type': 'Brand', name: 'Ishita Industries' },
+        }}
+      />
       <NavbarRouter />
       <section className="product-details-wrapper" ref={sectionRef}>
         <div className="product-details-container">

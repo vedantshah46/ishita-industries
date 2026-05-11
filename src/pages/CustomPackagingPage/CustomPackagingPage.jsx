@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../components/SEO/SEO';
 import Navbar from '../../components/Navbar/NavbarRouter';
 import Footer from '../../components/Footer/Footer';
 import ServiceHeroSection from '../../components/ServicePageComponents/ServiceHeroSection';
@@ -89,8 +90,14 @@ const CustomPackagingPage = () => {
 
   return (
     <>
+      <SEO
+        title="Custom Packaging & Private Label - OEM Brass Components"
+        description="Ishita Industries offers custom packaging and private label services for brass components. Logo printing, laser marking, color coding, polybags, carton packaging, and OEM packaging solutions for global distribution."
+        keywords="custom packaging brass components, private label brass parts, OEM packaging India, brass components labeling, laser marking brass, industrial packaging brass, export packaging brass parts"
+        path="/custom-packaging"
+      />
       <Navbar />
-      
+
       <ServiceHeroSection 
         titleMain="Custom Packaging"
         titleLight="& Private Label."
