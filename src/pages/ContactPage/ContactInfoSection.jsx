@@ -87,24 +87,24 @@ const ContactInfoSection = () => {
             <h3 className="info-title">E-mail</h3>
             <ul className="info-list">
               <li>
-                <a href="mailto:sales@ishitabrass.com" className="info-link">sales@ishitabrass.com</a> 
-                <span>(Domestic Sales)</span>
+                <a href="mailto:sales@ishitabrass.com" className="info-link">sales@ishitabrass.com</a>{" "}
+                <span className="info-label">(Domestic Sales)</span>
               </li>
               <li>
-                <a href="mailto:Export@ishitabrass.com" className="info-link">Export@ishitabrass.com</a> 
-                <span>(International Sales)</span>
+                <a href="mailto:Export@ishitabrass.com" className="info-link">Export@ishitabrass.com</a>{" "}
+                <span className="info-label">(International Sales)</span>
               </li>
               <li>
-                <a href="mailto:Import@ishitabrass.com" className="info-link">Import@ishitabrass.com</a> 
-                <span>(Raw Material / Brass)</span>
+                <a href="mailto:Import@ishitabrass.com" className="info-link">Import@ishitabrass.com</a>{" "}
+                <span className="info-label">(Raw Material / Brass)</span>
               </li>
               <li>
-                <a href="mailto:Info@ishitabrass.com" className="info-link">Info@ishitabrass.com</a> 
-                <span>(Other / General)</span>
+                <a href="mailto:Info@ishitabrass.com" className="info-link">Info@ishitabrass.com</a>{" "}
+                <span className="info-label">(Other / General)</span>
               </li>
               <li>
-                <a href="mailto:contact@ishitabrass.com" className="info-link">contact@ishitabrass.com</a> 
-                <span>(Contact / General)</span>
+                <a href="mailto:contact@ishitabrass.com" className="info-link">contact@ishitabrass.com</a>{" "}
+                <span className="info-label">(Contact / General)</span>
               </li>
             </ul>
           </div>

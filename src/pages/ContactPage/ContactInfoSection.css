@@ -57,9 +57,8 @@
 
 .info-title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.5rem, 0.72vw, 0.75rem);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 700;
-  /* bold like the image */
   color: #343434;
   margin-bottom: 1.2rem;
 }
@@ -72,15 +71,23 @@
 
 .info-list li {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.1rem, 0.72vw, 0.75rem);
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
   color: #666666;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label {
+  font-size: 0.9em;
+  opacity: 0.8;
 }
 
 .info-text {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.1rem, 0.72vw, 0.75rem);
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
   color: #666666;
   line-height: 1.6;
   margin: 0;
@@ -90,15 +97,41 @@
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
+  word-break: break-all;
+  /* Ensures long emails don't overflow */
 }
 
 .info-link:hover {
   color: #343434;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
   .contact-cards-wrapper {
     flex-direction: column;
+  }
+
+  .info-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-container {
+    padding-inline: 1rem;
+  }
+
+  .info-title {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+  }
+
+  .info-list li,
+  .info-text {
+    font-size: 0.88rem;
+  }
+
+  .info-icon {
+    padding-bottom: 1.5rem;
   }
 }
