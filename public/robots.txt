@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /admin
+
+Sitemap: https://www.ishitabrass.com/sitemap.xml
+
+# Ishita Industries - Precision Brass Components Manufacturer
+# Jamnagar, Gujarat, India

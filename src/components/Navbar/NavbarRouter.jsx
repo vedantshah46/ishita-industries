@@ -7,6 +7,7 @@ import companyLogoMobile from '../../Images/ishita-navbar-logo.png'
 import browserLogo from '../../Images/navbar-browser-logo.png'
 import downloadLogo from '../../Images/navbar-download-logo.png'
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png'
+import { CATEGORIES } from '../../data/categories'
 
 const languages = [
   { label: 'European', code: 'eu' },
@@ -28,13 +29,6 @@ const aboutSubLinks = [
   { key: 'about_sections.csr', hash: '#csr' },
 ]
 
-const productSubLinks = [
-  { key: 'products_dropdown.turned', to: '/product/electric-pin' },
-  { key: 'products_dropdown.forged', to: '/product/electric-pin' },
-  { key: 'products_dropdown.milling', to: '/product/electric-pin' },
-  { key: 'products_dropdown.broach', to: '/product/electric-pin' },
-  { key: 'products_dropdown.stamped', to: '/product/electric-pin' },
-]
 
 const serviceSubLinks = [
   { key: 'services_dropdown.shipping', to: '/global-logistic' },
@@ -50,7 +44,7 @@ const sustainabilitySubLinks = [
 const navLinks = [
   { key: 'nav.about', to: '/about', dropdown: aboutSubLinks },
   { key: 'nav.process', to: '/manufacturing-process' },
-  { key: 'nav.products', to: '/product', dropdown: productSubLinks },
+  { key: 'nav.products', to: '/product', flyout: true },
   { key: 'nav.quality', to: '/quality' },
   { key: 'nav.sustainability', to: '/sustainability', dropdown: sustainabilitySubLinks },
   { key: 'nav.service', to: '/contact', dropdown: serviceSubLinks },
@@ -149,8 +143,10 @@ function NavbarRouter() {
 
             <div className="collapse navbar-collapse justify-content-lg-between" id="mainNavbar">
               <ul className="navbar-nav mx-auto nav-links-list">
-                {navLinks.map((link) => (
-                  <li className={`nav-item${link.dropdown ? ' has-dropdown' : ''} ${openDropdown === link.key ? 'mobile-open' : ''}`} key={link.key}>
+                {navLinks.map((link) => {
+                  const hasAnyDropdown = link.dropdown || link.flyout
+                  return (
+                  <li className={`nav-item${hasAnyDropdown ? ' has-dropdown' : ''}${link.flyout ? ' has-flyout' : ''} ${openDropdown === link.key ? 'mobile-open' : ''}`} key={link.key}>
                     <div className="nav-item-wrap">
                       <NavLink
                         className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}
@@ -160,8 +156,8 @@ function NavbarRouter() {
                       >
                         {t(link.key)}
                       </NavLink>
-                      {link.dropdown && (
-                        <button 
+                      {hasAnyDropdown && (
+                        <button
                           type="button"
                           className={`mobile-dropdown-toggle d-lg-none ${openDropdown === link.key ? 'is-rotated' : ''}`}
                           onClick={() => setOpenDropdown(prev => prev === link.key ? '' : link.key)}
@@ -173,6 +169,8 @@ function NavbarRouter() {
                         </button>
                       )}
                     </div>
+
+                    {/* Normal dropdown */}
                     {link.dropdown && (
                       <ul className="nav-dropdown">
                         {link.dropdown.map((sub) => (
@@ -187,8 +185,34 @@ function NavbarRouter() {
                         ))}
                       </ul>
                     )}
+
+                    {/* Two-level flyout for Products */}
+                    {link.flyout && (
+                      <ul className="nav-dropdown nav-dropdown--flyout">
+                        {CATEGORIES.map((cat) => (
+                          <li key={cat.slug} className="flyout-item">
+                            <NavLink to={`/product/${cat.slug}`} onClick={handleNavClick}>
+                              {cat.name}
+                              <svg className="flyout-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                              </svg>
+                            </NavLink>
+                            <ul className="flyout-submenu">
+                              {cat.subcategories.map((sub) => (
+                                <li key={sub.slug}>
+                                  <NavLink to={`/product/${cat.slug}/${sub.slug}`} onClick={handleNavClick}>
+                                    {sub.name}
+                                  </NavLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
-                ))}
+                  )
+                })}
               </ul>
 
               <div className="nav-actions d-flex align-items-center">

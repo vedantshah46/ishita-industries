@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
+import SEO from '../../components/SEO/SEO'
 import Navbar from '../../components/Navbar/NavbarRouter'
 import Footer from '../../components/Footer/Footer'
 import ProductSection from '../../components/ProductSection/ProductSection'
@@ -21,6 +22,12 @@ function SubCategoryPage() {
 
   return (
     <>
+      <SEO
+        title={`${category.name} - Brass ${category.name} Products`}
+        description={`Browse Ishita Industries' ${category.name.toLowerCase()} range. ${category.subcategories.map(s => s.name).join(', ')}. High-quality brass components manufactured in Jamnagar, India with ISO 9001 certification.`}
+        keywords={`${category.name.toLowerCase()}, ${category.subcategories.map(s => s.name.toLowerCase()).join(', ')}, brass components, ishita industries`}
+        path={`/product/${superCat}`}
+      />
       <Navbar />
       <ProductSection
         kicker={category.kicker}

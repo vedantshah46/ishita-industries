@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../components/SEO/SEO';
 import Navbar from '../../components/Navbar/NavbarRouter';
 import Footer from '../../components/Footer/Footer';
 import ServiceHeroSection from '../../components/ServicePageComponents/ServiceHeroSection';
@@ -90,6 +91,12 @@ const AssemblyKittingPage = () => {
 
   return (
     <>
+      <SEO
+        title="Assembly & Kitting Services - Brass Component Assembly"
+        description="Ishita Industries provides precision assembly and kitting services for brass components. Mechanical assembly, sub-assemblies, product kitting, fastener assemblies, functional testing and custom labeling. High-volume ready."
+        keywords="brass assembly services, brass kitting, mechanical assembly brass, sub-assembly brass components, fastener assembly India, product kitting brass, component assembly manufacturer"
+        path="/assembly-kitting"
+      />
       <Navbar />
 
       <ServiceHeroSection
