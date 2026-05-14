@@ -7,6 +7,16 @@
   box-sizing: border-box;
 }
 
+/* Image protection: prevent drag-to-desktop and right-click on all images.
+   pointer-events: none passes clicks through to parent links/buttons so
+   navigation is unaffected. */
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
 /* Lenis adds its own smooth scroll — don't double-up with CSS scroll-behavior */
 html,
 body {
