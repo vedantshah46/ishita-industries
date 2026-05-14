@@ -44,6 +44,24 @@ gsap.ticker.lagSmoothing(0)
 // Expose lenis globally so any component can call lenis.stop()/start()
 window.__lenis = lenis
 
+// ── Image protection: disable right-click save on all images ──────
+// pointer-events: none (CSS) makes the img transparent to mouse events,
+// so the contextmenu fires on the parent — we do a spatial bounding-box
+// check to still catch right-clicks that land visually on an image.
+document.addEventListener('contextmenu', (e) => {
+  const imgs = document.querySelectorAll('img')
+  for (const img of imgs) {
+    const rect = img.getBoundingClientRect()
+    if (
+      e.clientX >= rect.left && e.clientX <= rect.right &&
+      e.clientY >= rect.top  && e.clientY <= rect.bottom
+    ) {
+      e.preventDefault()
+      return
+    }
+  }
+})
+
 // ── React render ──────────────────────────────────────────────────
 createRoot(document.getElementById('root')).render(
   <StrictMode>
