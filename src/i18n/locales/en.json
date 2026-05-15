@@ -22,7 +22,9 @@
   "services_dropdown": {
     "shipping": "Global Shipping & Logistic",
     "packaging": "Custom Packaging",
-    "assembly": "Assembly & Kitting"
+    "assembly": "Assembly & Kitting",
+    "oem": "OEM Manufacturing",
+    "contract": "Contract Manufacturing"
   },
   "sustainability_dropdown": {
     "sustainability": "Sustainability",
@@ -318,14 +320,20 @@
     "quality_page": "Quality",
     "blog": "Blog",
     "contact": "Contact",
-    "address": "Plot No. 32, R. S. no. 706, Vision Industrial Park Lalpur Road, changa Jamnagar, Gujarat - 361012 INDIA",
-    "phone": "+91 72289 81407",
+    "unit1_label": "Unit 1",
+    "unit1_address": "Plot No. 32, R. S. no. 706, Vision Industrial Park Lalpur Road, changa Jamnagar, Gujarat - 361012 INDIA",
+    "unit2_label": "Unit 2",
+    "unit2_address": "Plot no 772 GIDC Phase-2, Dared, Jamnagar, Gujarat 361012",
+    "phone1": "+91 72289 81407",
+    "phone2": "+91 98259 92077",
+    "rfq_label": "For RFQ :-",
+    "rfq_email": "rfq@ishitabrass.com",
     "domestic_label": "For Domestic :-",
-    "domestic_email": "sales@ishitabrass.com",
+    "domestic_email": "domestic@ishitabrass.com",
     "export_label": "For Export :-",
     "export_email": "export@ishitabrass.com",
     "general_label": "For General :-",
-    "general_email": "info@ishitabrass.com",
+    "general_email": "contact@ishitabrass.com",
     "copyright": "Copyright 2026 - Ishita Industries All Copyrights Reserved",
     "made_with": "Made with",
     "by": "by"

@@ -15,8 +15,8 @@
 /* ─── Desktop top row ────────────────────────────────────── */
 .footer-top-row {
   display: grid;
-  grid-template-columns: 1.5fr 1.5fr 1.5fr 3fr;
-  gap: clamp(5.5rem, 4vw, 10rem);
+  grid-template-columns: 1.4fr 1.4fr 1.4fr 3fr;
+  gap: clamp(3rem, 4vw, 6rem);
   margin-bottom: clamp(3rem, 4vw, 4.5rem);
 }
 
@@ -62,7 +62,7 @@
 }
 
 .footer-logo {
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.6rem;
 }
 
 .footer-logo img {
@@ -70,18 +70,62 @@
   height: auto;
 }
 
-.footer-address,
-.footer-phone,
-.footer-emails p {
-  color: #DADADA;
-  font-size: clamp(1.19rem, 1.25vw, 1.35rem);
-  line-height: 1.6;
+/* ─── Unit 1 / Unit 2 ────────────────────────────────────── */
+.footer-units {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem 1.8rem;
   margin-bottom: 1.2rem;
+}
+
+.footer-unit-label {
+  font-size: clamp(0.95rem, 0.9vw, 1.05rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.4rem;
+}
+
+.footer-address {
+  color: #DADADA;
+  font-size: clamp(1rem, 0.95vw, 1.1rem);
+  line-height: 1.6;
+  margin: 0;
   font-style: normal;
 }
 
+/* ─── Phones ─────────────────────────────────────────────── */
+.footer-phones-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+
+.footer-phone-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-phone-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #DADADA;
+}
+
+.footer-phone {
+  margin: 0 !important;
+  color: #DADADA;
+  font-size: clamp(1rem, 0.95vw, 1.1rem);
+}
+
+/* ─── Emails ─────────────────────────────────────────────── */
 .footer-emails p {
-  margin-bottom: 0.6rem;
+  color: #DADADA;
+  font-size: clamp(1rem, 0.95vw, 1.1rem);
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
 }
 
 .footer-emails a {
@@ -94,19 +138,34 @@
   color: #ffffff;
 }
 
-/* ─── Socials ────────────────────────────────────────────── */
+/* ─── Bottom row ─────────────────────────────────────────── */
+.footer-divider {
+  border: 0;
+  height: 1.2px;
+  background-color: #DADADA;
+  margin-bottom: 1.2rem;
+}
+
+.footer-bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ─── Socials (above divider, left-aligned) ──────────────── */
 .footer-socials {
   display: flex;
-  gap: 1.2rem;
-  margin-top: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .social-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   color: #b0b3b8;
   transition: color 0.2s ease;
 }
@@ -120,24 +179,10 @@
   color: #ffffff;
 }
 
-/* ─── Bottom row ─────────────────────────────────────────── */
-.footer-divider {
-  border: 0;
-  height: 1.2px;
-  background-color: #DADADA;
-  margin-bottom: 1.5rem;
-}
-
-.footer-bottom-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .copyright-text,
 .credit-text {
   color: #a0a3a7;
-  font-size: clamp(0.85rem, 0.9vw, 1rem);
+  font-size: clamp(0.8rem, 0.85vw, 0.95rem);
   margin: 0;
 }
 
@@ -151,21 +196,17 @@
   color: #ffffff;
 }
 
-.heart-icon {
-  color: #e23e57;
-  font-size: 1rem;
+/* ─── Wide screens ───────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .footer-shell { max-width: 1520px; }
 }
 
 @media (max-width: 1600px) and (min-width: 1465px) {
-  .footer-shell {
-    max-width: 1325px;
-  }
+  .footer-shell { max-width: 1325px; }
 }
 
 @media (max-width: 1465px) and (min-width: 1400px) {
-  .footer-shell {
-    max-width: 1260px;
-  }
+  .footer-shell { max-width: 1260px; }
 }
 
 /* ─── Tablet (< 992px) ───────────────────────────────────── */
@@ -174,12 +215,19 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem 2rem;
   }
+
+  .footer-contact-col {
+    grid-column: 1 / -1;
+  }
+
+  .footer-units {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
 
-  /* Hide desktop layout, show mobile layout */
   .footer-top-row {
     display: none;
   }
@@ -191,7 +239,6 @@
     margin-bottom: 2rem;
   }
 
-  /* Logo + address + phone block */
   .footer-mobile-contact .footer-logo {
     margin-bottom: 1.2rem;
   }
@@ -200,22 +247,11 @@
     max-width: 180px;
   }
 
-  .footer-mobile-contact .footer-address {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: #DADADA;
-    font-style: normal;
-    margin-bottom: 0.8rem;
+  .footer-units--mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
-  .footer-mobile-contact .footer-phone {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #DADADA;
-    margin-bottom: 0;
-  }
-
-  /* Industries section */
   .footer-mobile-industries .footer-col-title {
     margin-bottom: 1rem;
   }
@@ -228,7 +264,6 @@
     font-size: 1.05rem;
   }
 
-  /* Pages + Ishita two-column grid */
   .footer-mobile-two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -247,17 +282,15 @@
     font-size: 1.05rem;
   }
 
-  /* Bottom row stacked */
   .footer-bottom-content {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
     gap: 0.4rem;
   }
 
   .copyright-text,
   .credit-text {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
   }
 }
 
@@ -274,12 +307,9 @@
   .footer-mobile-two-col {
     gap: 1rem 1.5rem;
   }
-}
 
-/* ─── Wide screens (≥ 1600px) ───────────────────────────── */
-@media (min-width: 1600px) {
-  .footer-shell {
-    max-width: 1520px;
+  .footer-units--mobile {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -299,28 +329,4 @@
 .footer-bottom-row.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.footer-phones-container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.footer-phone-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.footer-phone-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-phone {
-  margin: 0 !important;
 }

@@ -18,6 +18,8 @@ const SustainabilityPage = lazy(() => import('./pages/SustainabilityPage/Sustain
 const GlobalLogisticPage = lazy(() => import('./pages/GlobalLogisticPage/GlobalLogisticPage'))
 const CustomPackagingPage = lazy(() => import('./pages/CustomPackagingPage/CustomPackagingPage'))
 const AssemblyKittingPage = lazy(() => import('./pages/AssemblyKittingPage/AssemblyKittingPage'))
+const OEMManufacturingPage = lazy(() => import('./pages/OEMManufacturingPage/OEMManufacturingPage'))
+const ContractManufacturingPage = lazy(() => import('./pages/ContractManufacturingPage/ContractManufacturingPage'))
 const ManufacturingProcessPage = lazy(() => import('./pages/ManufacturingProcessPage/ManufacturingProcessPage'))
 const BlogPage = lazy(() => import('./pages/BlogPage/BlogPage'))
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage/BlogPostPage'))
@@ -55,6 +57,8 @@ function App() {
           <Route path="/global-logistic" element={<GlobalLogisticPage />} />
           <Route path="/custom-packaging" element={<CustomPackagingPage />} />
           <Route path="/assembly-kitting" element={<AssemblyKittingPage />} />
+          <Route path="/oem-manufacturing" element={<OEMManufacturingPage />} />
+          <Route path="/contract-manufacturing" element={<ContractManufacturingPage />} />
           <Route path="/manufacturing-process" element={<ManufacturingProcessPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />

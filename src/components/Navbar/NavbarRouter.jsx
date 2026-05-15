@@ -8,14 +8,16 @@ import browserLogo from '../../Images/navbar-browser-logo.png'
 import downloadLogo from '../../Images/navbar-download-logo.png'
 import ToggleLogo from '../../Images/navbar-menu-toggle-logo.png'
 import { CATEGORIES } from '../../data/categories'
+import brochurePdf from '../../assets/Ishita Ind. Brochure.pdf'
 
 const languages = [
-  { label: 'European', code: 'eu' },
-  { label: 'Italian', code: 'it' },
-  { label: 'German', code: 'de' },
-  { label: 'French', code: 'fr' },
-  { label: 'Spanish', code: 'es' },
-  { label: 'English', code: 'en' },
+    { label: 'English(EN)', code: 'en' },
+    { label: 'German(DE)', code: 'de' },
+    { label: 'French(FR)', code: 'fr' },
+    { label: 'Spanish(ES)', code: 'es' },
+    { label: 'Italian(IT)', code: 'it' },
+    { label: 'Dutch(NL)', code: 'nl' },
+    { label: 'Portuguese(PT)', code: 'pt' },
 ]
 
 const aboutSubLinks = [
@@ -34,6 +36,8 @@ const serviceSubLinks = [
   { key: 'services_dropdown.shipping', to: '/global-logistic' },
   { key: 'services_dropdown.packaging', to: '/custom-packaging' },
   { key: 'services_dropdown.assembly', to: '/assembly-kitting' },
+  { key: 'services_dropdown.oem', to: '/oem-manufacturing' },
+  { key: 'services_dropdown.contract', to: '/contract-manufacturing' },
 ]
 
 const sustainabilitySubLinks = [
@@ -67,6 +71,8 @@ function NavbarRouter() {
   const isLogisticPage = location.pathname === '/global-logistic'
   const isPackagingPage = location.pathname === '/custom-packaging'
   const isAssemblyPage = location.pathname === '/assembly-kitting'
+  const isOEMPage = location.pathname === '/oem-manufacturing'
+  const isContractPage = location.pathname === '/contract-manufacturing'
   const isEnvironmentPage = location.pathname === '/environment'
   const isContactPage = location.pathname === '/contact'
   const isBlogPage = location.pathname === '/blog'
@@ -108,6 +114,7 @@ function NavbarRouter() {
     isImportExport ? 'theme-transparent' : '',
     (isProductPage || isProductInnerPage) ? 'theme-white' : '',
     (isQualityPage || isLogisticPage || isPackagingPage || isAssemblyPage ||
+      isOEMPage || isContractPage ||
       isEnvironmentPage || isContactPage || isBlogPage) ? 'theme-f9' : '',
   ].filter(Boolean).join(' ')
 
@@ -246,12 +253,16 @@ function NavbarRouter() {
                   )}
                 </div>
 
-                <button type="button" className="brochure-btn">
+                <a
+                  href={brochurePdf}
+                  download="Ishita Ind. Brochure.pdf"
+                  className="brochure-btn"
+                >
                   {t('nav.brochure')}
                   <span className="brochure-icon" aria-hidden="true">
                     <img src={downloadLogo} alt="" />
                   </span>
-                </button>
+                </a>
               </div>
             </div>
           </div>
