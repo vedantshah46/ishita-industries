@@ -47,42 +47,42 @@ import machine3 from '../Images/Section Components.jpg'
 export const precisionProducts = [
   {
     slug: 'brass-turned-component',
-    name: 'Brass Turned Component',
+    name: 'Turned Component',
     category: 'precision',
     image_url: turnedImage,
     sort_order: 0,
   },
   {
     slug: 'brass-forged-component',
-    name: 'Brass Forged Component',
+    name: 'Forged Component',
     category: 'precision',
     image_url: forgedImage,
     sort_order: 1,
   },
   {
     slug: 'brass-milling-component',
-    name: 'Brass Milling Component',
+    name: 'Milling Component',
     category: 'precision',
     image_url: millingImage,
     sort_order: 2,
   },
   {
     slug: 'brass-pressed-component',
-    name: 'Brass Pressed Component',
+    name: 'Pressed Component',
     category: 'precision',
     image_url: pressedImage,
     sort_order: 3,
   },
   {
     slug: 'brass-stamped-component',
-    name: 'Brass Stamped Component',
+    name: 'Stamped Component',
     category: 'precision',
     image_url: stampingImage,
     sort_order: 4,
   },
   {
     slug: 'brass-casting-component',
-    name: 'Brass Casting Component',
+    name: 'Casting Component',
     category: 'precision',
     image_url: castingImage,
     sort_order: 5,
@@ -123,8 +123,8 @@ export const industrialProducts = [
     sort_order: 3,
   },
   {
-    slug: 'cpvc-ppr-inserts',
-    name: 'CPVC PPR Inserts',
+    slug: 'Sanitary-Fitting',
+    name: 'Sanitary Fitting',
     category: 'industrial',
     image_url: cpvcImage,
     sort_order: 4,
@@ -138,21 +138,21 @@ export const industrialProducts = [
 export const extrusionProducts = [
   {
     slug: 'brass-extrusion-rods',
-    name: 'Brass Extrusion Rods',
+    name: 'Extrusion Rods',
     category: 'extrusion',
     image_url: extrusionImage,
     sort_order: 0,
   },
   {
     slug: 'brass-hollow-rods',
-    name: 'Brass Hollow Rods',
+    name: 'Hollow Rods',
     category: 'extrusion',
     image_url: hollowImage,
     sort_order: 1,
   },
   {
     slug: 'brass-profile-section-rods',
-    name: 'Brass Profile & Section Rods',
+    name: 'Profile & Section Rods',
     category: 'extrusion',
     image_url: profileImage,
     sort_order: 2,
@@ -220,7 +220,7 @@ export const staticProductDetails = {
   },
   'brass-turned-component': {
     slug: 'brass-turned-component',
-    name: 'Brass Turned Component',
+    name: 'Turned Component',
     category: 'precision',
     description: `Ishita Industries specializes in precision brass turned components manufactured using advanced CNC turning centres and secondary operations. Established in 1985, we serve OEMs in electrical, automotive, plumbing, and instrumentation industries with components conforming to customer drawings and technical specifications.\n\nWe use the best quality free-cutting brass and employ pioneered technology to ensure stringent dimensional accuracy, surface finish, and repeatability across all production batches.`,
     image_url: turnedImage,
@@ -253,7 +253,7 @@ export const staticProductDetails = {
   },
   'brass-forged-component': {
     slug: 'brass-forged-component',
-    name: 'Brass Forged Component',
+    name: 'Forged Component',
     category: 'precision',
     description: `Ishita Industries manufactures precision brass forged components that offer superior strength, structural integrity, and material density compared to machined parts. Our hot forging process eliminates internal voids and refines the grain structure for enhanced mechanical properties.\n\nForged brass components from Ishita are widely used in valve bodies, pipe fittings, electrical connectors, and automotive parts — all manufactured to customer technical specifications with post-forging CNC machining available.`,
     image_url: forgedImage,
@@ -285,7 +285,7 @@ export const staticProductDetails = {
   },
   'brass-milling-component': {
     slug: 'brass-milling-component',
-    name: 'Brass Milling Component',
+    name: 'Milling Component',
     category: 'precision',
     description: `Ishita Industries produces precision brass milling components for applications requiring complex geometries, flat surfaces, slots, and profiles that cannot be achieved through turning alone. Our milling operations use modern CNC machining centres with 3-axis and 4-axis capability.\n\nFrom small instrument housings to larger valve blocks and manifolds, we deliver milled brass components with tight dimensional accuracy, smooth surface finish, and full conformance to customer drawings.`,
     image_url: millingImage,
@@ -317,7 +317,7 @@ export const staticProductDetails = {
   },
   'brass-pressed-component': {
     slug: 'brass-pressed-component',
-    name: 'Brass Pressed Component',
+    name: 'Pressed Component',
     category: 'precision',
     description: `Ishita Industries manufactures high-precision brass pressed components using power presses and progressive dies. Our pressing operations deliver consistent dimensional accuracy across high-volume production runs with minimal material waste.\n\nEach component undergoes strict quality checks to ensure flatness, burr-free edges, and conformance to customer drawings and industry standards.`,
     image_url: pressedImage,
@@ -350,7 +350,7 @@ export const staticProductDetails = {
 
   'brass-stamped-component': {
     slug: 'brass-stamped-component',
-    name: 'Brass Stamped Component',
+    name: 'Stamped Component',
     category: 'precision',
     description: `Ishita Industries produces precision brass stamped components for electrical, automotive, and consumer electronics industries. Using advanced stamping presses and custom tooling, we manufacture complex shapes with repeatable accuracy at competitive volumes.\n\nOur stamping process ensures tight dimensional control, clean shear edges, and consistent finish — critical for components used in connectors, terminals, and housings.`,
     image_url: stampingImage,
@@ -383,7 +383,7 @@ export const staticProductDetails = {
 
   'brass-casting-component': {
     slug: 'brass-casting-component',
-    name: 'Brass Casting Component',
+    name: 'Casting Component',
     category: 'precision',
     description: `Ishita Industries offers premium brass casting components through gravity die casting and sand casting processes. Established in 1985, we have built expertise in producing complex geometries that are difficult to achieve through machining alone.\n\nOur castings are used in valves, fittings, pump bodies, and decorative hardware — all produced to customer technical specifications with post-casting machining and surface finishing as required.`,
     image_url: castingImage,
@@ -553,9 +553,9 @@ export const staticProductDetails = {
     ],
   },
 
-  'cpvc-ppr-inserts': {
-    slug: 'cpvc-ppr-inserts',
-    name: 'CPVC PPR Inserts',
+  'Sanitary-Fitting': {
+    slug: 'Sanitary-Fitting',
+    name: 'Sanitary Fitting',
     category: 'industrial',
     description: `Ishita Industries is a specialist manufacturer of brass inserts for CPVC, PPR, and PEX piping systems. Our threaded inserts are designed for direct moulding into plastic pipes and fittings, providing strong and leak-proof metal-to-plastic joints.\n\nAll inserts conform to relevant plumbing standards and are available in a wide range of sizes from ¼" BSP to 2" BSP with custom thread profiles on request.`,
     image_url: cpvcImage,
@@ -586,7 +586,7 @@ export const staticProductDetails = {
 
   'brass-extrusion-rods': {
     slug: 'brass-extrusion-rods',
-    name: 'Brass Extrusion Rods',
+    name: 'Extrusion Rods',
     category: 'extrusion',
     description: `Ishita Industries supplies high-quality brass extrusion rods manufactured from premium free-cutting brass alloys. Our extrusion rods serve as the raw material for precision turned components, electrical contacts, and industrial fittings.\n\nAvailable in a wide range of diameters and custom lengths, our extrusion rods are produced to IS 319, IS 6912, and CW614N / CW617N international standards with full mill test certificates on request.`,
     image_url: extrusionImage,
@@ -616,7 +616,7 @@ export const staticProductDetails = {
 
   'brass-hollow-rods': {
     slug: 'brass-hollow-rods',
-    name: 'Brass Hollow Rods',
+    name: 'Hollow Rods',
     category: 'extrusion',
     description: `Ishita Industries manufactures precision brass hollow rods and tubes used in hydraulic cylinders, pneumatic fittings, valve stems, and decorative applications. Our hollow sections are extruded to maintain consistent wall thickness and concentricity throughout the length.\n\nAvailable in round, hexagonal, and square hollow profiles with tight OD and ID tolerances — supplied as standard stock or cut to custom lengths as per customer requirement.`,
     image_url: hollowImage,
@@ -646,7 +646,7 @@ export const staticProductDetails = {
 
   'brass-profile-section-rods': {
     slug: 'brass-profile-section-rods',
-    name: 'Brass Profile & Section Rods',
+    name: 'Profile & Section Rods',
     category: 'extrusion',
     description: `Ishita Industries offers a wide range of brass extruded profiles and section rods in standard and custom shapes. From simple hexagonal and square sections to complex architectural and industrial profiles, our extrusion capability covers virtually any cross-sectional geometry.\n\nOur profiles are used in architecture, electrical busbars, door hardware, marine fittings, and custom OEM applications — all supplied with material certification and dimensional inspection reports.`,
     image_url: profileImage,

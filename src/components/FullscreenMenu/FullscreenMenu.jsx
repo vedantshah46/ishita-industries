@@ -20,28 +20,28 @@ const menuLinks = [
     ]
   },
   {
-    label: 'Products',
+    label: 'Product',
     to: '/product',
     subLinks: [
-      { label: 'All Products', to: '/product' },
-      { label: 'Brass Turned Components', to: '/product/electric-pin' },
-      { label: 'Brass Forged Components', to: '/product/electric-pin' },
-      { label: 'Brass Milling Components', to: '/product/electric-pin' },
-      { label: 'Brass Broach Components', to: '/product/electric-pin' },
-      { label: 'Brass Stamped Components', to: '/product/electric-pin' }
+      { label: 'All Product', to: '/product' },
+      { label: 'Turned Components', to: '/product/electric-pin' },
+      { label: 'Forged Components', to: '/product/electric-pin' },
+      { label: 'Milling Components', to: '/product/electric-pin' },
+      { label: 'Broach Components', to: '/product/electric-pin' },
+      { label: 'Stamped Components', to: '/product/electric-pin' }
     ]
   },
+  { label: 'Quality', to: '/quality' },
   {
     label: 'Services',
-    to: '#',
+    to: '/contact',
     subLinks: [
-      { label: 'Global shipping & logistic', to: '/global-logistic' },
+      { label: 'Global Shipping & Logistic', to: '/global-logistic' },
       { label: 'Custom Packaging', to: '/custom-packaging' },
       { label: 'Assembly & Kitting', to: '/assembly-kitting' }
     ]
   },
-  { label: 'Manufacturing Process', to: '/manufacturing-process' },
-  { label: 'Quality', to: '/quality' },
+  { label: 'Mfg. Capabilities', to: '/manufacturing-process' },
   { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact' },
 ]

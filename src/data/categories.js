@@ -26,12 +26,12 @@ export const CATEGORIES = [
     kicker: 'All kind of Precision',
     image_url: precisionImg,
     subcategories: [
-      { slug: 'brass-turned',   name: 'Brass Turned Components',   image_url: turnedImage },
-      { slug: 'brass-forged',   name: 'Brass Forged Components',   image_url: forgedImage },
-      { slug: 'brass-milling',  name: 'Brass Milling Components',  image_url: millingImage },
-      { slug: 'brass-pressed',  name: 'Brass Pressed Components',  image_url: pressedImage },
-      { slug: 'brass-stamped',  name: 'Brass Stamped Components',  image_url: stampingImage },
-      { slug: 'brass-casting',  name: 'Brass Casting Components',  image_url: castingImage },
+      { slug: 'brass-turned',   name: 'Turned Components',   image_url: turnedImage },
+      { slug: 'brass-forged',   name: 'Forged Components',   image_url: forgedImage },
+      { slug: 'brass-milling',  name: 'Milling Components',  image_url: millingImage },
+      { slug: 'brass-pressed',  name: 'Pressed Components',  image_url: pressedImage },
+      { slug: 'brass-stamped',  name: 'Stamped Components',  image_url: stampingImage },
+      { slug: 'brass-casting',  name: 'Casting Components',  image_url: castingImage },
     ],
   },
   {
@@ -44,7 +44,7 @@ export const CATEGORIES = [
       { slug: 'automotive',        name: 'Automotive',        image_url: automotiveImage },
       { slug: 'fastner',           name: 'Fastner',           image_url: fastenerImage },
       { slug: 'engineering',       name: 'Engineering',       image_url: engineeringImage },
-      { slug: 'cpvc-ppr-inserts',  name: 'CPVC PPR Inserts',  image_url: cpvcImage },
+      { slug: 'Sanitary-Fitting',  name: 'Sanitary Fitting',  image_url: cpvcImage },
     ],
   },
   {
@@ -53,9 +53,9 @@ export const CATEGORIES = [
     kicker: 'All kind of Extrusion',
     image_url: extrusionImg,
     subcategories: [
-      { slug: 'brass-extrusion-rods',      name: 'Brass Extrusion Rods',          image_url: extrusionRodsImage },
-      { slug: 'brass-hollow-rods',         name: 'Brass Hollow Rods',             image_url: hollowImage },
-      { slug: 'brass-profile-section-rods', name: 'Brass Profile & Section Rods', image_url: profileImage },
+      { slug: 'brass-extrusion-rods',      name: 'Extrusion Rods',          image_url: extrusionRodsImage },
+      { slug: 'brass-hollow-rods',         name: 'Hollow Rods',             image_url: hollowImage },
+      { slug: 'brass-profile-section-rods', name: 'Profile & Section Rods', image_url: profileImage },
     ],
   },
 ]

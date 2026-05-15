@@ -42,7 +42,7 @@
 /* ─── Row (desktop: 3 columns) ──────────────────────────── */
 .industrial-components-row {
   display: grid;
-  grid-template-columns: minmax(max-content, 3.3fr) 5fr 2.5fr;
+  grid-template-columns: 3.3fr 5fr 2.5fr;
   align-items: start;
   gap: 1.5rem;
   padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
@@ -69,7 +69,7 @@
   font-weight: 400;
   color: #31373d;
   letter-spacing: -0.02em;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 /* ─── Badges ─────────────────────────────────────────────── */
@@ -88,7 +88,7 @@
   color: #000000;
   padding: 0.65rem 1.4rem;
   border: 1px solid #000000;
-  white-space: nowrap;
+  white-space: normal;
   background-color: transparent;
   transition: all 0.3s ease;
   cursor: default;
@@ -219,7 +219,7 @@
     font-weight: 400;
     font-size: 1.15rem;
     padding: 0.6rem 1.25rem;
-    white-space: nowrap;
+    white-space: normal;
   }
 }
 

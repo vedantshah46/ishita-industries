@@ -28,6 +28,7 @@ const finishingProcesses = [
   'Passivation',
   'Oxidising',
   'Cleaning & Deburring',
+  'Nickel, Chrome, Tin, Copper, Silver, Gold, Zinc',
 ]
 
 const mainProcesses = [
@@ -206,7 +207,10 @@ function CapabilitiesSectionNew() {
 
               <div className="cap-finishing-list">
                 {finishingProcesses.map((process, index) => (
-                  <div key={process} className="cap-finishing-item">
+                  <div 
+                    key={process} 
+                    className={`cap-finishing-item ${index === finishingProcesses.length - 1 ? 'cap-finishing-full' : ''}`}
+                  >
                     <p className="cap-finishing-name mb-0">{process}</p>
                   </div>
                 ))}

@@ -7,7 +7,7 @@ import anime from 'animejs'
 
 const contactLinksData = [
   { text: "Get Company Brochure", href: "#" },
-  { text: "info@ishitabrass.com", href: "mailto:info@ishitabrass.com" },
+  { text: "contact@ishitabrass.com", href: "mailto:contact@ishitabrass.com" },
   { text: "Explore Material Grades", href: "#" },
 ];
 

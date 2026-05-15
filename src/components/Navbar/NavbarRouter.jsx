@@ -47,13 +47,12 @@ const sustainabilitySubLinks = [
 
 const navLinks = [
   { key: 'nav.about', to: '/about', dropdown: aboutSubLinks },
-  { key: 'nav.process', to: '/manufacturing-process' },
   { key: 'nav.products', to: '/product', flyout: true },
   { key: 'nav.quality', to: '/quality' },
-  { key: 'nav.sustainability', to: '/sustainability', dropdown: sustainabilitySubLinks },
-  { key: 'nav.service', to: '/contact', dropdown: serviceSubLinks },
-  { key: 'nav.rfq', to: '/contact' },
-  { key: 'nav.updates', to: '/blog' },
+  { key: 'nav.services', to: '/contact', dropdown: serviceSubLinks },
+  { key: 'nav.mfg_capabilities', to: '/manufacturing-process' },
+  { key: 'nav.blog', to: '/blog' },
+  { key: 'nav.contact', to: '/contact' },
 ]
 
 function NavbarRouter() {
