@@ -5,7 +5,7 @@ import anime from 'animejs'
 
 const factsData = [
   { number: '34+', rawNumber: 34, suffix: '+', labelKey: 'facts.years_label' },
-  { number: '8500+', rawNumber: 8500, suffix: '+', labelKey: 'facts.components_label' },
+  { number: '3500+', rawNumber: 3500, suffix: '+', labelKey: 'facts.components_label' },
   { number: '6+', rawNumber: 6, suffix: '+', labelKey: 'facts.countries_label' },
   { number: '22000ft +', rawNumber: 22000, suffix: 'ft +', labelKey: 'facts.infra_label' },
   { number: '5+', rawNumber: 5, suffix: '+', labelKey: 'facts.engineers_label' },

@@ -12,27 +12,27 @@ import anime from 'animejs'
 
 const componentCards = [
   {
-    title: 'Brass Turned component',
+    title: 'Turned component',
     image: turnedImage,
   },
   {
-    title: 'Brass Forged component',
+    title: 'Forged component',
     image: forgedImage,
   },
   {
-    title: 'Brass Milling component',
+    title: 'Milling component',
     image: millingImage,
   },
   {
-    title: 'Brass Broach component',
+    title: 'Broach component',
     image: broachImage,
   },
   {
-    title: 'Brass Stamping component',
+    title: 'Stamping component',
     image: stampingImage,
   },
   {
-    title: 'Brass Casting component',
+    title: 'Casting component',
     image: castingImage,
   },
 ]
@@ -78,7 +78,7 @@ function PrecisionComponentsSection() {
       <div className="container precision-components-shell">
         <div className="precision-components-header">
           <div>
-            <p className="precision-components-kicker mb-0">ALL KINDS OF PRECISION</p>
+            <p className="precision-components-kicker mb-0">MS, SS, COPPER, BRONZE, BRASS, ALUMINIUM.</p>
             <h2 className="precision-components-title mb-0">
               PRECISION MACHINING EXPERTISE.
             </h2>

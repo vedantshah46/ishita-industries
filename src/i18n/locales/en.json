@@ -2,10 +2,10 @@
   "nav": {
     "about": "About",
     "mfg_capabilities": "Mfg. Capabilities",
-    "products": "Products",
-    "service": "Service",
-    "rfq": "RFQ",
-    "updates": "Updates",
+    "products": "Product",
+    "services": "Services",
+    "contact": "Contact",
+    "blog": "Blog",
     "brochure": "Brochure",
     "menu": "Menu",
     "quality": "Quality",
@@ -13,11 +13,11 @@
     "sustainability": "Sustainability"
   },
   "products_dropdown": {
-    "turned": "Brass Turned Components",
-    "forged": "Brass Forged Components",
-    "milling": "Brass Milling Components",
-    "broach": "Brass Broach Components",
-    "stamped": "Brass Stamped Components"
+    "turned": "Turned Components",
+    "forged": "Forged Components",
+    "milling": "Milling Components",
+    "broach": "Broach Components",
+    "stamped": "Stamped Components"
   },
   "services_dropdown": {
     "shipping": "Global Shipping & Logistic",
@@ -118,7 +118,7 @@
     "desc": "If you require any product developed exclusively, not found in our selection, or if you want any product to be modified as per your Specifications & Finish, we have a team of work force capable to fulfill your requirement.",
     "btn_contact": "Contact now",
     "btn_brochure": "Get Company Brochure",
-    "email": "info@ishitabrass.com",
+    "email": "contact@ishitabrass.com",
     "btn_materials": "Explore Material Grades"
   },
   "knowledge_hub": {
@@ -145,9 +145,9 @@
     "card6_desc": "Flexible Manufacturing from Prototype to Mass Production."
   },
   "precision": {
-    "kicker": "ALL KINDS OF PRECISION",
+    "kicker": "MS, SS, COPPER, BRONZE, BRASS, ALUMINIUM.",
     "item1": "Extrusion Raw products",
-    "item1_desc": "Copper & Brass Extruded Rods, Profiles & Sections",
+    "item1_desc": "Copper & Extruded Rods, Profiles & Sections",
     "item2_desc": "Aluminum Alloy Extrusion Products"
   },
   "about_hero": {
@@ -202,7 +202,7 @@
     "spec_tol_value": "Upto 0.01mm",
     "spec_roughness_label": "SURFACE ROUGHNESS",
     "metals_label": "METALS",
-    "metal_1": "BRASS",
+    "metal_1": "METAL",
     "metal_2": "COPPER",
     "metal_3": "STEEL",
     "metal_4": "ALUMINUM",

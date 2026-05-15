@@ -19,13 +19,20 @@ const aboutSubLinks = [
   { name: 'CSR', hash: '#csr' },
 ]
 
+const servicesSubLinks = [
+  { name: 'Global Shipping & Logistic', path: '/global-logistic' },
+  { name: 'Custom Packaging', path: '/custom-packaging' },
+  { name: 'Assembly & Kitting', path: '/assembly-kitting' },
+]
+
 const navLinks = [
   { name: 'About', path: '/about', dropdown: aboutSubLinks },
+  { name: 'Product', path: '/product' },
+  { name: 'Quality', path: '/quality' },
+  { name: 'Services', path: '/contact', dropdown: servicesSubLinks },
   { name: 'Mfg. Capabilities', path: '/manufacturing-process' },
-  { name: 'Products', path: '/product' },
-  { name: 'Service', path: '/contact' },
-  { name: 'RFQ', path: '/contact' },
-  { name: 'Updates', path: '/blog' },
+  { name: 'Blog', path: '/blog' },
+  { name: 'Contact', path: '/contact' },
 ]
 
 function Navbar() {

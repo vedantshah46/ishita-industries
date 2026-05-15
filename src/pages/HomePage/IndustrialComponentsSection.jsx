@@ -1,4 +1,5 @@
 import { useRef, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import './IndustrialComponentsSection.css'
 import electrical from '../../Images/industrial-electrical.png'
 import automative from '../../Images/automotive.png'
@@ -10,6 +11,7 @@ import anime from 'animejs'
 
 const industrialData = [
   {
+    slug: 'electric',
     title: 'Electrical',
     badges: [
       'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
@@ -20,42 +22,36 @@ const industrialData = [
     image: electrical,
   },
   {
+    slug: 'automotive',
     title: 'Automotive',
-    badges: [
-      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
-      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
-      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
-      'Electric Parts', 'Electrical Switch Gear Parts',
-    ],
+    badges: ['Auto Parts'],
     image: automative,
   },
   {
+    slug: 'fastner',
     title: 'Fastener',
     badges: [
-      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
-      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
-      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
-      'Electric Parts', 'Electrical Switch Gear Parts',
+      'Anchors', 'Inserts', 'Screw', 'Spacers', 'Stud', 'Nut', 'Bolt', 'Washer'
     ],
     image: fastener,
   },
   {
+    slug: 'engineering',
     title: 'Engineered',
     badges: [
-      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
-      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
-      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
-      'Electric Parts', 'Electrical Switch Gear Parts',
+      'Precision Engineering Component', 'Pipe Fitting', 'Compression Fittings',
+      'Garden Hose Barbs', 'Hose Barbs', 'JIC 37 Flare Fitting',
+      'BS 746 Fitting LPG Regulator & Meter Parts', 'SAE 45 Flare Fitting',
+      'HVAC Components', 'Air Break Hose Ends',
+      'Solenoid Valve Parts', 'Agriculture Components', 'Welding Accessories & Solenoid Valve Parts'
     ],
     image: engineer,
   },
   {
-    title: 'CPVC PPR',
+    slug: 'Sanitary-Fitting',
+    title: 'Sanitary Fitting',
     badges: [
-      'Electric Pin', 'Transformer Parts', 'Neutral Link', 'Lugs',
-      'Electrical Accesories & Contac Parts', 'Electrical Fues Parts',
-      'Electrical Meter Parts', 'Electrical Terminal Block & Bar',
-      'Electric Parts', 'Electrical Switch Gear Parts',
+      'Moduling Inserts', 'Sanitary Fitting'
     ],
     image: cpvcppr,
   },
@@ -122,10 +118,12 @@ function IndustrialComponentsSection() {
 
         <div className="industrial-components-list">
           {industrialData.map((item, index) => (
-            <article
+            <Link
+              to={`/product/industrial/${item.slug}`}
               key={item.title}
               className="industrial-components-row"
               ref={(el) => (rowRefs.current[index] = el)}
+              style={{ textDecoration: 'none' }}
             >
               <h3 className="industrial-components-row-title mb-0">{item.title}</h3>
 
@@ -144,7 +142,7 @@ function IndustrialComponentsSection() {
                   className="industrial-components-image"
                 />
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

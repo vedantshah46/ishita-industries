@@ -44,8 +44,8 @@ function Homepage() {
     <>
       <SEO
         title="Precision Brass Components Manufacturer in Jamnagar, India"
-        description="Ishita Industries is a leading ISO 9001 certified brass components manufacturer in Jamnagar, India. Precision CNC turned, forged, milling, stamped & extrusion brass parts for electrical, automotive & industrial applications. 34+ years experience, 8500+ components, global exports."
-        keywords="ishita industries, brass components manufacturer, precision brass parts India, brass turned components, brass forged components, CNC machining Jamnagar, brass manufacturer India, brass electrical parts, brass automotive components, OEM brass parts exporter, industrial brass components, brass fasteners manufacturer, brass extrusion rods, CPVC PPR inserts, brass hollow rods"
+        description="Ishita Industries is a leading ISO 9001 certified brass components manufacturer in Jamnagar, India. Precision CNC turned, forged, milling, stamped & extrusion brass parts for electrical, automotive & industrial applications. 34+ years experience, 3500+ components, global exports."
+        keywords="ishita industries, brass components manufacturer, precision brass parts India, brass turned components, brass forged components, CNC machining Jamnagar, brass manufacturer India, brass electrical parts, brass automotive components, OEM brass parts exporter, industrial brass components, brass fasteners manufacturer, brass extrusion rods, Sanitary Fitting, brass hollow rods"
         path="/"
         jsonLd={{
           '@context': 'https://schema.org',

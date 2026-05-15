@@ -319,6 +319,10 @@
   font-weight: 500;
 }
 
+.cap-finishing-full {
+  grid-column: 1 / -1;
+}
+
 @media (max-width: 1600px) and (min-width: 1465px) {
   .capabilities-shell {
     max-width: 1325px;

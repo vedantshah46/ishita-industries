@@ -82,7 +82,7 @@ function PrecisionExpertiseSection({ className = "" }) {
           className="precision-header"
         >
           <div>
-            <p className="precision-kicker mb-0">ALL KINDS OF PRECISION</p>
+            <p className="precision-kicker mb-0">MS, SS, COPPER, BRONZE, BRASS, ALUMINIUM.</p>
             <h2 className="precision-title mb-0" ref={titleRef}>
               Extrusion Raw products
             </h2>

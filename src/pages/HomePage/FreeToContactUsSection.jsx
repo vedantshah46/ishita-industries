@@ -99,7 +99,7 @@ function FreeToContactUsSection() {
 
   const contactLinksData = [
     { text: t('contact_cta.btn_brochure'), href: '#' },
-    { text: t('contact_cta.email'),        href: 'mailto:info@ishitabrass.com' },
+    { text: t('contact_cta.email'),        href: 'mailto:contact@ishitabrass.com' },
     { text: t('contact_cta.btn_materials'), href: '#' },
   ]
 
