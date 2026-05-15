@@ -8,6 +8,7 @@ import { useProduct } from '../../hooks/useProduct';
 import anime from 'animejs';
 import SplitType from 'split-type';
 import arrowVector from '../../Images/arrow-vector.png';
+import LogoLoader from '../../components/LogoLoader/LogoLoader';
 import machine1 from '../../Images/Precision Machining Expertise.png';
 import machine2 from '../../Images/Industrial Components.png';
 import machine3 from '../../Images/Section Components.jpg';
@@ -152,15 +153,7 @@ const ProductDetailsPage = () => {
     return (
       <>
         <NavbarRouter />
-        <section className="product-details-wrapper">
-          <div className="product-details-container">
-            <div className="product-details-loading">
-              <div className="skeleton-shimmer" style={{ height: 40, width: '40%', marginBottom: 32 }} />
-              <div className="skeleton-shimmer" style={{ height: 400, width: '100%', marginBottom: 24 }} />
-              <div className="skeleton-shimmer" style={{ height: 120, width: '100%' }} />
-            </div>
-          </div>
-        </section>
+        <LogoLoader minHeight="calc(100vh - 80px)" size={100} />
         <Footer />
       </>
     );

@@ -1,55 +1,39 @@
-import { useState, useEffect } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { staticProductDetails } from '../data/staticProducts.js'
 import { supabase } from '../lib/supabase.js'
 
-/**
- * Fetch a single product by slug (specs, images, tags included).
- * Falls back to staticProductDetails[slug] when Supabase returns nothing.
- *
- * @param {string} slug
- * @returns {{ product: object|null, loading: boolean, error: object|null }}
- */
+async function fetchProduct(slug) {
+  const { data, error } = await supabase
+    .from('products')
+    .select('*, product_specs(*), product_images(*), product_tags(*)')
+    .eq('slug', slug)
+    .single()
+
+  if (error || !data) {
+    const staticData = staticProductDetails[slug]
+    if (staticData) return staticData
+    throw error || new Error('Product not found')
+  }
+
+  const staticFallback = staticProductDetails[slug]
+  const hasImages = data.image_url || data.product_images?.length > 0
+  if (!hasImages && staticFallback) {
+    return {
+      ...data,
+      image_url:      staticFallback.image_url,
+      product_images: staticFallback.product_images ?? [],
+    }
+  }
+
+  return data
+}
+
 export function useProduct(slug) {
-  const [product, setProduct] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError]     = useState(null)
-
-  useEffect(() => {
-    if (!slug) return
-
-    supabase
-      .from('products')
-      .select('*, product_specs(*), product_images(*), product_tags(*)')
-      .eq('slug', slug)
-      .single()
-      .then(({ data, error: fetchError }) => {
-        if (fetchError || !data) {
-          // Fall back to static data
-          const staticData = staticProductDetails[slug]
-          if (staticData) {
-            setProduct(staticData)
-            setError(null) // Suppress error if we have static fallback
-          } else {
-            setProduct(null)
-            setError(fetchError || new Error('Product not found'))
-          }
-        } else {
-          // If Supabase record has no images at all, fill them from static fallback
-          const staticFallback = staticProductDetails[slug]
-          const hasImages = data.image_url || data.product_images?.length > 0
-          if (!hasImages && staticFallback) {
-            data = {
-              ...data,
-              image_url:      staticFallback.image_url,
-              product_images: staticFallback.product_images ?? [],
-            }
-          }
-          setProduct(data)
-          setError(null)
-        }
-        setLoading(false)
-      })
-  }, [slug])
+  const { data: product = null, isLoading: loading, error } = useQuery({
+    queryKey: ['product', slug],
+    queryFn: () => fetchProduct(slug),
+    enabled: !!slug,
+  })
 
   return { product, loading, error }
 }

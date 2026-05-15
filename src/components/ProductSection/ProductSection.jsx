@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import './ProductSection.css'
 import arrowVector from '../../Images/arrow-vector.png'
 import anime from 'animejs'
+import LogoLoader from '../LogoLoader/LogoLoader'
 
 /**
  * Reusable product grid section.
@@ -101,17 +102,11 @@ function ProductSection({
         )}
 
         {/* Grid */}
+        {loading ? (
+          <LogoLoader minHeight="400px" size={80} />
+        ) : (
         <div className="pcat-grid">
-          {loading
-            ? Array.from({ length: skeletonCount }).map((_, i) => (
-                <article key={i} className="pcat-card skeleton-card" style={{ opacity: 1 }}>
-                  <div className="pcat-skeleton-visual skeleton-shimmer" />
-                  <div className="pcat-caption-row">
-                    <div className="pcat-skeleton-label skeleton-shimmer" />
-                  </div>
-                </article>
-              ))
-            : items.length === 0
+          {items.length === 0
             ? <p className="pcat-empty">{emptyMessage}</p>
             : items.map(item => (
                 <Link
@@ -136,6 +131,7 @@ function ProductSection({
               ))
           }
         </div>
+        )}
 
       </div>
     </section>

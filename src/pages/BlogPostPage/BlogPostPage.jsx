@@ -4,7 +4,7 @@ import SEO from '../../components/SEO/SEO'
 import NavbarRouter from '../../components/Navbar/NavbarRouter'
 import Footer from '../../components/Footer/Footer'
 import FreeToContactUsSection from '../HomePage/FreeToContactUsSection'
-import LoadingSpinner from '../../components/ui/LoadingSpinner'
+import LogoLoader from '../../components/LogoLoader/LogoLoader'
 import { useBlogPost, useBlogPosts } from '../../hooks/useBlogPosts'
 import { STATIC_BLOG_POSTS } from '../../data/staticBlogPosts'
 import './BlogPostPage.css'
@@ -102,7 +102,7 @@ function BlogPostPage() {
     return (
       <div className="bpp-page">
         <NavbarRouter />
-        <div className="bpp-spinner"><LoadingSpinner size={48} text="Loading article…" /></div>
+        <LogoLoader minHeight="calc(100vh - 80px)" size={100} />
         <Footer />
       </div>
     )

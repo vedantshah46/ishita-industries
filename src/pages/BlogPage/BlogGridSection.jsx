@@ -4,6 +4,7 @@ import './BlogGridSection.css'
 import blogImg from '../../Images/blog_image.png'
 import anime from 'animejs';
 import { useBlogPosts } from '../../hooks/useBlogPosts';
+import LogoLoader from '../../components/LogoLoader/LogoLoader';
 
 function formatDate(d) {
   return d
@@ -59,7 +60,7 @@ function BlogGridSection() {
     };
   }, [loading, posts]);
 
-  if (loading) return null;
+  if (loading) return <LogoLoader minHeight="400px" size={80} />;
 
   return (
     <div className="blog-posts-grid" ref={sectionRef}>

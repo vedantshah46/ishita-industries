@@ -5,6 +5,7 @@ import arrowVector from '../../Images/arrow-vector.png'
 import anime from 'animejs'
 import { useProducts } from '../../hooks/useProducts'
 import { extrusionProducts } from '../../data/staticProducts'
+import LogoLoader from '../../components/LogoLoader/LogoLoader'
 
 function ProductExtrusionSection() {
   const { products, loading, error } = useProducts('extrusion')
@@ -52,34 +53,22 @@ function ProductExtrusionSection() {
   return (
     <section className="product-extrusion-section" ref={sectionRef}>
       <div className="product-extrusion-shell">
-        <div
-          className="product-extrusion-header-container"
-        >
+        <div className="product-extrusion-header-container">
           <p className="product-extrusion-kicker mb-0">All kind of Precision</p>
-          <h2 className="product-extrusion-title mb-0">
-            Extrusion Products
-          </h2>
+          <h2 className="product-extrusion-title mb-0">Extrusion Products</h2>
         </div>
 
-        <div className="product-extrusion-grid">
-          {loading
-            ? Array.from({ length: 3 }).map((_, i) => (
-              <article key={i} className="product-extrusion-card skeleton-card">
-                <div className="product-extrusion-visual skeleton-shimmer" />
-                <div className="product-extrusion-caption-row">
-                  <div className="skeleton-text" />
-                </div>
-              </article>
-            ))
-            : products.map((card, index) => (
-              <Link 
+        {loading ? (
+          <LogoLoader minHeight="280px" />
+        ) : (
+          <div className="product-extrusion-grid">
+            {products.map((card) => (
+              <Link
                 to={`/product/${card.slug}`}
                 key={card.slug}
                 className="product-extrusion-card-link"
               >
-                <article
-                  className="product-extrusion-card"
-                >
+                <article className="product-extrusion-card">
                   <div className="product-extrusion-visual">
                     <img
                       src={card.image_url || (extrusionProducts.find(p => p.slug === card.slug)?.image_url) || ''}
@@ -87,16 +76,15 @@ function ProductExtrusionSection() {
                       className="product-extrusion-image"
                     />
                   </div>
-
                   <div className="product-extrusion-caption-row">
                     <p className="product-extrusion-caption mb-0">{card.name}</p>
                     <img src={arrowVector} alt="" className="product-extrusion-arrow" />
                   </div>
                 </article>
               </Link>
-            ))
-          }
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )

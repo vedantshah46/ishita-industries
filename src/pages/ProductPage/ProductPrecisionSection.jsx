@@ -5,6 +5,7 @@ import arrowVector from '../../Images/arrow-vector.png'
 import anime from 'animejs'
 import { useProducts } from '../../hooks/useProducts'
 import { precisionProducts } from '../../data/staticProducts'
+import LogoLoader from '../../components/LogoLoader/LogoLoader'
 
 function ProductPrecisionSection() {
   const { products, loading, error } = useProducts('precision')
@@ -61,25 +62,17 @@ function ProductPrecisionSection() {
           </h2>
         </div>
 
-        <div className="product-precision-grid">
-          {loading
-            ? Array.from({ length: 6 }).map((_, i) => (
-              <article key={i} className="product-precision-card skeleton-card">
-                <div className="product-precision-visual skeleton-shimmer" />
-                <div className="product-precision-caption-row">
-                  <div className="skeleton-text" />
-                </div>
-              </article>
-            ))
-            : products.map((card, index) => (
-              <Link 
+        {loading ? (
+          <LogoLoader minHeight="280px" />
+        ) : (
+          <div className="product-precision-grid">
+            {products.map((card) => (
+              <Link
                 to={`/product/${card.slug}`}
                 key={card.slug}
                 className="product-precision-card-link"
               >
-                <article
-                  className="product-precision-card"
-                >
+                <article className="product-precision-card">
                   <div className="product-precision-visual">
                     <img
                       src={card.image_url || (precisionProducts.find(p => p.slug === card.slug)?.image_url) || ''}
@@ -87,16 +80,15 @@ function ProductPrecisionSection() {
                       className="product-precision-image"
                     />
                   </div>
-
                   <div className="product-precision-caption-row">
                     <p className="product-precision-caption mb-0">{card.name}</p>
                     <img src={arrowVector} alt="" className="product-precision-arrow" />
                   </div>
                 </article>
               </Link>
-            ))
-          }
-        </div >
+            ))}
+          </div>
+        )}
       </div >
     </section >
   )

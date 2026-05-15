@@ -5,6 +5,7 @@ import arrowVector from '../../Images/arrow-vector.png'
 import anime from 'animejs'
 import { useProducts } from '../../hooks/useProducts'
 import { industrialProducts } from '../../data/staticProducts'
+import LogoLoader from '../../components/LogoLoader/LogoLoader'
 
 function ProductIndustrialSection() {
   const { products, loading, error } = useProducts('industrial')
@@ -61,25 +62,17 @@ function ProductIndustrialSection() {
           </h2>
         </div>
 
-        <div className="product-industrial-grid">
-          {loading
-            ? Array.from({ length: 5 }).map((_, i) => (
-              <article key={i} className="product-industrial-card skeleton-card">
-                <div className="product-industrial-visual skeleton-shimmer" />
-                <div className="product-industrial-caption-row">
-                  <div className="skeleton-text" />
-                </div>
-              </article>
-            ))
-            : products.map((card, index) => (
-              <Link 
+        {loading ? (
+          <LogoLoader minHeight="280px" />
+        ) : (
+          <div className="product-industrial-grid">
+            {products.map((card) => (
+              <Link
                 to={`/product/${card.slug}`}
                 key={card.slug}
                 className="product-industrial-card-link"
               >
-                <article
-                  className="product-industrial-card"
-                >
+                <article className="product-industrial-card">
                   <div className="product-industrial-visual">
                     <img
                       src={card.image_url || (industrialProducts.find(p => p.slug === card.slug)?.image_url) || ''}
@@ -87,16 +80,15 @@ function ProductIndustrialSection() {
                       className="product-industrial-image"
                     />
                   </div>
-
                   <div className="product-industrial-caption-row">
                     <p className="product-industrial-caption mb-0">{card.name}</p>
                     <img src={arrowVector} alt="" className="product-industrial-arrow" />
                   </div>
                 </article>
               </Link>
-            ))
-          }
-        </div >
+            ))}
+          </div>
+        )}
       </div >
     </section >
   )

@@ -142,20 +142,6 @@
   flex-shrink: 0;
 }
 
-/* ── Skeleton ────────────────────────────────────────────────── */
-.pcat-skeleton-visual {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 2px;
-}
-
-.pcat-skeleton-label {
-  height: 1rem;
-  width: 60%;
-  margin-top: 1rem;
-  border-radius: 4px;
-}
-
 /* ── Empty state ─────────────────────────────────────────────── */
 .pcat-empty {
   grid-column: 1 / -1;
