@@ -516,10 +516,9 @@
 /* ─── Process We Undertake ────────────────────────────────── */
 .process-undertake-wrapper {
   margin-top: 1.75rem;
-  /* Match the gap of the capabilities grid */
   background-color: #2b2d2f;
-  border-radius: 12px;
-  padding: clamp(2.5rem, 5vw, 4.5rem);
+  border-radius: 6px;
+  padding: clamp(2rem, 3.8vw, 3.2rem);
   color: #ffffff;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
@@ -527,30 +526,30 @@
 
 .process-main-title {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
   font-weight: 700;
-  letter-spacing: 0.02em;
-  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  letter-spacing: 0.04em;
+  margin-bottom: clamp(1.8rem, 3.5vw, 3rem);
   text-transform: uppercase;
 }
 
 .process-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(2rem, 4vw, 4rem) clamp(2.5rem, 5vw, 5.5rem);
+  gap: clamp(1.5rem, 2.8vw, 2.5rem) clamp(2rem, 4vw, 4rem);
 }
 
 .process-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 1.2rem;
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.45rem;
 }
 
 .process-id {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: #8e949b;
   text-transform: uppercase;
@@ -559,7 +558,7 @@
 
 .process-name {
   font-family: 'Inter', sans-serif;
-  font-size: clamp(1.4rem, 1.8vw, 2rem);
+  font-size: clamp(1.25rem, 1.5vw, 1.65rem);
   font-weight: 500;
   margin: 0;
   color: #ffffff;
@@ -569,31 +568,31 @@
 @media (max-width: 991.98px) {
   .process-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 3rem;
+    gap: 1.8rem 2.5rem;
   }
 }
 
 /* ─── Mobile (< 768px) ───────────────────────────────────── */
 @media (max-width: 767.98px) {
   .process-inner-container {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem;
   }
 
   .process-main-title {
-    font-size: 1.8rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.8rem;
   }
 
   .process-grid {
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 1.5rem;
   }
 
   .process-item {
-    padding-bottom: 1rem;
+    padding-bottom: 0.85rem;
   }
 
   .process-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
